@@ -84,16 +84,7 @@ how to show pressed command state?
 default output resolution: 853x480
 
 
-# 2020-12-22
-### 2. 학습시간
-- 09:30 ~(자가)
-
-### 3. 학습 범위 및 주제
-- [PEDAGO@42 - C-00](https://www.youtube.com/watch?v=g1Yv7quz9jw&list=PLVQYiy6xNUxz5wbzZn4tfUhF4djgzscB-&index=2&pbjreload=101)
-
-### 6. 상세 학습 내용
-#### C - 2 Variables - 1 Introduction
-- assignment operator는 right value를 가져와서 left value에 넣는다
-- right value는 값을 할당받을 수 없다
-#### C -2 Variables -2 le binarie
-- 메모리에 11111111이 있다고 할 때 이것을 양수로 표현하면 255이고 음수로 표현하면 -1이다
+2020-12-23
+I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
+    char    str[] = "lol";
+imo, `"lol"` might be stored in data block and copy it to str array, correct?
