@@ -85,6 +85,18 @@ default output resolution: 853x480
 
 
 2020-12-23
-I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
+- Q: I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
     char    str[] = "lol";
-imo, `"lol"` might be stored in data block and copy it to str array, correct?
+- Q: imo, `"lol"` might be stored in data block and copy it to str array, correct?
+
+
+2020-12-24
+- Q: When i set the argument type of main, even making it pointer is common, making it array also possible, will there some difference?
+- Q: Will it possible executing according to the extension of file in vim?
+  - :set autoindent for .md
+  - :set cindent for .c
+- Idea: What about a program which show real memory state on one side and what happenning at code at the other side?
+  - Simulate very little computer, so i can see the memory at one display
+- Q: Can i access NULL pointer?
+- Idea: mobile golf game
+  - Scroll the mobile display, if your display stop at to goal, you are hole in one :D
