@@ -100,3 +100,10 @@ default output resolution: 853x480
 - Q: Can i access NULL pointer?
 - Idea: mobile golf game
   - Scroll the mobile display, if your display stop at to goal, you are hole in one :D
+
+
+2020-12-25
+- T: Ratio of my study and others study
+  - Just help others study, and if i get some thought of 'It's not right', then reject it
+  - Never present a fish, teach how to get that
+- D: More practice the way to use `find` command
