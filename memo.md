@@ -91,11 +91,12 @@ default output resolution: 853x480
 
 
 2020-12-24
+(Q: Question, I: Idea)
 - Q: When i set the argument type of main, even making it pointer is common, making it array also possible, will there some difference?
 - Q: Will it possible executing according to the extension of file in vim?
   - :set autoindent for .md
   - :set cindent for .c
-- Idea: What about a program which show real memory state on one side and what happenning at code at the other side?
+- I: What about a program which show real memory state on one side and what happenning at code at the other side?
   - Simulate very little computer, so i can see the memory at one display
 - Q: Can i access NULL pointer?
 - Idea: mobile golf game
@@ -103,7 +104,50 @@ default output resolution: 853x480
 
 
 2020-12-25
+(T: Think, D: Do)
 - T: Ratio of my study and others study
   - Just help others study, and if i get some thought of 'It's not right', then reject it
   - Never present a fish, teach how to get that
 - D: More practice the way to use `find` command
+
+
+2020-12-26
+- ft\_memcpy: 14:07 ~ 14:13
+- ft\_memccpy: 15:09 ~ 15:50
+
+
+2020-12-27
+- ft\_memmove: 11:07 ~ 11:22
+- ft\_memchr : 11:22 ~ 12:00
+- 13:30 ~ 18:00
+
+
+2020-12-28
+- 14:00 ~ 
+- memchr: 16:05 ~
+- memcmp: 16:25 ~ 16:47
+- strlen: 16:48 ~ 17:09
+- strlcpy: 17:12 ~
+
+
+2020-12-29
+- 10:30 ~
+- strlcat: 10:38 ~ 12:03 - 10
+- ~ 12:14
+- 13:46 ~
+- strchr: 13:47 ~ 14:02
+- strrchr: 14:04 ~ 14:25, 14:27
+- strnstr: 15:01 ~ 16:00
+  - 16:05 - 5 ~ 16:37	
+  - 16:41 ~ 16:48
+- strncmp: 
+  - 16:55? ~
+  - 17:06 ~ 17:10
+  - 17:22
+- atoi:
+  - 17:28 ~ 18:03
+  - 18:03 ~ 18:47
+- ~ 20:30
+
+white space characters:
+'\t', '\n', '\v', '\f', '\r', ' '
