@@ -151,3 +151,18 @@ default output resolution: 853x480
 
 white space characters:
 '\t', '\n', '\v', '\f', '\r', ' '
+
+
+2020-12-30
+- segmentation fault shoul occure at appropriate time.. let me modify...
+- 09:43 ~ 12:14
+- 13:25 ~ 13:56
+- 14:20 ~ 18:00
+- 21:10 ~
+- isalpha
+  - 21:11 ~ 21:28
+  - 21:31 ~ 21:35
+- isdigit
+  - 21:37 ~ 21:47
+  check something cmp
+- ~ 22:15
