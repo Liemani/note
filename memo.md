@@ -76,7 +76,7 @@ what is the difference between soft link and hard link?
 
 5.1. :! 'extern command' <ENTER>: excute extern command
 5.2. :w FILENAME: write current file as FILENAME
-5.3. :'<,'>w FILENAME: save selected range as FILENAME
+5.3. :\'\<,\'\>w FILENAME: save selected range as FILENAME
 5.4. :r FILENAME: read and put FILENAME file under the cursor line
 	:r !ls: read and put the result of 'ls' extern command under the cursor line
 
@@ -192,3 +192,52 @@ white space characters:
   - 17:20 ~ 
   - 18:25 ~ 18:28
 - ~18:33
+
+
+2021-01-01
+- 11:00 ~
+- strdup
+  - 11:51 ~ 11:55
+  - calloc
+    - ~ 12:04
+  - ~
+  - 12:11 ~ 12:20
+- ft\_substr
+  1. 12:46 ~
+  2. 13:30 ~
+  3. 13:47 ~
+  4. 14:05 ~
+  5. 14:20 ~
+  6. 14:51 ~ 15:05
+- ft\_strjoin
+  1. 15:08 ~
+  2. 16:16 ~ 16:50
+- ft\_strtrim
+  1. 20:13 ~
+  2. 20:30 ~ 20:55
+  3. ~ 21:07
+- ft\_split
+  1. 21:10
+  2. 21:14 ~ 21:54
+
+
+2021-01-02
+- 12:20 ~
+- ft\_split
+  1. 12:29
+- ~ 13:23
+  1. 13:30 ~ 16:19
+- ft\_itoa
+  1. 16:35 ~
+  - -5
+  2. ~ 17:38
+- ~ 17:45
+- 19:17
+  - ~ 20:55
+  - 21:02 ~ 21:14
+  - 21:17 ~ 21:19
+  - 21:21 ~ 21:25
+  - 21:26 ~
+  - -5
+  - ~ 21:56
+
