@@ -1,3 +1,81 @@
+### tmporary space
+
+- Routing
+  - IP addresses are classified into several classes of operational characteristics: unicast, multicast, anycast and broadcast addressing.
+  - Unicast addressing
+    - The most common concept of an IP address is in unicast addressing, available in both IPv4 and IPv6.
+	- It normally refers to a single sender or a single receiver, and can be used for both sending and receiving.
+
+### To Do (구체적이면 좋습니다.)
+
+- netwhat 공부하기
+  - IP address
+  - Netmask
+  - What is the subnet of an IP with Netmask
+  - What is the broadcast address of a subnet
+  - What are the different ways to represent an ip address with the Netmask
+  - What are the differences between public and private IPs
+  - What is a class of IP addresses
+  - DHCP server
+  - DHCP protocol
+  - What are the rules to make 2 devices communicate using IP addresses
+  - How does routing work with IP
+  - What is a default gateway for routing
+  - What is a port from an IP point of view and what is it used for when conneting to another device
+- get\_next\_line
+- libft 평가 받기
+
+- printf
+- 평가 포인트 모으기
+- vimtutor 하기
+- 맥 공유 기능 알아보기
+- github.io 구성하는 방법 알아보기
+- 읽고 싶은 책
+  - cs
+  - modern c
+  - The C Programming language
+- 구조적으로 환경을 세팅하기
+- 이사 일정 생각해보기
+  - 이사는 최소 1 월달 돈이 들어오고 나서이다
+  - 그리고 시험이 원활이 돌아가고 클러스터가 개장하면 서울에 가서 공부를 하는 것이 좋다
+  - 평가도 직접 대면해서 진행하면 더 수월할 것이다
+  - 즉 서울로 이사가는데 영향을 미치는 요소는 클러스터 오픈, 원활한 시험 진행
+
+### question
+
+#### 2021-01-15
+
+```zsh
+% cat display_line.sh
+$1 | wc -l
+% ./display_line.sh set
+      41
+% sh display_line.sh set
+      41
+% zsh display_line.sh set
+     145
+% set | wc -l
+     167
+% source display_line.sh set
+     167
+% bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ set | wc -l
+      47
+```
+
+- 왜 set 의 결과 값이 달라지는 것일까?
+
+#### 2021-01-14
+
+- 전선이 모든 주파수를 다 통과시키지 못하고 제한된 영역의 주파수만 전달이 가능한 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=368)
+- 디지털 신호도 원하는 주파수를 만들어서 전송할 수 있을 것 같은데 굳이 아날로그 신호로 바꾸어서 전송해야 하는 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=386)
+
+### time line
+
 2020-10-13
 
 ctrl a
@@ -291,3 +369,21 @@ white space characters:
 - 10:54 ~ 11:51
 - 13:26 ~ - 15 - 40 - 10 ~ 19:10
 - 20:57
+
+
+2021-01-07
+- 09:00 ~ 11:00
+- 20:00 ~ 22:26
+
+
+2021-01-08
+- 10:10 ~ 12:00
+- 15:56 ~ 16:51 ~ 18:21
+
+
+2021-01-11
+- 09:30 ~ 11:20
+
+
+2021-01-13
+- vim 에서 alias 로 설정한 명령을 부를 수 있을까?
