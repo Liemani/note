@@ -1,11 +1,3 @@
-### tmporary space
-
-- Routing
-  - IP addresses are classified into several classes of operational characteristics: unicast, multicast, anycast and broadcast addressing.
-  - Unicast addressing
-    - The most common concept of an IP address is in unicast addressing, available in both IPv4 and IPv6.
-	- It normally refers to a single sender or a single receiver, and can be used for both sending and receiving.
-
 ### To Do (구체적이면 좋습니다.)
 
 - netwhat 공부하기
