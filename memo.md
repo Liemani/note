@@ -17,6 +17,9 @@
 - get\_next\_line
 - libft 평가 받기
 
+- 시간 비교를 있는 기능으로 대체하기
+- if else 로 구현한 부분을 if ! then 으로 바꾸기
+
 - printf
 - 평가 포인트 모으기
 - vimtutor 하기
@@ -34,6 +37,10 @@
   - 즉 서울로 이사가는데 영향을 미치는 요소는 클러스터 오픈, 원활한 시험 진행
 
 ### question
+
+#### 2021-01-17
+
+- cluster mac 처럼 vim status bar 에 누른 키 표시하기
 
 #### 2021-01-15
 
