@@ -14,11 +14,10 @@
   - How does routing work with IP
   - What is a default gateway for routing
   - What is a port from an IP point of view and what is it used for when conneting to another device
+  - notion 완독
+  - netwhat-trainer 100 점 목표로 학습하기
 - get\_next\_line
 - libft 평가 받기
-
-- 시간 비교를 있는 기능으로 대체하기
-- if else 로 구현한 부분을 if ! then 으로 바꾸기
 
 - printf
 - 평가 포인트 모으기
@@ -29,7 +28,6 @@
   - cs
   - modern c
   - The C Programming language
-- 구조적으로 환경을 세팅하기
 - 이사 일정 생각해보기
   - 이사는 최소 1 월달 돈이 들어오고 나서이다
   - 그리고 시험이 원활이 돌아가고 클러스터가 개장하면 서울에 가서 공부를 하는 것이 좋다
