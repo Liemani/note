@@ -1,6 +1,7 @@
 ### To Do (구체적이면 좋습니다.)
 
 - netwhat
+  - 생활코딩: WEB2 보기
   - notion: netwhat 다 읽기
   - netwhat-trainer 100 점 목표로 공부하기
 - get\_next\_line
@@ -21,6 +22,8 @@
   - What is a port from an IP point of view and what is it used for when conneting to another device
   - notion 완독
   - netwhat-trainer 100 점 목표로 학습하기
+
+- git clone 이 되어있지 않다면 setenv 가 그 git 을 clone 하도록 하자
 
 - printf
 - vimtutor 하기
