@@ -1,5 +1,10 @@
 ### To Do (구체적이면 좋습니다.)
 
+- netwhat
+  - notion: netwhat 다 읽기
+  - netwhat-trainer 100 점 목표로 공부하기
+- get\_next\_line
+
 - netwhat 공부하기
   - IP address
   - Netmask
@@ -16,11 +21,8 @@
   - What is a port from an IP point of view and what is it used for when conneting to another device
   - notion 완독
   - netwhat-trainer 100 점 목표로 학습하기
-- get\_next\_line
-- libft 평가 받기
 
 - printf
-- 평가 포인트 모으기
 - vimtutor 하기
 - 맥 공유 기능 알아보기
 - github.io 구성하는 방법 알아보기
