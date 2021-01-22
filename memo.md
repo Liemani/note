@@ -1,3 +1,9 @@
+### temporary
+
+#### [youtube/생활코딩/WEB2-HTTP](https://www.youtube.com/playlist?list=PLuHgQVnccGMBd-v_DjNm61EBaDpYZSV1Z)
+
+- http 는 크게 request 와 response 를 위한 메세지로 구성되어 있다
+
 ### To Do (구체적이면 좋습니다.)
 
 - netwhat
@@ -20,15 +26,17 @@
   - How does routing work with IP
   - What is a default gateway for routing
   - What is a port from an IP point of view and what is it used for when conneting to another device
-  - notion 완독
-  - netwhat-trainer 100 점 목표로 학습하기
 
 - git clone 이 되어있지 않다면 setenv 가 그 git 을 clone 하도록 하자
+- env 구조 변경하기
+  - 특정 변수를 따로 분리해서 여러 유저가 원하는 작업을 할 수 있도록
+  - README.md 파일도 만들자
+- github.io
+  - 아니 도대체 배너에 title 은 어떻게 바꾸는겨?
 
 - printf
 - vimtutor 하기
 - 맥 공유 기능 알아보기
-- github.io 구성하는 방법 알아보기
 - 읽고 싶은 책
   - cs
   - modern c
@@ -40,10 +48,6 @@
   - 즉 서울로 이사가는데 영향을 미치는 요소는 클러스터 오픈, 원활한 시험 진행
 
 ### question
-
-#### 2021-01-17
-
-- cluster mac 처럼 vim status bar 에 누른 키 표시하기
 
 #### 2021-01-15
 
