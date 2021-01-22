@@ -28,11 +28,7 @@
   - What is a port from an IP point of view and what is it used for when conneting to another device
 
 - git clone 이 되어있지 않다면 setenv 가 그 git 을 clone 하도록 하자
-- env 구조 변경하기
-  - 특정 변수를 따로 분리해서 여러 유저가 원하는 작업을 할 수 있도록
-  - README.md 파일도 만들자
-- github.io
-  - 아니 도대체 배너에 title 은 어떻게 바꾸는겨?
+- netrw 도 vimsession 에 저장할 수 있을까?
 
 - printf
 - vimtutor 하기
