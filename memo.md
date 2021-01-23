@@ -27,8 +27,9 @@
   - What is a default gateway for routing
   - What is a port from an IP point of view and what is it used for when conneting to another device
 
-- git clone 이 되어있지 않다면 setenv 가 그 git 을 clone 하도록 하자
 - netrw 도 vimsession 에 저장할 수 있을까?
+- env
+  - 새로운 환경에서 잘 작동하는지 테스트해보자
 
 - printf
 - vimtutor 하기
