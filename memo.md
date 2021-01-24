@@ -1,35 +1,16 @@
-### temporary
-
-#### [youtube/생활코딩/WEB2-HTTP](https://www.youtube.com/playlist?list=PLuHgQVnccGMBd-v_DjNm61EBaDpYZSV1Z)
-
-- http 는 크게 request 와 response 를 위한 메세지로 구성되어 있다
-
 ### To Do (구체적이면 좋습니다.)
 
 - netwhat
-  - 생활코딩: WEB2 보기
-  - notion: netwhat 다 읽기
-  - netwhat-trainer 100 점 목표로 공부하기
+  - netwhat 테스트 100점으로 통과하기
 - get\_next\_line
-
-- netwhat 공부하기
-  - IP address
-  - Netmask
-  - What is the subnet of an IP with Netmask
-  - What is the broadcast address of a subnet
-  - What are the different ways to represent an ip address with the Netmask
-  - What are the differences between public and private IPs
-  - What is a class of IP addresses
-  - DHCP server
-  - DHCP protocol
-  - What are the rules to make 2 devices communicate using IP addresses
-  - How does routing work with IP
-  - What is a default gateway for routing
-  - What is a port from an IP point of view and what is it used for when conneting to another device
-
-- netrw 도 vimsession 에 저장할 수 있을까?
-- env
-  - 새로운 환경에서 잘 작동하는지 테스트해보자
+  - loop 만들기
+  - memory leak test
+  - run several tester program
+  - fd 처리하기
+  - 다양한 입력값에 대해 테스트하기
+  - 다양한 BUFFER\_SIZE 테스트
+  - pdf 의 노란 박스 테스트하기
+  - 파일의 끝을 만날 때 무엇이 변하는가?
 
 - printf
 - vimtutor 하기
@@ -43,6 +24,9 @@
   - 그리고 시험이 원활이 돌아가고 클러스터가 개장하면 서울에 가서 공부를 하는 것이 좋다
   - 평가도 직접 대면해서 진행하면 더 수월할 것이다
   - 즉 서울로 이사가는데 영향을 미치는 요소는 클러스터 오픈, 원활한 시험 진행
+- auxiliary program
+  - 시간을 기록할 때 파일에 저장하도록 하자
+  - checktheday, finishtheday, preparetheday 등 각 repository 사이에 빈 줄을 3 개 넣어주자
 
 ### question
 
