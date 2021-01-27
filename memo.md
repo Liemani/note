@@ -1,19 +1,22 @@
 ### To Do (구체적이면 좋습니다.)
 
 - netwhat
-  - netwhat 테스트 100점으로 통과하기
+  - 디펜스하기
 - get\_next\_line
   - loop 만들기
-  - memory leak test
-  - run several tester program
-  - fd 처리하기
-  - 다양한 입력값에 대해 테스트하기
-  - 다양한 BUFFER\_SIZE 테스트
-  - pdf 의 노란 박스 테스트하기
-  - 파일의 끝을 만날 때 무엇이 변하는가?
+  - dummy node 를 만들까 말까?
+  - BUFFER\_SIZE 크기의 버퍼에 데이터를 line 에 복사하는 와중에 메모리 할당 에러가 발생하면 얼마나 정리하고 프로그램을 종료시켜야하나?
+  - test
+    - memory leak test
+    - run several tester program
+    - 다양한 입력값에 대해 테스트하기
+    - 다양한 BUFFER\_SIZE 테스트
+    - pdf 의 노란 박스 테스트하기
+    - wiki.42seoul 의 에러 관리 점검하기
+- didplay memory
+  - add, move, remove 명령어로 메모리의 오른쪽에서 특정 주소를 가리키는 포인터 그래픽을 조작할 수 있는 기능 추가
 
 - printf
-- vimtutor 하기
 - 맥 공유 기능 알아보기
 - 읽고 싶은 책
   - cs
@@ -24,9 +27,19 @@
   - 그리고 시험이 원활이 돌아가고 클러스터가 개장하면 서울에 가서 공부를 하는 것이 좋다
   - 평가도 직접 대면해서 진행하면 더 수월할 것이다
   - 즉 서울로 이사가는데 영향을 미치는 요소는 클러스터 오픈, 원활한 시험 진행
-- auxiliary program
-  - 시간을 기록할 때 파일에 저장하도록 하자
-  - checktheday, finishtheday, preparetheday 등 각 repository 사이에 빈 줄을 3 개 넣어주자
+- git
+  - commit 관리하는 방법
+  - 생활코딩 git 보기 ㅎㅎ
+- mac-air11
+  - 백업 후 포멧
+- env
+  - 역시 private 파일 따로 분류하기
+    - record
+	- vimsession 등
+	- setenv.sh 에서 git clone 을 마치고 private 폴더가 없다면 만들기
+  - 자극엔 반응이 있어야 한다 -> record 같은 뒤에서 작업을 처리하는 프로그램이 진행사항을 화면에 출력하도록 하자
+- display\_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
+  - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
 
 ### question
 
