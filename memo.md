@@ -3,10 +3,13 @@
 - netwhat
   - 디펜스하기
 - get\_next\_line
-  - loop 만들기
   - dummy node 를 만들까 말까?
   - BUFFER\_SIZE 크기의 버퍼에 데이터를 line 에 복사하는 와중에 메모리 할당 에러가 발생하면 얼마나 정리하고 프로그램을 종료시켜야하나?
+  - eof 를 만났을 때 해당 라인을 반환해야하는가? (반환해야할 것 같은데)
+  - eof 를 만났을 때 해당 버퍼를 free 해줘야 하는가? 안해줬는데
   - test
+    - gnl-war-machine-v2019
+	- 42cursus\_gnl\_tests
     - memory leak test
     - run several tester program
     - 다양한 입력값에 대해 테스트하기
@@ -15,8 +18,8 @@
     - wiki.42seoul 의 에러 관리 점검하기
 - didplay memory
   - add, move, remove 명령어로 메모리의 오른쪽에서 특정 주소를 가리키는 포인터 그래픽을 조작할 수 있는 기능 추가
-
 - printf
+
 - 맥 공유 기능 알아보기
 - 읽고 싶은 책
   - cs
@@ -32,14 +35,10 @@
   - 생활코딩 git 보기 ㅎㅎ
 - mac-air11
   - 백업 후 포멧
-- env
-  - 역시 private 파일 따로 분류하기
-    - record
-	- vimsession 등
-	- setenv.sh 에서 git clone 을 마치고 private 폴더가 없다면 만들기
-  - 자극엔 반응이 있어야 한다 -> record 같은 뒤에서 작업을 처리하는 프로그램이 진행사항을 화면에 출력하도록 하자
 - display\_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
   - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
+- get\_next\_line
+  - apply free list function when error occured
 
 ### question
 
