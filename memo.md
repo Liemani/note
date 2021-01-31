@@ -1,21 +1,55 @@
 ### To Do (구체적이면 좋습니다.)
 
-- netwhat
-  - 디펜스하기
+- search keyword
+  - architecture
+  - underneath
+  - underlying mental model and architectur
+- env
+  - base camp 를 짓는 것 처럼 env 폴더가 존재하는 위치를 중심으로 programming 폴더를 만든다면 더 좋을 것 같다
+  - preparetheday, finishtheday 를 backup, backdown 으로 해도 괜찮을 것 같다
+  - backup 시 commit message 를 back up 이라고 해도 좋을 것 같다
+  - aux
+    - vimcommand gitlog 처럼 alias 변수를 특정 shell 파일로 실행하는 경우 zsh 로 실행하게 되면 해당 shell script 가 alias 변수를 알지 못한다
+  - 모듈화시키기 위해 전역변수를 쓰지 않도록 만들었는데 이로 인해 전역에 있는 alias 를 인식하지 못하는 문제가 발생한다
+    - 즈 alias 를 인자 등으로 전달하기 위해서는 $(whence command) 등으로 전달하도록 하자
+- git
+  - 커밋을 삭제하는 방법?
+  - how to colaborate with another user in github.com private repository?
+  - pull request 는 어떻게 돌아가는 것일까?
+  - 모든 git 관련 데이터는 사라지지 않는다고 했는데
+    - 그럼 브랜치를 삭제해도 해당 브랜치에서 커밋한 내용들도 다 살아있는 것일까? 살아있다면 어떻게 출력해볼 수 있을까?
+	- 모든 commit 을 graph 로 출력할 수 있었으면 좋겠다
+  - 원격 저장소에 있는 다른 branch 를 삭제하는 방법도 있을까?
+  - merge 는 특정 commit 까지를 병합하는 것으로 알고 있는데 혹시 특정 commit 만 merge 하는 방법도 있을까?
+  - 그런대 너무 branch 를 산발적으로 만들면 branch 를 탐색하기 위한 commit 적용 시간이 나중엔 너무 길어지는 것이 아닐까?
+    - 그냥 어느정도는 git 하나에 몰아넣는 것 보다 쪼개는 것이 좋지 않을까?
+	- swift 의 git 크기는 약 624 MB 로, 다양한 commit 으로 이동할 때 시간이 많이 걸리지 않을까?
+      - 시간이 많이 걸리지는 않았다
+  - git workflow
+    - git flow
+	- cherry pick?
+
+- git
+  - 생활코딩/GIT4 보기
+  - 여러 커밋의 diff 를 하나처럼 출력하는 방법?
 - get\_next\_line
-  - dummy node 를 만들까 말까?
+  - dummy node 를 만들 때 장점?
   - BUFFER\_SIZE 크기의 버퍼에 데이터를 line 에 복사하는 와중에 메모리 할당 에러가 발생하면 얼마나 정리하고 프로그램을 종료시켜야하나?
-  - eof 를 만났을 때 해당 라인을 반환해야하는가? (반환해야할 것 같은데)
   - eof 를 만났을 때 해당 버퍼를 free 해줘야 하는가? 안해줬는데
   - test
-    - gnl-war-machine-v2019
-	- 42cursus\_gnl\_tests
+    - test program
+      - gnl-war-machine-v2019
+	  - 42cursus\_gnl\_tests
+	  - gnlkiller
+	  - gnlTester
     - memory leak test
-    - run several tester program
     - 다양한 입력값에 대해 테스트하기
     - 다양한 BUFFER\_SIZE 테스트
     - pdf 의 노란 박스 테스트하기
     - wiki.42seoul 의 에러 관리 점검하기
+- netwhat
+  - 디펜스하기
+
 - didplay memory
   - add, move, remove 명령어로 메모리의 오른쪽에서 특정 주소를 가리키는 포인터 그래픽을 조작할 수 있는 기능 추가
 - printf
@@ -32,15 +66,23 @@
   - 즉 서울로 이사가는데 영향을 미치는 요소는 클러스터 오픈, 원활한 시험 진행
 - git
   - commit 관리하는 방법
+    - 이동, 이동하며 커밋, 과거 기록 변경 등
   - 생활코딩 git 보기 ㅎㅎ
+  - [Git Tips](https://github.com/mingrammer/git-tips)
 - mac-air11
-  - 백업 후 포멧
+  - 윈도우에 ddns 서버 실행시키기
 - display\_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
   - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
 - get\_next\_line
   - apply free list function when error occured
+  - shoul EOF when end whith '\n'?
 
-### question
+### memo
+
+#### 2021-01-28
+
+클러스터는 예약시스템 지금은 코로나가 심해져서 예약조차 안되는 듯 하다
+2.5 단계 밑으로 내려가야 클러스터 사용이 가능하다
 
 #### 2021-01-15
 
