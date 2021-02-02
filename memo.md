@@ -1,31 +1,15 @@
 ### To Do (구체적이면 좋습니다.)
 
-- 장점
-  - 하나의 base commit 으로부터 여러 branch 를 만들 수 있다
-    - 공통의 코드로부터 서로 간섭받지 않고 원하는 코딩을 할 수 있다
-      - 즉, 서로 다른 목적의 개발을 할 수 있고 병합은 이후로 미뤄둘 수 있다
-  - 병합과정을 대부분 자동화해준다
-- 단점
-  - 한 local repository 에서 동시에 여러 branch 의 작업을 진행할 수 없다
-    - 그런대 애초에 하나의 대상에 대해 한 사람이 여러 브랜치로 나뉘도록 작업하는 것 자체가 업무 효율을 떨어뜨리는 안좋은 상황이라고 생각한다
-	- 만약 A 브랜치의 a 파일과 B 브랜치의 b 파일을 동시에 관리하고 싶다고 한다면, 이 두 파일이 서로 exclusive 하지 않다면 각각 순차적으로 작업하는 것이 맞는 것일 테고, exclusive 하다면 서로 다른 repository 를 만들어서 관리하는 것이 맞을 것이다
-- 정책
-  - 하나의 git repository 에는 되도록 한 사람이 여러 branch 를 열만한 병렬적인 작업을 넣지 않도록 하자
-    - 이런 경우 새로운 git repository 를 생성하도록 하자
-
 #### 개인
 
 - 기록이 먼저
-  - memo 의 HEAD 도 main branch 로 바꿀까?
   - 블로그에 날짜 표시하기
-  - branch 정리하기
-	- seoul42 repogitory 분해하기
-	- get\_next\_line 에 새로운 branch 를 만들어 새로운 시도를 할 대는 그 branch 를 활용하도록 하자
-	- 오픈소스인 env 에 branch 를 만들어서 main 과 dev 영역을 구분하자
   - prompt 에 현재 git folder 의 이름을 표시할 수 있을까?
   - $(command)
   - ${variable}
   - 함수 이름을 여러개로 쓸 수 있도록 필요할 때마다 추가할 수 있도록 하면 결국 지저분해질 뿐이다, 따라서 문서 편집기에서 특정 이름들을 특정 상수로 바꾸도록 처리하여 서로 다른 이름을 쓰더라도 결국 같은 상수가 되도록 처리하는 것이 좋다. 일괄적으로 변수 이름을 바꾸는 기능을 상위단에서 제공하는 것이다
+  - 모든 local repo 의 branch 를 출력하는 프로그램은 어떨까?
+  - memmove 지금과 len 변수를 쓰는 것 중 무엇이 빠를까?
 - 정리하기
   - 북마크
   - 읽기 목록
@@ -40,18 +24,11 @@
     - 이 경우 vim 에서는 절대 경로를 사용하는데 어떻게 처리해줘야하는 것일까?
 	  - 상대경로를 통해 생성한 절대결로로 해당 절대 경로 데이터를 바꿔줘야만 할까? 너무 복잡한데?
 - git
-  - 원격 저장소에 있는 다른 branch 를 삭제하는 방법도 있을까?
   - how to get the content of hash?
-  - private repository 를 많이 만들어야 하는 것일까? (프로젝트 수 만큼?)
-    - 아니다 branch 를 만들고 일반 수정은 기본 브랜치에서, get\_next\_line 수정은 해당 브랜치에서!
-  - 여러 커밋의 diff 를 하나처럼 출력하는 방법?
   - [Git Tips](https://github.com/mingrammer/git-tips)
-  - interactive rebase 를 수행하였을 때 제대로 push 가 이루어지는가?
 
 #### 보고서
 
-- netwhat
-  - 디펜스하기
 - get\_next\_line
   - dummy node 를 만들 때 장점?
   - BUFFER\_SIZE 크기의 버퍼에 데이터를 line 에 복사하는 와중에 메모리 할당 에러가 발생하면 얼마나 정리하고 프로그램을 종료시켜야하나?
@@ -64,15 +41,16 @@
 	  - 42cursus\_gnl\_tests
 	  - gnlkiller
 	  - gnlTester
+	  - gnl lover
     - memory leak test
     - 다양한 입력값에 대해 테스트하기
     - 다양한 BUFFER\_SIZE 테스트
     - pdf 의 노란 박스 테스트하기
     - wiki.42seoul 의 에러 관리 점검하기
+- printf
 
 #### 미래
 
-- printf
 - 읽고 싶은 책
   - cs
   - modern c
