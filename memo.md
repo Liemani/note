@@ -7,13 +7,8 @@
   - 함수 이름을 여러개로 쓸 수 있도록 필요할 때마다 추가할 수 있도록 하면 결국 지저분해질 뿐이다, 따라서 문서 편집기에서 특정 이름들을 특정 상수로 바꾸도록 처리하여 서로 다른 이름을 쓰더라도 결국 같은 상수가 되도록 처리하는 것이 좋다. 일괄적으로 변수 이름을 바꾸는 기능을 상위단에서 제공하는 것이다
   - 모든 local repo 의 branch 를 출력하는 프로그램은 어떨까?
   - memmove 지금과 len 변수를 쓰는 것 중 무엇이 빠를까?
-  - 그냥 변수를 쓰는 것보다 포인터 안에 들어있는 변수를 사용하는 것이 느릴까?
   - 문서편집기인데 모든 문자들이 저마다의 태그를 가지고 있고 특정 태그의 특정 문자나 단어를 replace 할 수 있는 프로그램
-  - 메모 alias 만들기
   - git 괄호 색 다시 생각해보기
-  - git 과 pwd 위치 바꿔보기
-  - line null 체크하기
-  - tester\_gnl, gnlkiller, gnl lover 테스터 위주 테스트
   - `~` in vim: toggle case
   - :set all: display all set
 - 정리하기
@@ -26,36 +21,31 @@
   - underneath
   - underlying mental model and architectur
 - env
-  - backdown 중에 폴더가 없으면 clone 하도록 하자
-  - base camp 를 짓는 것 처럼 env 폴더가 존재하는 위치를 중심으로 programming 폴더를 만든다면 더 좋을 것 같다
+  - base camp 를 짓는 것처럼 env 폴더가 존재하는 위치를 중심으로 programming 폴더를 만든다면 더 좋을 것 같다
     - 이 경우 vim 에서는 절대 경로를 사용하는데 어떻게 처리해줘야하는 것일까?
 	  - 상대경로를 통해 생성한 절대결로로 해당 절대 경로 데이터를 바꿔줘야만 할까? 너무 복잡한데?
   - back command 가 인자를 받아서 해당 git repo 만 처리하도록 하자
 - git
   - how to get the content of hash?
   - [Git Tips](https://github.com/mingrammer/git-tips)
+-gnl
+  - OK 42 TEST
+  - OK 42 cur
+  - OK gnl-unit-test
+  - OK gnl-war-machin-v2019
+  - OK gnl\_lover: stdin 부분이 애매하다
+  - OK gnlkiller
+  - OK gnlkiller\_Alex
+  - OK gnlkiller2
+  - OK Test-42
+  - OK gnlTester
 
 #### 보고서
 
 - get\_next\_line
-  - stdin 을 읽을 때 한 번 읽고 '\0' 을 만나면 끝나는데 이게 정상적인 작동이겠지?
-  - 어제 테스트 돌리다가 abort 나온 테스트 하나 있었는데 그게 할당되지 않은 메모리를 free 해서 그럴 수도 있다고 한다. 확인해보자
+  - gnl\_lover 에서 stdin 을 입력받는 부분에서 ctrl-D 가 예상 밖으로 작동하던 문제 점검
   - slack 에서 gnl 관련 글 찾아보기 뭘 더 해야할게 있는지
-  - -1 을 반환해야 하는 상황에서는 모든 할당을 free 하도록 만들기
   - dummy node 를 만들 때 장점?
-  - eof 를 만났을 때 해당 버퍼를 free 해줘야 하는가? 안해줬는데
-  - test
-    - test program
-      - gnl-war-machine-v2019
-	  - 42cursus\_gnl\_tests
-	  - gnlkiller
-	  - gnlTester
-	  - gnl lover
-    - memory leak test
-    - 다양한 입력값에 대해 테스트하기
-    - 다양한 BUFFER\_SIZE 테스트
-    - pdf 의 노란 박스 테스트하기
-    - wiki.42seoul 의 에러 관리 점검하기
 - printf
 
 #### 미래
