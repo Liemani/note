@@ -3,6 +3,10 @@
 #### 개인
 
 - 기록이 먼저
+  - dump 가 이미 있는 명령어인 듯 하다, 다른 alias 로 바꾸도록 하자
+  - 기록 관리 프로그램 in cli!!!!
+    - git 처럼 vcs 이 아니라 기록 control system 을 만들자!
+	- git 에 자료를 보관하면서 보관되어 있는 자료를 쉽게 control 하는거지!
   - 블로그에 날짜 표시하기
   - 함수 이름을 여러개로 쓸 수 있도록 필요할 때마다 추가할 수 있도록 하면 결국 지저분해질 뿐이다, 따라서 문서 편집기에서 특정 이름들을 특정 상수로 바꾸도록 처리하여 서로 다른 이름을 쓰더라도 결국 같은 상수가 되도록 처리하는 것이 좋다. 일괄적으로 변수 이름을 바꾸는 기능을 상위단에서 제공하는 것이다
   - 모든 local repo 의 branch 를 출력하는 프로그램은 어떨까?
@@ -11,11 +15,13 @@
   - git 괄호 색 다시 생각해보기
   - `~` in vim: toggle case
   - :set all: display all set
+  - 데이터를 마구마구 던지면 알아서 구조화하고 정리해주는 프로그램
 - 정리하기
   - 북마크
   - 읽기 목록
   - 하드
   - 메모
+  - 슬랙 saved
 - search keyword
   - architecture
   - underneath
@@ -39,22 +45,33 @@
   - OK gnlkiller2
   - OK Test-42
   - OK gnlTester
+  - OK [new](https://github.com/Hellio404/Get_Next_Line_Tester)
+  - lldb 로 메모리 맄을 체크할 수 있다고 한다 알아보도록 하자
+    - break point 추가, 제거
+	- break 후 진행, bt 등
+	- 다양한 값 출력
+	- 메모리 상태 검사
+	- 특정 시그널 보내기
+	- 특정 함수에 인자 전달하고 반환값 확인하기
+	- 메모리 특정 영역에 값 쓰기
 
 #### 보고서
 
 - get\_next\_line
   - gnl\_lover 에서 stdin 을 입력받는 부분에서 ctrl-D 가 예상 밖으로 작동하던 문제 점검
-  - slack 에서 gnl 관련 글 찾아보기 뭘 더 해야할게 있는지
   - dummy node 를 만들 때 장점?
 - printf
 
 #### 미래
 
 - 읽고 싶은 책
+  - code (?)
   - cs
-  - modern c
+  - [modern c](https://modernc.gforge.inria.fr)
   - The C Programming language
   - https://git-scm.com/book/en/v2
+  - Don't Make Me Think
+  - [Laws of UX](https://lawsofux.com/)
 - 이사 일정 생각해보기
   - 이사는 최소 1 월달 돈이 들어오고 나서이다
     - 저번 달에는 5 일에 싸인을 받고 8 일에 입금이 되었다
