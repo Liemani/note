@@ -3,7 +3,8 @@
 #### 개인
 
 - 기록이 먼저
-  - dump 가 이미 있는 명령어인 듯 하다, 다른 alias 로 바꾸도록 하자
+  - vragrind 사용해 보기
+  - 홀리 그래프에서 시험과 레지스터 조건 확인하기
   - 기록 관리 프로그램 in cli!!!!
     - git 처럼 vcs 이 아니라 기록 control system 을 만들자!
 	- git 에 자료를 보관하면서 보관되어 있는 자료를 쉽게 control 하는거지!
@@ -13,9 +14,10 @@
   - memmove 지금과 len 변수를 쓰는 것 중 무엇이 빠를까?
   - 문서편집기인데 모든 문자들이 저마다의 태그를 가지고 있고 특정 태그의 특정 문자나 단어를 replace 할 수 있는 프로그램
   - git 괄호 색 다시 생각해보기
-  - `~` in vim: toggle case
   - :set all: display all set
   - 데이터를 마구마구 던지면 알아서 구조화하고 정리해주는 프로그램
+  - 일단 명령을 입력하기가 무조건 쉬워야 한다 (혹은 alias 를 사용할 수도 있겠지), 그러고 나서 보기 좋게 출력하는 것은 추가적인 출력 프로그램이 담당하는 것!
+  - dummy node 의 장단점
 - 정리하기
   - 북마크
   - 읽기 목록
@@ -34,33 +36,17 @@
 - git
   - how to get the content of hash?
   - [Git Tips](https://github.com/mingrammer/git-tips)
--gnl
-  - OK 42 TEST
-  - OK 42 cur
-  - OK gnl-unit-test
-  - OK gnl-war-machin-v2019
-  - OK gnl\_lover: stdin 부분이 애매하다
-  - OK gnlkiller
-  - OK gnlkiller\_Alex
-  - OK gnlkiller2
-  - OK Test-42
-  - OK gnlTester
-  - OK [new](https://github.com/Hellio404/Get_Next_Line_Tester)
-  - lldb 로 메모리 맄을 체크할 수 있다고 한다 알아보도록 하자
-    - break point 추가, 제거
-	- break 후 진행, bt 등
-	- 다양한 값 출력
-	- 메모리 상태 검사
-	- 특정 시그널 보내기
-	- 특정 함수에 인자 전달하고 반환값 확인하기
-	- 메모리 특정 영역에 값 쓰기
+- lldb
+  - 특정 시그널 보내기
+- 책
+  - 37/288 : The C Programming Language
 
 #### 보고서
 
-- get\_next\_line
-  - gnl\_lover 에서 stdin 을 입력받는 부분에서 ctrl-D 가 예상 밖으로 작동하던 문제 점검
-  - dummy node 를 만들 때 장점?
-- printf
+- ft\_printf
+  - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
+  - va\_arg() 에서 type 이 일치하지 않는 경우를 생각해줘야 할까?
+- get\_next\_line 평가받기
 
 #### 미래
 
@@ -72,7 +58,10 @@
   - https://git-scm.com/book/en/v2
   - Don't Make Me Think
   - [Laws of UX](https://lawsofux.com/)
+  - Code Complete
+  - Writing Solid Code
 - 이사 일정 생각해보기
+  - 건물에서 공부하게 될 경우 어떤 건물을 사용하게 될 것인지 확실히 해두기 -> 방을 어디에 잡을것인가 하기 위해
   - 이사는 최소 1 월달 돈이 들어오고 나서이다
     - 저번 달에는 5 일에 싸인을 받고 8 일에 입금이 되었다
   - 그리고 시험이 원활이 돌아가고 클러스터가 개장하면 서울에 가서 공부를 하는 것이 좋다
