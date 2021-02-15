@@ -52,6 +52,8 @@
   - multi byte character 처리 알아보기
   - shift sequence?
 - get\_next\_line 평가받기
+  - norm check
+  - repository check
 
 #### 미래
 
