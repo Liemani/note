@@ -3,6 +3,7 @@
 #### 개인
 
 - 기록이 먼저
+  - va\_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
   - vragrind 사용해 보기
   - 홀리 그래프에서 시험과 레지스터 조건 확인하기
   - 기록 관리 프로그램 in cli!!!!
@@ -46,11 +47,16 @@
 - ft\_printf
   - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
   - va\_arg() 에서 type 이 일치하지 않는 경우를 생각해줘야 할까?
+  - libft 적용하여 libftprintf.a 만드는 방법 알아보기
+  - 큰 틀 잡기
+  - multi byte character 처리 알아보기
+  - shift sequence?
 - get\_next\_line 평가받기
 
 #### 미래
 
 - 읽고 싶은 책
+  - Real-World Software Developement
   - code (?)
   - cs
   - [modern c](https://modernc.gforge.inria.fr)
