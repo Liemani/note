@@ -45,12 +45,17 @@
 #### 보고서
 
 - ft\_printf
+  - conversion\_specifier 는 필요가 없는 것 같다 그냥 \*cur\_pos 를 사용하자
   - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
   - va\_arg() 에서 type 이 일치하지 않는 경우를 생각해줘야 할까?
   - libft 적용하여 libftprintf.a 만드는 방법 알아보기
   - 큰 틀 잡기
   - multi byte character 처리 알아보기
   - shift sequence?
+  - 인자를 field width 와 precision 으로 사용할 때 데이터 타입?
+  - 너무 길 때 출력하지 않는 기능
+  - 끝내기 전에
+    - 코드를 다 작성한 후에 man page 를 보며 비교해보기
 - get\_next\_line 평가받기
   - norm check
   - repository check
