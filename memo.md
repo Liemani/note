@@ -46,6 +46,7 @@
 
 - ft\_printf
   - 파일 나누기
+  - conversion specifier 별로 전부 따로 함수를 실행시키는 것이 아니라 diouxX 일 때 같이 0 flag, field\_width, precision 등을 같이 처리하는 것들을 모아서 같이 처리하기
   - field width 가 최대 MAX\_INT - 1 이었는데 MIN\_INT 면 어떻게 될까?
   - libft 에서 라이브러리 매크로를 사용한 경우 사용하지 않도록 변경하자
   - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
