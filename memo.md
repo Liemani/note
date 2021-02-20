@@ -3,6 +3,8 @@
 #### 개인
 
 - 기록이 먼저
+  - insert mode 없이 한 줄 추가하는 방법?
+  - env 가 setenv.sh 를 실행할 때 설정해줘야하는 파일을 vim 으로 열어도 좋을 것 같다
   - va\_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
   - vragrind 사용해 보기
   - 홀리 그래프에서 시험과 레지스터 조건 확인하기
@@ -45,8 +47,9 @@
 #### 보고서
 
 - ft\_printf
+  - macro 사용하지 않도록 바꾸기
+  - field width 와 precision 을 size\_t 로 바꾸기
   - 파일 나누기
-  - conversion specifier 별로 전부 따로 함수를 실행시키는 것이 아니라 diouxX 일 때 같이 0 flag, field\_width, precision 등을 같이 처리하는 것들을 모아서 같이 처리하기
   - field width 가 최대 MAX\_INT - 1 이었는데 MIN\_INT 면 어떻게 될까?
   - libft 에서 라이브러리 매크로를 사용한 경우 사용하지 않도록 변경하자
   - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
@@ -56,10 +59,6 @@
   - 너무 길 때 출력하지 않는 기능
   - 끝내기 전에
     - 코드를 다 작성한 후에 man page 를 보며 비교해보기
-- get\_next\_line 평가받기
-  - 시간이 되면 라이브러리 매크로를 사용하는 부분을 없애자
-  - norm check
-  - repository check
 
 #### 미래
 
