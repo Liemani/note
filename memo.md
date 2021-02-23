@@ -47,16 +47,15 @@
 #### 보고서
 
 - ft\_printf
-  - 음수인데 precision 이 있을 경우, precision 이 없는데 0 flag 가 있고 field width 가 있는 경우 - 위치 처리하도록 수정
+  - %p 가 alignment 가 적용되지 않는 문제 수정
   - 확인할 것
     - 42wiki
 	- slack
 	- discord
   - type casting 한 것을 spec-\>field\_width 와 spec-\>precision 이 size\_t 이도록 적용시키기
-  - initial commit 만들고 42wiki 와 테스터에 따라 요구 사항 분석 및 적용하기
+  - 42wiki 와 테스터에 따라 요구 사항 분석 및 적용하기
   - field width 와 precision 을 size\_t 로 바꾸기
   - field width 가 최대 MAX\_INT - 1 이었는데 MIN\_INT 면 어떻게 될까?
-  - libft 에서 라이브러리 매크로를 사용한 경우 사용하지 않도록 변경하자
   - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
   - va\_arg() 에서 type 이 일치하지 않는 경우를 생각해줘야 할까?
   - multi byte character 처리 알아보기
@@ -65,6 +64,7 @@
   - 테스터 프로그램
     - printf\_lover\_v2
   - 끝내기 전에
+    - 일부 파일 이름에 대문자가 섞여 있는데 커밋해도 소문자로 수정되지 않는 문제 수정
     - 코드를 다 작성한 후에 man page 를 보며 비교해보기
 
 #### 미래
