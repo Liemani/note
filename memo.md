@@ -3,7 +3,6 @@
 #### 개인
 
 - 기록이 먼저
-  - insert mode 없이 한 줄 추가하는 방법?
   - env 가 setenv.sh 를 실행할 때 설정해줘야하는 파일을 vim 으로 열어도 좋을 것 같다
   - va\_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
   - vragrind 사용해 보기
@@ -43,13 +42,19 @@
   - 특정 시그널 보내기
 - 책
   - 37/288 : The C Programming Language
+  - 늑향: 10 권 114p
 
 #### 보고서
 
 - ft\_printf
-  - macro 사용하지 않도록 바꾸기
+  - 음수인데 precision 이 있을 경우, precision 이 없는데 0 flag 가 있고 field width 가 있는 경우 - 위치 처리하도록 수정
+  - 확인할 것
+    - 42wiki
+	- slack
+	- discord
+  - type casting 한 것을 spec-\>field\_width 와 spec-\>precision 이 size\_t 이도록 적용시키기
+  - initial commit 만들고 42wiki 와 테스터에 따라 요구 사항 분석 및 적용하기
   - field width 와 precision 을 size\_t 로 바꾸기
-  - 파일 나누기
   - field width 가 최대 MAX\_INT - 1 이었는데 MIN\_INT 면 어떻게 될까?
   - libft 에서 라이브러리 매크로를 사용한 경우 사용하지 않도록 변경하자
   - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
@@ -57,6 +62,8 @@
   - multi byte character 처리 알아보기
   - shift sequence?
   - 너무 길 때 출력하지 않는 기능
+  - 테스터 프로그램
+    - printf\_lover\_v2
   - 끝내기 전에
     - 코드를 다 작성한 후에 man page 를 보며 비교해보기
 
