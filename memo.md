@@ -3,10 +3,22 @@
 #### 개인
 
 - 기록이 먼저
+  - 애완동물 어플
+    - 어플로 애완동물 id 를 발급받아서 신장 및 부모 관계를 열람 가능
+  - 나는 read 가 null 을 만나면 끝나도록 만들었나?
+  - 가능한 많은 궁금한 부분을 다 짚어보면서 진행할 예정입니다.
+  - git log --branches 가 remote branch 는 보여주지 않는 문제
+  - 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
+    - 하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
+	- makefile
+	- lldb
+	- vim
+	- git
+	- cli
+	- shell script
   - env 가 setenv.sh 를 실행할 때 설정해줘야하는 파일을 vim 으로 열어도 좋을 것 같다
   - va\_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
   - vragrind 사용해 보기
-  - 홀리 그래프에서 시험과 레지스터 조건 확인하기
   - 기록 관리 프로그램 in cli!!!!
     - git 처럼 vcs 이 아니라 기록 control system 을 만들자!
 	- git 에 자료를 보관하면서 보관되어 있는 자료를 쉽게 control 하는거지!
@@ -40,6 +52,7 @@
   - [Git Tips](https://github.com/mingrammer/git-tips)
 - lldb
   - 특정 시그널 보내기
+  - 'memory read': 메모리를 출력함
 - 책
   - 37/288 : The C Programming Language
   - 늑향: 10 권 114p
@@ -47,29 +60,26 @@
 #### 보고서
 
 - ft\_printf
-  - %p 가 alignment 가 적용되지 않는 문제 수정
-  - 확인할 것
-    - 42wiki
-	- slack
-	- discord
-  - type casting 한 것을 spec-\>field\_width 와 spec-\>precision 이 size\_t 이도록 적용시키기
-  - 42wiki 와 테스터에 따라 요구 사항 분석 및 적용하기
-  - field width 와 precision 을 size\_t 로 바꾸기
-  - field width 가 최대 MAX\_INT - 1 이었는데 MIN\_INT 면 어떻게 될까?
-  - 클러스터 환경에서 gcc 의 attribute 선언이 제대로 작동하는지 테스트해보기
-  - va\_arg() 에서 type 이 일치하지 않는 경우를 생각해줘야 할까?
+  - 'o' 및 bonus 플래그, 길이 등 구현하기
+  - 최대값 적용하기
+  - convert\_d 를 convert\_di 로 바꾸자
   - multi byte character 처리 알아보기
   - shift sequence?
-  - 너무 길 때 출력하지 않는 기능
-  - 테스터 프로그램
-    - printf\_lover\_v2
+  - 테스터 프로그램 돌려보기
+    - 42PRINTF-TEST
+	- pft
+	- pft 2019
+	- lover
   - 끝내기 전에
-    - 일부 파일 이름에 대문자가 섞여 있는데 커밋해도 소문자로 수정되지 않는 문제 수정
-    - 코드를 다 작성한 후에 man page 를 보며 비교해보기
+    - 코드 한 번 쭉 읽어보기
+	- memory leak 검사
 
 #### 미래
 
+- 사이듣 프로젝트
+  - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
 - 읽고 싶은 책
+  - strunk and white
   - Real-World Software Developement
   - code (?)
   - cs
