@@ -3,19 +3,20 @@
 #### 개인
 
 - 기록이 먼저
+  - 생각
+    - 많이 생각해보면 좋을 것
+      - null guard 의 형식 등 통일된 형식을 만들고 지키는 문제
+    - 생각을 적게 해야할 부분
+	  - 여러 이름들, 최선의 이름은 있겠지만 최고의 이름은 없다
+  - multi line quete in md
+  - == 연산자는 어떻게 0 과 1 을 반환하는가?
+  - 인자가 특정 값이면 0 을 반환하는 함수?
+  - ls 에 파일 내용을 출력하는 기능이 있더라
   - 애완동물 어플
     - 어플로 애완동물 id 를 발급받아서 신장 및 부모 관계를 열람 가능
   - 나는 read 가 null 을 만나면 끝나도록 만들었나?
   - 가능한 많은 궁금한 부분을 다 짚어보면서 진행할 예정입니다.
   - git log --branches 가 remote branch 는 보여주지 않는 문제
-  - 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
-    - 하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
-	- makefile
-	- lldb
-	- vim
-	- git
-	- cli
-	- shell script
   - env 가 setenv.sh 를 실행할 때 설정해줘야하는 파일을 vim 으로 열어도 좋을 것 같다
   - va\_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
   - vragrind 사용해 보기
@@ -57,14 +58,16 @@
   - 37/288 : The C Programming Language
   - 늑향: 10 권 114p
 
+
+- prefix 추가
+- prefix 구현 o 와 x 에서 # +
+- prefix 면 pad zero 가 false 이도록 변경
+
 #### 보고서
 
 - ft\_printf
-  - 'o' 및 bonus 플래그, 길이 등 구현하기
-  - 최대값 적용하기
-  - convert\_d 를 convert\_di 로 바꾸자
-  - multi byte character 처리 알아보기
-  - shift sequence?
+  - Makefile 에 bonus rule 만들기
+  - bonus 플래그 구현하기
   - 테스터 프로그램 돌려보기
     - 42PRINTF-TEST
 	- pft
@@ -73,12 +76,24 @@
   - 끝내기 전에
     - 코드 한 번 쭉 읽어보기
 	- memory leak 검사
+	- flow chart 작성하기
+	  - flow chart 에 메모리 할당, 해제 내용을 추가하면 어떨까?
 
 #### 미래
 
-- 사이듣 프로젝트
+- 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
+  - 하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
+  - makefile
+  - lldb
+  - vim
+  - git
+  - git log pretty format
+  - cli
+  - shell script
+- 사이드 프로젝트
   - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
 - 읽고 싶은 책
+  - 성공과 실패를 결정하는 1%의 네트워크 원리
   - strunk and white
   - Real-World Software Developement
   - code (?)
