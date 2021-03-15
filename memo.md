@@ -59,13 +59,14 @@
   - 늑향: 10 권 114p
 
 
-- prefix 추가
-- prefix 구현 o 와 x 에서 # +
-- prefix 면 pad zero 가 false 이도록 변경
 
 #### 보고서
 
+- macOS 더 알아보기
 - ft\_printf
+  - prefix 추가
+  - prefix 구현 o 와 x 에서 # +
+  - prefix 면 pad zero 가 false 이도록 변경
   - Makefile 에 bonus rule 만들기
   - bonus 플래그 구현하기
   - 테스터 프로그램 돌려보기
@@ -93,6 +94,7 @@
 - 사이드 프로젝트
   - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
 - 읽고 싶은 책
+  - Computer Organization and Design: 많은 대학에서 사용하는 컴퓨터 구조의 바이블
   - 성공과 실패를 결정하는 1%의 네트워크 원리
   - strunk and white
   - Real-World Software Developement
