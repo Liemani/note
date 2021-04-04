@@ -3,6 +3,7 @@
 #### 개인
 
 - 기록이 먼저
+  - 태그가 github 에 push 되지 않았다. 어떻게 올리는지 알아보자
   - libft 같은 경우 hard link 로 만들어도 좋은걸까?
   - 생각
     - 프로그램의 구조를 다 보여주는 프로그램은 어떨까?
@@ -149,6 +150,50 @@ bash-3.2$ set | wc -l
 - 디지털 신호도 원하는 주파수를 만들어서 전송할 수 있을 것 같은데 굳이 아날로그 신호로 바꾸어서 전송해야 하는 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=386)
 
 ### time line
+
+2020-??-??
+
+echo "*"    # *
+echo '*'    # *
+echo /*    # *
+echo *    # display all files
+echo ~    # display home path
+echo ?    # display all 1 character
+
+echo "$truc"    # isACar
+echo '$truc'    # truc
+
+cat [-e]
+more    # work like man page
+head
+tail
+
+grep [-iv]
+
+ls bonjour 2> error.log
+ls bonjour test* > res.txt 2> error.log
+ls bonjour test* 2> error.log | grep test00
+
+cat batman.txt | grep Joker | wc -l
+grep Joker < batman.txt | wc -l
+
+echo coucou > res.txt    # write file
+echo coucou >> res.txt    # append file
+
+cat << FIN    # read until FIN
+ls bonjour *.txt > resultat.txt 2>&1
+cat resultat.txt
+
+ctrl d
+ctrl c
+ctrl \
+
+2020-10-14
+gzip -d <file>
+tar -zxvf <file>
+man cut
+man diff
+man patch
 
 2020-10-13
 
