@@ -75,7 +75,7 @@
 #### 보고서
 
 - miniRT
-  - 라이브러리의 경우 <> 로 include 가 가능하게 되는 것일까
+  - 라이브러리의 경우 <> 로 include 가 가능하게 되는 것일까?
   - rasterization 검색
   - api 사용해보기
 - ft\_server
@@ -86,6 +86,7 @@
   - phpMyAdmin
   - SQL databse
 - exam02 준비
+- 블로그를 어느정도 자동화 시켜주는 툴 만들기
 
 #### 미래
 
