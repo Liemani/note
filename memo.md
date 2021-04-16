@@ -74,8 +74,8 @@
 
 #### 보고서
 
-- exam02 준비
 - miniRT
+  - 라이브러리의 경우 <> 로 include 가 가능하게 되는 것일까
   - rasterization 검색
   - api 사용해보기
 - ft\_server
@@ -85,6 +85,7 @@
   - Wordpress
   - phpMyAdmin
   - SQL databse
+- exam02 준비
 
 #### 미래
 
