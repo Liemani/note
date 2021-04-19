@@ -93,6 +93,7 @@
   - 라이브러리의 경우 <> 로 include 가 가능하게 되는 것일까?
   - rasterization 검색
   - api 사용해보기
+  - 이미지 출력 전에 client 의 endianess 를 확인한 후 server 의 endianess 에 따라 이미지 처리하기
 - ft\_server
   - Nginx 알아보기
   - 슬랙, 디코, 42wiki 에서 정보 얻기
