@@ -76,6 +76,10 @@
 #### 보고서
 
 - miniRT
+  - t\_color 만들기
+  - 구조 생각해보기
+  - t\_scene 만들기
+    - t\_\<object\> 만들기
   - mandatory
     - 5 geometric objects: plane, sphere, cylinder, square, triangle
 	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
@@ -103,6 +107,9 @@
   - SQL databse
 - exam02 준비
 - 블로그를 어느정도 자동화 시켜주는 툴 만들기
+  - variabledText
+    - source code 가 \import <파일 이름> 으로 다른 파일로부터 변수 목록을 읽을 수 있는 기능 추가
+	- 리팩토링하기 (구조화, 모듈화, 파일 분리)
 
 #### 미래
 
