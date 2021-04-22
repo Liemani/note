@@ -79,7 +79,8 @@
 #### 보고서
 
 - miniRT
-  - t\_\<object\> 만들기
+  - t\_\<geometry\> 만들기
+    - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
   - mandatory
     - 5 geometric objects: plane, sphere, cylinder, square, triangle
 	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
