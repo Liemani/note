@@ -117,10 +117,13 @@
 - 블로그를 어느정도 자동화 시켜주는 툴 만들기
   - siteTool
     - variabledText
+	  - name convention 바꾸기
+	  - write() 할 때 굳이 line 의 길이를 predict 할 필요가 있나?
 	  - 변수를 읽을 다른 파일을 열 때 openat() 을 사용하여 relative path 를 사용하도록 수정
       - 다른 파일로부터 변수를 읽을 때 open 한 파일을 잘 close 하도록 수정
 	  - 리팩토링하기 (구조화, 모듈화, 파일 분리)
 	- cLibrary
+	  - name convention 바꾸기
 	  - 마지막에 모든 메모리 할당 free 하지 않도록 수정
 
 #### 미래
