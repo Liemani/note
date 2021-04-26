@@ -79,6 +79,9 @@
 #### 보고서
 
 - miniRT
+  - 거리를 구할 때 등 오버플로우가 날 수 있는 부분 고려하기
+  - transformation: transposition, transition, rotation, reflection, projection
+    - affine transformation
   - 테스트 디버그 시스템 만들기
   - 카메라의 방향 벡터가 0, 0, 0 일 때 defualt 값 적용하도록 하기
   - 카메라의 표준 단위 벡터를 사용하여 윈도우 픽셀의 빛을 추적하는 t\_line 계산하고 적용하기
@@ -134,6 +137,9 @@
 
 - 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
   - 하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
+  - 파일 시스템 용어 정리, base name, path, real path, relative path etc
+  - 각종 용어 정리
+  - miniRT 영어 용어 정리
   - makefile
   - lldb
   - vim
