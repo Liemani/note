@@ -79,6 +79,10 @@
 #### 보고서
 
 - miniRT
+  - 테스트 디버그 시스템 만들기
+  - 카메라의 방향 벡터가 0, 0, 0 일 때 defualt 값 적용하도록 하기
+  - 카메라의 표준 단위 벡터를 사용하여 윈도우 픽셀의 빛을 추적하는 t\_line 계산하고 적용하기
+  - 카메라의 표준 단위 벡터를 구하는 함수에서 p\_matrix 를 (\*p\_matrix) 로 수정하기
   - t\_\<geometry\> 만들기
     - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
   - mandatory
