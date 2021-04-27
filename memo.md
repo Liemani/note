@@ -78,14 +78,11 @@
 
 #### 보고서
 
-- miniRT
-  - 거리를 구할 때 등 오버플로우가 날 수 있는 부분 고려하기
   - transformation: transposition, transition, rotation, reflection, projection
     - affine transformation
-  - 테스트 디버그 시스템 만들기
-  - 카메라의 방향 벡터가 0, 0, 0 일 때 defualt 값 적용하도록 하기
-  - 카메라의 표준 단위 벡터를 사용하여 윈도우 픽셀의 빛을 추적하는 t\_line 계산하고 적용하기
-  - 카메라의 표준 단위 벡터를 구하는 함수에서 p\_matrix 를 (\*p\_matrix) 로 수정하기
+
+- miniRT
+  - 거리를 구할 때 등 오버플로우가 날 수 있는 부분 고려하기
   - t\_\<geometry\> 만들기
     - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
   - mandatory
@@ -120,18 +117,8 @@
   - Wordpress
   - phpMyAdmin
   - SQL databse
-- exam02 준비
 - 블로그를 어느정도 자동화 시켜주는 툴 만들기
   - siteTool
-    - variabledText
-	  - name convention 바꾸기
-	  - write() 할 때 굳이 line 의 길이를 predict 할 필요가 있나?
-	  - 변수를 읽을 다른 파일을 열 때 openat() 을 사용하여 relative path 를 사용하도록 수정
-      - 다른 파일로부터 변수를 읽을 때 open 한 파일을 잘 close 하도록 수정
-	  - 리팩토링하기 (구조화, 모듈화, 파일 분리)
-	- cLibrary
-	  - name convention 바꾸기
-	  - 마지막에 모든 메모리 할당 free 하지 않도록 수정
 
 #### 미래
 
