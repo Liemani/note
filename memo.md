@@ -82,9 +82,8 @@
     - affine transformation
 
 - miniRT
-  - 검증되지 않은 함수들 테스트하기
-  - 배경 색을 바꿔보기
-  - line 에 대한 sphere 의 intersection 함수 작동 테스트하기
+  - 파일 변경이 잦았기 때문에 누락된 파일 없는지 Makefile 확인하기
+  - 빛 적용하기
   - 거리를 구할 때 등 오버플로우가 날 수 있는 부분 고려하기
   - t\_\<geometry\> 만들기
     - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
