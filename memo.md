@@ -82,7 +82,7 @@
     - affine transformation
 
 - miniRT
-  - 파일 변경이 잦았기 때문에 누락된 파일 없는지 Makefile 확인하기
+  - ambient\_light 가 올바르게 정의된 것인지 생각하기
   - 빛 적용하기
   - 거리를 구할 때 등 오버플로우가 날 수 있는 부분 고려하기
   - t\_\<geometry\> 만들기
