@@ -82,9 +82,8 @@
     - affine transformation
 
 - miniRT
-  - ambient\_light 가 올바르게 정의된 것인지 생각하기
-  - 빛 적용하기
-  - 거리를 구할 때 등 오버플로우가 날 수 있는 부분 고려하기
+  - t\_square.c/blocks\_light 구현하기
+  - t\_sphere.c/sphere\_set\_center 등 구현하기
   - t\_\<geometry\> 만들기
     - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
   - mandatory
