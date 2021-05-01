@@ -1,6 +1,52 @@
 ### To Do (구체적이면 좋습니다.)
 
-#### 개인
+#### 할 일
+
+- miniRT
+  - 처음에는 blocks\_light 가 작동하면서 깔끔하게 평면, 빛받는 구 부분, 빛 안밭는 구 부분으로 사각형이 나누어 출력했으나, blocks\_light 를 수정하고 나서는 수정이 적용되도록 출력되었다. 일단 이 함수가 받는 가장 가까운 도형은 사각형이고, 그래서 구와 같지 않기 때문에 구의 표면이 노이즈되어 출력되었다
+  - transformation: transposition, transition, rotation, reflection, projection
+    - affine transformation
+  - t\_geometry 의 intersection\_point 를 intersects 로 변경하기
+  - t\_geometry 에 add\_light\_to\_light\_color 구현하기
+  - t\_square.c/blocks\_light 구현하기
+  - 카메라가 구 안에 있을 때 지금은 구를 그릴 것 같다
+  - 물체의 각도에 따른 빛 받는 양 다르게 적용하기
+  - t\_\<geometry\> 만들기
+    - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
+  - mandatory
+    - 5 geometric objects: plane, sphere, cylinder, square, triangle
+	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
+	- 오브젝트의 속성을 resize 할 수 있어야 한다
+	- 평행 변환과 회전 변환이 가능해야 한다
+	  - 구, 삼각형, 빛 은 회전 불가
+	- 빛
+	  - 지점 밝기, 그림자, 자연광, (물체들은 절대 완전한 어둠 속에 있지 않는다)
+	  - 색, 여러 지점 빛들도 잘 처리되야 한다
+	- 두 번째 인자로 '--save' 를 받을 경우 이미지를 bmp 형식으로 저장하기
+	  - 이 경우 창을 띄우지 않는다
+	- 만약 두 번째 인자가 주어지지 않았다면 아래와 같은 기능 수행하기
+	  - 요구된 scene 크기가 화면보다 크다면 창 크기를 화면 해상도에 맞게 설정하기
+	  - 만약 카메라가 여러개 존재한다면 원하는 키를 눌러서 화면 전환이 가능하도록 하기
+	- 첫 인자는 .rt 확장자를 갖는 scene description 파일을 입력받는다
+	  - 해상도 == 창의 크기, width 와 height 는 항상 양수
+	  - 원소의 정보들은 하나 이상의 space 로 구분
+	  - 원소들의 순서는 중요하지 않음
+	  - 대문자 원소들은 오직 한 번만 정의되야 한다
+	  - 각 원소의 첫 정보는 종류 식별 문자이다 (한 두 문자로 되어 있다)
+	    - 그 다음 나열되는 문자들은 구체적인 순서를 따른다
+	  - .rt 파일이 잘못 구성되어 있다면 "Error\n" 를 출력하며 프로그램 종료하기
+	    - 뒤에 원하는 에러 메세지 출력 허용
+  - rasterization 검색
+  - 이미지 출력 전에 client 의 endianess 를 확인한 후 server 의 endianess 에 따라 이미지 처리하기
+- ft\_server
+  - Nginx 알아보기
+  - 슬랙, 디코, 42wiki 에서 정보 얻기
+  - vnc 로 돌려보기
+  - Wordpress
+  - phpMyAdmin
+  - SQL databse
+- 블로그를 어느정도 자동화 시켜주는 툴 만들기
+  - siteTool
 
 - 기록이 먼저
   - 아마존 무료 클라우드 호스팅 서비스 알아보기
@@ -73,53 +119,6 @@
     - 사용하지 않은 식별자 정의 경고
     - 중복 정의된 식별자 경고
   - 프로그램 실행을 global 하게 설정하는 방법
-
-
-
-#### 보고서
-
-  - transformation: transposition, transition, rotation, reflection, projection
-    - affine transformation
-
-- miniRT
-  - t\_square.c/blocks\_light 구현하기
-  - t\_sphere.c/sphere\_set\_center 등 구현하기
-  - t\_\<geometry\> 만들기
-    - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
-  - mandatory
-    - 5 geometric objects: plane, sphere, cylinder, square, triangle
-	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
-	- 오브젝트의 속성을 resize 할 수 있어야 한다
-	- 평행 변환과 회전 변환이 가능해야 한다
-	  - 구, 삼각형, 빛 은 회전 불가
-	- 빛
-	  - 지점 밝기, 그림자, 자연광, (물체들은 절대 완전한 어둠 속에 있지 않는다)
-	  - 색, 여러 지점 빛들도 잘 처리되야 한다
-	- 두 번째 인자로 '--save' 를 받을 경우 이미지를 bmp 형식으로 저장하기
-	  - 이 경우 창을 띄우지 않는다
-	- 만약 두 번째 인자가 주어지지 않았다면 아래와 같은 기능 수행하기
-	  - 요구된 scene 크기가 화면보다 크다면 창 크기를 화면 해상도에 맞게 설정하기
-	  - 만약 카메라가 여러개 존재한다면 원하는 키를 눌러서 화면 전환이 가능하도록 하기
-	- 첫 인자는 .rt 확장자를 갖는 scene description 파일을 입력받는다
-	  - 해상도 == 창의 크기, width 와 height 는 항상 양수
-	  - 원소의 정보들은 하나 이상의 space 로 구분
-	  - 원소들의 순서는 중요하지 않음
-	  - 대문자 원소들은 오직 한 번만 정의되야 한다
-	  - 각 원소의 첫 정보는 종류 식별 문자이다 (한 두 문자로 되어 있다)
-	    - 그 다음 나열되는 문자들은 구체적인 순서를 따른다
-	  - .rt 파일이 잘못 구성되어 있다면 "Error\n" 를 출력하며 프로그램 종료하기
-	    - 뒤에 원하는 에러 메세지 출력 허용
-  - rasterization 검색
-  - 이미지 출력 전에 client 의 endianess 를 확인한 후 server 의 endianess 에 따라 이미지 처리하기
-- ft\_server
-  - Nginx 알아보기
-  - 슬랙, 디코, 42wiki 에서 정보 얻기
-  - vnc 로 돌려보기
-  - Wordpress
-  - phpMyAdmin
-  - SQL databse
-- 블로그를 어느정도 자동화 시켜주는 툴 만들기
-  - siteTool
 
 #### 미래
 
