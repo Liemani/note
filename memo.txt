@@ -2,24 +2,22 @@
 
 #### 할 일
 
-- 리포트 레포 합치기
-- 도형에 대해 더 코어한 instance method 를 정의할 수 있을 것 같다
-  - intersects 를 사용하여 block light 를 만든다던가
-- 이 문서를 txt 로 전환하자
 - miniRT
-  - `void line\_get\_point(t\_line \*p\_line, double k, t\_vector3 point)` 만들기
-  - 처음에는 blocks\_light 가 작동하면서 깔끔하게 평면, 빛받는 구 부분, 빛 안밭는 구 부분으로 사각형이 나누어 출력했으나, blocks\_light 를 수정하고 나서는 수정이 적용되도록 출력되었다. 일단 이 함수가 받는 가장 가까운 도형은 사각형이고, 그래서 구와 같지 않기 때문에 구의 표면이 노이즈되어 출력되었다
-  - k\_smallest 가 아니라 k 값으로 p\_point-\>position 을 계산하고 있었다 (러
-  - add\_light\_to\_light\_color 가 sin(theta) 로 색을 적용하는 것 까지 하지만, 사실 각 도형은 sin(theta) 를 반환하기만 하면 색을 적용하는건 밖에서 공통적으로 할 수 있을 것 같다
+  - 도형에 대해 더 코어한 instance method 를 정의할 수 있을 것 같다
+    - intersects 를 사용하여 block light 를 만든다던가
+  - void line_get_point(t_line *p_line, double k, t_vector3 point)` 만들기
+  - 처음에는 blocks_light 가 작동하면서 깔끔하게 평면, 빛받는 구 부분, 빛 안밭는 구 부분으로 사각형이 나누어 출력했으나, blocks_light 를 수정하고 나서는 수정이 적용되도록 출력되었다. 일단 이 함수가 받는 가장 가까운 도형은 사각형이고, 그래서 구와 같지 않기 때문에 구의 표면이 노이즈되어 출력되었다
+  - k_smallest 가 아니라 k 값으로 p_point->position 을 계산하고 있었다 (러
+  - add_light_to_light_color 가 sin(theta) 로 색을 적용하는 것 까지 하지만, 사실 각 도형은 sin(theta) 를 반환하기만 하면 색을 적용하는건 밖에서 공통적으로 할 수 있을 것 같다
   - transformation: transposition, transition, rotation, reflection, projection
     - affine transformation
-  - t\_geometry 의 intersection\_point 를 intersects 로 변경하기
-  - t\_geometry 에 add\_light\_to\_light\_color 구현하기
-  - t\_square.c/blocks\_light 구현하기
+  - t_geometry 의 intersection_point 를 intersects 로 변경하기
+  - t_geometry 에 add_light_to_light_color 구현하기
+  - t_square.c/blocks_light 구현하기
   - 카메라가 구 안에 있을 때 지금은 구를 그릴 것 같다
   - 물체의 각도에 따른 빛 받는 양 다르게 적용하기
-  - t\_\<geometry\> 만들기
-    - 각 geometry 마다 intersection\_point(t\_line \*p\_line) 만들기
+  - t_<geometry> 만들기
+    - 각 geometry 마다 intersection_point(t_line *p_line) 만들기
   - mandatory
     - 5 geometric objects: plane, sphere, cylinder, square, triangle
 	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
@@ -45,7 +43,7 @@
 	    - 뒤에 원하는 에러 메세지 출력 허용
   - rasterization 검색
   - 이미지 출력 전에 client 의 endianess 를 확인한 후 server 의 endianess 에 따라 이미지 처리하기
-- ft\_server
+- ft_server
   - Nginx 알아보기
   - 슬랙, 디코, 42wiki 에서 정보 얻기
   - vnc 로 돌려보기
@@ -86,7 +84,7 @@
   - ls 에 파일 내용을 출력하는 기능이 있더라
   - git log --branches 가 remote branch 는 보여주지 않는 문제
   - env 가 setenv.sh 를 실행할 때 설정해줘야하는 파일을 vim 으로 열어도 좋을 것 같다
-  - va\_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
+  - va_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
   - 기록 관리 프로그램 in cli!!!!
     - git 처럼 vcs 이 아니라 기록 control system 을 만들자!
 	- git 에 자료를 보관하면서 보관되어 있는 자료를 쉽게 control 하는거지!
@@ -179,7 +177,7 @@
 - mac-air11
   - 윈도우에 ddns 서버 실행시키기
     - 실행해도 지금 가지고 있는 공유기가 DNS client 를 가지고 있지 않는 듯 해서 의미가 없다..
-- display\_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
+- display_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
   - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
 
 ### memo
@@ -374,7 +372,7 @@ what is the difference between soft link and hard link?
 
 5.1. :! 'extern command' <ENTER>: excute extern command
 5.2. :w FILENAME: write current file as FILENAME
-5.3. :\'\<,\'\>w FILENAME: save selected range as FILENAME
+5.3. :'<,'>w FILENAME: save selected range as FILENAME
 5.4. :r FILENAME: read and put FILENAME file under the cursor line
 	:r !ls: read and put the result of 'ls' extern command under the cursor line
 
@@ -410,13 +408,13 @@ default output resolution: 853x480
 
 
 2020-12-26
-- ft\_memcpy: 14:07 ~ 14:13
-- ft\_memccpy: 15:09 ~ 15:50
+- ft_memcpy: 14:07 ~ 14:13
+- ft_memccpy: 15:09 ~ 15:50
 
 
 2020-12-27
-- ft\_memmove: 11:07 ~ 11:22
-- ft\_memchr : 11:22 ~ 12:00
+- ft_memmove: 11:07 ~ 11:22
+- ft_memchr : 11:22 ~ 12:00
 - 13:30 ~ 18:00
 
 
@@ -500,32 +498,32 @@ white space characters:
     - ~ 12:04
   - ~
   - 12:11 ~ 12:20
-- ft\_substr
+- ft_substr
   1. 12:46 ~
   2. 13:30 ~
   3. 13:47 ~
   4. 14:05 ~
   5. 14:20 ~
   6. 14:51 ~ 15:05
-- ft\_strjoin
+- ft_strjoin
   1. 15:08 ~
   2. 16:16 ~ 16:50
-- ft\_strtrim
+- ft_strtrim
   1. 20:13 ~
   2. 20:30 ~ 20:55
   3. ~ 21:07
-- ft\_split
+- ft_split
   1. 21:10
   2. 21:14 ~ 21:54
 
 
 2021-01-02
 - 12:20 ~
-- ft\_split
+- ft_split
   1. 12:29
 - ~ 13:23
   1. 13:30 ~ 16:19
-- ft\_itoa
+- ft_itoa
   1. 16:35 ~
   - -5
   2. ~ 17:38
@@ -542,22 +540,22 @@ white space characters:
 
 2021-01-03
 - 10:36
-- ft\_lstnew
+- ft_lstnew
   - 11:07 ~ 11:17
-- ft\_lstadd\_front
+- ft_lstadd_front
   - 11:24 ~ 11:36
-- ft\_lstsize
+- ft_lstsize
   - 11:40 ~ 11:58
   - 12:02 ~ 12:05
-- ft\_lstadd\_back
+- ft_lstadd_back
   - 12:10 ~ 12:17
-- ft\_lstdelone
+- ft_lstdelone
   - 12:37 ~ 12:41
-- ft\_lstclear
+- ft_lstclear
   - 12:42 ~ 12:55
-- ft\_lstiter
+- ft_lstiter
   - 12:57 ~ 13:01
-- ft\_lstmap
+- ft_lstmap
   - 13:11 ~ 13:25
 - 16:36 ~
   - ~ 17:06
