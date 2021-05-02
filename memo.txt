@@ -2,8 +2,15 @@
 
 #### 할 일
 
+- 리포트 레포 합치기
+- 도형에 대해 더 코어한 instance method 를 정의할 수 있을 것 같다
+  - intersects 를 사용하여 block light 를 만든다던가
+- 이 문서를 txt 로 전환하자
 - miniRT
+  - `void line\_get\_point(t\_line \*p\_line, double k, t\_vector3 point)` 만들기
   - 처음에는 blocks\_light 가 작동하면서 깔끔하게 평면, 빛받는 구 부분, 빛 안밭는 구 부분으로 사각형이 나누어 출력했으나, blocks\_light 를 수정하고 나서는 수정이 적용되도록 출력되었다. 일단 이 함수가 받는 가장 가까운 도형은 사각형이고, 그래서 구와 같지 않기 때문에 구의 표면이 노이즈되어 출력되었다
+  - k\_smallest 가 아니라 k 값으로 p\_point-\>position 을 계산하고 있었다 (러
+  - add\_light\_to\_light\_color 가 sin(theta) 로 색을 적용하는 것 까지 하지만, 사실 각 도형은 sin(theta) 를 반환하기만 하면 색을 적용하는건 밖에서 공통적으로 할 수 있을 것 같다
   - transformation: transposition, transition, rotation, reflection, projection
     - affine transformation
   - t\_geometry 의 intersection\_point 를 intersects 로 변경하기
@@ -49,6 +56,10 @@
   - siteTool
 
 - 기록이 먼저
+  - hyonski 와 벌인 논쟁의 진실 파헤치기
+  - variableText 브랜치 관리하기
+  - siteTool 만들기
+  - 블로그 관리하기
   - 아마존 무료 클라우드 호스팅 서비스 알아보기
   - 면접 시 질문
     - 회의 분위기가 어떤가요?
