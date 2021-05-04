@@ -1,21 +1,17 @@
 # 할 일
 
 - miniRT
-  - 도형에 대해 더 코어한 instance method 를 정의할 수 있을 것 같다
-    - intersects 를 사용하여 block light 를 만든다던가
-  - void line_get_point(t_line *p_line, double k, t_vector3 point)` 만들기
-  - 처음에는 blocks_light 가 작동하면서 깔끔하게 평면, 빛받는 구 부분, 빛 안밭는 구 부분으로 사각형이 나누어 출력했으나, blocks_light 를 수정하고 나서는 수정이 적용되도록 출력되었다. 일단 이 함수가 받는 가장 가까운 도형은 사각형이고, 그래서 구와 같지 않기 때문에 구의 표면이 노이즈되어 출력되었다
-  - k_smallest 가 아니라 k 값으로 p_point->position 을 계산하고 있었다 (러
-  - add_light_to_light_color 가 sin(theta) 로 색을 적용하는 것 까지 하지만, 사실 각 도형은 sin(theta) 를 반환하기만 하면 색을 적용하는건 밖에서 공통적으로 할 수 있을 것 같다
+  - 삼각형이 출력되기는 하는데 y = k 인 경우 우둘투둘하게 출력되는 문제
+    - 랜즈 바꿔서 재출력해볼것
+  - plane 의 center 로 향하는 ray 에 대해 intersects 에 오류가 있을 것 같다
+    - center - point
+	- 마찬가지로 triangle 의 A 로 향하는 ray 의 경우
   - transformation: transposition, transition, rotation, reflection, projection
     - affine transformation
-  - t_geometry 의 intersection_point 를 intersects 로 변경하기
   - t_geometry 에 add_light_to_light_color 구현하기
   - t_square.c/blocks_light 구현하기
-  - 카메라가 구 안에 있을 때 지금은 구를 그릴 것 같다
-  - 물체의 각도에 따른 빛 받는 양 다르게 적용하기
   - t_<geometry> 만들기
-    - 각 geometry 마다 intersection_point(t_line *p_line) 만들기
+    - 각 geometry 마다 intersections(), blocks_light(), get_ligt_coefficient() 구현하기
   - mandatory
     - 5 geometric objects: plane, sphere, cylinder, square, triangle
 	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
@@ -41,6 +37,12 @@
 	    - 뒤에 원하는 에러 메세지 출력 허용
   - rasterization 검색
   - 이미지 출력 전에 client 의 endianess 를 확인한 후 server 의 endianess 에 따라 이미지 처리하기
+  - bonus:
+    - cube, pyramid
+    - one color filter
+	- skybox
+	- keyboard interactivity with camera or mouse
+	- stereoscopy
 - ft_server
   - Nginx 알아보기
   - 슬랙, 디코, 42wiki 에서 정보 얻기
