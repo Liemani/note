@@ -1,6 +1,11 @@
 # 할 일
 
 - miniRT
+  - 원기둥을 하나로 할지 분할해서 할지 결정하기
+    - 분할해서 하려니 문제가 좀 있다. 지금은 blocks_light 의 closest_geometry 인자가 문제이다
+  - 원기둥 위의 점 P 에 대한 원기둥의  단면의 중심점을 함수화하기
+  - plane, triangle, circle 등 평면 도형이 square 처럼 blocks_light() 를 구현
+  - cylinder blocks_light() 구현하기 (구 참고)
   - 삼각형이 출력되기는 하는데 y = k 인 경우 우둘투둘하게 출력되는 문제
     - 랜즈 바꿔서 재출력해볼것
   - plane 의 center 로 향하는 ray 에 대해 intersects 에 오류가 있을 것 같다
