@@ -1,31 +1,11 @@
 # 할 일
 
 - miniRT
-  - 원기둥을 하나로 할지 분할해서 할지 결정하기
-    - 분할해서 하려니 문제가 좀 있다. 지금은 blocks_light 의 closest_geometry 인자가 문제이다
-  - 원기둥 위의 점 P 에 대한 원기둥의  단면의 중심점을 함수화하기
-  - plane, triangle, circle 등 평면 도형이 square 처럼 blocks_light() 를 구현
-  - cylinder blocks_light() 구현하기 (구 참고)
-  - 삼각형이 출력되기는 하는데 y = k 인 경우 우둘투둘하게 출력되는 문제
-    - 랜즈 바꿔서 재출력해볼것
-  - plane 의 center 로 향하는 ray 에 대해 intersects 에 오류가 있을 것 같다
-    - center - point
-	- 마찬가지로 triangle 의 A 로 향하는 ray 의 경우
-  - transformation: transposition, transition, rotation, reflection, projection
-    - affine transformation
-  - t_geometry 에 add_light_to_light_color 구현하기
-  - t_square.c/blocks_light 구현하기
-  - t_<geometry> 만들기
-    - 각 geometry 마다 intersections(), blocks_light(), get_ligt_coefficient() 구현하기
+  - core 도 다 담는 헤더 파일을 하나 만들자
+  - application 은 root 로 꺼낼까?
+  - mlx_get_screen_size 테스트 해보기
+  - main.c/read_arguments()
   - mandatory
-    - 5 geometric objects: plane, sphere, cylinder, square, triangle
-	- 겹치는 경우와 오브젝트 내부도 올바르게 처리되야 한다
-	- 오브젝트의 속성을 resize 할 수 있어야 한다
-	- 평행 변환과 회전 변환이 가능해야 한다
-	  - 구, 삼각형, 빛 은 회전 불가
-	- 빛
-	  - 지점 밝기, 그림자, 자연광, (물체들은 절대 완전한 어둠 속에 있지 않는다)
-	  - 색, 여러 지점 빛들도 잘 처리되야 한다
 	- 두 번째 인자로 '--save' 를 받을 경우 이미지를 bmp 형식으로 저장하기
 	  - 이 경우 창을 띄우지 않는다
 	- 만약 두 번째 인자가 주어지지 않았다면 아래와 같은 기능 수행하기
@@ -48,6 +28,9 @@
 	- skybox
 	- keyboard interactivity with camera or mouse
 	- stereoscopy
+  - transformation: transposition, transition, rotation, reflection, projection
+    - affine transformation
+  - norm 규격에 맞추기
 - ft_server
   - Nginx 알아보기
   - 슬랙, 디코, 42wiki 에서 정보 얻기
@@ -57,6 +40,7 @@
   - SQL databse
 - 블로그를 어느정도 자동화 시켜주는 툴 만들기
   - siteTool
+- setenv 가 basecamp 를 입력받아서 패키지를 구성하도록 변경하기
 
 - 기록이 먼저
   - siteTool 만들기
