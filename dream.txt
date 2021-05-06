@@ -1,6 +1,10 @@
 # 할 일
 
+- 텍스트 가공 작업장 만들기
 - miniRT
+  - BMP 파일로 이미지를 저장해보자! (무슨 방법을 쓰더라도)
+  - BMP image 를 BMP format 으로 저장하기
+  - 함수의 인자가 NULL 등 이상한 값이 들어오는 경우를 항상 염두하자
   - core 도 다 담는 헤더 파일을 하나 만들자
   - application 은 root 로 꺼낼까?
   - mlx_get_screen_size 테스트 해보기
