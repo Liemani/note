@@ -1,39 +1,40 @@
 아래가 옛, 위가 최신
 
+
 # 2021-05-07
 
- 0x00 ~ 0x01:  2 "BM" as ascii
- 0x02 ~ 0x05:  4 total size of bmp file in byte (file header size (14) + dib header size (124 in v5) + color array size (width * height * bpp / 8)
- 0x06 ~ 0x09:  0 reserved, set 0
- 0x0a ~ 0x0d:  4 offset of color array (138 in v5)
- 
- 0x0e ~ 0x11:  4 bV5Size: dib header byte size
- 0x12 ~ 0x15:  4 bV5Width: 가로 픽셀 수
- 0x16 ~ 0x19:  4 bV5Height: 세로 픽셀 수
- 0x1a ~ 0x1b:  2 bV5Planes: 1 고정
- 0x1c ~ 0x1d:  2 bV5BitCount: bit per pixel
- 0x1e ~ 0x21:  4 bV5Compression: 압축 없으면 0
- 0x22 ~ 0x25:  4 bV5SizeImage: 온전한 이미지 크기
- 0x26 ~ 0x29:  4 bV5XPelsPerMeter: 잘 모르면 0
- 0x2a ~ 0x2d:  4 bV5YPelsPerMeter: 위와 동일
- 0x2e ~ 0x31:  4 bV5ClrUsed: 위와 동일
- 0x32 ~ 0x35:  4 bV5ClrImportant: 위와 동일
- 0x36 ~ 0x39:  4 bV5RedMask: big endian 형식의 argb mask
- 0x3a ~ 0x3d:  4 bV5GreenMask: 위와 동일한 형식
- 0x3e ~ 0x41:  4 bV5BlueMask: 위와 동일한 형식
- 0x42 ~ 0x45:  4 bV5AlphaMask: 위와 동일한 형식
- 0x46 ~ 0x49:  4 bV5CSType: 42 47 52 73
- 0x4a ~ 0x6d: 36 bV5Endpoints: 잘 모르면 따라하기, 아마 색상의 한계를 결정
- 	0000040                               80 c2 f5 28 60 b8
- 	0000050 1e 15 20 85 eb 01 40 33 33 13 80 66 66 26 40 66
- 	0000060 66 06 a0 99 99 09 3c 0a d7 03 24 5c 8f 32
- 0x6e ~ 0x71:  4 bV5GammaRed
- 0x72 ~ 0x75:  4 bV5GammaGreen
- 0x76 ~ 0x79:  4 bV5GammaBlue
- 0x7a ~ 0x7d:  4 bV5Intent: 이 이미지의 의도에 대한 데이터를 담는다. 04 00 00 00
- 0x7e ~ 0x81:  4 bV5ProfileData: 0
- 0x82 ~ 0x85:  4 bV5ProfileSize: 0
- 0x86 ~ 0x89:  4 bV5Reserved: 0
+0x00 ~ 0x01:  2 "BM" as ascii
+0x02 ~ 0x05:  4 total size of bmp file in byte (file header size (14) + dib header size (124 in v5) + color array size (width * height * bpp / 8)
+0x06 ~ 0x09:  0 reserved, set 0
+0x0a ~ 0x0d:  4 offset of color array (138 in v5)
+
+0x0e ~ 0x11:  4 bV5Size: dib header byte size
+0x12 ~ 0x15:  4 bV5Width: 가로 픽셀 수
+0x16 ~ 0x19:  4 bV5Height: 세로 픽셀 수
+0x1a ~ 0x1b:  2 bV5Planes: 1 고정
+0x1c ~ 0x1d:  2 bV5BitCount: bit per pixel
+0x1e ~ 0x21:  4 bV5Compression: 압축 없으면 0
+0x22 ~ 0x25:  4 bV5SizeImage: 온전한 이미지 크기
+0x26 ~ 0x29:  4 bV5XPelsPerMeter: 잘 모르면 0
+0x2a ~ 0x2d:  4 bV5YPelsPerMeter: 위와 동일
+0x2e ~ 0x31:  4 bV5ClrUsed: 위와 동일
+0x32 ~ 0x35:  4 bV5ClrImportant: 위와 동일
+0x36 ~ 0x39:  4 bV5RedMask: big endian 형식의 argb mask
+0x3a ~ 0x3d:  4 bV5GreenMask: 위와 동일한 형식
+0x3e ~ 0x41:  4 bV5BlueMask: 위와 동일한 형식
+0x42 ~ 0x45:  4 bV5AlphaMask: 위와 동일한 형식
+0x46 ~ 0x49:  4 bV5CSType: 42 47 52 73
+0x4a ~ 0x6d: 36 bV5Endpoints: 잘 모르면 따라하기, 아마 색상의 한계를 결정
+	0000040                               80 c2 f5 28 60 b8
+	0000050 1e 15 20 85 eb 01 40 33 33 13 80 66 66 26 40 66
+	0000060 66 06 a0 99 99 09 3c 0a d7 03 24 5c 8f 32
+0x6e ~ 0x71:  4 bV5GammaRed
+0x72 ~ 0x75:  4 bV5GammaGreen
+0x76 ~ 0x79:  4 bV5GammaBlue
+0x7a ~ 0x7d:  4 bV5Intent: 이 이미지의 의도에 대한 데이터를 담는다. 04 00 00 00
+0x7e ~ 0x81:  4 bV5ProfileData: 0
+0x82 ~ 0x85:  4 bV5ProfileSize: 0
+0x86 ~ 0x89:  4 bV5Reserved: 0
 
 - 코드에 압도되는 것은 좋지 않은 상황이다. 앞길이 막막해지고, 어딜 건들여야할지 바로 보이지 않을 때가 있다
 - 코드의 많은 부분에 영향을 줄 경우 2 가지 경우의 수가 있다
@@ -42,6 +43,7 @@
 - lldb 로 특정 변수 값이 변경되는 지점을 break 하는 것이 가능 'watchpost'
 - lldb 로 특정 frame 으로 이동하는 것이 가능 up, down, frame set
 - 나는 위치와 방향에 따른 모든 경우를 출력 가능하도록 구현햇는데, 다른 방법으로 default 상태를 구현하고 이를 평행 이동, 회전 이동 하여 도형의 최종 상태를 출력하는 방법도 있는 것 같다
+
 
 # 2021-05-06
 
@@ -82,6 +84,7 @@
 0x86 ~ 0x89: bV5Reserved
 - BMP format 으로 이미지를 저장하기 위해 file_header[], dib_header[] 등을 만들었는데, 각 데이터의 index 를 define 하여 데이터를 쓰고, 만들어진 배열을 파일에 write 하려고 했다. 그런데 index 로 입력한 값을 그냥 배열 통채로 사용해버릴 때는 문제가 없었지만, 결국 이미지의 width, height 등은 다른 곳에서도 쓰일 수 있기 때문인데 일단은 다른 곳에 있는 데이터를 가져다가 사용하기로 했다 (width 와 height 는 p_image 로부터 등)
 
+
 # 2021-05-05
 
 - 테스트 환경 구성하여 테스트 진행
@@ -101,6 +104,7 @@
   - bitmap 은 더 포괄적인 의미이고 BMP 는 bitmap 중 특정 포멧이다
   - 아마 최적화를 위해 프로그램 내부적으로 사용되는 이미지는 자신만의 bitmap 데이터 타입을 정의하는 모양이다
 
+
 # 2021-05-04
 
 - 빛이 평면 위의 점일 경우를 잘 처리해주자
@@ -110,6 +114,7 @@
 - 제대로 표현하지 않으면 어차피 나중에 계속 후회한다
   - 일단 내 잘못이면 나중에 후회할 확률이 높다 문젝 없더라도 사과하는 것이 맞다 그게 맞다
 - x 와 z 가 모두 0 인 카메라 orientation 을 받을 때 xz_magnitude 가 0 이 되어 0 으로 나누게 되는 문제
+
 
 # 2021-05-03
 
@@ -125,3 +130,231 @@
   - 이 경우 특정 부위는 과하게 밝게 표현단다
     - 이를 해결하기 위해서는 2 차 3 차 반사를 적용해야 한다
 - 삼각형은 각도록 점의 위치가 안에 있는지 밖에 있는지를 구분했다
+
+
+# 2021-04-11
+
+- 다음 두 함수의 차이가 있을까?
+
+int strlen(char s[])
+{
+	int i = 0;
+	while (s[i] != '\0')
+		++i;
+	return i;
+}
+
+int	strlen(char *s)
+{
+	char *ptr = s;
+	while (*ptr)
+		++ptr;
+	return (ptr - s);
+}
+
+- -1L vs 1UL: unsigned long 타입으로 변환되고 비교한다면 -1L 이 더 크게 된다. 실제는 어떨까?
+
+
+# 2021-01-28
+
+클러스터는 예약시스템 지금은 코로나가 심해져서 예약조차 안되는 듯 하다
+2.5 단계 밑으로 내려가야 클러스터 사용이 가능하다
+
+
+# 2021-01-15
+
+```zsh
+% cat display_line.sh
+$1 | wc -l
+% ./display_line.sh set
+      41
+% sh display_line.sh set
+      41
+% zsh display_line.sh set
+     145
+% set | wc -l
+     167
+% source display_line.sh set
+     167
+% bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ set | wc -l
+      47
+```
+
+- 왜 set 의 결과 값이 달라지는 것일까?
+
+
+# 2021-01-14
+
+- 전선이 모든 주파수를 다 통과시키지 못하고 제한된 영역의 주파수만 전달이 가능한 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=368)
+- 디지털 신호도 원하는 주파수를 만들어서 전송할 수 있을 것 같은데 굳이 아날로그 신호로 바꾸어서 전송해야 하는 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=386)
+ttps://opentutorials.org/module/3747
+
+
+# 2020-12-25
+
+(T: Think, D: Do)
+- T: Ratio of my study and others study
+  - Just help others study, and if i get some thought of 'It's not right', then reject it
+  - Never present a fish, teach how to get that
+- D: More practice the way to use `find` command
+
+
+# 2020-12-24
+
+(Q: Question, I: Idea)
+- Q: When i set the argument type of main, even making it pointer is common, making it array also possible, will there some difference?
+- Q: Will it possible executing according to the extension of file in vim?
+  - :set autoindent for .md
+  - :set cindent for .c
+- I: What about a program which show real memory state on one side and what happenning at code at the other side?
+  - Simulate very little computer, so i can see the memory at one display
+- Q: Can i access NULL pointer?
+- Idea: mobile golf game
+  - Scroll the mobile display, if your display stop at to goal, you are hole in one :D
+
+
+# 2020-12-23
+
+- Q: I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
+    char    str[] = "lol";
+- Q: imo, `"lol"` might be stored in data block and copy it to str array, correct?
+
+
+# 2020-12-08
+
+1.3. x: delete a character
+1.4. i: enter `insert mode`
+1.5. a: enter `insert mode` with appending
+
+2.1. dw: delete a word
+2.2. d$: delete to the end of line
+2.3. `command target`: dw, de, d$
+	enable target example: w, e, $, 0, b, h, j, k, l, H, L, {, }
+2.4. `count command`: 2w, 3e
+	0: move cusor  the start of the line
+2.5. `command count target`: d2w
+2.6. dd: delete a line
+	`count command target`: 2dd, 2dw
+2.7. u: undo last command
+	ctrl-r: redo last undo
+
+3.1. p: put vim's buffer content behind the cursor
+	if vim's buffer has a line, put it under line of the cursor
+3.2. r: replace a character without mode change
+3.3. c target: delete target and enther `insert mode`(change): ce, c$, c2w, 2cw
+
+4.1. ctrl-g: display the path of the file and state
+	G: move to the last line of the file
+	gg: move to the first line of the file
+	count G: move to the count line
+4.2. / 'what to search': search downward
+	? 'what to search': search upward
+	n: search next
+	N: search previous
+	ctrl-o: move previous cursor position
+	ctrl-i: move next cursor position
+4.3. %: move to the matching bracket
+4.4. :s/old/new/g: subtitute 'old' to 'new'
+	:s/thee/the: subtitute only first encountered 'thee'
+	:s/thee/the/g: subtitute all(globally) 'thee' to 'the' in this line
+	:#,#s/old/new/g: #,# mean the line number of two line
+	:%s/old/new/g: search target from whole the file
+	:%s/old/new/gc: you can command by prompt whether subtitute or not
+
+5.1. :! 'extern command' <ENTER>: excute extern command
+5.2. :w FILENAME: write current file as FILENAME
+5.3. :'<,'>w FILENAME: save selected range as FILENAME
+5.4. :r FILENAME: read and put FILENAME file under the cursor line
+	:r !ls: read and put the result of 'ls' extern command under the cursor line
+
+how to show pressed command state?
+default output resolution: 853x480
+
+
+# 2020-11-27
+
+which vimmemo
+(in vim normal mode): ":echo $MYVIMRC"
+	# You can easily find the location and name of the file on any operating system.
+how to move cursor to top or bottom of screen in vim?
+	# H: move cursor to top of screen.
+	# L: move cursor to bottom of screen.
+	# {: move cursor to previous paragraph.
+	# }: move cursor to next paragraph.
+why use link?
+	# For to call same function as different names
+what is the difference between soft link and hard link?
+
+
+# 2020-11-17
+
+POSIX CLI1
+h
+
+
+# 2020-??-??
+
+echo "*"    # *
+echo '*'    # *
+echo /*    # *
+echo *    # display all files
+echo ~    # display home path
+echo ?    # display all 1 character
+
+echo "$truc"    # isACar
+echo '$truc'    # truc
+
+cat [-e]
+more    # work like man page
+head
+tail
+
+grep [-iv]
+
+ls bonjour 2> error.log
+ls bonjour test* > res.txt 2> error.log
+ls bonjour test* 2> error.log | grep test00
+
+cat batman.txt | grep Joker | wc -l
+grep Joker < batman.txt | wc -l
+
+echo coucou > res.txt    # write file
+echo coucou >> res.txt    # append file
+
+cat << FIN    # read until FIN
+ls bonjour *.txt > resultat.txt 2>&1
+cat resultat.txt
+
+ctrl d
+ctrl c
+ctrl \
+
+
+# 2020-10-14
+
+gzip -d <file>
+tar -zxvf <file>
+man cut
+man diff
+man patch
+
+
+# 2020-10-13
+
+ctrl a
+ctrl e
+
+opt <-
+opt ->
+
+ctrl u
+ctrl k
+
+hexdump
+
+Put some unfamiliar shortcut image aside. 
