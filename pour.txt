@@ -1,4 +1,14 @@
-아래가 옛, 위가 최신
+- 아래가 옛, 위가 최신
+- 생각을 자유롭게 써내려가는 공간
+
+
+# 2021-05-13
+
+- search keyword
+  - architecture
+  - underneath
+  - underlying mental model and architectur
+- line 을 읽는 기능과 split 을 구현할 때, 이미 많은 것을 구현한 miniRT 폴더에서 진행하는 것이 아니라 새로운 모듈을 만드는 장소를 따로 만들어서 진행하고, 기능이 충분히 구현되었다고 생각하면 그 때 합치는 것이 좋을 것 같다
 
 
 # 2021-05-07
