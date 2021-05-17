@@ -1,5 +1,13 @@
 - 아래가 옛, 위가 최신
 - 생각을 자유롭게 써내려가는 공간
+- 단, 여기에 작성한 글은 참고는 하되 정리하지는 않는 것을 원칙으로 한다
+
+
+# 2021-05-17
+
+[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
+
+- ls | sort -k1 -r
 
 
 # 2021-05-13
