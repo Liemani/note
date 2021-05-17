@@ -5,9 +5,9 @@
 
 # 2021-05-17
 
-[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
-
-- ls | sort -k1 -r
+-[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
+  - ls | sort -k1,1 -k9,9 -r
+- 화면에 vim 을 10 개 이상씩 가득 띄워놓고 보는 것은 솔직히 썩 바람직한 방식은 아닌 것 같다. 오늘 keynote 로 struct 간의 reference 그래프를 그려보았는데, 이렇게 하고 보니 전체적인 프름이 한 눈에 보였고, 어떻게 추상화할지를 판단하기 훨씬 수월했다 (전에는 거의 불가능하거나 오랜 시간을 들여야만 했다)
 
 
 # 2021-05-13

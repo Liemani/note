@@ -12,10 +12,10 @@
 - 섬머워즈 같은 가상 세계
 
 - miniRT
+  - 여러 카메라 구현 (scene 에 p_cameras 적용 및 t_camera 에 p_next 적용)
   - get_line 과 split 등을 구현하여 .rt 파일을 읽을 수 있도록 하자
     - 읽은 line 은 split 으로 적당히 쪼개서 모델을 초기화하는 함수도 작성하자
   - 함수의 인자가 NULL 등 이상한 값이 들어오는 경우를 항상 염두하자
-  - application 은 root 로 꺼낼까?
   - mlx_get_screen_size 테스트 해보기
   - main.c/read_arguments()
   - mandatory
@@ -51,7 +51,7 @@
   - SQL databse
 - siteTool
 - variabledText
-  - 변수의 값에 '\n' 를 넣을 수 있게하려면 변수 간의 delimiter 를 '\n' 로 하면 안되는 걸까?
+  - 변수의 값에 '\n' 를 넣을 수 있게 하려면 변수 간의 delimiter 를 '\n' 로 하면 안되는 걸까?
   - 변수 식별자를 일괄적으로 바꾸는 추가 기능
   - 다양한 경고 (위치와 해당 라인 출력)
     - 정의하지 않은 식별자 사용 경고
@@ -119,6 +119,8 @@
 
 # 미래
 
+- 데이터를 git 으로 관리
+- 여러 git repository 의 commit 을 확인할 수 있는 상위 git
 - 면접 시 질문
   - 회의 분위기가 어떤가요?
 - 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
