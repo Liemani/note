@@ -3,6 +3,20 @@
 - 단, 여기에 작성한 글은 참고는 하되 정리하지는 않는 것을 원칙으로 한다
 
 
+# 2021-05-18
+
+```zsh
+Undefined symbols for architecture x86_64:
+  "_bmp_write_image_to_file", referenced from:
+      _generate_image in t_application.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [miniRT_debug.out] Error 1
+```
+  - 위와 같은 메세지를 띄우며 컴파일이 한참 진행중이다가 완료되지 못하고 끝에 link error 가 발생하는 경우가 있다
+    - 이 경우 컴파일러가 해당 함수가 존재함을 function prototype 을 통해 인지했기 때문에 컴파일 에러가 발생하지는 않았지만 프로그램의 binary code 를 생성하기 위해 찾아보니 실제 해당 함수의 binary code 가 존재하지 않는 경우 출력되는 에러 메세지이다
+
+
 # 2021-05-17
 
 -[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
