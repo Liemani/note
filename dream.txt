@@ -12,6 +12,7 @@
 - 섬머워즈 같은 가상 세계
 
 - miniRT
+  - debugin 목적의 decription 구현하기
   - get_line 구현하기
   - 여러 카메라 구현 (scene 에 p_cameras 적용 및 t_camera 에 p_next 적용)
   - get_line 과 split 등을 구현하여 .rt 파일을 읽을 수 있도록 하자
