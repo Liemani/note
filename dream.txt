@@ -11,6 +11,8 @@
   - note 치는, 시작은 드론 과정에서 만들었던 간단한 click 시스템 기반으로 해도 좋다
 - 섬머워즈 같은 가상 세계
 
+- link 확실히 익혀서 libft 를 link 로 처리할 수 있도록 하자!
+  - 장점: 하나의 libft 만을 두고 (공간 절약) 한 번의 수정으로 모든 link 에 영향을 미칠 수 있다 (모듈화)
 - miniRT
   - 여러 카메라 구현 (scene 에 p_cameras 적용 및 t_camera 에 p_next 적용)
   - get_line 과 split 등을 구현하여 .rt 파일을 읽을 수 있도록 하자

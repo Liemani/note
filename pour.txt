@@ -1,6 +1,7 @@
 - 아래가 옛, 위가 최신
 - 생각을 자유롭게 써내려가는 공간
 - 단, 여기에 작성한 글은 참고는 하되 정리하지는 않는 것을 원칙으로 한다
+- 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
 # 2021-05-18
@@ -15,6 +16,9 @@ make: *** [miniRT_debug.out] Error 1
 ```
   - 위와 같은 메세지를 띄우며 컴파일이 한참 진행중이다가 완료되지 못하고 끝에 link error 가 발생하는 경우가 있다
     - 이 경우 컴파일러가 해당 함수가 존재함을 function prototype 을 통해 인지했기 때문에 컴파일 에러가 발생하지는 않았지만 프로그램의 binary code 를 생성하기 위해 찾아보니 실제 해당 함수의 binary code 가 존재하지 않는 경우 출력되는 에러 메세지이다
+- 대답을 잘 해서 상대를 이해시키기보다는 상대 스스로 생각해서 스스로 이해하도록 유도하는 것이 더 좋지 않을까?
+- [linuxconfig/Understanding of ls command with a long listing format output and permission bits](https://linuxconfig.org/understanding-of-ls-command-with-a-long-listing-format-output-with-permission-bits)
+  - permission / number of linked hard-links / owner of the file / to which group this file belongs to / size / modification or creation date and time / file or directory name
 
 
 # 2021-05-17
