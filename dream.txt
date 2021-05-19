@@ -123,6 +123,12 @@
   - 50/288 : The C Programming Language
   - 늑향: 10 권 114p
 
+# 정리
+
+miniRT 에러의 종류
+- malloc, read 등 standard library function error
+- .rt 파일의 format 이 misconfigured
+
 # 미래
 
 - 데이터를 git 으로 관리
