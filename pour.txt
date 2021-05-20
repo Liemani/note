@@ -4,6 +4,20 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-05-20
+
+[wiki/regular expression](https://en.wikipedia.org/wiki/Regular_expression)
+- '.' 은 '\n' 을 제외한 모든 문자와 matching 된다는데 regex 는 '\n' 와 matching 은 안되는 걸까?
+  - 여러 주변 환경에 따라 추가할지 말지는 취향이다
+[wiki/glob](https://en.wikipedia.org/wiki/Glob_(programming))
+- '*': matches any number of any characters including none
+- '?': matches any single character
+- '[abc]': matches one character given in the bracket
+- '[a-z]': matches one character from the (locale-dependent) range given in the bracket
+- '[!abc]': matches one character that is not given in the bracket
+- '[!a-z]': matches one character that is not from the range given in the bracket
+
+
 # 2021-05-18
 
 ```zsh

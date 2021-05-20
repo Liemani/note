@@ -39,6 +39,8 @@
   - miniRT 평가 등 각종 평가 사항 작성하기
   - set_model() 에서 .rt file 이 misconfigured 일 경우 어떤 에러인지 간단하게 추가하기
   - window 를 띄울 때 scene 의 size 가 display resolution 보다 클 경우 화면 크기에 따라 조절하여 window 생성하기
+  - 꼭 libft 까지 norm 체크를 잘 하자
+  - 파일 구조를 struct reference flow 처럼 chart 로 만들어보기
   - bonus:
     - cube, pyramid
     - one color filter
