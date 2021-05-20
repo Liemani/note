@@ -41,6 +41,7 @@
   - window 를 띄울 때 scene 의 size 가 display resolution 보다 클 경우 화면 크기에 따라 조절하여 window 생성하기
   - 꼭 libft 까지 norm 체크를 잘 하자
   - 파일 구조를 struct reference flow 처럼 chart 로 만들어보기
+  - atoi() 등으로 값을 받고 나서 이상한 값이 추가적으로 들어가 있지는 않은가 검사하도록 하자
   - bonus:
     - cube, pyramid
     - one color filter
@@ -59,6 +60,7 @@
   - phpMyAdmin
   - SQL databse
 - siteTool
+  - 블로그 만들고 작성하기!!!
 - variabledText
   - 변수의 값에 '\n' 를 넣을 수 있게 하려면 변수 간의 delimiter 를 '\n' 로 하면 안되는 걸까?
   - 변수 식별자를 일괄적으로 바꾸는 추가 기능
@@ -156,6 +158,7 @@ miniRT 에러의 종류
 	- free 면 segmant fault
 	- 참조면 abort 나 bus error
   - report 내용
+  - automata
 - 사이드 프로젝트
   - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
     - 개인 플레이 게임을 만드는 것도 크게 나쁘지는 않으나 재미를 얻을 수 있는 요소가 멀티에 비해 제한된다
