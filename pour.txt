@@ -4,6 +4,12 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-05-21
+
+- 값을 읽어서 model 을 만드는 정도의, 성능에 critical 하지 않은 경우는 하드 코딩하여 성능 향상을 추구하기 보다는 유연하고 확장적인 추상화 모델을 만들도록 하자
+- name convention 을 통일하기 위해 vector3 를 p_vector3 로 하는 것이 더 좋았을 것이다
+
+
 # 2021-05-20
 
 [wiki/regular expression](https://en.wikipedia.org/wiki/Regular_expression)
