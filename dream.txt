@@ -12,6 +12,7 @@
 - 섬머워즈 같은 가상 세계
 
 - miniRT
+  - summon 님 버전 사용해서 screen resolution 해결하기
   - 여러 카메라 구현 (scene 에 p_cameras 적용 및 t_camera 에 p_next 적용)
   - mlx_get_screen_size 테스트 해보기
   - mandatory
