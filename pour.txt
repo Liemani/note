@@ -8,6 +8,9 @@
 
 - 값을 읽어서 model 을 만드는 정도의, 성능에 critical 하지 않은 경우는 하드 코딩하여 성능 향상을 추구하기 보다는 유연하고 확장적인 추상화 모델을 만들도록 하자
 - name convention 을 통일하기 위해 vector3 를 p_vector3 로 하는 것이 더 좋았을 것이다
+- [stackexchange/Vim search replace all files in current (project) folder](https://vi.stackexchange.com/questions/2776/vim-search-replace-all-files-in-current-project-folder)
+  - ':args <file or directory>': similar 'vim <file or directory>' on cli
+  - ':argdo <vim command>': do command to all open file
 
 
 # 2021-05-20
