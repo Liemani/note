@@ -12,22 +12,7 @@
 - 섬머워즈 같은 가상 세계
 
 - miniRT
-  - summon 님 버전 사용해서 screen resolution 해결하기
-  - 여러 카메라 구현 (scene 에 p_cameras 적용 및 t_camera 에 p_next 적용)
-  - mlx_get_screen_size 테스트 해보기
-  - mandatory
-	- 요구된 scene 크기가 화면보다 크다면 창 크기를 화면 해상도에 맞게 설정하기
-	- 만약 카메라가 여러개 존재한다면 원하는 키를 눌러서 화면 전환이 가능하도록 하기
-  - window 를 띄울 때 scene 의 size 가 display resolution 보다 클 경우 화면 크기에 따라 조절하여 window 생성하기
   - 파일 구조를 struct reference flow 처럼 chart 로 만들어보기
-  - bonus:
-    - cube, pyramid
-    - one color filter
-	- skybox
-	- keyboard interactivity with camera or mouse
-	- stereoscopy
-  - transformation: transposition, transition, rotation, reflection, projection
-    - affine transformation
   - norm 규격에 맞추기
     - 꼭 libft 까지 norm 체크를 잘 하자
   - memory leak 잡기!!!
@@ -108,14 +93,14 @@
   - 50/288 : The C Programming Language
   - 늑향: 10 권 114p
 
-# 정리
-
-miniRT 에러의 종류
-- malloc, read 등 standard library function error
-- .rt 파일의 format 이 misconfigured
-
 # 미래
 
+- <F3> 으로 vimsession 을 저장할 때, 자동으로 root directory 의 이름으로 저장하면 좋겠다
+- 프로그램의 동작이 나의 예상과 다를 경우 해결 과정을 기록하자
+  - 일단 무엇이 어떻게 동작할 것이라 예상했는가?
+  - 실제 동작은 어떠했는가?
+  - 예상 가는 원인은 무엇인가?
+  - 잘못 알고 있던 부분은 무엇이었는가?
 - 데이터를 git 으로 관리
 - 여러 git repository 의 commit 을 확인할 수 있는 상위 git
 - 면접 시 질문
@@ -157,3 +142,8 @@ miniRT 에러의 종류
   - Writing Solid Code
 - display_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
   - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
+
+# norm 적용 전 코드에 존재하는 버그
+
+- set_model/get_line.c/append_until_new_line_ch()
+  - ft_memchr() 가 '\n' 을 탐색할 때 잘못된 크기가 3 번째 인자로 들어가서 배열 밖의 데이터에 접근할 수 있는 버그
