@@ -12,10 +12,11 @@
 - 섬머워즈 같은 가상 세계
 
 - miniRT
-  - 파일 구조를 struct reference flow 처럼 chart 로 만들어보기
-  - norm 규격에 맞추기
-    - 꼭 libft 까지 norm 체크를 잘 하자
-  - memory leak 잡기!!!
+  - 제출 전 할 일
+    - bonus rule 지우기
+    - leak check
+    - norm check
+- Push_swap
 - ft_server
   - Nginx 알아보기
   - 슬랙, 디코, 42wiki 에서 정보 얻기
