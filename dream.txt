@@ -12,12 +12,9 @@
 - 섬머워즈 같은 가상 세계
 
 - Push_wap
-  - depth-search or wide-search
-    - 최소 깊이를 탐색하는 것이기 때문에 wide_search 를 하도록 하자
-  - 전체적인 list 의 크기를 짐작할 수 없으니, stack 으로 다 커버할 수 있을지 없을지 모르기 때문에 heap 에 할당하도록 하자
-    - 아니다 깊이 들어가는 부분은 메모리를 많이 사용할 것 같지 않다. a 와 b 의 크기가 가변적이기 때문에, 이들만 heap 에 할당하고 다른 것은 stack 에 할당하도록 하자
   - instruction set 만들기
   - print_instruction() 만들기
+  - queue 의 원소 개수를 맴버 변수에 저장할까?
 - miniRT
   - 제출 전 할 일
     - bonus rule 지우기
