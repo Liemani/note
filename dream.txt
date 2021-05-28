@@ -17,10 +17,10 @@
   - queue 의 원소 개수를 맴버 변수에 저장할까?
 - miniRT
   - 제출 전 할 일
+    - 프로젝트 내용이 바뀌었나 확인하기
     - bonus rule 지우기
     - leak check
     - norm check
-- Push_swap
 - ft_server
   - Nginx 알아보기
   - 슬랙, 디코, 42wiki 에서 정보 얻기
