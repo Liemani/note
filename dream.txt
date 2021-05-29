@@ -12,9 +12,7 @@
 - 섬머워즈 같은 가상 세계
 
 - Push_wap
-  - instruction set 만들기
-  - print_instruction() 만들기
-  - queue 의 원소 개수를 맴버 변수에 저장할까?
+  - 최적화 하기
 - miniRT
   - 제출 전 할 일
     - 프로젝트 내용이 바뀌었나 확인하기
@@ -31,6 +29,9 @@
 - siteTool
   - 블로그 만들고 작성하기!!!
 - variabledText
+  - cli 에서 변수 값을 인자로 넣어줄 수 있으면 좋겠다
+    - 'variabledText <path> -v <identifier>=<value>
+  - '-o' 를 직접 입력하는 것이 아니라 파일 내에 meta data 를 text 로 기록해두고 읽어서 사용하도록 하면 어떻까?
   - 변수의 값에 '\n' 를 넣을 수 있게 하려면 변수 간의 delimiter 를 '\n' 로 하면 안되는 걸까?
   - 변수 식별자를 일괄적으로 바꾸는 추가 기능
   - 다양한 경고 (위치와 해당 라인 출력)
