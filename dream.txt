@@ -13,6 +13,7 @@
 
 - Push_wap
   - 최적화 하기
+  - ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')")
 - miniRT
   - 제출 전 할 일
     - 프로젝트 내용이 바뀌었나 확인하기
