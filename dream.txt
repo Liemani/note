@@ -11,7 +11,36 @@
   - note 치는, 시작은 드론 과정에서 만들었던 간단한 click 시스템 기반으로 해도 좋다
 - 섬머워즈 같은 가상 세계
 
-- Push_wap
+- project 참고 자료
+  - subject pdf
+  - 42seoul wiki
+  - 42seoul-translation
+  - slack
+  - discord
+  - 평가지표
+- ft_server
+  - lv 1
+    - mandatory 충족하기
+  - lv 2
+    - 'init_docker.sh' 는 무엇을 하는가?
+	- '.sh' 및 각종 repository 에 작성한 파일의 command 가 어떤 역할을 하는지
+  - 참고 자료
+    - ft_server pdf
+    - jso 님이 보내준 pdf 파일
+    - 42seoul wiki
+    - 42seoul-translation
+    - slack
+    - discord
+  - 하나의 컨테이너에 debian buster 위에 nginx 로
+  - 'docker build .': 아마 image 를 생성하려나?
+  - 'docker run xxx': 생성된 image 로 container 를 만드는 것일까?
+  - 'Dockerfile': 안에 nginx 를 사용하도록 잘 구현되어 있는지
+  - nginx 는 ssl 을 사용해야만 한다
+  - Nginx 알아보기
+  - Wordpress
+  - phpMyAdmin
+  - SQL databse
+- Push_swap
   - 최적화 하기
   - ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')")
 - miniRT
@@ -20,13 +49,7 @@
     - bonus rule 지우기
     - leak check
     - norm check
-- ft_server
-  - Nginx 알아보기
-  - 슬랙, 디코, 42wiki 에서 정보 얻기
-  - vnc 로 돌려보기
-  - Wordpress
-  - phpMyAdmin
-  - SQL databse
+	- 참고 자료 참고
 - siteTool
   - 블로그 만들고 작성하기!!!
 - variabledText
