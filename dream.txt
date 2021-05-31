@@ -18,7 +18,11 @@
   - slack
   - discord
   - 평가지표
+
 - ft_server
+  - Dockerfile 에 작성된 내용을 실행하던 중 네트워크 관련 작업에 실패하면 어떻게 되는거지?
+    - 네트워크 관련 문제로 실패한 경우에는 Dockerfile 로 해결할 수 없다고 보고, 정상적인 실행이 되지 않는 것이 정상일 것 같다
+	- nginx 를 시작하고 reloac restart 하기 전에 openssl 의 설정을 건들이면 실행이 안되나?
   - lv 1
     - mandatory 충족하기
   - lv 2
@@ -123,9 +127,17 @@
   - 50/288 : The C Programming Language
   - 늑향: 10 권 114p
 
+
+# 찾아보기 및 할 일
+
+- ctags 로 생성된 파일이 다른 directory 에도 적용이 될까?
+- 이 파일 정리하기
+
+
 # 미래
 
 - <F3> 으로 vimsession 을 저장할 때, 자동으로 root directory 의 이름으로 저장하면 좋겠다
+  - vimsession 을 호출할 때 cd 를 먼저 하여 해당 directory 로 이동하는 꼼수?
 - 프로그램의 동작이 나의 예상과 다를 경우 해결 과정을 기록하자
   - 일단 무엇이 어떻게 동작할 것이라 예상했는가?
   - 실제 동작은 어떠했는가?
@@ -153,10 +165,13 @@
 	- 참조면 abort 나 bus error
   - report 내용
   - automata
+  - 프로그램 구조를 위한 추상화 과정과 프로그램 구현을 위한 구체화 과정: 뼈와 살
 - 사이드 프로젝트
   - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
     - 개인 플레이 게임을 만드는 것도 크게 나쁘지는 않으나 재미를 얻을 수 있는 요소가 멀티에 비해 제한된다
 - 읽고 싶은 책
+  - code
+  - jso 님이 추천해준 docker, kubernetes 근처에 있던, unix 탄생 스토리 책
   - Computer Organization and Design: 많은 대학에서 사용하는 컴퓨터 구조의 바이블
   - 성공과 실패를 결정하는 1%의 네트워크 원리
   - strunk and white
