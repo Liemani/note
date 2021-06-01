@@ -20,6 +20,9 @@
   - 평가지표
 
 - ft_server
+  - redirection 이 재대로 되지 않고 계속 http 를 띄우는 문제
+  - 'https://localhost/phpinfo.php' 에 접속 시 'phpinfo()' 를 수행하지 않고 502 Bad Gateway 를 출력하는 문제
+  - EXPOSE 는 왜 필요할까?
   - Dockerfile 에 작성된 내용을 실행하던 중 네트워크 관련 작업에 실패하면 어떻게 되는거지?
     - 네트워크 관련 문제로 실패한 경우에는 Dockerfile 로 해결할 수 없다고 보고, 정상적인 실행이 되지 않는 것이 정상일 것 같다
 	- nginx 를 시작하고 reloac restart 하기 전에 openssl 의 설정을 건들이면 실행이 안되나?
