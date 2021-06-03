@@ -16,7 +16,6 @@
   - 42seoul wiki
   - 42seoul-translation
   - slack
-  - discord
   - 평가지표
 
 - ft_server

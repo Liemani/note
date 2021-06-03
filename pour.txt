@@ -4,6 +4,12 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+#2021-06-03
+
+- 'git show <commit hash>:<path/of/file>': Display content of the file to stdout.
+- 'git checkout <branch or commit> -- <path/of/file>': Get file from another branch or commit.
+
+
 #2021-05-31
 
 docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 실행중이던 명령도 다 종료되면서 container 가 exit 상태가 된다
