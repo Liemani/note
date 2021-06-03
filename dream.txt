@@ -18,19 +18,13 @@
   - slack
   - 평가지표
 
-- ft_server
-  - pre evaluation 받기
+- miniRT
+  - 새로 코드를 추가함에 따라 norm, leak 체크
+  - 평가 지표 이어서 계속 보기
 - Push_swap
   - cluster pc 에 있는 git 이 push 되지 않는 문제
   - 최적화 하기
   - ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')")
-- miniRT
-  - 제출 전 할 일
-    - 프로젝트 내용이 바뀌었나 확인하기
-    - bonus rule 지우기
-    - leak check
-    - norm check
-	- 참고 자료 참고
 - siteTool
   - 블로그 만들고 작성하기!!!
 - variabledText
