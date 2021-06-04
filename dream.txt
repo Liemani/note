@@ -18,13 +18,17 @@
   - slack
   - 평가지표
 
-- miniRT
-  - 새로 코드를 추가함에 따라 norm, leak 체크
-  - 평가 지표 이어서 계속 보기
 - Push_swap
-  - cluster pc 에 있는 git 이 push 되지 않는 문제
+  - 내가 만든 방식이랑 본 방식이랑, 본 방식이 더 저렴해보이는지 생각해보자
   - 최적화 하기
   - ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')")
+  - big o 계산 -> 수열의 합, 시그마 계산, 수열을 함수로 만들고 적분
+  - 첫 loop 에서 마지막 pa 혹은 pb 를 하기 전 ra 혹은 rb 대신 swap
+  - pb 다음 pa 가 나올 수 있는 문제 수정
+- miniRT
+  - 두 번째 인자가 엉뚱한 값을 받으면?
+    - error 를 출력하고 exit 하도록 하자
+  - orientation 0,0,0 error 출력하기
 - siteTool
   - 블로그 만들고 작성하기!!!
 - variabledText
