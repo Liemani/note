@@ -19,21 +19,22 @@
   - 평가지표
 
 - Push_swap
-  - stack count 를 사용하지 않는다면 buffer 가 얼마여야 얼마 만큼 깊이의 stack count 를 상쇄시킬 수 있는지 체크하기
-  - 3 개짜리 정리할 때 최적화 (만약 가장 작은 수가 가장 밑에 있으면 r 로 저장했다 꺼내오기
-  - push_count 가 4 이상일 때 다음 연속 4 개가 push 라면 swap 까지 해서 최적화를 하는 것은 어떨까?
-    - 이게 효율적일지 테스트하기 위해 임상적으로 스왑 후의 데이터를 input 으로 넣고 횟수가 더 줄어드는지 확인해보자
-  - 내가 만든 방식이랑 본 방식이랑, 본 방식이 더 저렴해보이는지 생각해보자
-  - 최적화 하기
+  - bonus
+    - util/t_buffer_info.c/(get_line() | append_until_new_line_ch()) 검증하기
+	- makefile 에 각종 추가 파일 추가하기
+  - norm 에 맞게 수정
+    - 후 기능 테스트 및 leaks 테스트
+  - 적용한 기능을 keynote 로 작성하기
+    - bfs, normal, ss, 특수 case 처리(역순), rr, buffer
+      - 첫 loop 에서 마지막 pa 혹은 pb 를 하기 전 ra 혹은 rb 대신 swap
+	  - 2 개 짜리는 직접 작성
   - ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')")
-  - big o 계산 -> 수열의 합, 시그마 계산, 수열을 함수로 만들고 적분
-  - 첫 loop 에서 마지막 pa 혹은 pb 를 하기 전 ra 혹은 rb 대신 swap
-  - pb 다음 pa 가 나올 수 있는 문제 수정
-  - error 가 나는 것이 leak 때문인가보다 찾아보자
 - miniRT
   - 두 번째 인자가 엉뚱한 값을 받으면?
     - error 를 출력하고 exit 하도록 하자
   - orientation 0,0,0 error 출력하기
+  - 완료하면
+    - norm check, leaks 체크
 - siteTool
   - 블로그 만들고 작성하기!!!
 - variabledText
@@ -107,10 +108,15 @@
   - session 이름을 절대 경로로 저장하고, 불러올 때는 이름이나, 중복이면 그 바로 상위 directory, 그런식으로?
 
 
-# 찾아보기 및 할 일
+# 찾아보기 및 할 일 혹은 생각해볼 일 마구 기록
 
 - ctags 로 생성된 파일이 다른 directory 에도 적용이 될까?
 - 이 파일 정리하기
+- 'c rename t_sort t_sort_type'
+- vimsession 은 사실 해당 git repository 에 귀속되는 것이 맞다. '<F3>' map 을 git repository 위치로 설정하는 것이 가장 알맞다
+- hard link 를 directory 단위로 생성해주는 스크립트
+- env 설정 파일들이 path.sh 의 path 를 인자로 받아서 사용한다면 모듈화할 수 있지 않을까?
+
 
 
 # 미래
