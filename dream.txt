@@ -21,13 +21,24 @@
     - https://github.com/qst0/ft_libgfx#minilibx
 	- https://harm-smits.github.io/42docs/libs/minilibx
 
-- 6-11 일 누나 올 수 있는지 12 일에는 서울 올라간다고 한다
-- miniRT
-  - 두 번째 인자가 엉뚱한 값을 받으면?
-    - error 를 출력하고 exit 하도록 하자
-  - orientation 0,0,0 error 출력하기
-  - 완료하면
-    - norm check, leaks 체크
+# 찾아보기 및 할 일 혹은 생각해볼 일 마구 기록
+
+- <F3> 으로 vimsession 을 저장할 때, 자동으로 root directory 의 이름으로 저장하면 좋겠다
+  - vimsession 을 호출할 때 cd 를 먼저 하여 해당 directory 로 이동하는 꼼수?
+- ctags 로 생성된 파일이 다른 directory 에도 적용이 될까?
+- 이 파일 정리하기
+- 'c rename t_sort t_sort_type'
+- vimsession 은 사실 해당 git repository 에 귀속되는 것이 맞다. '<F3>' map 을 git repository 위치로 설정하는 것이 가장 알맞다
+- hard link 를 directory 단위로 생성해주는 스크립트
+- env 설정 파일들이 path.sh 의 path 를 인자로 받아서 사용한다면 모듈화할 수 있지 않을까?
+  - 전반적인 초기 과정을 추적해보자, ssh key 를 적용하기 위해서 필요한 것들 -> 어디에 적용할지 사이트 주소
+- seoul42_project git 멋져부리게 관리하기
+  - libft  는 하드링크로 만들고, 폴더 째로 하드링크로 복사하는 기능
+  - 생각해보니 git 은 hard link 를 인식 못하기 때문에 git pull 을 하면 하드 링크가 깨지고 파일이 복사될 것이다.. 흠..
+- 끄면 바로 session 을 저장하도록 하면 좋을 것 같다
+  - session 이름을 절대 경로로 저장하고, 불러올 때는 이름이나, 중복이면 그 바로 상위 directory, 그런식으로?
+- 'vim/help/usr7/mark'
+
 - Push_swap
   - bonus
     - util/t_buffer_info.c/(get_line() | append_until_new_line_ch()) 검증하기
@@ -108,27 +119,11 @@
 - 책
   - 50/288 : The C Programming Language
   - 늑향: 10 권 114p
-- 끄면 바로 session 을 저장하도록 하면 좋을 것 같다
-  - session 이름을 절대 경로로 저장하고, 불러올 때는 이름이나, 중복이면 그 바로 상위 directory, 그런식으로?
-
-
-# 찾아보기 및 할 일 혹은 생각해볼 일 마구 기록
-
-- ctags 로 생성된 파일이 다른 directory 에도 적용이 될까?
-- 이 파일 정리하기
-- 'c rename t_sort t_sort_type'
-- vimsession 은 사실 해당 git repository 에 귀속되는 것이 맞다. '<F3>' map 을 git repository 위치로 설정하는 것이 가장 알맞다
-- hard link 를 directory 단위로 생성해주는 스크립트
-- env 설정 파일들이 path.sh 의 path 를 인자로 받아서 사용한다면 모듈화할 수 있지 않을까?
-  - 전반적인 초기 과정을 추적해보자, ssh key 를 적용하기 위해서 필요한 것들 -> 어디에 적용할지 사이트 주소
-- seoul42_project git 멋져부리게 관리하기
 
 
 
 # 미래
 
-- <F3> 으로 vimsession 을 저장할 때, 자동으로 root directory 의 이름으로 저장하면 좋겠다
-  - vimsession 을 호출할 때 cd 를 먼저 하여 해당 directory 로 이동하는 꼼수?
 - 프로그램의 동작이 나의 예상과 다를 경우 해결 과정을 기록하자
   - 일단 무엇이 어떻게 동작할 것이라 예상했는가?
   - 실제 동작은 어떠했는가?
@@ -178,8 +173,3 @@
   - Writing Solid Code
 - display_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
   - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
-
-# norm 적용 전 코드에 존재하는 버그
-
-- set_model/get_line.c/append_until_new_line_ch()
-  - ft_memchr() 가 '\n' 을 탐색할 때 잘못된 크기가 3 번째 인자로 들어가서 배열 밖의 데이터에 접근할 수 있는 버그
