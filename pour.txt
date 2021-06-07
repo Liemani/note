@@ -4,6 +4,68 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-06-07
+
+- [stackoverflow/How can I delete a newline if it is the last character in a file?]
+- how to implement hash function?
+- 'git ls-remote <remote>': 로 romote repository 를 list 할 수 있다
+- 'bash' 에서는 'POSIX sh' 과 달리 '[[' 를 사용할 수 있는데, 이를 사용하면 내부에서 변수를 사용할 때 double quote 를 사용하지 않아야 한다
+- '$?' 는 이전 판단문의 결과를 출력한다
+- 'git tag -d <tag>'
+- 'git push -d <remote> <tag>'
+- 'git show <branch>:<file>'
+- 'git checkout <branch> -- <file>': also do stage
+- ssh 관리는 env 가 해주나?
+  - 지금은 따로 관리 안해주고 직접 ssh 구축 후 git clone 하게 되어 있는데 이후에는 봐서 없으면 해달라고 요청 메세지 보내고 다시 시도해주세요 > 이런 식으로
+  - 그리고 환경 구축하는 script 를 모듈화할 수 있는지 생각 해보자
+- [nvie/A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+  - 여기에서 말하는 git model 은 dev 에 feature 들을 merge 할 것을 목표로 한다
+  - 만약 나의 seoul42_project repository 처럼 각 프로젝트(== feture branch) 를 굳이 하나의 main branch 로 통합할 필요가 없다면 발산형으로, 브랜치 끝을 tag 로 장식해두면 좋을 것 같다
+    - 작성한 feature branch 들을 통합해서 하나의 실행파일을 생성하는 것을 목적으로 하는 경우 main branch 로 merge 하는 것이 맞을 것이다
+- 작업 수행 흐름
+  - 1. 예측한다
+  - 2. 시도한다
+  - 에측하지 못한 일이 발생했을 때 행동 방침
+    - 모든 사람이 해당 사안에 대한 의견을 제시한다
+    - 최종적으로 실현 가능한 유용한 방안을 추려낸다 (갯수는 상관 없다, 납득 가능하면 상관 없다)
+    - 기록으로 남겨두고 한가지를 선택해서 시행 (다수결을 하든 랜덤을 하든, 어차피 다 경험이 된다)
+    - 이후 좋았는지 나빴는지 회고 (및 기록을 통해 경험 축적)
+- 도시를 건설한다고 생각해보자
+  - 우선 조악하더라도 기능적으로 '도시' 라고 부를 수 있을 만한 것, 혹은 도시를 '흉내'내는 것을 만든다
+  - A 건물과 B 건물을 각각 짓고 있는데
+  - B 건물이 A 건물의 상하수도관을 연장해서 사용하려고 할 때
+  - A 건물이 상하수도관을 수정하려고 하면 B 건물에도 영향이 간다
+  - 그럼 이를 미연에 방지하기 위해 전체 상하수도관 관리를 분리해두고
+  - A 건물과 B 건물은 상하수도관 infra 위에서 생성한다고 할 때
+  - 만약 B 건물이 상하수도관을 바꾸고 싶다면 상하수도관을 바꾼 후 이를 rebase 해서 사용하고
+  - 상하수도관을 사용하는 모든 대상은 바뀐 상하수도관을 rebase 해서 사용하면 될 것이다
+    - 근대 그러면 B 건물 담당자가 바꾼 상하수도관 변경 사항이 A 건물에 영향을 주면 어떻게 하지?
+    - 거기다가 상하수도관 뿐만 아니라 건물을 위한 전기, 도로, 등 많은 infra 들은 어떻게 의존성을 두지?
+  - 즉 모든 infra 위에 건물을 짓는 것이 아니라
+  - infra 와 건물이 같은 계층급의 feature branch 에 속하게 되는 것이다
+  - sudo function 만 작성해두고 이 sudo function 을 implement 하는 feature branch 를 만드는 것이다
+  - release branch 는 외부 공개를 위한 
+  - dev 는 모든 feature branch 의 base 이다
+  - feature branch 들의 기능을 사용하는 app logic 을 작성하는 코드 또한 따로 feture branch 를 만들어서 작성 후 merge 해야 할 것이다
+    - 이 때 이 branch 는 우선 sudo function 을 사용한다
+  - 만약 새로운 feature branch 의 요구가 필요하고, 이를 기반으로 하는 sudo code 가 dev 에 추가되어야 할 경우에는 dev 자체를 update 한다
+  - 그러면 다른 feature branch 들은 새로운 sudo code 를 사용할 수 있게 되고, 동시에 sudo code 를 위한 feature branch 를 만들 수 있게 된다
+  - feature branch 가 완성되면 dev 는 그 branch 를 merge 하고 임무를 마친 feature branch 는 delete 한다
+  - release tag 는 외부 공개용으로 완성된 commit 에 tag 한다
+  - hot fix 가 있을 경우 hot fix 를 적용하고 hot fix version 으로 tag 한다
+  - prerelease branch 는 차세대 공개할 release version 을 완성시키기 위해 버그를 수정하고 작동을 테스트해서 마무리하는 branch 이다
+  - prerelease branch 의 목표를 달성하면 release tag 를 붙이고 hot fix 와 유사하게 dev 와 merge 한 후 계속 dev branch 를 rebase 추적한다
+  - dev branch 는 차세대 release version 을 위한 feature 들을 수합하고 대기한다
+    - 차세대 prerelease branch 도 항상 존재한다
+  - 만약 건물 A 와 건물 B 를 위한 feature branch 를 만들어서 사용하다가 상하수관을 분리해야하는 일이 발생한다면
+    - 1. dev 에 sudo code update
+	- 2. sudo code 를 implement 하는 feature branch 생성 및 기존의 open branch 들을 최신 dev branch 로 rebase
+- git 을 연습하는 용도의 도시 건설 project 가 있으면 재밌겠다
+- apple 의 통합 기능은 연결이 가능한 환경에서는 훌륭한 사용 경험을 선사하지만 조금이라도 문제가 생기면 고질적은 치유 불가능한 문제가 되어 버린다
+  - ex> 클러스터 컴퓨터의 apple id 적용 시 나타나는 버그
+    - 이런 경우 직접 관리 가능한 방법이 있으면 유용하다
+
+
 # 2021-06-06
 
 - 삭제된 'remote branch' 를 track 하는 'remote-tracking branch' 가 local 에 남아 있을 때 없애는 방법: 'git branch -dr origin/<branch>'
