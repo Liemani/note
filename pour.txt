@@ -4,6 +4,33 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+
+# 2021-06-08
+
+- 'c rename t_sort t_sort_type'
+- 'basename 'git rev-parse --show-toplevel''
+- ':h <option>' in vim: Search help page for vim
+- 'env': List exported environment variable
+- 'set': List local environment variable
+- '>' 나 '<' 는 파일을 input 으로 읽는다
+- '|' 는 앞 command 의 stdout 을 뒤 command 의 stdin 으로 준다
+- 'xargs <utility>' 는 stdin 을 utility 의 인자로 하여 실행한다
+- 파일로부터 직접 읽고 쓸 때는 꺽쇠를, 다른 처리를 한 결과를 입력으로 할 때는 파이프를 사용한다
+- alias 정의 안에 $() 로 다른 프로그램을 실행하면 실행 시 처음 한 번만 프로그램을 호출하여 값을 저장한다
+- alias 로 특정 파일을 호출할 때, 정확한 위치를 적어주는 것이 아니라 대상을 search 할 directory 를 적어주면 편할 것 같다
+- zsh 뒤에 인자가 여러개이면 가장 처음 인자만 실행된다
+- 'vimsession' 이 현재는 새로운 zsh 을 만들고 그 안에서 session 을 여는 것 같은데 굳이 그럴 필요가 없을 것 같다
+- dirname basename absoulte relative path realpath
+  - 'dirname <path>': Return directory name of path.
+  - 'basename <path>': Return base name of path. (<path> = <dirname>/<basename>)
+- shell script
+  - '$0' first word of command string
+- 'find' command 의 option 중 '-name' 은 case sensitive 하고 '-iname' 은 case insensitive 하다
+- basename 의 버그: 인자가 2 개 일 때 첫 번째 인자만 처리한다
+- 'for word in hello world; do echo $word; done'
+
+
+
 # 2021-06-07
 
 - [stackoverflow/How can I delete a newline if it is the last character in a file?]
@@ -76,6 +103,7 @@
   - 그런데 이것은 file system 의 구체적인 특징이기 때문에 OS 공통의 file system 을 추상화한 git 의 경우 hard link 를 file 로서 기록하고, symbolic link 는 구체적인 inode 연결 이외의 공통적인 file system 특징이므로 일반 파일과 구분하여 기록한다
 
 
+
 # 2021-06-06
 
 - 삭제된 'remote branch' 를 track 하는 'remote-tracking branch' 가 local 에 남아 있을 때 없애는 방법: 'git branch -dr origin/<branch>'
@@ -85,6 +113,7 @@
 - 비교문을 작성할 때는 대소 관계에 따라 작은 것이 왼쪽, 큰 것이 오른쪽에 작성하는 것이 '아니라' 주어 역할을 하는 것이 왼쪽, 비교 값이 오른쪽에 두도록 하자 -> 문장처럼
 - big o 계산 -> 수열의 합, 시그마 계산, 수열을 함수로 만들고 적분
 - 다음에는 에러 전용 구조를 만들도록 하자
+
 
 
 # 2021-06-05
@@ -106,6 +135,7 @@
 - 저 지랄맞은 현충일 캘린더 알림은 왜 계속 뜨는거지?
 
 
+
 # 2021-06-04
 
 - 전에 한 번 빼먹고 특별한 값에 대한 basis_vector 적용을 그냥 넘긴적이 있는데, 이로 인해 오늘 원기둥을 출력할 때 0,1,0 을 normal 로 하는 원기둥의 위, 아래 면을 그릴 때 제대로 출력되지 않는 문제가 있었다. 새로운 기능을 구현할 때는 그 기능을 구현하기 위한 sudo code 를 작성하고, 더 필요하다고 생각이 나면 그 즉시 코드에 sudo code 를 바로 바로 추가하여, 구현하려고 생각만 하고 잊고 마는 일은 없도록 하는 것이 좋겠다
@@ -125,15 +155,18 @@
 - 텍스트를 생성하는 작업장이 있었으면 좋겠다
 
 
+
 # 2021-06-03
 
 - 'git show <commit hash>:<path/of/file>': Display content of the file to stdout.
 - 'git checkout <branch or commit> -- <path/of/file>': Get file from another branch or commit.
 
 
+
 # 2021-05-31
 
 docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 실행중이던 명령도 다 종료되면서 container 가 exit 상태가 된다
+
 
 
 # 2021-05-30
@@ -142,6 +175,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
   - 예시> 신분증 제시와 ssl
     - 공통점: 제 3 자로부터 공인 받은 것으로 자신의 신분을 객관적으로 알린다
 	- 차이점: 신분증은 고객이 서비스 제공자에게 자신의 신분을 알리고, ssl 은 서비스 제공자가 고객에게 자신의 신분을 알린다
+
 
 
 # 2021-05-27
@@ -178,6 +212,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
   - 그 외에는 우선 loop 안에 count 의 증감식을 작성하고, 다른 내부 표현식들의 위치를 결정하자
 
 
+
 # 2021-05-21
 
 - 값을 읽어서 model 을 만드는 정도의, 성능에 critical 하지 않은 경우는 하드 코딩하여 성능 향상을 추구하기 보다는 유연하고 확장적인 추상화 모델을 만들도록 하자
@@ -185,6 +220,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 - [stackexchange/Vim search replace all files in current (project) folder](https://vi.stackexchange.com/questions/2776/vim-search-replace-all-files-in-current-project-folder)
   - ':args <file or directory>': similar 'vim <file or directory>' on cli
   - ':argdo <vim command>': do command to all open file
+
 
 
 # 2021-05-20
@@ -199,6 +235,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 - '[a-z]': matches one character from the (locale-dependent) range given in the bracket
 - '[!abc]': matches one character that is not given in the bracket
 - '[!a-z]': matches one character that is not from the range given in the bracket
+
 
 
 # 2021-05-18
@@ -218,11 +255,13 @@ make: *** [miniRT_debug.out] Error 1
 - directory 를 hard link 로 만드는 것은 간단하지 않다, 그러므로 libft directory 를 hard link 로 만들어서 사용하는 것은 norm 을 벗어나고 나서 생각하자
 
 
+
 # 2021-05-17
 
 -[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
   - ls | sort -k1,1 -k9,9 -r
 - 화면에 vim 을 10 개 이상씩 가득 띄워놓고 보는 것은 솔직히 썩 바람직한 방식은 아닌 것 같다. 오늘 keynote 로 struct 간의 reference 그래프를 그려보았는데, 이렇게 하고 보니 전체적인 프름이 한 눈에 보였고, 어떻게 추상화할지를 판단하기 훨씬 수월했다 (전에는 거의 불가능하거나 오랜 시간을 들여야만 했다)
+
 
 
 # 2021-05-13
@@ -232,6 +271,7 @@ make: *** [miniRT_debug.out] Error 1
   - underneath
   - underlying mental model and architectur
 - line 을 읽는 기능과 split 을 구현할 때, 이미 많은 것을 구현한 miniRT 폴더에서 진행하는 것이 아니라 새로운 모듈을 만드는 장소를 따로 만들어서 진행하고, 기능이 충분히 구현되었다고 생각하면 그 때 합치는 것이 좋을 것 같다
+
 
 
 # 2021-05-07
@@ -278,6 +318,7 @@ make: *** [miniRT_debug.out] Error 1
 - 나는 위치와 방향에 따른 모든 경우를 출력 가능하도록 구현햇는데, 다른 방법으로 default 상태를 구현하고 이를 평행 이동, 회전 이동 하여 도형의 최종 상태를 출력하는 방법도 있는 것 같다
 
 
+
 # 2021-05-06
 
 - 최적화를 위한 다양한 기법은 멀리서 보면 서로 다 다르고 각각을 공부해야 한다고 생각할 수도 있다. 하지만 하고자 하는 진정한 마음이 있고, 본질을 공부한다면 그것들은 공부하지 않아도 만들어낼 수 있는 것들이다, 라고 생각한다
@@ -318,6 +359,7 @@ make: *** [miniRT_debug.out] Error 1
 - BMP format 으로 이미지를 저장하기 위해 file_header[], dib_header[] 등을 만들었는데, 각 데이터의 index 를 define 하여 데이터를 쓰고, 만들어진 배열을 파일에 write 하려고 했다. 그런데 index 로 입력한 값을 그냥 배열 통채로 사용해버릴 때는 문제가 없었지만, 결국 이미지의 width, height 등은 다른 곳에서도 쓰일 수 있기 때문인데 일단은 다른 곳에 있는 데이터를 가져다가 사용하기로 했다 (width 와 height 는 p_image 로부터 등)
 
 
+
 # 2021-05-05
 
 - 테스트 환경 구성하여 테스트 진행
@@ -338,6 +380,7 @@ make: *** [miniRT_debug.out] Error 1
   - 아마 최적화를 위해 프로그램 내부적으로 사용되는 이미지는 자신만의 bitmap 데이터 타입을 정의하는 모양이다
 
 
+
 # 2021-05-04
 
 - 빛이 평면 위의 점일 경우를 잘 처리해주자
@@ -347,6 +390,7 @@ make: *** [miniRT_debug.out] Error 1
 - 제대로 표현하지 않으면 어차피 나중에 계속 후회한다
   - 일단 내 잘못이면 나중에 후회할 확률이 높다 문젝 없더라도 사과하는 것이 맞다 그게 맞다
 - x 와 z 가 모두 0 인 카메라 orientation 을 받을 때 xz_magnitude 가 0 이 되어 0 으로 나누게 되는 문제
+
 
 
 # 2021-05-03
@@ -363,6 +407,7 @@ make: *** [miniRT_debug.out] Error 1
   - 이 경우 특정 부위는 과하게 밝게 표현단다
     - 이를 해결하기 위해서는 2 차 3 차 반사를 적용해야 한다
 - 삼각형은 각도록 점의 위치가 안에 있는지 밖에 있는지를 구분했다
+
 
 
 # 2021-04-11
@@ -388,10 +433,12 @@ int	strlen(char *s)
 - -1L vs 1UL: unsigned long 타입으로 변환되고 비교한다면 -1L 이 더 크게 된다. 실제는 어떨까?
 
 
+
 # 2021-01-28
 
 클러스터는 예약시스템 지금은 코로나가 심해져서 예약조차 안되는 듯 하다
 2.5 단계 밑으로 내려가야 클러스터 사용이 가능하다
+
 
 
 # 2021-01-15
@@ -421,11 +468,13 @@ bash-3.2$ set | wc -l
 - 왜 set 의 결과 값이 달라지는 것일까?
 
 
+
 # 2021-01-14
 
 - 전선이 모든 주파수를 다 통과시키지 못하고 제한된 영역의 주파수만 전달이 가능한 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=368)
 - 디지털 신호도 원하는 주파수를 만들어서 전송할 수 있을 것 같은데 굳이 아날로그 신호로 바꾸어서 전송해야 하는 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=386)
 ttps://opentutorials.org/module/3747
+
 
 
 # 2020-12-25
@@ -435,6 +484,7 @@ ttps://opentutorials.org/module/3747
   - Just help others study, and if i get some thought of 'It's not right', then reject it
   - Never present a fish, teach how to get that
 - D: More practice the way to use `find` command
+
 
 
 # 2020-12-24
@@ -451,11 +501,13 @@ ttps://opentutorials.org/module/3747
   - Scroll the mobile display, if your display stop at to goal, you are hole in one :D
 
 
+
 # 2020-12-23
 
 - Q: I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
     char    str[] = "lol";
 - Q: imo, `"lol"` might be stored in data block and copy it to str array, correct?
+
 
 
 # 2020-12-08
@@ -509,6 +561,7 @@ how to show pressed command state?
 default output resolution: 853x480
 
 
+
 # 2020-11-27
 
 which vimmemo
@@ -524,10 +577,12 @@ why use link?
 what is the difference between soft link and hard link?
 
 
+
 # 2020-11-17
 
 POSIX CLI1
 h
+
 
 
 # 2020-??-??
@@ -568,6 +623,7 @@ ctrl c
 ctrl \
 
 
+
 # 2020-10-14
 
 gzip -d <file>
@@ -575,6 +631,7 @@ tar -zxvf <file>
 man cut
 man diff
 man patch
+
 
 
 # 2020-10-13
