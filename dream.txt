@@ -23,6 +23,7 @@
 
 # 찾아보기 및 할 일 혹은 생각해볼 일 마구 기록
 
+- memo 에 기록한 makefile 작성 메모를 pour.txt 에 옮겨적기
 - seoul42_project git 멋져부리게 관리하기
   - git branch 를 활용하여 main 을 base 로 관리하되 main 의 directory 를 library 화 하여 symbolic link 로 가져가서 사용하고, 제출할 때는 실제 파일을 복사해서 제출하도록 하자
 - vimsession

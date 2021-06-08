@@ -28,7 +28,19 @@
 - 'find' command 의 option 중 '-name' 은 case sensitive 하고 '-iname' 은 case insensitive 하다
 - basename 의 버그: 인자가 2 개 일 때 첫 번째 인자만 처리한다
 - 'for word in hello world; do echo $word; done'
-
+- '<C-k>' in cli: Delete to the end of the line
+- '<C-w>' in cli: Delete backward to the beginning of the word
+- '<C-t>' in cli: Transpose two characters
+- '<S-Command-double_click>' in terminal: Select path or URL
+- '<Command-e>' in terminal: Find selected word
+- '<Command-double_click>' in terminal: Open URL
+- 'drag-and-drop file from finder' in terminal: Add the complete path to a file
+- '<O-click>' in cli: Reposition the insertion point
+- 셸 스크립트를 실행할 때는 새로운 셸에서 실행하는 것을 원칙으로 하자(모듈화)
+  - 단, alias 설정등 셸 윈도우를 처음 띄울 때 필요한 설정은 source 로 실행한다
+  - 간단한 함수 수준도 모듈화해서 사용하는 것이 좋겠다. 정말 빈번히 사용하는 것만 
+- set, typeset, alias, env
+- function 은 실행중인 shell 상에서 호출되면, 블럭 안에서 바꾼 변수의 값이 밖에서도 유지된다
 
 
 # 2021-06-07
