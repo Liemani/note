@@ -4,6 +4,21 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-06-09
+
+- 어떤 프로그램 실행 전에 항상 어떤 코드를 실행시키도록 하는 방법
+  - 1. precmd_function 목록에 추가하여, 모든 command 에 대해 선행 작업을 하도록 한다
+    - 'precmd_function+=( precmd_vcs_info )'
+  - 2. alias 로 shadowing 하여 reculsive 를 막으면서 특정 작업을 선행하도록 작성한다
+    - ex> 'alias ls="ls -Alp"'
+  - 3. 목표 프로그램이 실행될 때 선행적으로 하는 작업이 있다면 원하는 코드를 수행하도록 작성한다
+    - ex> '.zshrc', '.vimrc'
+- 'git config --edit --global': Open global git config file
+- 'git config --get --global core.excludesFile': Show the value of variable
+- set, type, typeset, alias, env, declare
+- function 을 propagate 하여 사용해보려고 했으나 FPATH 가 기본적으로 subshell 에 전달되지 않고 이를 '.zshrc' 없이 구현하는 방법을 찾아보았으나 정보가 없어서 포기하기로 한다
+- function 을 일절 사용하지 않고, subshell 에도 특정 기능을 할 수 있도록 하기 위해서는 '.sh' 파일을 작성하기로 했다.
+
 
 # 2021-06-08
 

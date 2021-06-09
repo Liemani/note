@@ -28,10 +28,8 @@
   - git branch 를 활용하여 main 을 base 로 관리하되 main 의 directory 를 library 화 하여 symbolic link 로 가져가서 사용하고, 제출할 때는 실제 파일을 복사해서 제출하도록 하자
 - vimsession
   - 끄면 바로 session 을 저장하도록 하면 좋을 것 같다
+    - 'git_root/.vimsession/<branch>' 로 저장하면 좋겠다
     - session 이름을 절대 경로로 저장하고, 불러올 때는 이름이나, 중복이면 그 바로 상위 directory, 그런식으로?
-  - <F3> 으로 vimsession 을 저장할 때, 자동으로 root directory 의 이름으로 저장하면 좋겠다
-    - vimsession 을 호출할 때 cd 를 먼저 하여 해당 directory 로 이동하는 꼼수?
-  - vimsession 은 사실 해당 git repository 에 귀속되는 것이 맞다. '<F3>' map 을 git repository 위치로 설정하는 것이 가장 알맞다
 - 'c rename t_sort t_sort_type'
 
 - 'vim/help/usr7/mark'
@@ -123,6 +121,8 @@
 
 # 미래
 
+- git repo, branch name 을 가져오는 과정에서 git repo 안에 있지 않을 때 오류 메세지가 출력되는 문제
+- 'zshrc' 를 할 때마다 precmd_vcs_info 가 precmd_functions 에 추가되는 문제
 - 프로그램의 동작이 나의 예상과 다를 경우 해결 과정을 기록하자
   - 일단 무엇이 어떻게 동작할 것이라 예상했는가?
   - 실제 동작은 어떠했는가?
