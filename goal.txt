@@ -1,29 +1,23 @@
-# project 참고 자료
-  - subject pdf
-  - 42seoul wiki
-  - 42seoul-translation
-  - slack
-  - 평가지표
-  - minilibx
-    - https://github.com/qst0/ft_libgfx#minilibx
-	- https://harm-smits.github.io/42docs/libs/minilibx
+# 제출 전 확인
+
+- subject pdf
+- 42seoul-translation
+- 42seoul wiki
+- 평가지표
+- slack
+- norm
+- leak
+- minilibx
+  - https://github.com/qst0/ft_libgfx#minilibx
+  - https://harm-smits.github.io/42docs/libs/minilibx
 
 # 찾아보기 및 할 일 혹은 생각해볼 일 마구 기록
 
 - seoul42_project git 멋져부리게 관리하기
   - git branch 를 활용하여 main 을 base 로 관리하되 main 의 directory 를 library 화 하여 symbolic link 로 가져가서 사용하고, 제출할 때는 실제 파일을 복사해서 제출하도록 하자
-- 'c rename t_sort t_sort_type'
-- 'aux vim <path>' 파일이 없으면 생성해도 좋겠다
-- vim 하면 위치를 해당 위치로 이동하면 좋을 것 같다
-- aux touch
-- aux rm
-- aux mv
-- shell parameter expansion
-- 만약 같은 이름의 aux_command 가 존재하면 find 는 어떻게 작동해야 할까?
-  - 지금은 무조건 하나 혹은 없다고 가정하고 동작한다
-    - 만약 복수의 파일을 발견하면 두 파일이 담길 것이다
+- how to get disk usage
+- du, df, ...
 
-- 'vim/help/usr7/mark'
 - Push_swap
   - bonus
     - util/t_buffer_info.c/(get_line() | append_until_new_line_ch()) 검증하기

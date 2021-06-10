@@ -4,6 +4,18 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-06-10
+
+- shell parameter expansion
+  - 'repositories=(${repositories/#/$git\/})'
+- 'set -- $vimsession; vimsession=$1': Get first word from string
+- '`.' in vim: Takes cursor to the position where you made the last change
+- '+' 와 '-' 로 증감이 가능한 변수 'var' 가 있다, 이는 생물인가?
+- ':cd %:h' in vim: See ':help expand'
+- 'seq' in cli
+
+
+
 # 2021-06-09
 
 - 어떤 프로그램 실행 전에 항상 어떤 코드를 실행시키도록 하는 방법
