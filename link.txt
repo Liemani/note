@@ -12,5 +12,3 @@ https://zsh.sourceforge.io/Doc/Release/Conditional-Expressions.html
   - 12 Conditional Expressions
 https://www.gnu.org/software/sed/manual/sed.html
   - sed, a stream editor
-https://stackoverflow.com/questions/6591213/how-do-i-rename-a-local-git-branch
-  - stackoverflow/How do I rename a local Git branch?

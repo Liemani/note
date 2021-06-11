@@ -91,15 +91,15 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 61 + 42) / 84)
-exe 'vert 1resize ' . ((&columns * 68 + 68) / 137)
-exe '2resize ' . ((&lines * 20 + 42) / 84)
-exe 'vert 2resize ' . ((&columns * 68 + 68) / 137)
-exe '3resize ' . ((&lines * 20 + 42) / 84)
-exe 'vert 3resize ' . ((&columns * 68 + 68) / 137)
-exe '4resize ' . ((&lines * 19 + 42) / 84)
-exe 'vert 4resize ' . ((&columns * 68 + 68) / 137)
-exe '5resize ' . ((&lines * 20 + 42) / 84)
+exe '1resize ' . ((&lines * 81 + 55) / 111)
+exe 'vert 1resize ' . ((&columns * 50 + 50) / 101)
+exe '2resize ' . ((&lines * 26 + 55) / 111)
+exe 'vert 2resize ' . ((&columns * 50 + 50) / 101)
+exe '3resize ' . ((&lines * 27 + 55) / 111)
+exe 'vert 3resize ' . ((&columns * 50 + 50) / 101)
+exe '4resize ' . ((&lines * 26 + 55) / 111)
+exe 'vert 4resize ' . ((&columns * 50 + 50) / 101)
+exe '5resize ' . ((&lines * 27 + 55) / 111)
 argglobal
 balt goal.txt
 setlocal autoindent
@@ -217,12 +217,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 19 - ((10 * winheight(0) + 30) / 61)
+let s:l = 17 - ((12 * winheight(0) + 40) / 81)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 0
+17
+normal! 02|
 lcd ~/programming/git/note
 wincmd w
 argglobal
@@ -343,7 +343,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 10) / 20)
+let s:l = 2 - ((1 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -468,17 +468,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((12 * winheight(0) + 10) / 20)
+let s:l = 1 - ((0 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
+1
 normal! 0
 lcd ~/programming/git/note
 wincmd w
 argglobal
 if bufexists("~/programming/git/note/evaluation/evaluation.md") | buffer ~/programming/git/note/evaluation/evaluation.md | else | edit ~/programming/git/note/evaluation/evaluation.md | endif
-balt ~/programming/git/note/goal.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -594,7 +593,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -604,7 +603,6 @@ lcd ~/programming/git/note
 wincmd w
 argglobal
 if bufexists("~/programming/git/note/link.txt") | buffer ~/programming/git/note/link.txt | else | edit ~/programming/git/note/link.txt | endif
-balt ~/programming/git/note/goal.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -720,23 +718,24 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 10) / 20)
+let s:l = 2 - ((1 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+2
 normal! 0
 lcd ~/programming/git/note
 wincmd w
-exe '1resize ' . ((&lines * 61 + 42) / 84)
-exe 'vert 1resize ' . ((&columns * 68 + 68) / 137)
-exe '2resize ' . ((&lines * 20 + 42) / 84)
-exe 'vert 2resize ' . ((&columns * 68 + 68) / 137)
-exe '3resize ' . ((&lines * 20 + 42) / 84)
-exe 'vert 3resize ' . ((&columns * 68 + 68) / 137)
-exe '4resize ' . ((&lines * 19 + 42) / 84)
-exe 'vert 4resize ' . ((&columns * 68 + 68) / 137)
-exe '5resize ' . ((&lines * 20 + 42) / 84)
+5wincmd w
+exe '1resize ' . ((&lines * 81 + 55) / 111)
+exe 'vert 1resize ' . ((&columns * 50 + 50) / 101)
+exe '2resize ' . ((&lines * 26 + 55) / 111)
+exe 'vert 2resize ' . ((&columns * 50 + 50) / 101)
+exe '3resize ' . ((&lines * 27 + 55) / 111)
+exe 'vert 3resize ' . ((&columns * 50 + 50) / 101)
+exe '4resize ' . ((&lines * 26 + 55) / 111)
+exe 'vert 4resize ' . ((&columns * 50 + 50) / 101)
+exe '5resize ' . ((&lines * 27 + 55) / 111)
 tabnext 1
 badd +1 ~/programming/git/note/goal.txt
 badd +1 ~/programming/git/note/dream.txt
