@@ -55,7 +55,7 @@ set ttimeout
 set ttimeoutlen=100
 set wildmenu
 set window=0
-let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
@@ -101,7 +101,6 @@ exe '4resize ' . ((&lines * 26 + 55) / 111)
 exe 'vert 4resize ' . ((&columns * 50 + 50) / 101)
 exe '5resize ' . ((&lines * 27 + 55) / 111)
 argglobal
-balt goal.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -192,7 +191,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -217,17 +215,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 17 - ((12 * winheight(0) + 40) / 81)
+let s:l = 1 - ((0 * winheight(0) + 40) / 81)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-17
-normal! 02|
+1
+normal! 0
 lcd ~/programming/git/note
 wincmd w
 argglobal
 if bufexists("~/programming/git/note/dream.txt") | buffer ~/programming/git/note/dream.txt | else | edit ~/programming/git/note/dream.txt | endif
-balt ~/programming/git/note/goal.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -318,7 +315,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -352,7 +348,6 @@ normal! 0
 wincmd w
 argglobal
 if bufexists("~/programming/git/note/pour.txt") | buffer ~/programming/git/note/pour.txt | else | edit ~/programming/git/note/pour.txt | endif
-balt ~/programming/git/note/goal.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -443,7 +438,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -568,7 +562,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -693,7 +686,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -718,15 +710,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 13) / 27)
+let s:l = 1 - ((0 * winheight(0) + 13) / 27)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
+1
 normal! 0
 lcd ~/programming/git/note
 wincmd w
-5wincmd w
 exe '1resize ' . ((&lines * 81 + 55) / 111)
 exe 'vert 1resize ' . ((&columns * 50 + 50) / 101)
 exe '2resize ' . ((&lines * 26 + 55) / 111)
@@ -740,8 +731,8 @@ tabnext 1
 badd +1 ~/programming/git/note/goal.txt
 badd +1 ~/programming/git/note/dream.txt
 badd +1 ~/programming/git/note/pour.txt
-badd +1 ~/programming/git/note/link.txt
 badd +1 ~/programming/git/note/evaluation/evaluation.md
+badd +0 ~/programming/git/note/link.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -749,10 +740,10 @@ unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if filereadable(s:sx)
+if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
-let &g:so = s:so_save | let &g:siso = s:siso_save
+let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
