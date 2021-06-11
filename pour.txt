@@ -4,6 +4,22 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-06-11
+
+- alias 는 read-only 인 constant 고, variable 은 read-write 인 variable 이다
+- local repository 는 'git branch -m <old_branch> <new_branch>' 로 이름을 쉽게 변경할 수 있지만, remote branch 에서는 이가 허용되지 않는다
+- 'du -sh <path>': Print disk usage of 'path' directory or file with human-readable
+  - 기본적으로 파일을 위한 디스크 공간은 (클러스터 맥에서는)  4.0K 를 한 단위로 제공된다
+    - 1 byte 만 사용해도 4.0K 를 할당 받는 것
+  - 'du -c': Display a grand total
+- 'sort -n': Sort fields numerically
+- 'seq 1 10 | sort -nr': Display 10 ~ 1
+- 'sort -t <character>": Use character as seperator
+- 'bluprint' branch 를 작성할 때는 제대로 된 기능을 수행하는 것이 아니라 default 로 정의된 constant 값을 직접 적용하는 정도로 구현해둔다
+  - 그리고 실제 구현해야할 목록에 넣어둬서, 현재 작업이 필요한 목록을 항상 최신으로 유지한다
+- 'main' branch 의 '/.project/' 에는 merge 해야할 사항을 기록해둔다
+
+
 # 2021-06-10
 
 - shell parameter expansion
