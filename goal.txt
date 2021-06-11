@@ -17,6 +17,8 @@
   - git branch 를 활용하여 main 을 base 로 관리하되 main 의 directory 를 library 화 하여 symbolic link 로 가져가서 사용하고, 제출할 때는 실제 파일을 복사해서 제출하도록 하자
 
 - Push_swap
+  - 테스트
+    - 값을 stdin 등 파일로 입력받을 시, 끝에 EOF 가 오면 잘 처리하는지, ctrl-D 일 때 잘 처리하는지
   - bonus
     - util/t_buffer_info.c/(get_line() | append_until_new_line_ch()) 검증하기
 	- makefile 에 각종 추가 파일 추가하기
