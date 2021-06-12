@@ -17,10 +17,7 @@
 backcheck 에서 경로를 출력할 때 git directory 의 주소는 $git 으로 짧게 표시하는게 가독성이 좋을 것 같다
 
 - Push_swap
-  - backdown 후 노트북으로 옮기고 util 수정 및 rebase
-  - ' ' 를 seperator 로 하는 string 1 개가 인자로 들어오는 경우도 잘 작동하도록 만들어야 하는가?
-  - checker.c/checker_run() 이 잘 작동할지 테스트하기 (ft_putstr_fd 가 stdout 으로 출력해야하나?)
-  - 테스트
+  - ' ' 를 seperator 로 하는 string 1 개가 인자로 들어오는 경우도 잘 작동하도록 만들어야 하는가?  - checker.c/checker_run() 이 잘 작동할지 테스트하기 (ft_putstr_fd 가 stdout 으로 출력해야하나?) - 테스트
     - 값을 stdin 등 파일로 입력받을 시, 끝에 EOF 가 오면 잘 처리하는지, ctrl-D 일 때 잘 처리하는지
   - bonus
     - util/t_buffer_info.c/(get_line() | append_until_new_line_ch()) 검증하기

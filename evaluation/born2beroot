@@ -1,0 +1,20 @@
+signature.txt
+
+virtual box
+no graphic
+
+os: the latest stable version of Debian
+	|| the latest stable version of CentOS
+
+SELinux
+AppArmor
+LVM
+
+aptitude vs apt
+SSH:4242 (only): For security reasons, it must not be possible to connect using SSH as root.
+
+firewall
+
+하나하나 다 물어보는 건 아닌 거 같고
+
+hostname, 수정
