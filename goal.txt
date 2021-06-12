@@ -12,7 +12,12 @@
   - https://harm-smits.github.io/42docs/libs/minilibx
 - symbolic link 를 실제 파일로 교체하기
 
+# 일단 적어
+
+backcheck 에서 경로를 출력할 때 git directory 의 주소는 $git 으로 짧게 표시하는게 가독성이 좋을 것 같다
+
 - Push_swap
+  - backdown 후 노트북으로 옮기고 util 수정 및 rebase
   - ' ' 를 seperator 로 하는 string 1 개가 인자로 들어오는 경우도 잘 작동하도록 만들어야 하는가?
   - checker.c/checker_run() 이 잘 작동할지 테스트하기 (ft_putstr_fd 가 stdout 으로 출력해야하나?)
   - 테스트
