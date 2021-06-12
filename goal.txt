@@ -13,7 +13,7 @@
 - symbolic link 를 실제 파일로 교체하기
 
 - Push_swap
-  - parse.[hc] 가 제대로 적용됐는지 의존성 체크하기
+  - ' ' 를 seperator 로 하는 string 1 개가 인자로 들어오는 경우도 잘 작동하도록 만들어야 하는가?
   - checker.c/checker_run() 이 잘 작동할지 테스트하기 (ft_putstr_fd 가 stdout 으로 출력해야하나?)
   - 테스트
     - 값을 stdin 등 파일로 입력받을 시, 끝에 EOF 가 오면 잘 처리하는지, ctrl-D 일 때 잘 처리하는지
@@ -104,6 +104,7 @@
 
 # 미래
 
+- state machine in printf, automata, regex
 - git repo, branch name 을 가져오는 과정에서 git repo 안에 있지 않을 때 오류 메세지가 출력되는 문제
 - 'zshrc' 를 할 때마다 precmd_vcs_info 가 precmd_functions 에 추가되는 문제
 - 프로그램의 동작이 나의 예상과 다를 경우 해결 과정을 기록하자

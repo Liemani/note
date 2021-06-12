@@ -4,12 +4,13 @@
 1. static 의 특성
 2. 에러 발생 시 프로그램의 작동
 3. fd 관련 지식
-4. 테스터기 통과하는지
+4. 테스터기 뭐 뭐 돌려봤는지
 5. 구조체를 어떻게 구성했는지
 6. read(), write() 등의 library 함수를 어떻게 사용했는지
   - ssize_t (read() 의 반환형)
 7. list 관련 지식
 8. memory leak 관련 지식
+9. EOF 와 ctrl-d 에 관해서
 
 - norm 맞는지
 - 이상한 header file 이 추가되어 있지는 않는지

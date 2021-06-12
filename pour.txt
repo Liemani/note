@@ -1,7 +1,23 @@
-- 아래가 옛, 위가 최신
 - 생각을 자유롭게 써내려가는 공간
 - 단, 여기에 작성한 글은 참고는 하되 정리하지는 않는 것을 원칙으로 한다
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
+
+
+# 2021-06-12
+
+- ':vimgrep /<word>/g <paths>' in vim
+  - ex> ':vimgrep /ft_atoi_push_swap/g **/*.[hc]'
+  - ex> ':vimgrep /ft_atoi_push_swap/g %': '%' means filepath of active buffer
+  - ex> ':vimgrep /ft_atoi_push_swap/g ##': '##' expanded to represent each of the files from the arglist
+- ':cnext', ':cprevious' in vim
+- ':cfirst', ':clast' in vim
+- ':copen', '<cr>', ':cclose' in vim
+- By default, the driver converts a Control-D character at the start of a line into an end-of-file indicator
+- In windows, actual EOF character exists
+- test 'cat' to figure out the behave of <c-d>
+- '<c-v><c-@>' in vim: write NULL character
+- 다음 프로젝트를 진행할 때는 요구사항을 우선 빠삭하게 분석하고 시작해볼까?
+
 
 
 # 2021-06-11
