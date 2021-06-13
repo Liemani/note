@@ -3,6 +3,15 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 
 
+# 2021-06-13
+
+- ':args `find -L . -iname \*.\[hc\]`' in vim
+- 저번에 멤버변수의 type 으로 다른 structure 를 사용할 경우 그 structure 의 header file 을 include 해야 했던 것으로 기억하는데, 이를 한 번 더 검증했으면 좋겠다
+  - 만약 그래야 한다면 하던데로 header file 에서 다른  structure 를 include 할 때 type.h 파일을 따로 만들어서 타입에 대한 정보를 먼저 주고 실제 header file 을 include 해야 할 것이고, 아니라면 그냥 type.h 파일만 include 해줘도 괜찮을 것이다
+- core data 를 다루는 structure 는 의존성을 끊고 잘 캡슐화하자
+  - 그래야 여기서도 쓰고 저기서도 쓸 수 있다!
+
+
 # 2021-06-12
 
 - ':vimgrep /<word>/g <paths>' in vim

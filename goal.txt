@@ -14,21 +14,25 @@
 
 # 일단 적어
 
-backcheck 에서 경로를 출력할 때 git directory 의 주소는 $git 으로 짧게 표시하는게 가독성이 좋을 것 같다
+- backcheck 에서 경로를 출력할 때 git directory 의 주소는 $git 으로 짧게 표시하는게 가독성이 좋을 것 같다
+- gitcommit aux 가 있으면 좋겠다
+  - commit 만 하고 push 는 하지 않음
+
+# project
 
 - Push_swap
-  - ' ' 를 seperator 로 하는 string 1 개가 인자로 들어오는 경우도 잘 작동하도록 만들어야 하는가?  - checker.c/checker_run() 이 잘 작동할지 테스트하기 (ft_putstr_fd 가 stdout 으로 출력해야하나?) - 테스트
-    - 값을 stdin 등 파일로 입력받을 시, 끝에 EOF 가 오면 잘 처리하는지, ctrl-D 일 때 잘 처리하는지
-  - bonus
-    - util/t_buffer_info.c/(get_line() | append_until_new_line_ch()) 검증하기
-	- makefile 에 각종 추가 파일 추가하기
-  - norm 에 맞게 수정
-    - 후 기능 테스트 및 leaks 테스트
-  - 적용한 기능을 keynote 로 작성하기
-    - bfs, normal, ss, 특수 case 처리(역순), rr, buffer
-      - 첫 loop 에서 마지막 pa 혹은 pb 를 하기 전 ra 혹은 rb 대신 swap
-	  - 2 개 짜리는 직접 작성
-  - ARG=$(ruby -e "puts (0..100).to_a.shuffle.join(' ')")
+  - 평가 받기
+- minitalk
+  - 5 page 부터 읽기
+  - 주의 사항
+    - norm
+    - error check
+    - leaks
+    - '/util/util.c' 에서 'read()' 는 project 에서 사용 불가능하므로 'lmt_read()' 를 지우자
+    - bonus 를 제출하기 위해서는 'bonus' rule 을 추가해야만 한다
+      - 이 룰은 main part 에서는 금지된 헤더, 라이브러리, 함수가 추가될 수도 있다
+  	- bonus 는 반드시 '_bonus.[hc]' 로 된 다른 파일을 사용해야 한다
+
 - siteTool
   - 블로그 만들고 작성하기!!!
 - variabledText
@@ -43,10 +47,7 @@ backcheck 에서 경로를 출력할 때 git directory 의 주소는 $git 으로
     - 중복 정의된 식별자 경고
 - env
   - setenv 가 basecamp 를 입력받아서 패키지를 구성하도록 변경하기
-  - env 설정 파일들이 path.sh 의 path 를 인자로 받아서 사용한다면 모듈화할 수 있지 않을까?
-    - 전반적인 초기 과정을 추적해보자, ssh key 를 적용하기 위해서 필요한 것들 -> 어디에 적용할지 사이트 주소
-- 텍스트 가공 작업장 만들기
-- 컴퓨터 데이터의 format 을 어떻게 정의하고 통용할 수 있었는가를 간단한 bmp 파일을 직접 한땀 한땀 만드는 것으로 설명하는 영상을 만들면 좋을 것 같다
+  - 전반적인 초기 과정을 추적해보자, ssh key 를 적용하기 위해서 필요한 것들 -> 어디에 적용할지 사이트 주소
 - 기록이 먼저
   - 아마존 무료 클라우드 호스팅 서비스 알아보기
   - 내가 프로그램 지능이 나보다 낮은 사람에게 알려줄 수 있는 것은 앞길과, 그 시기에는 원래 그렇게 힘들다는 것이다
@@ -120,6 +121,7 @@ backcheck 에서 경로를 출력할 때 git directory 의 주소는 $git 으로
   - 회의 분위기가 어떤가요?
 - 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
   - 하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
+  - 컴퓨터 데이터의 format 을 어떻게 정의하고 통용할 수 있었는가를 간단한 bmp 파일을 직접 한땀 한땀 만드는 것으로 설명하는 영상을 만들면 좋을 것 같다
   - 파일 시스템 용어 정리, base name, path, real path, relative path etc
   - 각종 용어 정리
   - 키보드 문자 읽는 법
