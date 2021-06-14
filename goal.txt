@@ -20,8 +20,6 @@
 
 # project
 
-- Push_swap
-  - 평가 받기
 - minitalk
   - 5 page 부터 읽기
   - 주의 사항
@@ -32,6 +30,9 @@
     - bonus 를 제출하기 위해서는 'bonus' rule 을 추가해야만 한다
       - 이 룰은 main part 에서는 금지된 헤더, 라이브러리, 함수가 추가될 수도 있다
   	- bonus 는 반드시 '_bonus.[hc]' 로 된 다른 파일을 사용해야 한다
+- Push_swap
+  - no argument 이면 "Error\n" 가 아니라 아무것도 출력하지 않도록 하기
+  - 평가 받기
 
 - siteTool
   - 블로그 만들고 작성하기!!!
