@@ -14,6 +14,8 @@
 
 # 일단 적어
 
+가변 배열도 하나 만들어두면 잘 사용하겠다
+
 
 # project
 
@@ -27,8 +29,12 @@ minitalk
 		'/util/util.c' 에서 'read()' 는 project 에서 사용 불가능하므로 'lmt_read()' 를 지우자
 		bonus 를 제출하기 위해서는 'bonus' rule 을 추가해야만 한다
 			이 룰은 main part 에서는 금지된 헤더, 라이브러리, 함수가 추가될 수도 있다
-		bonus 는 반드시 '_bonus.[hc]' 로 된 다른 파일을 사용해야 한다
 	}
+	sigaction 의 3 번째 인자
+	struct sigaction 의 sa_sigaction 맴버 변수를 사용하는 방법
+	속도 향상
+	ack
+	sigaction.flag 의 종류
 	server 가 먼저 실행되야만 한다
 	server 는 실행된 후에는 PID 를 출력해야만 한다
 	client 는 인자로 'server PID' 와 '전송할 string' 을 입력받는다
@@ -36,16 +42,24 @@ minitalk
 	server 와 client 간의 소통은 '오직' UNIX signal 을 사용해서 이루어져야만 한다
 	string 출력은 너무 느려서는 안된다 (1 초에 100 문자라면 너무 느린 것이다)
 	server 는 재시작할 필요 없이 다수의 client 로부터 순차적으로 string 을 받을 수 있어야 한다
-	오직 2 signal 만 사용할 수 있다 'SIGUSR1', 'SIGUSR2'
-	signal
 	sigemptyset
 	sigaddset
 	sigaction
-	kill
 	pause
 	bonus
 	{
 		작은 수용체 지식 시스템을 추가해라 (reception acknowledgment system - 이게 뭘까?)
+			0. c->s 시작 신호 주고
+			1. c->s pid 전송하기
+				1-1. 만약 server 가 pid 를 잘 받았다면
+					s->c ack 보내기
+				1-2. else
+					가만히 기다리기
+			2. c->s 데이터 전송하기
+				2-1. 만약 server 가 데이터를 잘 받았다면
+					s->c ack 보내기
+				2-2. else
+					가만히 기다리기
 		unicode 문자를 지원해라 (만약 할거면 main 에 추가해서 사용하기)
 	}
 	pid parsing 을 위해 ft_atoi() 를 사용할 건데 "" 입력시 0 으로 읽어도 괜찮은지?
@@ -145,26 +159,29 @@ push_swap
 - 면접 시 질문
   - 회의 분위기가 어떤가요?
 - 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
-  - 하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
-  - 컴퓨터 데이터의 format 을 어떻게 정의하고 통용할 수 있었는가를 간단한 bmp 파일을 직접 한땀 한땀 만드는 것으로 설명하는 영상을 만들면 좋을 것 같다
-  - 파일 시스템 용어 정리, base name, path, real path, relative path etc
-  - 각종 용어 정리
-  - 키보드 문자 읽는 법
-  - miniRT 영어 용어 정리
-  - makefile
-  - lldb
-  - vim
-  - git
-  - git log pretty format
-  - cli
-  - shell script
-  - free 후 참조 -> 바로 사용해도 잘못된 값이 들어갈 수 있음 (확률)
-    - malloc 의 크기이면 malloc 에러
-	- free 면 segmant fault
-	- 참조면 abort 나 bus error
-  - report 내용
-  - automata
-  - 프로그램 구조를 위한 추상화 과정과 프로그램 구현을 위한 구체화 과정: 뼈와 살
+{
+	하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
+	'-H' option 으로 include 하는 header file 의 위치를 파악하고 ctags 로 tags 생성 후 탐색하기
+	컴퓨터 데이터의 format 을 어떻게 정의하고 통용할 수 있었는가를 간단한 bmp 파일을 직접 한땀 한땀 만드는 것으로 설명하는 영상을 만들면 좋을 것 같다
+	파일 시스템 용어 정리, base name, path, real path, relative path etc
+	각종 용어 정리
+	키보드 문자 읽는 법
+	miniRT 영어 용어 정리
+	makefile
+	lldb: breakpoint, watchpost, up, down, c, n, s, --name, --file --line
+	vim: 여러 파일 수정하기
+	git
+	git log pretty format
+	cli
+	shell script
+	free 후 참조 -> 바로 사용해도 잘못된 값이 들어갈 수 있음 (확률)
+		malloc 의 크기이면 malloc 에러
+	free 면 segmant fault
+	참조면 abort 나 bus error
+	report 내용
+	automata
+	프로그램 구조를 위한 추상화 과정과 프로그램 구현을 위한 구체화 과정: 뼈와 살
+}
 - 사이드 프로젝트
   - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
     - 개인 플레이 게임을 만드는 것도 크게 나쁘지는 않으나 재미를 얻을 수 있는 요소가 멀티에 비해 제한된다
