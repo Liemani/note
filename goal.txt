@@ -15,7 +15,7 @@
 # 일단 적어
 
 가변 배열도 하나 만들어두면 잘 사용하겠다
-
+aux gitdiff 도 좋겠다
 
 # project
 
@@ -30,9 +30,11 @@ minitalk
 		bonus 를 제출하기 위해서는 'bonus' rule 을 추가해야만 한다
 			이 룰은 main part 에서는 금지된 헤더, 라이브러리, 함수가 추가될 수도 있다
 	}
+	client 가 pid 를 전달할 때 checksum 오류가 발생하면 서버의 NAK 신호도 오지 않고 client 가 pause 에 빠져버리는 문제
 	sigaction 의 3 번째 인자
 	struct sigaction 의 sa_sigaction 맴버 변수를 사용하는 방법
 	속도 향상
+	일단 unicode 를 신경쓰지 않고 작성한 후, unicode_manager 구조체를 만들어서 처리하도록 하자
 	ack
 	sigaction.flag 의 종류
 	server 가 먼저 실행되야만 한다

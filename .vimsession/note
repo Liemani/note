@@ -10,8 +10,8 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-vmap <F1> :Stdheader
 nnoremap <F1> :Stdheader
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 omap <F1> :Stdheader
@@ -218,12 +218,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 35 - ((9 * winheight(0) + 13) / 26)
+let s:l = 33 - ((5 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-35
-normal! 07|
+33
+normal! 0
 lcd ~/programming/git/note
 wincmd w
 argglobal
@@ -732,11 +732,11 @@ exe '5resize ' . ((&lines * 27 + 55) / 110)
 tabnext 1
 badd +1 ~/programming/git/note/goal.txt
 badd +1 ~/programming/git/note/dream.txt
-badd +1 ~/programming/git/note/evaluation/evaluation.md
+badd +1 ~/programming/git/note/evaluation/minitalk.txt
 badd +1 ~/programming/git/note/pour.txt
 badd +1 ~/programming/git/note/link.txt
+badd +1 ~/programming/git/note/evaluation/evaluation.md
 badd +1 ~/programming/git/note
-badd +0 ~/programming/git/note/evaluation/minitalk.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

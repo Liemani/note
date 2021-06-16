@@ -5,3 +5,4 @@ leak
 
 # 논의
 signal 과 block 에 대하여
+1 초에 출력 가능한 bytes
