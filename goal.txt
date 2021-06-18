@@ -17,6 +17,7 @@
 util 에 가변 배열도 하나 만들어두면 잘 사용하겠다
 aux fatch?
 subject git 에 debug branch 를 위한 commit 만들어서 보여주기!! 개꿀
+aux list 가 sort 되어 있으면 좋겠다
 
 # project
 
