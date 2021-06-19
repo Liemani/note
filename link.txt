@@ -12,3 +12,5 @@ https://zsh.sourceforge.io/Doc/Release/Conditional-Expressions.html
   - 12 Conditional Expressions
 https://www.gnu.org/software/sed/manual/sed.html
   - sed, a stream editor
+https://www.sharcnet.ca/help/index.php/Signal_Handling_and_Checkpointing
+  - signal

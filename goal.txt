@@ -17,7 +17,7 @@
 util 에 가변 배열도 하나 만들어두면 잘 사용하겠다
 aux fatch?
 subject git 에 debug branch 를 위한 commit 만들어서 보여주기!! 개꿀
-aux list 가 sort 되어 있으면 좋겠다
+'aux where <aux command>': Print the path of aux command shell script
 
 # project
 
@@ -56,6 +56,11 @@ minitalk
 				2-2. else
 					가만히 기다리기
 		unicode 문자를 지원해라 (만약 할거면 main 에 추가해서 사용하기)
+	}
+	제출 전
+	{
+		symbolic link file 을 실제 파일로 바꾸기;
+		symbolic link directory 에서 불필요한 파일 및 함수 삭제하기
 	}
 }
 
