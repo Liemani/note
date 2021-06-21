@@ -17,22 +17,122 @@
 util 에 가변 배열도 하나 만들어두면 잘 사용하겠다
 subject git 에 debug branch 를 위한 commit 만들어서 보여주기!! 개꿀
 'aux where <aux command>': Print the path of aux command shell script
+$git 이 ~/git 이었으면 좋겠다 (programming 은 너무 길었다)
+philosophers pthread_detach 부터 계속 보기
 
 # project
 
 minitalk
 {
-	만약 4 바이트로 예상되는 utf-8 데이터가 2 바이트만 존재하는 것이었고, 그것이 우연히 버퍼의 마지막에 걸쳐서, 다음 패킷이 존재하지 않는 경우, 이를 출력해줘야 할 것 같다, 하지만 다음에 데이터가 있을지 없을지를 확인하기 위해서는 FIN 을 적용해야만 할 것 같다!!
-	client 가 접속이 강제 종료가 되어서 FIN 을 받지 못하는 상황에서, 위에 설명한 쪼가리 바이트 출력
-	주의 사항
-	{
-		norm
-		leaks
-	}
+	잘 작동하는지 테스트하기
 }
 
 philosophers
 {
+	lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
+	mandatory program 1 개
+	bonus program 1 개
+	basic rules
+	{
+		no norm error
+		no leak
+		no crash
+		no undefined behavior
+		several philosophers exist
+		philosophers are sitting at a round table
+		philosopher can do one action of three: eating, thinking, sleeping
+		while eating, they are not thinking or sleeping
+		while sleeping, they are not eating or thinking
+		while thinking, they are not eating or sleeping
+		there are some forks on the table
+		philosopher must eat with two forks
+		philosopher must never be starving
+		every philosopher needs to eat
+		philosophers don't speak with each other
+		philosophers don't know when another philosopher is about to die
+		each time a philosopher has finished eating, he willl drop his forks and start sleeping
+		when a philosopher is done sleeping, he will start thinking
+		the simulation stops when a philosopher dies
+		program options
+		{
+			number_of_philosophers
+				== number of philosophers == number of forks
+			time_to_die (milliseconds)
+				if a philosopher doesn't eat during, dies
+			time_to_eat (milliseconds)
+				time it takes for a philosopher to eat, will occupy 2 forks
+			time_to_sleep (milliseconds)
+				time the philosopher will spend sleeping
+			[number_of_times_each_philosopher_must_eat]
+				argument is optional
+				if all philosopher eat enough, simulation stop
+				if not specified, the simulation will stop only at the death of a philosopher
+		}
+		each philosopher have number from 1 to number_of_philosophers
+			seat at round table -> (1, 2, ..., $number_of_philosophers)
+		any change of status of philosopher must be written as follows
+			timestamp_in_ms X has taken a fork
+			timestamp_in_ms X is eating
+			timestamp_in_ms X is sleeping
+			timestamp_in_ms X is thinking
+			timestamp_in_ms X died
+		must print death before to elapse 10 ms
+	}
+	external functions
+	{
+		void	*memset(void *b, int c, size_t len);		<string.h>
+		int		printf(const char * restrict format, ...);	<stdio.h>
+		int		usleep(useconds_t microseconds);			<unistd.h>
+			typedef unsigned int useconds_t:
+		int		gettimeofday(struct timeval *restrict tp, void *restrict tzp);	<sys/time.h>
+		{
+			struct timeval
+			{
+				time_t		tv_sec;
+					// typedef long time_t;
+				suseconds_t	tv_usec;
+					// typedef int suseconds_t
+			};
+		}
+		int		pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);	<pthread.h>
+		{
+			typedef struct	_opaque_pthread_t
+			{
+				long		__sig;
+				struct __darwin_pthread_handler_rec	*__cleanup_stack;
+				char		__opaque[__PTHREAD_SIZE__];
+			}				*pthread_t;
+			struct		__darwin_pthread_handler_rec
+			{
+				void	(*__routine)(void *);
+				void	*__arg;
+				struct __darwin_pthread_handelr_rec	*__next;
+			};
+			typedef struct	_opaque_pthread_attr_t
+			{
+				long		__sig;
+				char		__opaque[__PTHREAD_ATTR_SIZE__];
+			}				pthread_attr_t;
+		}
+		int		pthread_detach(pthread_t thread);	<pthread.h>
+		int		pthread_join(pthread_t thread, void **value_ptr);	<pthread.h>
+		int		pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);	<pthread.h>
+		{
+			typedef struct	_opaque_pthread_mutex_t
+			{
+				long		__sig;
+				char		__opaque[__PTHREAD_MUTEX_SIZE__];
+			}				pthread_mutex_t;
+			typedef struct	_opaque_pthread_mutexattr_t
+			{
+				long		__sig;
+				char		__opaque[__PTHREAD_MUTEXATTR_SIZE__];
+			}				pthread_mutexattr_t;
+		}
+		int		pthread_mutex_destroy(pthread_mutex_t *mutex);	<pthread.h>
+		int		pthread_mutex_lock(pthread_mutex_t *mutex);	<pthread.h>
+		int		pthread_mutex_unlock(pthread_mutex_t *mutex);	<pthread.h>
+	}
 }
 
 - siteTool
