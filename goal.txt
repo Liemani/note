@@ -7,9 +7,6 @@
 - slack
 - norm
 - leak
-- minilibx
-  - https://github.com/qst0/ft_libgfx#minilibx
-  - https://harm-smits.github.io/42docs/libs/minilibx
 - symbolic link 를 실제 파일로 교체하기
 
 # 일단 적어
@@ -18,7 +15,7 @@ util 에 가변 배열도 하나 만들어두면 잘 사용하겠다
 subject git 에 debug branch 를 위한 commit 만들어서 보여주기!! 개꿀
 'aux where <aux command>': Print the path of aux command shell script
 $git 이 ~/git 이었으면 좋겠다 (programming 은 너무 길었다)
-philosophers pthread_detach 부터 계속 보기
+git back 관련 command 가 불필요한 git 에 대해서는 짧게 출력하여 가독성을 높여보자
 
 # project
 
@@ -29,6 +26,11 @@ minitalk
 
 philosophers
 {
+	start time 과 thread created time 이 다르기 때문에 philo 가 시작부터 굶어서 죽은 것처럼 보이지만 (start time) 실제는 (created time) 살아있는 증상은 평가지에서 어떻게 판단할까?
+	ms 로 들어오는 입력을 us 로 바꾸기 위해 (그래야 usleep 에 넣기 편해서) 상한 제한을 두었는데 어떤 제한이 올바른 것일까?
+	philosopher가 1 명인 경우 포크가 없도록 특수 처리를 하자
+	에러가 깊숙한 곳부터 끊이지 않고 잘 전달되는지 확인하기
+	pthread_mutex_lock 등 error 발생 시 return value 가 달라지는 library 함수들 가드 처리하기
 	lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
 	mandatory program 1 개
 	bonus program 1 개
@@ -132,6 +134,24 @@ philosophers
 		int		pthread_mutex_destroy(pthread_mutex_t *mutex);	<pthread.h>
 		int		pthread_mutex_lock(pthread_mutex_t *mutex);	<pthread.h>
 		int		pthread_mutex_unlock(pthread_mutex_t *mutex);	<pthread.h>
+	}
+	arguments
+	{
+		integer parsing (is integer, range)
+	}
+	summary
+	{
+		The philosophers must never be starving
+		Philosophers don’t speak with each other
+		Philosophers don’t know when another philosopher is about to die
+		The simulation stops when a philosopher dies
+		You can’t have more than 10 ms between the death of a philosopher and when it will print its death
+		Again, philosophers should avoid dying
+		// is creation order not decided ??
+	}
+	나의 규칙
+	{
+		마지막 인자를 파싱했을 때 갯수는 항상 철학자의 수와 같아야 한다 (혹은 아예 인자가 없거나)
 	}
 }
 
