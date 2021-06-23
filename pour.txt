@@ -4,6 +4,15 @@
 - 문제가 발생하면 전부 기록하자. 다 성장에 도움이 된다
 
 
+# 2021-06-23
+
+- 감정을 잘 모르는 것이 아니라 이해하는데 시간이 좀 걸리는 것 아닐까?
+- 나는 처음에는 다 괜찮은 것처럼 말해놓고 나중에 가서는 딴 소리를 하는 것 같다?
+  - 나는 내 생각보다 그렇게 다른 사람의 의견을 다 수용할 수 있는 사람이 아닌 것 같다
+- SIGUSR1 의 handler 를 호출하고 SIGUSR2 로 interrupt 를 하고 다시 SIGUSR1 signal 을 줬더니 반응이 없었다
+  - handler 내부에서 empty mask 를 가진 sigaction 으로 새로운 sigaction 을 설정해주었지만 그럼에도 SIGUSR1 signal 에 interrupt 되지 않았다
+
+
 # 2021-06-22
 
 - minilibx

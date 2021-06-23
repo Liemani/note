@@ -14,3 +14,5 @@ https://www.gnu.org/software/sed/manual/sed.html
   - sed, a stream editor
 https://www.sharcnet.ca/help/index.php/Signal_Handling_and_Checkpointing
   - sharcnet/Signal Handling and Checkpointing
+https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html#CREATIONTERMINATION
+  - POSIX thread (pthread) libraries
