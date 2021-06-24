@@ -64,25 +64,22 @@
 	bonus 진행 여부
 }
 
-main/util/lmt_atoi 가 "-" 를 0 으로 반환하는 문제 -> 반환 순서를 조금 뒤로
-util.h 를 lmt_util.h 로 바꾸자
-directory name 도 util 에서 lmt_util 로
-util.c 는 lmt_write.c 등으로 함수 하나만 사용하도록
-env 가 .tool/name.variable 에 의해 계속 backup 된다
-  generate_c_structure 가 작동 후 저걸 삭제하도록 하자
-util 에 가변 배열도 하나 만들어두면 잘 사용하겠다
-subject git 에 debug branch 를 위한 commit 만들어서 보여주기!! 개꿀
-'aux where <aux command>': Print the path of aux command shell script
-$git 이 ~/git 이었으면 좋겠다 (programming 은 너무 길었다)
-git back 관련 command 가 불필요한 git 에 대해서는 짧게 출력하여 가독성을 높여보자
-unsafe/lmt_strcpy.c
-
-소심해보이거나 수동적인 분
+env
 {
-	이런 식으로 꼼꼼하게 과하게 준비하는 건 내가 좋아서 하는 것이고, 모든 사람이 그럴 필요는 없다 @ 님도 자신만의 배려를 하면서 자신만의 색대로 행동하셨으면 좋겠다 저한테 막 맞춰주실 필요는 없다
+	util 에 가변 배열도 하나 만들어두면 잘 사용하겠다
+	'aux where <aux command>': Print the path of aux command shell script
+	$git 이 ~/git 이었으면 좋겠다 (programming 은 너무 길었다)
+	git back 관련 command 가 불필요한 git 에 대해서는 짧게 출력하여 가독성을 높여보자
 }
 
-# project
+project/main
+{
+	main/util/lmt_atoi 가 "-" 를 0 으로 반환하는 문제 -> 반환 순서를 조금 뒤로 (philosophers 참고)
+	util.h 를 lmt_util.h 로 바꾸자
+	directory name 도 util 에서 lmt_util 로
+	util.c 는 lmt_write.c 등으로 함수 하나만 사용하도록
+	add 'unsafe/lmt_strcpy.c'
+}
 
 minitalk
 {

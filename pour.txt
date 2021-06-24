@@ -7,6 +7,35 @@
 # 2021-06-24
 
 - 함수가 pointer 를 인자로 받을 때는 그 인자가 const type 인지 아닌지가 중요해진다!! 변경되서는 안되는 인자라면 const 를 명시해주는 것이 좋다
+- 멘토 특강(오디오 신호 이해 및 딥러닝 음성인식 (Speech Recognition) (주) 보이스프린트 대표 김광호
+{
+	feedback 바라는 점까지
+	소리 인식, 음성 인식, 자연어 인식 (언어 모델)
+	오디오 신호 -> 시계열 데이터
+	언어모델
+	트랜스포머 버트 쥐피티
+	강 인공지능: 사람 같은
+	약 인공지능: 특정 영역에서 성능을 발휘함
+	최적경로 알고리즘?
+	옛날에는 SVM 이라는 것도 있었다고 한다
+	ANN 이 발전되어 Deep Learning 이 되었다
+	deep learning < machine learning < ai
+	google tensorflow https:// 'a neural network playground'
+	regression, classification: 숫자 조정, 분류
+	hidden layer 의 neuron 은 선 하나 하나를 의미한다
+	여러 neuron 으로 형태로 구분해낸다
+	가중치와 bias 로 선이 그려진다
+	voice, non_voice(music)
+	화자 인식, 음성 인식, 음성 합성
+	소리를 여러 파형으로 분할
+	푸리에, 스펙트로그램 (소리를 분할)
+	자연어 처리는 앞 뒤, 등 주변 단어를 고려한다
+		주변 벡터와 비슷한 벡터로 인식한다
+	transformer papef
+	sound -> encode (number) -> decode (human word)
+	local optimal
+	학회
+}
 
 
 # 2021-06-23
