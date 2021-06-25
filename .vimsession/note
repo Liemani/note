@@ -93,14 +93,14 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 27 + 56) / 113)
-exe '2resize ' . ((&lines * 27 + 56) / 113)
+exe '1resize ' . ((&lines * 27 + 55) / 111)
+exe '2resize ' . ((&lines * 27 + 55) / 111)
 exe 'vert 2resize ' . ((&columns * 41 + 41) / 83)
-exe '3resize ' . ((&lines * 27 + 56) / 113)
+exe '3resize ' . ((&lines * 26 + 55) / 111)
 exe 'vert 3resize ' . ((&columns * 41 + 41) / 83)
-exe '4resize ' . ((&lines * 55 + 56) / 113)
+exe '4resize ' . ((&lines * 54 + 55) / 111)
 exe 'vert 4resize ' . ((&columns * 41 + 41) / 83)
-exe '5resize ' . ((&lines * 27 + 56) / 113)
+exe '5resize ' . ((&lines * 26 + 55) / 111)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -463,7 +463,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 13) / 27)
+let s:l = 1 - ((0 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -587,7 +587,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 27) / 55)
+let s:l = 1 - ((0 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -711,7 +711,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 13) / 27)
+let s:l = 1 - ((0 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -719,21 +719,21 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 27 + 56) / 113)
-exe '2resize ' . ((&lines * 27 + 56) / 113)
+exe '1resize ' . ((&lines * 27 + 55) / 111)
+exe '2resize ' . ((&lines * 27 + 55) / 111)
 exe 'vert 2resize ' . ((&columns * 41 + 41) / 83)
-exe '3resize ' . ((&lines * 27 + 56) / 113)
+exe '3resize ' . ((&lines * 26 + 55) / 111)
 exe 'vert 3resize ' . ((&columns * 41 + 41) / 83)
-exe '4resize ' . ((&lines * 55 + 56) / 113)
+exe '4resize ' . ((&lines * 54 + 55) / 111)
 exe 'vert 4resize ' . ((&columns * 41 + 41) / 83)
-exe '5resize ' . ((&lines * 27 + 56) / 113)
+exe '5resize ' . ((&lines * 26 + 55) / 111)
 tabnext 1
+badd +1 ~/git/note/goal.txt
 badd +3 ~/git/note/dream.txt
+badd +1 ~/git/note/evaluation/evaluation.md
+badd +1 ~/git/note/pour.txt
+badd +1 ~/git/note/link.txt
 badd +1 ~/git/note
-badd +0 ~/git/note/pour.txt
-badd +0 ~/git/note/goal.txt
-badd +0 ~/git/note/link.txt
-badd +0 ~/git/note/evaluation/evaluation.md
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

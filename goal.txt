@@ -65,7 +65,6 @@ git
 		- 전에 다른 팀프로젝트 경험이 있으신지
 		- 이 minishell 프로젝트를 통해 서브젝트 외에 경험 및 시도해보고 싶은 것이 있으신지
 	}
-	제가 분업하기 편하게 프로젝트 틀 정도는 짜고 있을까요?
 	bonus 진행 여부
 }
 
@@ -80,7 +79,8 @@ env
 
 project/main
 {
-	main/util/lmt_atoi 가 "-" 를 0 으로 반환하는 문제 -> 반환 순서를 조금 뒤로 (philosophers 참고)
+	unsafe 함수들은 unsafe suffix 를 붙이는게 어떨까?
+	main/util/lmt_atoi 가 "-" 를 0 으로 반환하는 문제 -> 반환 순서를 조금 뒤로 (philo1 참고)
 	util.h 를 lmt_util.h 로 바꾸자
 	directory name 도 util 에서 lmt_util 로
 	util.c 는 lmt_write.c 등으로 함수 하나만 사용하도록
@@ -89,56 +89,34 @@ project/main
 
 minitalk
 {
-	데이터 구조 작성하기
+	평가 받기
 }
 
 philosophers
 {
-	포크가 철학자에게 제대로 세팅되지 않아 NULL 인 뮤텍스에 접근하는 문제
+	p_pen 의 buffer 별로 수정을 위한 mutex 를 만들고, 출력을 위한 mutex 를 따로 두면 성능이 향상된다
+	if there is only one philosopher, it must die
 	eat 카운트는 먹기 전에 올릴까 먹은 후 올릴까?
 	가능한 많은 case 를 실행 가능하도록 지원하자
-	make 가 되도록 수정하자!
-	4 210 200 200 에서 죽지 않는 문제
-	t_philo_attr 을 잘 적용해보자
-	마지막 인자가 없는 경우 처리
-	먹은 양이 먹을 때 ++ 되도록 처리
-	segfault 해결하기
-	{
-		잘못된 공간에 할당됐는지
-		이중 free 를 하였는지
-	}
 	10ms 안에 dead 를 출력해야 하는데, 한 바퀴 돌고 main thread 가 다시 실행되는 데 까지 걸리는 시간이 얼마일까?
-	실행 흐름을 쭉 훑어보기
-	start time 과 thread created time 이 다르기 때문에 philo 가 시작부터 굶어서 죽은 것처럼 보이지만 (start time) 실제는 (created time) 살아있는 증상은 평가지에서 어떻게 판단할까?
-	ms 로 들어오는 입력을 us 로 바꾸기 위해 (그래야 usleep 에 넣기 편해서) 상한 제한을 두었는데 어떤 제한이 올바른 것일까?
-	philosopher가 1 명인 경우 포크가 없도록 특수 처리를 하자
-	에러가 깊숙한 곳부터 끊이지 않고 잘 전달되는지 확인하기
-	pthread_mutex_lock 등 error 발생 시 return value 가 달라지는 library 함수들 가드 처리하기
+	last
+	{
+		실행 흐름을 쭉 훑어보기
+		에러가 깊숙한 곳부터 끊이지 않고 잘 전달되는지 확인하기
+	}
+	philosopher가 1 명인 경우 포크가 없어 죽도록 하자
 	lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
-	mandatory program 1 개
-	bonus program 1 개
 	basic rules
 	{
 		no norm error
 		no leak
 		no crash
 		no undefined behavior
-		several philosophers exist
-		philosophers are sitting at a round table
-		philosopher can do one action of three: eating, thinking, sleeping
-		while eating, they are not thinking or sleeping
-		while sleeping, they are not eating or thinking
-		while thinking, they are not eating or sleeping
-		there are some forks on the table
 		philosopher must eat with two forks
-		philosopher must never be starving
-		every philosopher needs to eat
 		philosophers don't speak with each other
 			'필로소퍼끼리 포크를 집는 순서를 결정하지 않는다' 라고 생각하자
-		philosophers don't know when another philosopher is about to die
 		each time a philosopher has finished eating, he willl drop his forks and start sleeping
 		when a philosopher is done sleeping, he will start thinking
-		the simulation stops when a philosopher dies
 		program options
 		{
 			number_of_philosophers
@@ -150,12 +128,8 @@ philosophers
 			time_to_sleep (milliseconds)
 				time the philosopher will spend sleeping
 			[number_of_times_each_philosopher_must_eat]
-				argument is optional
-				if all philosopher eat enough, simulation stop
 				if not specified, the simulation will stop only at the death of a philosopher
 		}
-		each philosopher have number from 1 to number_of_philosophers
-			seat at round table -> (1, 2, ..., $number_of_philosophers)
 		any change of status of philosopher must be written as follows
 			timestamp_in_ms X has taken a fork
 			timestamp_in_ms X is eating
@@ -219,23 +193,9 @@ philosophers
 		int		pthread_mutex_lock(pthread_mutex_t *mutex);	<pthread.h>
 		int		pthread_mutex_unlock(pthread_mutex_t *mutex);	<pthread.h>
 	}
-	arguments
-	{
-		integer parsing (is integer, range)
-	}
 	summary
 	{
-		The philosophers must never be starving
-		Philosophers don’t speak with each other
-		Philosophers don’t know when another philosopher is about to die
-		The simulation stops when a philosopher dies
 		You can’t have more than 10 ms between the death of a philosopher and when it will print its death
-		Again, philosophers should avoid dying
-		// is creation order not decided ??
-	}
-	나의 규칙
-	{
-		마지막 인자를 파싱했을 때 갯수는 항상 철학자의 수와 같아야 한다 (혹은 아예 인자가 없거나)
 	}
 	need guard
 	{
