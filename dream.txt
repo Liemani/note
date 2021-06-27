@@ -1,4 +1,4 @@
-# 꿈과 목표를 작성하는 공간
+# 꿈과 장기 목표를 작성하는 공간
 
 - 인공지능
   - 간단한 인공지능 (모바일, 터치가 반응의 원인이자 반응의 결과)
@@ -10,3 +10,72 @@
 - 음악 게임
   - note 치는, 시작은 드론 과정에서 만들었던 간단한 click 시스템 기반으로 해도 좋다
 - 섬머워즈 같은 가상 세계
+- interactive ppt
+
+
+
+# 미래
+
+- state machine in printf, automata, regex
+- git repo, branch name 을 가져오는 과정에서 git repo 안에 있지 않을 때 오류 메세지가 출력되는 문제
+- 'zshrc' 를 할 때마다 precmd_vcs_info 가 precmd_functions 에 추가되는 문제
+- 프로그램의 동작이 나의 예상과 다를 경우 해결 과정을 기록하자
+  - 일단 무엇이 어떻게 동작할 것이라 예상했는가?
+  - 실제 동작은 어떠했는가?
+  - 예상 가는 원인은 무엇인가?
+  - 잘못 알고 있던 부분은 무엇이었는가?
+- 데이터를 git 으로 관리
+- 여러 git repository 의 commit 을 확인할 수 있는 상위 git
+- 면접 시 질문
+  - 회의 분위기가 어떤가요?
+- 42 seoul 언급 외의 공부해온 내용을 정리하여 블로그에 올리기
+{
+	하지만 그것을 위해서는 먼저 블로그가 잘 정돈되어야 할 것이다
+	'-H' option 으로 include 하는 header file 의 위치를 파악하고 ctags 로 tags 생성 후 탐색하기
+	컴퓨터 데이터의 format 을 어떻게 정의하고 통용할 수 있었는가를 간단한 bmp 파일을 직접 한땀 한땀 만드는 것으로 설명하는 영상을 만들면 좋을 것 같다
+	파일 시스템 용어 정리, base name, path, real path, relative path etc
+	각종 용어 정리
+	키보드 문자 읽는 법
+	miniRT 영어 용어 정리
+	makefile
+	lldb: breakpoint, watchpost, up, down, c, n, s, --name, --file --line
+	vim: 여러 파일 수정하기
+	git
+	git log pretty format
+	cli
+	shell script
+	free 후 참조 -> 바로 사용해도 잘못된 값이 들어갈 수 있음 (확률)
+		malloc 의 크기이면 malloc 에러
+	free 면 segmant fault
+	참조면 abort 나 bus error
+	report 내용
+	automata
+	프로그램 구조를 위한 추상화 과정과 프로그램 구현을 위한 구체화 과정: 뼈와 살
+	philosophers 를 하면서 얻은 지식
+	{
+		thread
+		mutex
+		attribute
+	}
+}
+- 사이드 프로젝트
+  - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
+    - 개인 플레이 게임을 만드는 것도 크게 나쁘지는 않으나 재미를 얻을 수 있는 요소가 멀티에 비해 제한된다
+- 읽고 싶은 책
+  - code
+  - jso 님이 추천해준 docker, kubernetes 근처에 있던, unix 탄생 스토리 책
+  - Computer Organization and Design: 많은 대학에서 사용하는 컴퓨터 구조의 바이블
+  - 성공과 실패를 결정하는 1%의 네트워크 원리
+  - strunk and white
+  - Real-World Software Developement
+  - code (?)
+  - cs
+  - [modern c](https://modernc.gforge.inria.fr)
+  - The C Programming language
+  - https://git-scm.com/book/en/v2
+  - Don't Make Me Think
+  - [Laws of UX](https://lawsofux.com/)
+  - Code Complete
+  - Writing Solid Code
+- display_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
+  - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
