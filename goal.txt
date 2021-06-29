@@ -11,6 +11,61 @@
 
 # 일단 적어
 
+{
+	pipex
+	{
+		access
+		unlink
+		waitpid
+		pipe
+		dup
+		dup2
+		execve
+		fork
+	}
+	minishell
+	{
+		fork
+		wait
+		waitpid
+		wait3
+		wait4
+		getcwd
+		chdir
+		stat
+		lstat
+		fstat
+		execve
+		dup
+		dup2
+		pipe
+		opendir
+		readdir
+		closedir
+		isatty
+		ttyname
+		ttyslot
+		ioctl
+		getenv
+		tcsetattr
+		tcgetattr
+		tgetent
+		tgetflag
+		tgetnum
+		tgetstr
+		tgoto
+		tputs
+	}
+}
+
+방송으로 막 송출을 하다가 클립을 따서 위키 페이지에 정리하는 방식으로 프로젝트를 진행한다면 새로 들어오는 시청자도 클립으로 주요 부분을 이해하고 쉽게 참여가 가능하지 않을까?
+
+테스트 환경을 잘 만들어도 좋겠다
+문자열, 숫자, 문자 등을 생성하여 인자로 넣어주는 프로그램
+(각 인자는 범위 등을 지정 할 수도 있다!)
+여러 명이 협업을 진행하게 되면 코드의 온전성이 중요해질 것 같다
+	- 테스트를 하여 온전하게 작동하는 코드인지를 확실하게 하고 추가하는 것이다
+
 나의 코드 작성 방법
   - 1. 일단 pseudo code 로 마구 작성한다 (일부러 norm 에 걸리도록)
   - 2. 구현한다
@@ -22,9 +77,11 @@ git
 
 minishell
 {
+	누구 주도로 진행할지 정하기
+	git 을 사용할 때 merge 등을 하기 싫다면 아예 분리된 directory 에서 작업하는 방법이 있다
+	libft 어떻게 사용해왔는지
 	conform norm
 	no error quit
-	
 }
 
 minishell 팀원과 첫 만남 'seonkim'
