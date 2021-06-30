@@ -18,3 +18,9 @@ https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html#CREATIO
   - POSIX thread (pthread) libraries
 https://github.com/mingrammer/git-tips
   - mingrammer/git-tips
+https://slideplayer.com/slide/5126304
+  - Last Time… on the website
+https://opentutorials.org/course/2598/14199
+  - 생활코딩/IO Redirection
+https://damduc.tistory.com/216
+  - ioctl() 디바이스 제어
