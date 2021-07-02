@@ -20,7 +20,16 @@ https://github.com/mingrammer/git-tips
   - mingrammer/git-tips
 https://slideplayer.com/slide/5126304
   - Last Time… on the website
-https://opentutorials.org/course/2598/14199
-  - 생활코딩/IO Redirection
 https://damduc.tistory.com/216
   - ioctl() 디바이스 제어
+https://documentation.basis.com/BASISHelp/WebHelp/usr/Termcap/Basics/introduction_to_termcap.htm
+  - Introduction to Termcap
+https://en.wikipedia.org/wiki/Device_file#Pseudo-devices
+  - Pseudo-devices
+https://en.wikipedia.org/wiki/Pseudoterminal
+  - Pseudoterminal
+https://wiki.ubuntu-kr.org/index.php/Terminal_Programming
+  - Terminal Programming
+https://stackoverflow.com/questions/1516122/how-to-capture-controld-signal
+  - How to capture Control+D signal?
+
