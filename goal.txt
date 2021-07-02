@@ -11,12 +11,14 @@
 
 # 일단 적어
 
-git push 및 
-코딩 스타일 장점
-2 가지 방법
-  - 내 의견을 존중해 주는건 고마운데 너의 의견도 듣고 싶다
-나는 같이 대화하는 시간이 부족하다는 걸 느낀다
-
+minishell
+{
+	$PATH parsing
+	env from argument vs getenv()
+	환경 변수와 지역 변수의 값을 shell program 과 동기화하도록 해야하는가?
+		PS1 은 local variable 이다
+		command 는 PATH 에서 검색하여 찾는다
+}
 
 {
 	pipex
