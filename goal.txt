@@ -42,6 +42,22 @@
 
 #minishell
 {
+	team talk
+	{
+		&& 잘 들어가는지 확인
+		시간 날 때 괄호도 잘라달라고 하자
+	}
+	argv 를 입력받아서 excve 등을 실행하는 프로그램
+	이모지를 바이트 데이터로 수정하기
+	word splitting (read IFS referencing docs)
+	파이프로 연결된 process 중 하나라도 존재하지 않는 명령이 들어오면 아무것도 실행되지 않는다
+	파이프가 올 때 cd 가 안되는 것은 자식 프로세스에서 실행되서 그런가?
+	리다이렉션도 파싱 가능하도록 수정하기
+	single quote, double quote, variable expansion
+	fd 작동 원리 파악하고 max 이하의 (기본 255) fd 도 받도록 하기
+	process 들은 부모가 모든 자식 process 를 만든다
+	clear child process 가 종료되지 않는 문제
+	process 가 여러 개 실행중이면 signal 은 어떻게 작동하지?
 	fd 가 큰 값이 들어와도 redirection 을 제대로 수행하도록 하기
 	의존성 체크하기
 	초기화하지 않은 fd 를 리다이렉션으로 입력한 경우
