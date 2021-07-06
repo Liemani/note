@@ -43,6 +43,9 @@
 
 #minishell
 {
+	redirection 으로 큰 숫자가 들어와도 처리가 가능하도록 수정하기
+	ls | exit
+	set, env
 	>> 와 << 알아보기
 	later team talk
 	{
