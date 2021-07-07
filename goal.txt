@@ -43,6 +43,27 @@
 
 #minishell
 {
+	jeonpark 안에 중심 헤더 파일 만들기
+	lmt_process_new_by_lmt_token_sublist();
+	lmt_process_list_set_by_lmt_token_sublist();
+	lmt_string_array
+	shell 상에서 new line 을 추가하는 것 처럼 tab 을 삽입하는 방법도 있다
+	fd 의 값을 dup 하되, 이후 쓰기 및 읽기 에러가 발생 시, 에러 메세지를 출력하도록 하자
+	'n>file'
+		- if 0 <= n <= max: normal operation
+		- if n < 0: use as part of command
+		- if n < max: occur error
+	wait problem
+	t_lmt_token 으로 argv 만들기
+	testcase
+	{
+		redirection, |, ||, &&, () 혼용
+		존재하지 않는 command 가 도중에 존재
+	}
+	0, 1, 2 외의 값에 대한 redirection
+	pipe 의 fd 와 pipe 이전 command 의 redirection 이 어떻게 처리되는지
+	#define _W_INT(w)	(*(int *)&w)
+	#define WEXITSTATUS	((_W_INT(x) >> 8) & 0x000000ff)
 	redirection 으로 큰 숫자가 들어와도 처리가 가능하도록 수정하기
 	ls | exit
 	set, env
@@ -235,6 +256,7 @@ project/main
 
 #philosophers
 {
+	홀수 철학자 문제 해결하기
 	포크 수는 철학자의 수와 같으니 철학자가 한 명만 있을 때도 포크가 존재할 것이다. 하지만 포크는 철학자 사이에만 존자하는 것 아니었나?
 	나는 마이크로 세크 단위로 측정을 하는데 출력될 때 밀리세크라 차이가 눈에 보이지 않고 철학자가 죽으면 이상하지 않을까?
 	마지막 식사 시간을 복사해올 때 에러 발생 가능
@@ -364,6 +386,7 @@ project/main
 
 #idea
 {
+	만약 대각선 이동이 일반 선형 이동의 sqrt(2) 배 만큼의 속도라면 상단 중앙에 있는 적으로부터 딜레이가 존재하는 일정 두께의 레이저 공격을 피하기 위해 하단 가운데보다는 하단 측면에 위치하는 것이 유리하다. 하지만 레이저가 일정 시간 유지되며 플레이어의 선형 속도만큼의 속도로 추적한다면 측면 벽에 딱 붙을 경우 회피할 공간이 적어진다. 이 수치를 적절히 조절하여 가운데도 아니고 벽도 아닌 최적의 공간이 존재하도록 유도할 수 있다
 	방송으로 막 송출을 하다가 클립을 따서 위키 페이지에 정리하는 방식으로 프로젝트를 진행한다면 새로 들어오는 시청자도 클립으로 주요 부분을 이해하고 쉽게 참여가 가능하지 않을까?
 	테스트 환경을 잘 만들어도 좋겠다
 	문자열, 숫자, 문자 등을 생성하여 인자로 넣어주는 프로그램
