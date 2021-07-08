@@ -1,4 +1,4 @@
-###############################################################################
+################################################################################
 #check befor submit
 {
 	subject pdf
@@ -13,6 +13,7 @@
 
 #write first
 {
+	iterator 구조체를 만들면 이 함수 저 함수로 보내며 반복 상태를 저장할 수 있어서 유용할 것 같다
 	vimsession 은 정확히 특정 위치에 있는 파일을 여는 단점이 있다
 		유동적으로 session 을 실행할 directory 를 설정할 수는 없을까?
 	각종 intro 읽어보기
@@ -43,6 +44,15 @@
 
 #minishell
 {
+	implement describe function for new type in describer
+	dup2 같은거 에러 처리 할지?
+	test
+	{
+		echo hi 2>.temp1 there | (ls) && <.temp2 (pwd && echo hi) | cat > .temp3
+		'<.temp cd >.temp2': 이후 fd 가 원상 복구되는지
+	}
+	token_list 의 last 를 어떻게 설정하며, token_sublist 의 last 는 무엇이어야 하는가?
+		TYPE_NONE 이 last 가 되도록 하자(process_list_execute 를 위해)
 	jeonpark 안에 중심 헤더 파일 만들기
 	lmt_process_new_by_lmt_token_sublist();
 	lmt_process_list_set_by_lmt_token_sublist();
@@ -397,6 +407,17 @@ project/main
 
 #in the future
 {
+	program counter(pc)
+	nlp
+	{
+		tokenization
+		stemming
+		lemmatization
+	}
+	lexic
+	filedescriptors
+	file table
+	inode table
 	test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록 운영하는 깃 레포를 하나 만들고 싶다
 	automata
 		regex -> 유한 상태 머시기 -> 유한 상태 머시기
