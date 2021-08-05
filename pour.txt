@@ -4,6 +4,108 @@
 - 문제가 발생하면 전부 기록하자. 다 성장에 도움이 된다
 
 
+# 2021-07-19
+
+```
+...
+
+print normal
+if (fail)
+{
+	print additional fail message
+}
+
+...
+```
+
+- 함수 도중에 이런 식으로 하나의 흐름에 분기를 두는 것은 가독성을 낮춘다
+- print 와 if 문을 분리하는 시각적 효과가 있으며, print 가 위의 흐름에 포함될지 아래 if 문의 흐름에 포함될지 중의적이어진다
+
+```
+...
+
+if (success)
+{
+	print normal
+}
+else
+{
+	print normal
+	print additional fail message
+}
+
+...
+```
+
+- 이렇게 print normal 이라는 statement 가 두 번 들어가지만, if 문 하나로 모듈화해 놓는 것이 위 아래 흐름이 존재하는 상황에서는 더 좋다
+
+```
+...
+
+print_state()
+{
+	if (success)
+	{
+		print normal
+	}
+	else
+	{
+		print normal
+		print additional fail message
+	}
+}
+
+...
+
+print_state()
+
+...
+```
+
+- 이런식으로 구분된 모듈은 하나의 함수로 만들어주는 것이 가독성 측면에서 최고로 좋다
+
+```
+...
+
+print_state()
+{
+	print normal
+	if (fail)
+		print addtional fail message
+}
+
+...
+
+print_state()
+
+...
+```
+
+- 이제 하나의 모듈로 묶여 중이적인 부분이 해소되었으므로 print normal 을 두 번 쓰지 않고, 실패 시에면 추가 실패 메세지를 출력하도록 해도 가독성이 떨어지지 않는다
+
+
+# 2021-07-17
+
+- 요구사항에 대한 자세한 내용은, 직접 만들어보고 나서야 기준을 세울 수 있는 경우가 존재한다
+  - 그런데 막상 만들어보고 나서, 기존의 요구사항을 까먹기도 한다
+- 'git reset --hard <commit>': branch 를 옮기고 working directory 의 파일들도 commit 의 것으로 교체한다
+- 'git reset --soft <commit>': 현재 branch 를 commit 으로 옮기지만 working directory 의 파일들은 변경하지 않는다
+- 일일이 모듈화된 코드를 넣었다 뺐다 하는 것이 아니라 git 으로 해당 코드를 버전 관리 하면서 필요하면 적용된 코드를 넣고, 필요 없으면 해당 버전을 빼는 방식으로 진행하면 좋겠다(완벽히 유기적으로 연결될 수는 없겠지만)
+	- 순서와 계층이 생길 수 밖에 없다
+	- A > B > C 순서로 코드를 작성했다면 C 는 A 와 B 에 영향을 끼치게 되고 B 는 A 에 영향을 끼칠 수 있다. 이 상태에서 A 를 뺀다고 했을 때 B 와 C 는 A 에 의존적이기 때문에 세부적인 부분의 수정이 불가피할 것이다
+
+
+# 2021-07-16
+
+- 이런식으로 한 줄이라도 오늘 생각한 것을 기록하는 것이 작은 성취감을 얻을 수 있는 귀한 행동인 것 같다
+- 해야 할 일을 전부 적어놓고, 우선순위를 매기자. 더 급한 것을 먼저 하며 하고 싶더라도 당장 급하지 않은 경우는 반드시 뒤로 미루도록 하자
+
+
+# 2021-07-15
+
+- const 는 해당 포인터가 가리키는 변수 내부의 포인터가 가리키는 변수의 값을 변경하는 것도 불가능한가?
+
+
 # 2021-07-08
 
 - 'launchctl limit': show limit data

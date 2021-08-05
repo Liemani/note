@@ -13,6 +13,8 @@
 
 #write first
 {
+	safari 읽기 목록 정리하기
+	kernel panic
 	iterator 구조체를 만들면 이 함수 저 함수로 보내며 반복 상태를 저장할 수 있어서 유용할 것 같다
 	vimsession 은 정확히 특정 위치에 있는 파일을 여는 단점이 있다
 		유동적으로 session 을 실행할 directory 를 설정할 수는 없을까?
@@ -44,7 +46,35 @@
 
 #minishell
 {
-	implement describe function for new type in describer
+	exit_code 를 lmt_process 에 저장해서 결과 값을 계산하는 것을 더 이해하기 쉽도록 만들기
+	backup redirection 이 어떻게 작동하고 있는거지?
+	todo
+	{
+		zsh 의 특징을 적용했던 부분을 bash 의 특성으로 교체하기
+		{
+			t_lmt_process_list_method.c/lmt_process_execute()
+			'cd .. && pwd': parent process 에서 실행된다
+			'pwd | cd ..': child process 에서 실행된다
+			builtin, non-builtin 따지지 않고 자식 프로세스를 생성하여 실행
+				이에 따라 builtin 의 경우 redirection 을 backup 했던 부분을 수행하지 않도록 수정
+					하지만, || 나 && 에서는 parent process 에서 작동하므로 redirection 을 backup 해야 하는지 확실히 하기
+					앞의 process 의 op 가 파이프라면 child 를 만들어서 실행하고 아니라면 그냥 실행한다
+						이를 위해 lmt_process 에 previous 맴버 변수를 추가하자
+		}
+		backdown 이 어떻게 작동하는지 구체적으로 작성하기 (지금은 뭔가 이상하다, 왜 apply 후 free 를 하고 있지?)
+		backup -> new_undo_list, backdown -> undo 로 이름 수정하기
+		TYPE_PROCESS_NORMAL 을 TYPE_PROCESS_COMMON 으로 변경하기
+		lmt_exit() 을 하지 않도록 수정하기
+	}
+	무조건 자식 프로세스를 생성해서 호출하기
+	init.c/process_init() 의 중간에 process_line() 을 대신하여 lmt_process_manager_execute() 를 삽입하였다. 이를 간단하게 작동 가능하도록 수정하라
+	t_lmt_process_method.c/lmt_process_set() 에서 t_lmt_token 을 사용하지 않도록 수정하기
+	t_lmt_process_list_method.c/lmt_process_list_set_by_token_sublist() 에서 t_lmt_token 을 사용하지 않도록 수정하기
+	seonkim 의 function 을 호출할 때 p_handler 를 인자로 건내주기
+	tokenization directory 를 Makefile 에 등록하기
+	<< 와 >> 추가하기
+		t_lmt_redirection_method.c/lmt_redirection_new_by_token()
+	parsing 을 입맛에 맞게 수정하기
 	dup2 같은거 에러 처리 할지?
 	test
 	{
@@ -221,6 +251,7 @@
 	libft 어떻게 사용해왔는지
 	conform norm
 	no error quit
+	각종 builtin 함수에 대한 공식 설명도 있을까?
 }
 
 minishell 팀원과 첫 만남 'seonkim'
@@ -405,8 +436,9 @@ project/main
 		- 테스트를 하여 온전하게 작동하는 코드인지를 확실하게 하고 추가하는 것이다
 }
 
-#in the future
+#future
 {
+	다양한 c library 를 구비해두고 필요한 모듈을 가져다가 쓰는 방식으로 프로그램을 작성하면 재밌을 것 같다
 	program counter(pc)
 	nlp
 	{
