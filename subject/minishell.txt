@@ -1,0 +1,245 @@
+exit_code 를 lmt_process 에 저장해서 결과 값을 계산하는 것을 더 이해하기 쉽도록 만들기
+backup redirection 이 어떻게 작동하고 있는거지?
+
+readline 을 보면서 cli short cut 을 익혀보도록 하자
+
+todo
+{
+	zsh 의 특징을 적용했던 부분을 bash 의 특성으로 교체하기
+	{
+		t_lmt_process_list_method.c/lmt_process_execute()
+		'cd .. && pwd': parent process 에서 실행된다
+		'pwd | cd ..': child process 에서 실행된다
+		builtin, non-builtin 따지지 않고 자식 프로세스를 생성하여 실행
+			이에 따라 builtin 의 경우 redirection 을 backup 했던 부분을 수행하지 않도록 수정
+				하지만, || 나 && 에서는 parent process 에서 작동하므로 redirection 을 backup 해야 하는지 확실히 하기
+				앞의 process 의 op 가 파이프라면 child 를 만들어서 실행하고 아니라면 그냥 실행한다
+					이를 위해 lmt_process 에 previous 맴버 변수를 추가하자
+	}
+	backdown 이 어떻게 작동하는지 구체적으로 작성하기 (지금은 뭔가 이상하다, 왜 apply 후 free 를 하고 있지?)
+	backup -> new_undo_list, backdown -> undo 로 이름 수정하기
+	TYPE_PROCESS_NORMAL 을 TYPE_PROCESS_COMMON 으로 변경하기
+	lmt_exit() 을 하지 않도록 수정하기
+}
+
+무조건 자식 프로세스를 생성해서 호출하기
+init.c/process_init() 의 중간에 process_line() 을 대신하여 lmt_process_manager_execute() 를 삽입하였다. 이를 간단하게 작동 가능하도록 수정하라
+t_lmt_process_method.c/lmt_process_set() 에서 t_lmt_token 을 사용하지 않도록 수정하기
+t_lmt_process_list_method.c/lmt_process_list_set_by_token_sublist() 에서 t_lmt_token 을 사용하지 않도록 수정하기
+seonkim 의 function 을 호출할 때 p_handler 를 인자로 건내주기
+tokenization directory 를 Makefile 에 등록하기
+<< 와 >> 추가하기
+	t_lmt_redirection_method.c/lmt_redirection_new_by_token()
+parsing 을 입맛에 맞게 수정하기
+dup2 같은거 에러 처리 할지?
+
+test
+{
+	echo hi 2>.temp1 there | (ls) && <.temp2 (pwd && echo hi) | cat > .temp3
+	'<.temp cd >.temp2': 이후 fd 가 원상 복구되는지
+}
+
+token_list 의 last 를 어떻게 설정하며, token_sublist 의 last 는 무엇이어야 하는가?
+	TYPE_NONE 이 last 가 되도록 하자(process_list_execute 를 위해)
+jeonpark 안에 중심 헤더 파일 만들기
+lmt_process_new_by_lmt_token_sublist();
+lmt_process_list_set_by_lmt_token_sublist();
+lmt_string_array
+shell 상에서 new line 을 추가하는 것 처럼 tab 을 삽입하는 방법도 있다
+fd 의 값을 dup 하되, 이후 쓰기 및 읽기 에러가 발생 시, 에러 메세지를 출력하도록 하자
+'n>file'
+	- if 0 <= n <= max: normal operation
+	- if n < 0: use as part of command
+	- if n < max: occur error
+wait problem
+t_lmt_token 으로 argv 만들기
+
+testcase
+{
+	redirection, |, ||, &&, () 혼용
+	존재하지 않는 command 가 도중에 존재
+}
+
+0, 1, 2 외의 값에 대한 redirection
+pipe 의 fd 와 pipe 이전 command 의 redirection 이 어떻게 처리되는지
+#define _W_INT(w)	(*(int *)&w)
+#define WEXITSTATUS	((_W_INT(x) >> 8) & 0x000000ff)
+redirection 으로 큰 숫자가 들어와도 처리가 가능하도록 수정하기
+ls | exit
+set, env
+>> 와 << 알아보기
+
+later team talk
+{
+	시간 날 때 괄호도 잘라달라고 하자
+}
+
+argv 를 입력받아서 excve 등을 실행하는 프로그램
+이모지를 바이트 데이터로 수정하기
+word splitting (read IFS referencing docs)
+파이프로 연결된 process 중 하나라도 존재하지 않는 명령이 들어오면 아무것도 실행되지 않는다
+파이프가 올 때 cd 가 안되는 것은 자식 프로세스에서 실행되서 그런가?
+리다이렉션도 파싱 가능하도록 수정하기
+single quote, double quote, variable expansion
+fd 작동 원리 파악하고 max 이하의 (기본 255) fd 도 받도록 하기
+process 들은 부모가 모든 자식 process 를 만든다
+clear child process 가 종료되지 않는 문제
+process 가 여러 개 실행중이면 signal 은 어떻게 작동하지?
+fd 가 큰 값이 들어와도 redirection 을 제대로 수행하도록 하기
+의존성 체크하기
+초기화하지 않은 fd 를 리다이렉션으로 입력한 경우
+파이프 앞의 잘못된 커맨드가 종료되거나 실행되지 않거나 하면, 뒤에 있던 커맨드는 stdin 을 어떻게 대하나? cat 의 경우 아무것도 출력하지 않던데
+code 상에 unicode character 를 넣지 않더라도 환경변수로 입력받아서 사용하는 방법
+readline 을 사용할 때 긴 줄이 들어오면 커서가 carriage return 하는 현상
+'<none command> | <command>' 의 경우 command 만 실행된다
+'<command> | <none command>' 의 경우 command 만 실행되며 결과 값이 출력되지 않는다
+	실패 메세지가 먼저 뜨고 실행되는데, 리다이렉션은 어디로 날라가는거지?
+	게다가 동시에 실행되니 뒤에 것이 인자를 받을 필요가 없으면 먼저 실행하면서 종료해버리네?
+	만약 '<command> | <none command> | <command>' 이면 뒤의 command 는 먼저 실행이 종료 될 수도 있다
+	'sleep 10 | cat' 은 cat 이 종료되지 않고 기다린다
+	'sleep 10 | sleep 1' 은 뒤의 sleep 이 먼저 종료된다
+		(sleep 이 standard input 을 사용하지 않기 때문에?)
+권한이 없는 파일에 redirection 을 시도하면 어떻게 되나?
+PATH 에서 프로그램을 search 할 때는 path 의 인자를 앞에서부터 순차적으로 탐색한다
+PATH 값을 수정하면서 내 프로그램이 실행되는지, 기본 프로그램이 실행되는지 테스트해보자
+leak 검사
+wait 중에 signal 을 받을 때 어떻게 할까?
+argv 의 문자열 포인터를 다른 문자열 포인터로 치환하면 leak 이 발생할까?
+나중에 stat 읽어보고 사용해보기 (inode 등)
+stat 을 사용한 파일 검사
+'process1 | process2' 에서 process2 는 process1 이 output 하는 것을 기다리는가?
+	bash 에서는 일단 한꺼번에 process 를 생성해두기는 한다
+close 한 fd 에 write 등을 하면 어떻게 될까?
+'command ls' 는 stdard output 이 '/dev/fd/1' 이냐, 다른 파일이냐에 따라 다른 행동을 하는 것 같다
+	minishell 을 완성하면 테스트해보자
+'ls > test' 를 하면 test 자신의 이름도 ls 로 인해 출력된 것이 저장되지만 크기는 0 으로 나온다
+'<<' 는 '<C-D>' 에 어떻게 반응하나?
+execve 사용해보기
+getenv() 와 envp 의 차이
+
+functions
+{
+	isatty
+	ttyname
+	ttyslot
+	ioctl
+	tcsetattr
+	tcgetattr
+	tgetent
+	tgetflag
+	tgetnum
+	tgetstr
+	tgoto
+	tputs
+}
+
+chdir() 을 하면 'PWD' 환경 변수가 변하는가?
+여러 줄을 읽게 할 필요가 있는가?
+'<C-t><ESC>' 를 누르면 prompt 가 내용을 가리는 문제(?)
+'nice to meet you!' 를 입력하면 다음 prompt 가 스킵되는 현상
+envp 와 getenv() 의 차이점
+파이프 실제 동작 테스트
+line 으로부터 command 생성
+각 프로세스의 fd table 은 각각 존재하나?
+	자식 프로세스의 fd 0 을 close 해도 부모 프로세스의 fd 0 은 살아있겠지?
+'<C-D>': exit 출력하는 함수 만들기
+sigaction 을 signal 을 사용하도록 수정하기
+control-c, control-d 화면에 안찍히도록 수정하기
+read_line free 하기
+
+type
+{
+	0: 잘못된 값 -> 바로 오류
+	1: 명령어
+	2: symbol
+}
+
+$PATH parsing
+env from argument vs getenv()
+환경 변수와 지역 변수의 값을 shell program 과 동기화하도록 해야하는가?
+	PS1 은 local variable 이다
+	command 는 PATH 에서 검색하여 찾는다
+readline
+rl_on_new_line
+ioctl
+Makefile 에 Stdheader 넣기!!
+readline 의 return value 는 free 를 해줘야 한다
+불필요한 경우 add_history 를 하지 않도록 하기
+split 't_philos_method.c/philos_run()' several functions
+any command ending with '&' is run in the background
+
+export
+{
+	local variables can be local or environment
+	environment variables are part of UNIX
+	turn local variable into environment
+}
+
+build-in commands are internal to the shell and do not create seperate process
+
+command search rules
+{
+	special built-ins
+	functions
+		command bypasses search for functions
+	built-ins not associated with PATH
+	PATH search
+	built-ins associated with PATH
+}
+
+how the shell parses
+{
+	read the command
+	{
+		read one or more lines a needed
+		seperate into tokens using space/tabs
+		form commands based on token types
+	}
+	evaluate a command
+	{
+		expand word tokens(command substitution, parameter expansion)
+		split words into fields
+		file expansion
+		setup redirections, environment
+		run command with arguments
+	}
+}
+
+token types
+{
+	control operators (||)
+	redirection operators (<)
+	reserved words (if)
+	assignment tokens
+	word tokens
+}
+
+ioctl()
+환경 변수 읽는 법
+환경 변수 쓰는 법
+main 의 3 번째 인자
+tab 을 복사하여 넣어주는 경우 테스트
+git 을 사용할 때 merge 등을 하기 싫다면 아예 분리된 directory 에서 작업하는 방법이 있다
+libft 어떻게 사용해왔는지
+conform norm
+no error quit
+각종 builtin 함수에 대한 공식 설명도 있을까?
+
+팀원과 첫 만남 'seonkim'
+{
+	pipe 등이 나오기 전까지 cmd flag 를 1 로 유지해서 작동시킨다
+	signal control-D
+	의견 교환 이전에
+	{
+		no ebelin! 의사 합의를 하지 않도록 해보자
+		가볍게 대화 가능한 주제
+			subject pdf 의 의미 해석
+		가볍게 대화가 불가능한 주제
+			stack or heap
+			data type
+			data structure
+			이 경우 가볍게 토론하기보다 깊게 생각해보고, 둘 다 충분히 준비가 되면 이야기를 나누는 방식을 선호한다. 둘 다 잘 모르는 상태에서는 얘기해봤자 가벼운 이야기만 오갈 뿐이라고 생각한다
+
+		어떻게 생각하시는지?
+	}
+}
