@@ -1,10 +1,6 @@
 modify function's name convention of 'alloc, init, new, free' from prefix to suffix
 exit 이 없더라도 lmt_error.h 에 exit_code 를 적어두는 것은 좋다
 	- 언제든 함수의 반환 값을 다시 반환할 때, 다른 에러 발생으로 함수를 종료할 때 이 exit_code 를 사용하면 된다
-unsafe 함수들은 unsafe prefix 를 붙이자
 main/util/lmt_atoi 가 "-" 를 0 으로 반환하는 문제 -> 반환 순서를 조금 뒤로 (philo1 참고)
-util.h 를 lmt_util.h 로 바꾸자
-directory name 도 util 에서 lmt_util 로
-util.c 는 lmt_write.c 등으로 함수 하나만 사용하도록
 add 'unsafe/lmt_strcpy.c'
 iterator 구조체를 만들면 이 함수 저 함수로 보내며 반복 상태를 저장할 수 있어서 유용할 것 같다

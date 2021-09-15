@@ -1,5 +1,17 @@
 ################################################################################
 
+#terminal record
+	aux vimsession note
+	man 3x curs_termcap
+	man 3x curs_terminfo
+	man 3x curs_kernel
+	man 5 terminfo
+	man 5 term
+	man 7 term
+
+	aux vimsession main
+	aux vimsession env
+
 #investigate
 	nlp
 	{
@@ -19,13 +31,9 @@
 		regex -> 무한 상태 머신 -> 유한 상태 머신
 	아마존 무료 클라우드 호스팅 서비스 알아보기
 
-env 다듬기
-
 minishell
 
 philosopher
-
-블로그 만들기
 
 각종 intro 읽어보기
 
@@ -45,10 +53,10 @@ variabledText
 	중복 정의된 식별자 경고
 
 #blog
+	블로그 모델을 만들고 모델을 github page format 으로 converting 하는 프로그램 만들기
 	작업 환경을 어떻게 구성하고 사용하고 있는지에 대한 글
 
 기록이 먼저
-  내가 프로그램 지능이 나보다 낮은 사람에게 알려줄 수 있는 것은 앞길과, 그 시기에는 원래 그렇게 힘들다는 것이다
   프로그래밍 단어 정규화
   자동으로 웹에 백업되는 것도 좋지만, 시간이 오래 걸리는 작업이기 때문에 캐쉬를 기본으로 하고 필요에 따라 사용자에게 백업 및 풀 권한을 주는 것도 좋을 것 같다
 
@@ -90,13 +98,12 @@ variabledText
   변수 값 읽기 쓰기에 따른 breakpoint 설정
 
 #book
-  50/288 : The C Programming Language
-  늑향: 10 권 114p
-
-최민준의 영상 제목 중 하나: 저의 20대는 이 책을 읽기 전후로 나뉩니다[최민준]
-
-국어를 맞춤법에 더 잘 맞게 할 수 있었으면 좋겠다
-	띄어쓰기, 등
+	50/288 : The C Programming Language
+	늑향: 10 권 114p
+	최민준의 영상 제목 중 하나: 저의 20대는 이 책을 읽기 전후로 나뉩니다[최민준]
+		카네기 인간 관계론
+	국어를 맞춤법에 더 잘 맞게 할 수 있었으면 좋겠다
+		띄어쓰기, 등
 
 #idea
 	방송으로 막 송출을 하다가 클립을 따서 위키 페이지에 정리하는 방식으로 프로젝트를 진행한다면 새로 들어오는 시청자도 클립으로 주요 부분을 이해하고 쉽게 참여가 가능하지 않을까?

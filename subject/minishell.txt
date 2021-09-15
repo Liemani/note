@@ -1,3 +1,6 @@
+일단 적어
+link 된 directory 로 이동할 경우 pwd 는 어떻게 출력되어야 하는가?
+
 exit_code 를 lmt_process 에 저장해서 결과 값을 계산하는 것을 더 이해하기 쉽도록 만들기
 backup redirection 이 어떻게 작동하고 있는거지?
 
