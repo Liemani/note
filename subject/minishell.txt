@@ -34,11 +34,24 @@ tokenization directory 를 Makefile 에 등록하기
 << 와 >> 추가하기
 	t_lmt_redirection_method.c/lmt_redirection_new_by_token()
 parsing 을 입맛에 맞게 수정하기
+
+before cluster close
+{
+	바로 exit() 하지 않도록 코드 수정하기
+	역시 삭제할 redirection_fd 값을 따로 보관하는 것보다 매번 삭제해야할 때 삭제하는 것이 좋겠다
+	각종 파싱 에러 처리
+	>> 와 << 구현 ; 도 구현
+	t_token 을 마음대로 수정해도 괜찮다
+	builtin_execute() 같은 함수를 호출할 때 인자로 t_handle 이 들어간다
+		적당히 p_handle->list 를 수정한 후 builtin_execute() 를 실행하자
+}
+
 dup2 같은거 에러 처리 할지?
 
 test
 {
 	echo hi 2>.temp1 there | (ls) && <.temp2 (pwd && echo hi) | cat > .temp3
+	echo hi 2>.temp1 there | (ls) ' & ' " | "&& <.temp2 (pwd && echo hi) | cat > .temp3
 	'<.temp cd >.temp2': 이후 fd 가 원상 복구되는지
 }
 

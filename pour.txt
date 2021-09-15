@@ -4,6 +4,13 @@
 - 문제가 발생하면 전부 기록하자. 다 성장에 도움이 된다
 
 
+# 2021-09-15
+- 생각은 기록보다 빠르다, private 암호와 등으로 속기 기술을 익힌다면 어떨까?
+	- 복호화하여 public 이 이해 가능한 형태로 바꾸는 기술이 동반되어야 할 것이다
+- minishell tokenize: structure 를 재귀적으로 사용했다면 어땠을까?
+- mathmatical expression 을 tokenize 해보기
+
+
 # 2021-09-06
 
 - 종이처럼 직접 만지고 필기할 수 있는 모니터 -> 아이패드처럼 필기가 가능하도록
@@ -190,6 +197,15 @@ print_state()
 # 2021-07-15
 
 - const 는 해당 포인터가 가리키는 변수 내부의 포인터가 가리키는 변수의 값을 변경하는 것도 불가능한가?
+
+
+# 2021-07-09
+- function prototype 의 argument name 에는 argument name 을, function define 의 parameter name 에는 parameter name 을 기입하도록 해보자
+- general Debug commit 과 delicate Debug commit 을 구분해도 좋았을 것다
+- commit 에는 무엇이 기록되어 있을까? 다시 한 번 확인을 해 볼 필요가 있다
+- string 을 tokenize 할 때 단순히 특정 delimiter 로 쪼개어 word 단위로 저장하는 것이 아니라 앞뒤 문맥을 보고 해당 word 의 type 을 결정하는 것이 필요하다. 또한 word 단위가 아니라 의미있는 word 들의 묶음을 하나의 token 으로 묶어서 처리할 필요가 있다
+	- structure 를 재귀적으로 사용했다면 어땠을까?
+- process's filedescriptor table 에서 fd index 번재의 file data structure 를 읽고 사용 가능한 system call 함수가 해당 fd 의 file 에 사용 가능한지 판단한다
 
 
 # 2021-07-08
