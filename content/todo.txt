@@ -1,4 +1,6 @@
-################################################################################
+# todo #########################################################################
+
+
 
 #terminal record
 	aux vimsession note
@@ -11,6 +13,8 @@
 
 	aux vimsession main
 	aux vimsession env
+
+
 
 #investigate
 	nlp
@@ -30,12 +34,15 @@
 	automata
 		regex -> 무한 상태 머신 -> 유한 상태 머신
 	아마존 무료 클라우드 호스팅 서비스 알아보기
+	read vim manual
 
-minishell
 
-philosopher
 
-각종 intro 읽어보기
+#project
+	minishell
+	philosophers
+
+
 
 다양한 c library 를 구비해두고 필요한 모듈을 가져다가 쓰는 방식으로 프로그램을 작성하면 재밌을 것 같다
 

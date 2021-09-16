@@ -1,5 +1,90 @@
-일단 적어
-link 된 directory 로 이동할 경우 pwd 는 어떻게 출력되어야 하는가?
+#minishell
+
+
+
+#allowed external functions
+{
+	readline
+	rl_on_new_line
+	rl_replace_line
+	rl_redisplay
+	add_history
+
+	printf
+	malloc
+	free
+	write
+
+	open
+	read
+	close
+
+	fork
+	wait
+	waitpid
+	wait3
+	wait4
+
+	signal
+	kill
+
+	exit
+
+	getcwd
+	chdir
+
+	stat
+	lstat
+	fstat
+
+	unlink
+
+	execve
+
+	dup
+	dup2
+
+	pipe
+
+	opendir
+	readdir
+	closedir
+
+	strerror
+	errno
+
+	isatty
+	ttyname
+	ttyslot
+	ioctl
+	getenv
+
+	tcsetattr
+	tcgetattr
+
+	tgetent
+	tgetflag
+	tgetnum
+	tgetstr
+	tgoto
+	tputs
+}
+
+#reference
+	[gnu readline library](https://web.mit.edu/gnu/doc/html/rlman_2.html)
+
+
+
+C-d 는 EOF 를 만나면 NULL 을 반환하는 readline() 의 특성을 활용한다
+C-\ 와 C-c 는 signal 을 활용한다
+특히 C-c 는 새로운 prompt 를 newline 에 출력하기 위해 main 과 공유하는 변수를 참조할 필요가 있으므로 global 변수를 활용한다
+C-\ 는 빈 함수를 실행하거나 기능하지 않도록 한다
+Since some of the definitions in readline.h use the stdio library, the file <stdio.h> should be included before readline.h
+
+
+#일단 적어
+	각종 intro 읽어보기
+	link 된 directory 로 이동할 경우 pwd 는 어떻게 출력되어야 하는가?
 
 exit_code 를 lmt_process 에 저장해서 결과 값을 계산하는 것을 더 이해하기 쉽도록 만들기
 backup redirection 이 어떻게 작동하고 있는거지?
@@ -159,7 +244,6 @@ line 으로부터 command 생성
 각 프로세스의 fd table 은 각각 존재하나?
 	자식 프로세스의 fd 0 을 close 해도 부모 프로세스의 fd 0 은 살아있겠지?
 '<C-D>': exit 출력하는 함수 만들기
-sigaction 을 signal 을 사용하도록 수정하기
 control-c, control-d 화면에 안찍히도록 수정하기
 read_line free 하기
 
@@ -244,7 +328,6 @@ no error quit
 팀원과 첫 만남 'seonkim'
 {
 	pipe 등이 나오기 전까지 cmd flag 를 1 로 유지해서 작동시킨다
-	signal control-D
 	의견 교환 이전에
 	{
 		no ebelin! 의사 합의를 하지 않도록 해보자

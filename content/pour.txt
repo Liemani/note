@@ -4,14 +4,61 @@
 - 문제가 발생하면 전부 기록하자. 다 성장에 도움이 된다
 
 
-# 2021-09-15
+
+#2021-09-16
+
+- data segment 의 값을 프로그램이 바꾸려고 하면 bus error 가 발생한다
+- general command tty: print current ttyname
+- man stty
+- man 4 termios
+- [ieee](https://ieeexplore.ieee.org/document/6880751) 에서 발견한 문서의 doi 를 [sci-hub](https://sci-hub.se) 에서 검색하여 문서를 다운로드 할 수 있다?
+- success & failure
+- ps xao pid,ppid,pgid,comm
+- ps -o tty,pid,ppid,pgid,comm
+
+
+
+
+#2021-09-15
+
 - 생각은 기록보다 빠르다, private 암호와 등으로 속기 기술을 익힌다면 어떨까?
 	- 복호화하여 public 이 이해 가능한 형태로 바꾸는 기술이 동반되어야 할 것이다
 - minishell tokenize: structure 를 재귀적으로 사용했다면 어땠을까?
 - mathmatical expression 을 tokenize 해보기
+- <C-f>
+- <C-b>
+
+- <M-f>
+- <M-b>
+
+- <C-a>
+- <C-e>
+
+- <C-_>: undo
+- <C-x C-u>: undo
+
+- <C-d>
+- <C-h>
+
+- <M-d>
+- <M-DEL>
+- <C-w>
+
+- <C-y>
+
+- <M-digit><command>
+- <M-TAB>: insert a tab character
+- <C-t>: swap two characters
+- <M-t>: swap two words
+- <M-u>: uppercase current word
+- <M-l>: lowercase current word
+- <M-c>: capitalize current word
+- 공부를 할 때 무엇을 참조했는지 기록해두는 것이 좋겠다
+- [what is a buffer overflow](https://www.veracode.com/security/buffer-overflow)
 
 
-# 2021-09-06
+
+#2021-09-06
 
 - 종이처럼 직접 만지고 필기할 수 있는 모니터 -> 아이패드처럼 필기가 가능하도록
 - 더 나아가, 펜으로 프로그래밍이나 다양한 조작을 가능하도록?
@@ -20,18 +67,21 @@
 - 'setupterm()': env 와 terminfo 사용하여 terminal type 변수 하나를 생성한다
 
 
-# 2021-09-04
+
+#2021-09-04
 
 - 인터넷의 정제된 페이지를 가져와서 vim 처럼 보고 싶다면, vim 에 인터넷 페이지를 정제하여 읽어오는 기능을 넣으면 되는 것이 아닐까?
   - 하지만 그러려면 vim script 등을 배워야겠지
 
 
-# 2021-09-02
+
+#2021-09-02
 
 - 'man 5 term' 을 보니 지금과 같이 16 진수 체계를 사용하기보다 8 진수를 사용한 기록이 눈에 띄었다. 아마 옛날에 8 진수와 16 진수 체계가 혼용되던 시절, 초기에는 단순히 아라비안 숫자 체계가 0 부터 9 까지 존재하기 때문에 표기가 가능한 8 진수 체계가 사용되었지 않았나 싶다. 지금 와서는 0 부터 f 까지 사용하는 16 진수 체계가 더 자연스럽고 통용되었지만 말이다
 
 
-# 2021-09-01
+
+#2021-09-01
 
 - vimsession 은 폴더 이름이 바뀌는 등, 외부의 수정이 가해졌을 때 이 변화를 인지하지 못하는 문제가 있다
 - 왜 보기에 지저분한 html 을 사용해야만 하는가? 시각적으로도 더 읽기 쉽고 가벼운 언어를 사용할 수는 없는가?
@@ -39,7 +89,8 @@
 - 내가 프로그램 지능이 나보다 낮은 사람에게 알려줄 수 있는 것은 앞길과, 그 시기에는 원래 그렇게 힘들다는 것이다
 
 
-# 2021-08-31
+
+#2021-08-31
 
 - 가령, 모든 데스크 셋업을 커버할 수 있는 책상을 가지고 싶다고 하자
   - 그렇다면 왜 그런 책상을 원하는 것일까?
@@ -57,19 +108,22 @@
   - <ctrl-w>: delete the word before the cursor
 
 
-# 2021-08-20
+
+#2021-08-20
 
 - 'traceroute <ip>': ip 로 가는 경로의 ip 들을 출력한다
 - 'arp': local network 를 출력한다
 
 
-# 2021-08-15
+
+#2021-08-15
 
 - OOP 는 기본적으로 다양한 주소를 무리지어서 하나의 그룹을 구성하기 위해 탄생한 것이 아닐까?
   - 모든 작업에서 1차적으로 발전할 때 그룹을 형성하는 것이 중요하다고 생각한다. 파일 시스템처럼 directory 를 만드는 것이다. 이를 위해 어떤 기준으로 그룹을 지을까가 중요해졌고, 여기서 물체 중심으로 관련된 주소들을 그룹지어서 저장하는 OOP 가 발전한 것 같다
 
 
-# 2021-08-14
+
+#2021-08-14
 
 - xxd test.txt
   - '-s <address>'
@@ -78,7 +132,8 @@
     - xxd -l 0x10 test.txt
 
 
-# 2021-08-05
+
+#2021-08-05
 
 - 게임의 요소: 시청각의 값과 변화량
   - 시각 축 값: 그래픽
@@ -97,7 +152,8 @@
 이런 식으로, 하나의 서술에는 하나의 가정만을 두는 것이 가독성 측면에서 좋을 것 같다
 
 
-# 2021-07-19
+
+#2021-07-19
 
 ```
 ...
@@ -177,7 +233,8 @@ print_state()
 - 이제 하나의 모듈로 묶여 중이적인 부분이 해소되었으므로 print normal 을 두 번 쓰지 않고, 실패 시에면 추가 실패 메세지를 출력하도록 해도 가독성이 떨어지지 않는다
 
 
-# 2021-07-17
+
+#2021-07-17
 
 - 요구사항에 대한 자세한 내용은, 직접 만들어보고 나서야 기준을 세울 수 있는 경우가 존재한다
   - 그런데 막상 만들어보고 나서, 기존의 요구사항을 까먹기도 한다
@@ -188,18 +245,21 @@ print_state()
 	- A > B > C 순서로 코드를 작성했다면 C 는 A 와 B 에 영향을 끼치게 되고 B 는 A 에 영향을 끼칠 수 있다. 이 상태에서 A 를 뺀다고 했을 때 B 와 C 는 A 에 의존적이기 때문에 세부적인 부분의 수정이 불가피할 것이다
 
 
-# 2021-07-16
+
+#2021-07-16
 
 - 이런식으로 한 줄이라도 오늘 생각한 것을 기록하는 것이 작은 성취감을 얻을 수 있는 귀한 행동인 것 같다
 - 해야 할 일을 전부 적어놓고, 우선순위를 매기자. 더 급한 것을 먼저 하며 하고 싶더라도 당장 급하지 않은 경우는 반드시 뒤로 미루도록 하자
 
 
-# 2021-07-15
+
+#2021-07-15
 
 - const 는 해당 포인터가 가리키는 변수 내부의 포인터가 가리키는 변수의 값을 변경하는 것도 불가능한가?
 
 
-# 2021-07-09
+
+#2021-07-09
 - function prototype 의 argument name 에는 argument name 을, function define 의 parameter name 에는 parameter name 을 기입하도록 해보자
 - general Debug commit 과 delicate Debug commit 을 구분해도 좋았을 것다
 - commit 에는 무엇이 기록되어 있을까? 다시 한 번 확인을 해 볼 필요가 있다
@@ -208,12 +268,14 @@ print_state()
 - process's filedescriptor table 에서 fd index 번재의 file data structure 를 읽고 사용 가능한 system call 함수가 해당 fd 의 file 에 사용 가능한지 판단한다
 
 
-# 2021-07-08
+
+#2021-07-08
 
 - 'launchctl limit': show limit data
 
 
-# 2021-07-07
+
+#2021-07-07
 
 - 요구사항을 분석하는 능력이 부족하다
 - n 이 m 개 있는 것을 표현하는 방법
@@ -222,7 +284,8 @@ print_state()
 - 역시 조금 불필요한 동작이 있더라도 빠르게 구현하는 것이 더 중요한 것 같다. 아무리 잘 만든다고 오랫동안 공들여도 당장 작동하지 않는다면, 차라리 2~3 배의 자원을 사용하더라도 일단 작동하는 것이 더 좋다
 
 
-# 2021-07-06
+
+#2021-07-06
 
 - 'ps -f <pid>': process 의 ppid 를 알 수 있다
 - 요구 사항이 있으면 요구사항을 최저 사양으로 설정하고 전체적 추상화를 진행하는 것이 좋을 것 같다
@@ -232,7 +295,8 @@ print_state()
   - '너무 작아서 잘 안들렸어!'
 
 
-# 2021-07-05
+
+#2021-07-05
 
 - 팀원들간의 사적 일정으로 인해 격차가 발생할 수 있다. 이 경우 일정을 잘 조율하지 않으면 부담이 가해질 수 있다
 - 말을 조금 더 조심스럽게 하자
@@ -240,23 +304,27 @@ print_state()
 - 상대방도 말을 더 부드럽게 할 수 있도록 내가 유도해서 행동해보자
 
 
-# 2021-07-04
+
+#2021-07-04
 
 - 화를 내지 않도록 조심해라! 화를 내면 내가 생각해보지 못했던 상대의 새로운 의견을 들을 기회가 사라질 수 있다
 
 
-# 2021-07-03
+
+#2021-07-03
 
 - '~/.vimrc' 로부터 적용된 내용은 vimsession 에 저장되고, vimsession 을 open 할 때는 '~/.vimrc' 를 읽지 않는다
 - dm 메세지와 다르게 facebook 처럼 나의 line 에 메세지를 남기는 방식이 확실히 전파력도 강하고 가볍게 글을 남길 수 있어서 장점이 있는 것 같다
 
 
-# 2021-07-02
+
+#2021-07-02
 
 - 잘 모르는 것에 대한 부분에서는 목소리를 높이지 말자. 잘 알지도 못하면서..
 
 
-# 2021-06-30
+
+#2021-06-30
 
 - 나는 왜 타인을 무시하고 들어가는가?
   - 가치관이 다른 사람을 인정할 수 있는가?
@@ -265,13 +333,15 @@ print_state()
 - 상대의 말을 더 잘 들으려고 노력하자
 
 
-# 2021-06-29
+
+#2021-06-29
 
 - 팀원 각각의 특성을 잘 파악하는 것이 중요하다
 - 대화는 한 명이 다른 한 명에게 생각을 전달하는 것이다. 혼자 말하는 것이 아니다. 전달하고자 하는 생각이 무엇인지 확실히 해둬라
 
 
-# 2021-06-28
+
+#2021-06-28
 
 - 시간이 넉넉하지 않을 때 대화를 하지 않는 것은 좋지 않다
   - 시간이 넉넉하지 않다는 것을 대화를 해서 알리도록 하여라!
@@ -282,7 +352,8 @@ print_state()
 - detach 하면 thread 가 종료될 때 내부 할당이 free 될까?
 
 
-# 2021-06-27
+
+#2021-06-27
 
 - 끝내기 전에 나의 성장을 위한 감사를 표현하자
 - "너무 무리하지는 말어"
@@ -297,7 +368,8 @@ print_state()
 - 상대는 하고 싶은 것이 있는데, 내가 다른 것이 눈에 보인다고 그 것을 얘기하면, 상대의 입장에서는 자신의 문제를 해결하지 못한 채 추가적인 문제가 생기는 것이다!
 
 
-# 2021-06-26
+
+#2021-06-26
 
 - ls 에 파일 내용을 출력하는 기능이 있더라
 - 설명을 할 때 평가를 받는 것처럼 중간 단계를 건너 뛰고 결과 및 큰 그림을 설명하는 문제
@@ -307,7 +379,8 @@ print_state()
   - 모든 작동이 한 번에 오래 걸리지 않도록 적당히 suspend 를 해주도록 하자 (그래야 thread 가 골고루 돌아갈 것 같다)
 
 
-# 2021-06-25
+
+#2021-06-25
 
 - signal 에 대해 물어보셨을 때 'man signal' 을 보여드리면 더 좋았을 것 같다!!
 - 상대가 자신은 뭘 쓴다고 하면 그에 대한 반응을 해주자!! 가볍게!!
@@ -331,7 +404,8 @@ print_state()
   - 이것을 못하면 다양성의 긍정적인 면을 인정하기 힘들어질 것 같다
 
 
-# 2021-06-24
+
+#2021-06-24
 
 - 함수가 pointer 를 인자로 받을 때는 그 인자가 const type 인지 아닌지가 중요해진다!! 변경되서는 안되는 인자라면 const 를 명시해주는 것이 좋다
 - 멘토 특강(오디오 신호 이해 및 딥러닝 음성인식 (Speech Recognition) (주) 보이스프린트 대표 김광호
@@ -368,7 +442,8 @@ print_state()
 - 디펜스 등록 이후에 문제를 발견했다면 빠른 취소보다는 디펜스를 한 번 해보는 게 도움이 될 것 같다
 
 
-# 2021-06-23
+
+#2021-06-23
 
 - 감정을 잘 모르는 것이 아니라 이해하는데 시간이 좀 걸리는 것 아닐까?
 - 나는 처음에는 다 괜찮은 것처럼 말해놓고 나중에 가서는 딴 소리를 하는 것 같다?
@@ -377,7 +452,8 @@ print_state()
   - handler 내부에서 empty mask 를 가진 sigaction 으로 새로운 sigaction 을 설정해주었지만 그럼에도 SIGUSR1 signal 에 interrupt 되지 않았다
 
 
-# 2021-06-22
+
+#2021-06-22
 
 - minilibx
   - https://github.com/qst0/ft_libgfx#minilibx
@@ -386,12 +462,14 @@ print_state()
 - 주석을 곳곳에 넣어서 언제나 완성된 코드를 유지하도록 하자! (pseudo 코드지만)
 
 
-# 2021-06-21
+
+#2021-06-21
 
 - 생각을 못했던 부분을 지적당한다면 순간 당황을 할 수 밖에 없다. 나는 생각을 해본 부분이지만, 상대는 생각을 못 한 부분이기 때문이다. 이 경우 상대방에게 생각 할 시간을 넉넉하게 주는 것이 좋을 것 같다
 
 
-# 2021-06-20
+
+#2021-06-20
 
 - 통신 장애
   - 1. 잘못된 값이 전달: checksum 으로 확인
@@ -411,7 +489,8 @@ print_state()
   - 둘 다 맞는 건데, 나는 질문을 하지 않았고, 상대는 말을 정교하게 하지 못했다
 
 
-# 2021-06-19
+
+#2021-06-19
 - 상대가 무시 당한다는 느낌을 받지 않게 하기 위해서는 내가 계속 말을 해야 한다
   - 1. 목적 잊지 않기
   - 2. 상대가 물었으면 그에 대한 답을 하자 (상대가 그 말을 한 표면적인 의미부터 제대로 이해하자)
@@ -429,7 +508,8 @@ print_state()
 - 실패할 때 NAC 를 전송하여 재전송을 요청하는데, 그냥 가만히 있고, client 가 ACK 를 받지 못할 때 데이터를 재전송하도록 하면 어떨까?
 
 
-# 2021-06-18
+
+#2021-06-18
 
 - 'echo "obase=2; $var" | bc': 숫자를 2 진수로 출력하기
 - 'echo "$((2#<binary number>))"': Binary 를 decimal 로 출력하기
@@ -439,7 +519,8 @@ print_state()
 - 주어진 질문을 주체적으로 해석하여 답을 내는 것은 중요한 기술이다. 하지만 사람과 대화할 때 이 기술만 사용할 필요는 없다
 
 
-# 2021-06-17
+
+#2021-06-17
 
 - 1. 사용 사례, 어떻게 사용할지를 조사하여 데이터 확보하기
   - 주의: 사용 가능한 모든 케이스가 아니라, 소요 시간이 가장 짧은 최고의 사례를 모아라
@@ -450,12 +531,14 @@ print_state()
 - sigaction 의 3 번째 인자: 기존 처리 방법을 저장할 struct sigaction 의 주소
 
 
-# 2021-06-16
+
+#2021-06-16
 
 기존에 정의해 놓은 structure 의 구조를 변경할 경우 할 작업이 많아진다. 이를 자동화해도 재밌을 것 같긴 한데, 지금 상태에서 다른 사람들은 이를 어떻게 해결하고 있을까?
 
 
-# 2021-06-15
+
+#2021-06-15
 
 - 종종 대화 중에 서로 다르게 이해하는 '같은' 단어를 사용하여 혼동이 생기곤 한다
   - 전문 지식을 전달하는 글도 어떤 단어에 보다 많은 의미를 부여하여 사용하기도 한다
@@ -471,7 +554,8 @@ print_state()
 - structure 는 생각보다 순서에 의해 내부 구조가와 크기가 달라질 수 있다
 
 
-# 2021-06-14
+
+#2021-06-14
 
 - level design: 처음에는 버튼을 누르는 수준으로 매우 쉽게 만들더라도 그 버튼에 쓰여있는 글씨 등에는 사실 다 의미가 있다. 이것을 이해하는데에는 하나의 level 을 거치는 것이 필요하다
   - 즉, 하나의 level 에는 단순히 그 목표를 달성하는 것 이외에도, 주변 환경과 정보들의 의미를 이해하는 숨은 목표도 있다
@@ -494,7 +578,8 @@ print_state()
   - 서로 안정적으로 통신이 가능하도록 구성된 '프로토콜' 을 따르면 안정적인 통신이 가능하다
 
 
-# 2021-06-13
+
+#2021-06-13
 
 - ':args `find -L . -iname \*.\[hc\]`' in vim
 - 저번에 멤버변수의 type 으로 다른 structure 를 사용할 경우 그 structure 의 header file 을 include 해야 했던 것으로 기억하는데, 이를 한 번 더 검증했으면 좋겠다
@@ -503,7 +588,8 @@ print_state()
   - 그래야 여기서도 쓰고 저기서도 쓸 수 있다!
 
 
-# 2021-06-12
+
+#2021-06-12
 
 - ':vimgrep /<word>/g <paths>' in vim
   - ex> ':vimgrep /ft_atoi_push_swap/g **/*.[hc]'
@@ -521,7 +607,8 @@ print_state()
 - settings set target.input-path <path>
 
 
-# 2021-06-11
+
+#2021-06-11
 
 - alias 는 read-only 인 constant 고, variable 은 read-write 인 variable 이다
 - local repository 는 'git branch -m <old_branch> <new_branch>' 로 이름을 쉽게 변경할 수 있지만, remote branch 에서는 이가 허용되지 않는다
@@ -543,7 +630,8 @@ print_state()
 - ':args `find . -iname \*.\[hc\]`' in vim
 
 
-# 2021-06-10
+
+#2021-06-10
 
 - shell parameter expansion
   - 'repositories=(${repositories/#/$git\/})'
@@ -555,7 +643,7 @@ print_state()
 
 
 
-# 2021-06-09
+#2021-06-09
 
 - 어떤 프로그램 실행 전에 항상 어떤 코드를 실행시키도록 하는 방법
   - 1. precmd_function 목록에 추가하여, 모든 command 에 대해 선행 작업을 하도록 한다
@@ -577,7 +665,8 @@ print_state()
 - 'a=(${(s/:/)string})'
 
 
-# 2021-06-08
+
+#2021-06-08
 
 - 'c rename t_sort t_sort_type'
 - 'basename 'git rev-parse --show-toplevel''
@@ -618,7 +707,8 @@ print_state()
 - 통찰력있는 분석을 제시했는가, 그러지 못했는가, 이는 한끝 차이지만 중요한 차이이다
 
 
-# 2021-06-07
+
+#2021-06-07
 
 - [stackoverflow/How can I delete a newline if it is the last character in a file?]
 - how to implement hash function?
@@ -691,7 +781,7 @@ print_state()
 
 
 
-# 2021-06-06
+#2021-06-06
 
 - 삭제된 'remote branch' 를 track 하는 'remote-tracking branch' 가 local 에 남아 있을 때 없애는 방법: 'git branch -dr origin/<branch>'
   - '-r' option 은 'https://git-scm.com/docs/git-branch' 에서 확인할 수 있으며 'remote-tracking branch' 를 의미한다
@@ -703,7 +793,7 @@ print_state()
 
 
 
-# 2021-06-05
+#2021-06-05
 
 - 프로그램 함수 작성 시 함수의 종류는 크게 2 가지로 나눌 수 있다
   - 첫 번째는 기능을 구현하는 함수이다
@@ -723,7 +813,7 @@ print_state()
 
 
 
-# 2021-06-04
+#2021-06-04
 
 - 전에 한 번 빼먹고 특별한 값에 대한 basis_vector 적용을 그냥 넘긴적이 있는데, 이로 인해 오늘 원기둥을 출력할 때 0,1,0 을 normal 로 하는 원기둥의 위, 아래 면을 그릴 때 제대로 출력되지 않는 문제가 있었다. 새로운 기능을 구현할 때는 그 기능을 구현하기 위한 sudo code 를 작성하고, 더 필요하다고 생각이 나면 그 즉시 코드에 sudo code 를 바로 바로 추가하여, 구현하려고 생각만 하고 잊고 마는 일은 없도록 하는 것이 좋겠다
 - 지금 bfs 와 lss 를 위한 데이터 및 인스트럭션을 각각 작성했는데, 이것 외에도, 마치 서버와 클라이언트처럼, 서버역할을 하는 데이터는 공통으로 두고 이를 통해 bfs 및 lss 전용 structure 를 다뤘으면 어땠을까?
@@ -743,20 +833,20 @@ print_state()
 
 
 
-# 2021-06-03
+#2021-06-03
 
 - 'git show <commit hash>:<path/of/file>': Display content of the file to stdout.
 - 'git checkout <branch or commit> -- <path/of/file>': Get file from another branch or commit.
 
 
 
-# 2021-05-31
+#2021-05-31
 
 docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 실행중이던 명령도 다 종료되면서 container 가 exit 상태가 된다
 
 
 
-# 2021-05-30
+#2021-05-30
 
 - 어떤 대상과 비교를 할 때는 그 대상과 설명하는 내용하고의 공통점과 차이점을 가능한 한 구체적으로 해야 좋다
   - 예시> 신분증 제시와 ssl
@@ -765,7 +855,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 
 
 
-# 2021-05-27
+#2021-05-27
 
 - 어느 정도까지 최적화를 진행해야 하는가?
   - 사용하는 프로그램에 따라 정도가 다르다고 생각한다
@@ -781,7 +871,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 
 
 
-# 2021-05-26
+#2021-05-26
 
 - 탐색의 제한을 하는 부분은 어디에 둘까?
   - instruction 과 별개로 작동했으면 좋겠다
@@ -800,7 +890,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 
 
 
-# 2021-05-21
+#2021-05-21
 
 - 값을 읽어서 model 을 만드는 정도의, 성능에 critical 하지 않은 경우는 하드 코딩하여 성능 향상을 추구하기 보다는 유연하고 확장적인 추상화 모델을 만들도록 하자
 - name convention 을 통일하기 위해 vector3 를 p_vector3 로 하는 것이 더 좋았을 것이다
@@ -810,7 +900,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 
 
 
-# 2021-05-20
+#2021-05-20
 
 [wiki/regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 - '.' 은 '\n' 을 제외한 모든 문자와 matching 된다는데 regex 는 '\n' 와 matching 은 안되는 걸까?
@@ -825,7 +915,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 
 
 
-# 2021-05-18
+#2021-05-18
 
 ```zsh
 Undefined symbols for architecture x86_64:
@@ -843,7 +933,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-17
+#2021-05-17
 
 -[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
   - ls | sort -k1,1 -k9,9 -r
@@ -851,7 +941,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-13
+#2021-05-13
 
 - search keyword
   - architecture
@@ -861,7 +951,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-07
+#2021-05-07
 
 0x00 ~ 0x01:  2 "BM" as ascii
 0x02 ~ 0x05:  4 total size of bmp file in byte (file header size (14) + dib header size (124 in v5) + color array size (width * height * bpp / 8)
@@ -906,7 +996,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-06
+#2021-05-06
 
 - 최적화를 위한 다양한 기법은 멀리서 보면 서로 다 다르고 각각을 공부해야 한다고 생각할 수도 있다. 하지만 하고자 하는 진정한 마음이 있고, 본질을 공부한다면 그것들은 공부하지 않아도 만들어낼 수 있는 것들이다, 라고 생각한다
 - t_bmp 가 엔디안을 신경 쓸 필요는 없다. 이미지를 생성하여 서버에 전송할 때 빅 엔디안이면 스몰 엔디안 형식으로 바꾼다던가, 등 작업을 하기 때문에 bmp 는 이렇게 생성된 이미지를 저장하기만 하면 된다
@@ -947,7 +1037,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-05
+#2021-05-05
 
 - 테스트 환경 구성하여 테스트 진행
   - 이점: 원하는 값을 넣고 결과 값이 잘 나오는지 확인할 수 있다
@@ -968,7 +1058,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-04
+#2021-05-04
 
 - 빛이 평면 위의 점일 경우를 잘 처리해주자
 - 일단 돌아가는 프로그램을 작성하라, 그리고 계속 보다보면, 그리고 반복해서 작성하다 보면, 최적화를 할만한 부분이 보인다!
@@ -980,7 +1070,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-05-03
+#2021-05-03
 
 - 공유의 목적이 아닌 기록 및 보관 용도로는 잘 꾸미는 데에 시간을 투자할 필요가 없으므로 (최소한의 가독성 확보가 목표이다) md 포멧보다는 txt 포멧을 사용하는 것이 유리하다
 - 우연히 발견한 것이지만 double 의 오차로 랜덤하게 0 또는 1 을 생성할 수 있을 것 같다
@@ -997,7 +1087,7 @@ make: *** [miniRT_debug.out] Error 1
 
 
 
-# 2021-04-11
+#2021-04-11
 
 - 다음 두 함수의 차이가 있을까?
 
@@ -1021,14 +1111,14 @@ int	strlen(char *s)
 
 
 
-# 2021-01-28
+#2021-01-28
 
 클러스터는 예약시스템 지금은 코로나가 심해져서 예약조차 안되는 듯 하다
 2.5 단계 밑으로 내려가야 클러스터 사용이 가능하다
 
 
 
-# 2021-01-15
+#2021-01-15
 
 ```zsh
 % cat display_line.sh
@@ -1056,7 +1146,7 @@ bash-3.2$ set | wc -l
 
 
 
-# 2021-01-14
+#2021-01-14
 
 - 전선이 모든 주파수를 다 통과시키지 못하고 제한된 영역의 주파수만 전달이 가능한 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=368)
 - 디지털 신호도 원하는 주파수를 만들어서 전송할 수 있을 것 같은데 굳이 아날로그 신호로 바꾸어서 전송해야 하는 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=386)
@@ -1064,7 +1154,7 @@ ttps://opentutorials.org/module/3747
 
 
 
-# 2020-12-25
+#2020-12-25
 
 (T: Think, D: Do)
 - T: Ratio of my study and others study
@@ -1074,7 +1164,7 @@ ttps://opentutorials.org/module/3747
 
 
 
-# 2020-12-24
+#2020-12-24
 
 (Q: Question, I: Idea)
 - Q: When i set the argument type of main, even making it pointer is common, making it array also possible, will there some difference?
@@ -1089,7 +1179,7 @@ ttps://opentutorials.org/module/3747
 
 
 
-# 2020-12-23
+#2020-12-23
 
 - Q: I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
     char    str[] = "lol";
@@ -1097,7 +1187,7 @@ ttps://opentutorials.org/module/3747
 
 
 
-# 2020-12-08
+#2020-12-08
 
 1.3. x: delete a character
 1.4. i: enter `insert mode`
@@ -1149,7 +1239,7 @@ default output resolution: 853x480
 
 
 
-# 2020-11-27
+#2020-11-27
 
 which vimmemo
 (in vim normal mode): ":echo $MYVIMRC"
@@ -1165,14 +1255,60 @@ what is the difference between soft link and hard link?
 
 
 
-# 2020-11-17
+#2020-11-05
+c7r9s4% ./a.out test.dat 10
+fd: 3 
+[ 1]read character: ''(104) 
+ret_read           : [1] 
+[ 2]read character: ''(105) 
+ret_read           : [1] 
+[ 3]read character: ''(32) 
+ret_read           : [1] 
+[ 4]read character: ''(112) 
+ret_read           : [1] 
+[ 5]read character: '.'(10) 
+ret_read           : [1] 
+[ 6]read character: '.'(106) 
+ret_read           : [1] 
+[ 7]read character: '.'(104) 
+ret_read           : [1] 
+[ 8]read character: '.'(10) 
+ret_read           : [1] 
+[ 9]read character: '.'(10) 
+ret_read           : [0] 
 
-POSIX CLI1
-h
+analyze:
+test.dat has 8 bytes size.
+8th byte(last character of file) is newline character.
+after read last character, if you try to read more character, the return value will be 0.
+if `read()` try to read impossible, it will return 0.
+`read()` function return read byte size.
 
 
 
-# 2020-??-??
+#2020-11-4
+"abcd"[2]: has something to think!
+strcmp return 2 case (1. -1, 0, 1), (2. ch1 - ch2)
+
+
+
+2020-11-1
+test git when init pull would delete another file?
+
+
+
+#2020-10-21
+
+ctrl + u: clear current terminal line befor cursor
+ctrl + k: clear current terminal line after cursor
+[vim] d: cut selected text
+[vim] y: copy selected text
+[vim] p: paste selected text before cursor
+[vim] P: paste selected text after cursor
+
+
+
+#2020-??-??
 
 echo "*"    # *
 echo '*'    # *
@@ -1211,17 +1347,18 @@ ctrl \
 
 
 
-# 2020-10-14
+#2020-10-14
 
 gzip -d <file>
 tar -zxvf <file>
 man cut
 man diff
 man patch
+tar -cf exo2.tar *
 
 
 
-# 2020-10-13
+#2020-10-13
 
 ctrl a
 ctrl e
