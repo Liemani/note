@@ -5,6 +5,26 @@
 
 
 
+#2021-09-18
+
+- 다양한 기능들을 복합적으로 섞지 말고 가능하면 쪼개서 추가/제거가 쉬운 구조로 만들자
+- 다양한 타입의 list 를 구현할 때, 한 번 list 를 구현하고 사용하는 방법은 크게 2 가지가 있다
+	- 'void *' 타입 의 member variable 을 content 로 갖는 list
+		- 이 경우 간단하게 구현하여 사용이 가능하지만 element 의 값에 접근할 때 content 의 주소로 접근해야하는 오버헤드가 존재한다
+	- list 로 만들 구조체를 위한 전용 list 형태의 구조체
+		- 이 경우 각 list 구조체가 해당 type 의 구조체 데이터를 직접 소유하므로, 주소를 통해 데이터에 접근해야하는 오버헤드는 존재하지 않지만, list 화 할 type 에 대해 각각의 list 형태의 구조체를 정의해야만 하는 번거로움이 따른다, 따라서 실질적으로 이 것을 지원하기 위해서는, 이를 지원하기 위한 추가 작업이 선행되어야 한다
+- list 는 append 에 불리하다
+- 따라서 append 를 하고자 한다면 list 를 수정해서 사용해야만 한다
+- set, array, list, stack, queue, dictionary, sequence, iterator
+- sequence 를 구현하면서, append 함수를 만드는데, 만약 dummy node 를 두지 않는다면 append 시에 sequence 의 last 가 NULL 인지를 check 하여 다른 행동을 하도록 만들어야 한다. 이것이 싫어서 메모리를 조금 차지하지만 dummy node 를 두었다
+- sequence 와 collection, 이 둘은 배열적 특성인 random access 가 가능한가를 기준으로 구분된다
+	- sequence 는 random access 를 지원하지 않는다
+	- collection 은 random access 를 지원한다
+- traverse 는 방향과 차원에 상관 없이 탐색하는 느낌이고, iterate 는 선형적으로 진행하는 느낌이다
+
+
+
+
 #2021-09-16
 
 - data segment 의 값을 프로그램이 바꾸려고 하면 bus error 가 발생한다

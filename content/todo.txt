@@ -2,20 +2,6 @@
 
 
 
-#terminal record
-	aux vimsession note
-	man 3x curs_termcap
-	man 3x curs_terminfo
-	man 3x curs_kernel
-	man 5 terminfo
-	man 5 term
-	man 7 term
-
-	aux vimsession main
-	aux vimsession env
-
-
-
 #investigate
 	nlp
 	{
@@ -43,8 +29,6 @@
 	philosophers
 
 
-
-다양한 c library 를 구비해두고 필요한 모듈을 가져다가 쓰는 방식으로 프로그램을 작성하면 재밌을 것 같다
 
 test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록 운영하는 깃 레포를 하나 만들고 싶다
 
