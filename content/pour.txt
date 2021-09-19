@@ -5,6 +5,12 @@
 
 
 
+#2021-09-19
+
+- predicate: iterate 하게 traverse 하면서 참과 거짓을 따질 때 그 참 거짓을 분별하는 함수를 predicate 라고 한다
+
+
+
 #2021-09-18
 
 - 다양한 기능들을 복합적으로 섞지 말고 가능하면 쪼개서 추가/제거가 쉬운 구조로 만들자
@@ -24,7 +30,6 @@
 
 
 
-
 #2021-09-16
 
 - data segment 의 값을 프로그램이 바꾸려고 하면 bus error 가 발생한다
@@ -35,7 +40,6 @@
 - success & failure
 - ps xao pid,ppid,pgid,comm
 - ps -o tty,pid,ppid,pgid,comm
-
 
 
 
