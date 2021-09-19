@@ -3,11 +3,6 @@
 
 
 #current
-	t_lmt_string_method.c/lmt_string_split/free() 를 위해 stdlib 를 include 해줘야 하는 것일까? 아니면 t_lmt_string_type.c 에서 그런 역할을 하는 함수를 작성하여 호출해서 사용하는 것이 좋을까?
-	lmt_unsafe_strchr()
-	lmt_unsafe_strrchr()
-	이 두개 구현하고 테스트해서 문제 없는 코드 commit 하기
-	main_debug 의 main.c 를 00_playground 형식으로 수정하여 commit 하기
 
 
 
@@ -41,7 +36,7 @@
 
 test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록 운영하는 깃 레포를 하나 만들고 싶다
 
-variabledText
+#variabledText
   cli 에서 변수 값을 인자로 넣어줄 수 있으면 좋겠다
 	'variabledText <path> -v <identifier>=<value>
   '-o' 로 결과 파일을 직접 입력하는 것이 아니라 파일 내에 meta data 를 text 로 기록해두고 읽어서 사용하도록 하면 어떻까?
