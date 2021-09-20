@@ -16,6 +16,17 @@
 - argv 는 항상 null terminate 임이 보장되기 때문에 execve 의 두번째 인자로 사용할 수 있다
 - 't_lmt_string *lmt_string_split_first(t_lmt_string *string, size_t count)' 처럼 전 후로 어차피 string->count > count 인지를 판단해야만 한다면, 굳이 이 함수의 구현에서 그 작업을 하지는 말자
 	- 이 함수 내부에서 string->count > count 에 따른 처리를 해 준다고 해도, 호출부에서 return value 가 empty 인지를 확인하는 추가 작업을 해야하기 때문에, 처음부터 string->count > count 여부를 호출부에서 처리하도록 디자인하자
+- [Apple Thread](https://developer.apple.com/documentation/foundation/thread)
+	- When you need to perform a lengthy task, but don't want it to block the executioin of the rest of the application
+	- In particular, you can use threads to avoid blocking the main thread of the application, which handles user interface and event-related actions
+	- Threads can also be used to divide a large job into several smaller jobs, which can lead to performance increases on multi-core computers
+- 프로그램이 종료되면 해당 프로그램에서 생성된 thread 들은 알아서 종료되는 것일까? 어떤 상황에서라도?
+- [Thread wiki](https://en.wikipedia.org/wiki/Thread_(computing)
+- 다 multi-thread 로 처리하면 되지 multi-process 는 왜 사용하는 거지?
+	- minishell 과 philosophers bonus 가 multi-process 를 사용한다
+	- thread 처럼 자원을 공유하지 않고 완전 별개의 프로그램처럼 취급하고 싶을 때 유리할 것 같다
+	- A process is a unit of resources
+	- A thread is a unit of scheduling and execution
 
 
 
