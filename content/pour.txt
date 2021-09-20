@@ -5,6 +5,20 @@
 
 
 
+#2021-09-20
+
+- 'man 2 execve'
+- 'man 5 a.out'
+- 'man 1 as'
+- 'man 1 ld'
+- 'man 7 environ'
+- 'execve()' 가 성공하면 닫히고, 실패하면 닫히지 않도록 특정 fd 를 설정할 수 있다(fcntl() 로)
+- argv 는 항상 null terminate 임이 보장되기 때문에 execve 의 두번째 인자로 사용할 수 있다
+- 't_lmt_string *lmt_string_split_first(t_lmt_string *string, size_t count)' 처럼 전 후로 어차피 string->count > count 인지를 판단해야만 한다면, 굳이 이 함수의 구현에서 그 작업을 하지는 말자
+	- 이 함수 내부에서 string->count > count 에 따른 처리를 해 준다고 해도, 호출부에서 return value 가 empty 인지를 확인하는 추가 작업을 해야하기 때문에, 처음부터 string->count > count 여부를 호출부에서 처리하도록 디자인하자
+
+
+
 #2021-09-19
 
 - predicate: iterate 하게 traverse 하면서 참과 거짓을 따질 때 그 참 거짓을 분별하는 함수를 predicate 라고 한다

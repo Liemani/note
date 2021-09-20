@@ -3,6 +3,11 @@
 
 
 #current
+	main debug
+		test lmt_string_split_[first|last]()
+	main implementation
+		lmt_atoui()
+		lmt_itoa()
 
 
 

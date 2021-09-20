@@ -1,6 +1,1 @@
 #project_main
-
-exit 이 없더라도 lmt_error.h 에 exit_code 를 적어두는 것은 좋다
-	- 언제든 함수의 반환 값을 다시 반환할 때, 다른 에러 발생으로 함수를 종료할 때 이 exit_code 를 사용하면 된다
-
-2021-09-18 만든 lmt_sequence 를 상속받는 structure 만들고 사용해보기
