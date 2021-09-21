@@ -5,6 +5,16 @@
 
 
 
+#2021-09-21
+- 'git checkout --ours -- <path>'
+- 'git checkout --theirs -- <path>'
+- 포인터 타입의 값을 읽고 쓰는 것과, 일반 변수를 읽고 쓰는 것에 속도 차이가 있을까?
+	- 어셈블리 코드를 비교해봐야 알 수 있을 것이다
+- 'git cherry-pick A^..B'
+- 'git cherry-pick A..B'
+
+
+
 #2021-09-20
 
 - 'man 2 execve'
