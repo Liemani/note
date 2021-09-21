@@ -3,11 +3,8 @@
 
 
 #current
-	main 을 정리해서 lmt c library 로 공개하기
-	main debug
 	main implementation
 		lmt_atoui()
-		lmt_itoa()
 
 
 
