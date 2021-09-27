@@ -3,9 +3,6 @@
 
 
 #current
-	'lmt_c_library': content -> contents, 라이브러리를 생성하도록 수정하기
-		'github_pages_manager': 'lmt_c_library' 를 가져와서 사용하기
-	'note': content -> contents
 	malloc 이 NULL 을 return 할 때 어떻게 대응하는 것이 올바른 것일까?
 		어떤 작업까지 더 수행하는 것이 가능한가?
 	main implementation
