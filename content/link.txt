@@ -34,3 +34,5 @@ https://stackoverflow.com/questions/1516122/how-to-capture-controld-signal
   - How to capture Control+D signal?
 https://opentutorials.org/course/2598/14210
   - 생활코딩/리눅스 준비
+https://stackoverflow.com/questions/21025314/who-is-us-and-who-is-them-according-to-git/63911630
+	- git conflict 해결 케이스
