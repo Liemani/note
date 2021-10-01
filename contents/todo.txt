@@ -3,6 +3,13 @@
 
 
 #current
+	csapp 를 읽던 중 들은 생각
+		hello, world 를 출력하는 프로그램을 컴파일하여 실행 가능한 프로그램을 만들게 되면 그 프로그램 안에는 hello, world 라는 문자열이 들어있을텐데, 이것을 수정하면 수정한 문자열이 출력되겠지?
+	books
+		The c programming language
+		modern cpp
+		computer system in programmer's perspective
+		computer science hunter unix
 	malloc 이 NULL 을 return 할 때 어떻게 대응하는 것이 올바른 것일까?
 		어떤 작업까지 더 수행하는 것이 가능한가?
 	main implementation
