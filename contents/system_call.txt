@@ -7,6 +7,7 @@
 <unistd.h>
 	int		usleep(useconds_t microseconds);
 		typedef unsigned int useconds_t:
+	pid_t	getpid(void);
 
 
 <sys/time.h>
