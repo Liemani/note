@@ -15,6 +15,7 @@
 - echo "100:41" | xxd -r -s -0x100 > <path>
 - 'man -k <keyword>'
 - 'apropos <keyword>'
+- 'which, type'
 
 
 
