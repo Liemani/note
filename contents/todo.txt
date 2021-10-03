@@ -6,7 +6,6 @@
 	computer 의 programming spec 을 출력하는 프로그램
 		size of int, long long... so on
 	csapp 를 읽던 중 들은 생각
-		hello, world 를 출력하는 프로그램을 컴파일하여 실행 가능한 프로그램을 만들게 되면 그 프로그램 안에는 hello, world 라는 문자열이 들어있을텐데, 이것을 xxd로 수정하면 수정한 문자열이 출력되겠지?
 	books
 		The c programming language
 		modern cpp
