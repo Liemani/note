@@ -3,6 +3,7 @@
 
 
 #current
+	minishell
 	computer 의 programming spec 을 출력하는 프로그램
 		size of int, long long... so on
 	csapp 를 읽던 중 들은 생각

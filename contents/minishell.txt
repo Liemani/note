@@ -1,6 +1,14 @@
 #minishell
 
 
+lmt_process_list_set_by_token_sublist() 부터 다시 보기
+일단 dev 를 실행 가능하도록 작업하자
+우선순위를 위한 () 와 실행 흐름 제어를 위한 &&, || 기능 삭제(나중에 여유 되면 넣기)
+lmt_c_library 적용하기
+lmt_redirection 파일들을 lmt_redirection\ 을 만들어서 넣고 커밋하기
+signal 만들기
+quote 는 그냥 파싱 단계에서 하나의 문자열로 만들어 넣어놓으면 되겠다
+파싱 단계에서 $? 도 처리해야겠네?
 
 #allowed external functions
 {

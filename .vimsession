@@ -10,8 +10,8 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-vmap <F1> :Stdheader
 omap <F1> :Stdheader
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12><F12> :set modifiable:set write
@@ -107,11 +107,11 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe '1resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 1resize ' . ((&columns * 41 + 42) / 84)
+exe 'vert 1resize ' . ((&columns * 42 + 42) / 84)
 exe '2resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 2resize ' . ((&columns * 41 + 42) / 84)
+exe 'vert 2resize ' . ((&columns * 42 + 42) / 84)
 exe '3resize ' . ((&lines * 73 + 56) / 113)
-exe 'vert 3resize ' . ((&columns * 42 + 42) / 84)
+exe 'vert 3resize ' . ((&columns * 41 + 42) / 84)
 exe '4resize ' . ((&lines * 36 + 56) / 113)
 argglobal
 setlocal autoindent
@@ -609,11 +609,11 @@ normal! 0
 lcd ~/git/note
 wincmd w
 exe '1resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 1resize ' . ((&columns * 41 + 42) / 84)
+exe 'vert 1resize ' . ((&columns * 42 + 42) / 84)
 exe '2resize ' . ((&lines * 36 + 56) / 113)
-exe 'vert 2resize ' . ((&columns * 41 + 42) / 84)
+exe 'vert 2resize ' . ((&columns * 42 + 42) / 84)
 exe '3resize ' . ((&lines * 73 + 56) / 113)
-exe 'vert 3resize ' . ((&columns * 42 + 42) / 84)
+exe 'vert 3resize ' . ((&columns * 41 + 42) / 84)
 exe '4resize ' . ((&lines * 36 + 56) / 113)
 tabnext
 edit ~/git/note/contents/todo.txt
@@ -740,11 +740,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 55) / 110)
+let s:l = 1 - ((0 * winheight(0) + 55) / 110)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
+1
 normal! 0
 lcd ~/git/note
 tabnext
@@ -1268,12 +1268,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 55) / 110)
+let s:l = 4 - ((3 * winheight(0) + 55) / 110)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+4
+normal! 051|
 lcd ~/git/note
 tabnext
 edit ~/git/note/contents/philosophers.txt
@@ -1803,7 +1803,7 @@ normal! zt
 3
 normal! 010|
 lcd ~/git/note
-tabnext 10
+tabnext 6
 set stal=1
 badd +1 ~/git/note/contents/dream.txt
 badd +5 ~/git/note/dream.txt
@@ -1814,7 +1814,8 @@ badd +1 ~/git/note/contents/project_main.txt
 badd +1 ~/git/note/contents/minishell.txt
 badd +1 ~/git/note/contents/philosophers.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
-badd +0 ~/git/note/contents/system_call.txt
+badd +1 ~/git/note/contents/system_call.txt
+badd +0 ~/git/note/contents/vocabulary.txt
 badd +1 ~/git/note/contents/evaluation/evaluation.md
 badd +1 ~/git/note/contents/pour.txt
 badd +1 ~/git/note/contents/link.txt
@@ -1834,7 +1835,6 @@ badd +3 ~/git/note/subject/submit_protocol.txt
 badd +1 ~/git/note/study.txt
 badd +1 ~/git/note/..
 badd +1 ~/git/note/contents
-badd +0 ~/git/note/contents/vocabulary.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
