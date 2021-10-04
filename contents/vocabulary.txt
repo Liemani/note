@@ -1,7 +1,18 @@
 #vocabulary
 
+prev.a.lent
+in.cor.po.rate
+re.dun.dan.cy
+graft
+a.cy.clic
+ex.hib.it
+in.con.sist.en.cy
+neg.li.gi.ble
+tab.u.late
+re.vise
+pro.por.tion.al
 voluminous
-behalf
+be.half
 symmetric
 clobber
 disparage
