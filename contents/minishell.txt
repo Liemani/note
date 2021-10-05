@@ -1,5 +1,9 @@
 #minishell
 
+lmt_tokenization/t_lmt_token_sublist_method.c 를 (어떻게) 구현하여 사용에 지장이 없도록 하기
+코드 가독성 높이고 뭔가 있었던 것 같은 오류 해결하기
+redirection 처리가 잘 작동하고 있는지 확인하기
+>> 와 << 기능 추가하기
 readline example program 을 돌려보면서 signal 을 적용할 때 global variable 을 어디에 넣어야 할지 생각해보기
 코드를 보고 뜻을 이해하기가 쉽지 않다면, 코드가 깔끔하게 작성되지 않은 것이다. 
 lmt_process_list_set_by_token_sublist() 부터 다시 보기
