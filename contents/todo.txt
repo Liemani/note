@@ -12,7 +12,7 @@
 	books
 		The c programming language
 		modern cpp
-		computer system as programmer's perspective
+		computer systems a programmer's perspective
 		computer science hunter unix lecture notes
 	malloc 이 NULL 을 return 할 때 어떻게 대응하는 것이 올바른 것일까?
 		어떤 작업까지 더 수행하는 것이 가능한가?

@@ -1,5 +1,6 @@
 #minishell
 
+check_type.c 에 정의된 함수들의 이름에는 lmt_ 접두사를 붙이지 않을 것인데, 왜 lmt_util.h 에 prototype 을 넣어놓은 것이지?
 lmt_tokenization/t_lmt_token_sublist_method.c 를 (어떻게) 구현하여 사용에 지장이 없도록 하기
 코드 가독성 높이고 뭔가 있었던 것 같은 오류 해결하기
 redirection 처리가 잘 작동하고 있는지 확인하기
