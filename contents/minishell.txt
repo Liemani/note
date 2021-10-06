@@ -2,6 +2,8 @@
 
 
 
+|() 등 에러처리
+builtin_cmd() 를 굳이 check_type() 안에서 호출할 필요 없이 직접 호출하는 것이 좋을 것 같다.
 man bash 의 exit status 참고하기
 자식 프로세스가 <C-C> 나 <C-\> 로 종료되었을 때, '\n' 출력하기
 exit 의 인자에 따른 반환값

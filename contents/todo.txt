@@ -3,6 +3,10 @@
 
 
 #current
+	playground 에서 iterator 구상해보기
+	main
+		double linked list 를 lmt_c_library 에 추가하던가
+		아니면 iterable protocol 을 lmt_c_library 에 추가하자
 	minishell 등 허용 함수들의 예제를 playground 에 함수당 파일로 작성하기
 	궁금증
 		exit() 을 호출하면 자식 프로세스도 종료될까?
