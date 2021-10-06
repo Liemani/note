@@ -1,5 +1,6 @@
 #vocabulary
 
+discipline
 prev.a.lent
 in.cor.po.rate
 re.dun.dan.cy
