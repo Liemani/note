@@ -9,6 +9,7 @@
 
 - 'ctags': aux ctags . .
 - 지금 하고 있는 일이 어떤 경로로 지금에 이르렀는지 꾸준히 기록해두자. 뭘 위해 뭘 하고 있었는지 까먹는 경우가 종종 있다.
+- 이미 compile 된 파일의 header 파일을 수정하는 경우 Makefile 을 해당 header 파일이 compile 을 위한 source file 의 의존성으로 고려하지 않기 때문에 re compile 되지 않는다
 
 
 
