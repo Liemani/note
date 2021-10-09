@@ -3,10 +3,7 @@
 
 
 #current
-	함수를 작성하다가
-		if 를 여러번 반복하는 것이 아니라, static variable 을 활용하여 array 에 함수를 담아놓고 index 를 얻어서 호출하면 코드가 더 깔끔해질 것 같다
-			static variable 에 대한 제한이 norm 에 없었던 것 같은데 맞나? 확실히 확인해보자
-				norm 을 읽고 있다
+	lmt_c_library 나 minishell 등의 프로젝트 페이지에 다양한 todo 들이 있는데, 이를 한 눈에 보기 편하게 한 페이지에 작성해주는 프로그램이 있었으면 좋겠다.
 
 #recent
 	git rebase -i 를 하다보면 다양한 변경 사항이 뒤섞여 이해할 수 없는 상황이 발생한다. 이것이 구체적으로 어떻게 작동하는지 파악해두자.

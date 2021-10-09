@@ -10,8 +10,8 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-omap <F1> :Stdheader
 vmap <F1> :Stdheader
+omap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12><F12> :set modifiable:set write
@@ -220,11 +220,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((0 * winheight(0) + 18) / 36)
+let s:l = 4 - ((1 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
+4
 normal! 0
 lcd ~/git/note
 wincmd w
@@ -344,12 +344,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 11 - ((10 * winheight(0) + 18) / 36)
+let s:l = 21 - ((19 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
-normal! 0120|
+21
+normal! 039|
 lcd ~/git/note
 wincmd w
 argglobal
@@ -998,12 +998,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 55) / 110)
+let s:l = 6 - ((5 * winheight(0) + 55) / 110)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 0135|
+6
+normal! 0
 lcd ~/git/note
 tabnext
 edit ~/git/note/contents/teamwork.txt
@@ -1270,7 +1270,7 @@ normal! zt
 normal! 0
 lcd ~/git/note
 tabnext
-edit ~/git/note/contents/project_main.txt
+edit ~/git/note/contents/lmt_c_library.txt
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -1399,7 +1399,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0
+normal! 014|
 lcd ~/git/note
 tabnext
 edit ~/git/note/contents/minishell.txt
@@ -1526,11 +1526,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 27 - ((26 * winheight(0) + 55) / 110)
+let s:l = 5 - ((4 * winheight(0) + 55) / 110)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-27
+5
 normal! 0
 lcd ~/git/note
 tabnext
@@ -2061,7 +2061,7 @@ normal! zt
 3
 normal! 010|
 lcd ~/git/note
-tabnext 7
+tabnext 6
 set stal=1
 badd +1 ~/git/note/contents/dream.txt
 badd +5 ~/git/note/dream.txt
@@ -2069,7 +2069,7 @@ badd +1 ~/git/note/contents/evaluation/minishell.txt
 badd +1 ~/git/note/contents/todo.txt
 badd +1 ~/git/note/contents/teamwork.txt
 badd +1 ~/git/note/contents/env.txt
-badd +1 ~/git/note/contents/project_main.txt
+badd +1 ~/git/note/contents/lmt_c_library.txt
 badd +0 ~/git/note/contents/minishell.txt
 badd +1 ~/git/note/contents/philosophers.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
@@ -2083,7 +2083,7 @@ badd +1 ~/git/note/evaluation/evaluation.md
 badd +1 ~/git/note/subject/todo.txt
 badd +1 ~/git/note/subject/teamwork.txt
 badd +12 ~/git/note/subject/env.txt
-badd +2 ~/git/note/subject/project_main.txt
+badd +2 ~/git/note/subject/lmt_c_library.txt
 badd +5 ~/git/note/subject/minishell.txt
 badd +1 ~/git/note/subject/philosophers.txt
 badd +1 ~/git/note/subject/last_check.txt
