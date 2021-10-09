@@ -10,8 +10,8 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-vmap <F1> :Stdheader
 omap <F1> :Stdheader
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12><F12> :set modifiable:set write
@@ -2061,7 +2061,7 @@ normal! zt
 3
 normal! 010|
 lcd ~/git/note
-tabnext 6
+tabnext 7
 set stal=1
 badd +1 ~/git/note/contents/dream.txt
 badd +5 ~/git/note/dream.txt
@@ -2069,8 +2069,8 @@ badd +1 ~/git/note/contents/evaluation/minishell.txt
 badd +1 ~/git/note/contents/todo.txt
 badd +1 ~/git/note/contents/teamwork.txt
 badd +1 ~/git/note/contents/env.txt
-badd +1 ~/git/note/contents/lmt_c_library.txt
-badd +0 ~/git/note/contents/minishell.txt
+badd +0 ~/git/note/contents/lmt_c_library.txt
+badd +1 ~/git/note/contents/minishell.txt
 badd +1 ~/git/note/contents/philosophers.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
 badd +1 ~/git/note/contents/system_call.txt
