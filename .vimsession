@@ -10,8 +10,8 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-omap <F1> :Stdheader
 vmap <F1> :Stdheader
+omap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12><F12> :set modifiable:set write
@@ -344,12 +344,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 21 - ((19 * winheight(0) + 18) / 36)
+let s:l = 16 - ((11 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 039|
+16
+normal! 082|
 lcd ~/git/note
 wincmd w
 argglobal
@@ -476,6 +476,7 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
+2wincmd w
 exe '1resize ' . ((&lines * 36 + 56) / 113)
 exe '2resize ' . ((&lines * 36 + 56) / 113)
 exe '3resize ' . ((&lines * 36 + 56) / 113)
@@ -1526,12 +1527,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 55) / 110)
+let s:l = 14 - ((13 * winheight(0) + 55) / 110)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 0
+14
+normal! 08|
 lcd ~/git/note
 tabnext
 edit ~/git/note/contents/philosophers.txt
@@ -2061,7 +2062,7 @@ normal! zt
 3
 normal! 010|
 lcd ~/git/note
-tabnext 7
+tabnext 1
 set stal=1
 badd +1 ~/git/note/contents/dream.txt
 badd +5 ~/git/note/dream.txt
@@ -2069,8 +2070,8 @@ badd +1 ~/git/note/contents/evaluation/minishell.txt
 badd +1 ~/git/note/contents/todo.txt
 badd +1 ~/git/note/contents/teamwork.txt
 badd +1 ~/git/note/contents/env.txt
-badd +0 ~/git/note/contents/lmt_c_library.txt
-badd +1 ~/git/note/contents/minishell.txt
+badd +1 ~/git/note/contents/lmt_c_library.txt
+badd +0 ~/git/note/contents/minishell.txt
 badd +1 ~/git/note/contents/philosophers.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
 badd +1 ~/git/note/contents/system_call.txt

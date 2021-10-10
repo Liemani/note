@@ -8,6 +8,9 @@ pc
 
 
 같이 봐야 할 내용
+	프로세스 fork() 가 어떤 구조인지 눈으로 보여주기
+		sleep 1000 | sleep 1000
+		ps -o pid,ppid,pgid,comm
 	내 코드가 들어가는 것은 signal 관련 코드, 실제 실행하는 process_manager_execute() 코드
 	프로그램 종료 코드는 어디에 저장하면 될까?
 	redirection 이 path 를 string 으로만 처리하고 in 과 out 만 처리하도록 수정
