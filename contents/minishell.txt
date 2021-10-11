@@ -1,6 +1,9 @@
 #minishell
 
 pc
+	dev fetch 하고 rebase 하기
+	aux vimsession minishell2
+	t_lmt_process_method.c, t_lmt_process_redirection.c, t_lmt_process_list_method.c fold 되지 않은 함수들
 	lmt_set_token_type() 을 추가함에 따라 type 개념이 생겼는데, lmt_arrange_token() 이 command 를 합칠 때 빈 node 를 free 하도록 하기
 		lmt_remove_token() 을 작성했다. 이를 적용하도록 하자.
 	새롭게 적용한 t_token->type 을 잘 처리하도록 process 와 redirection 수정하기
