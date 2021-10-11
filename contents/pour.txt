@@ -5,6 +5,13 @@
 
 
 
+#2021-10-11
+
+- 왜 rebase -i 를 해서 commit 의 순서를 바꾸면 Debug diff 와 일반 diff 가 섞이는 경우가 생기는 것일까?
+	- Debug commit 에서 수정한 내용이 일반 commit 에 섞여들어간다
+
+
+
 #2021-10-10
 
 - function declaration 과 function prototype 의 argument name 은 같을 필요가 없다. function declaration 의 parameter name 은 argument label 을 사용하고 function prototype 의 parameter name 에는 parameter name 을 사용한다.
