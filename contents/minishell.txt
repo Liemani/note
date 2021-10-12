@@ -1,6 +1,9 @@
 #minishell
 
 pc
+	child process 가 exit 을 하지 않으면 그 뒤의 코드가 끝날 때까지 계속 실행된다
+	'echo 1 | echo 2 && echo 3 || echo 4' 가 정상 작동되도록 수정하기
+	'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
 	append_token_to_first() 가 target 과 source 가 같은 경우 발생하는 문제
 		debug: echo hi
 	t_lmt_process_method.c, t_lmt_process_redirection.c, t_lmt_process_list_method.c fold 되지 않은 함수들
