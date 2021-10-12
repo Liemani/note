@@ -5,6 +5,13 @@
 
 
 
+#2021-10-12
+
+계발 방식을 공고히 정해놓고 진행하는 것이 좋다.
+dev branch 에 항상 release 가능한 버전을 pull request 하는 식으로
+
+
+
 #2021-10-11
 
 - 왜 rebase -i 를 해서 commit 의 순서를 바꾸면 Debug diff 와 일반 diff 가 섞이는 경우가 생기는 것일까?

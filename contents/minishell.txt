@@ -1,12 +1,10 @@
 #minishell
 
 pc
-	dev fetch 하고 rebase 하기
-	aux vimsession minishell2
+	append_token_to_first() 가 target 과 source 가 같은 경우 발생하는 문제
+		debug: echo hi
 	t_lmt_process_method.c, t_lmt_process_redirection.c, t_lmt_process_list_method.c fold 되지 않은 함수들
-	lmt_set_token_type() 을 추가함에 따라 type 개념이 생겼는데, lmt_arrange_token() 이 command 를 합칠 때 빈 node 를 free 하도록 하기
-		lmt_remove_token() 을 작성했다. 이를 적용하도록 하자.
-	새롭게 적용한 t_token->type 을 잘 처리하도록 process 와 redirection 수정하기
+	작업이 끝난 후 dev fetch 하고 rebase 하기
 
 
 
@@ -24,6 +22,9 @@ pc
 
 
 
+() 이전에 pipe 가 있을 때 pipe 의 연결 문제
+close() guard 하기
+이전 pipe 를 프로세스가 처리하는 중에 (dup, dup2) 에러가 나면 해당 파이프는 의미가 없어지는데 이 때 연결은 정의하지 않는다.
 실제 process 를 실행할 때 execve() 를 위해 argv[0] 의 값을 수정하도록 하기
 redirection 처리가 잘 작동하고 있는지 확인하기
 >> 와 << 기능 추가하기
