@@ -3,10 +3,12 @@
 
 
 #current
+	minishell
 	lmt_c_library 나 minishell 등의 프로젝트 페이지에 다양한 todo 들이 있는데, 이를 한 눈에 보기 편하게 한 페이지에 작성해주는 프로그램이 있었으면 좋겠다.
 
 #recent
 	git rebase -i 를 하다보면 다양한 변경 사항이 뒤섞여 이해할 수 없는 상황이 발생한다. 이것이 구체적으로 어떻게 작동하는지 파악해두자.
+		일단 생각은 git rebase -i 로 살짝 변경된 commit 을 만들 때 commit 에 원래 담겨 있던 변경 사항을 사용하는 것보다는 파일의 내용을 또 비교하여 새로운 commit 을 만드는 것 같다
 	pull request 를 collaborator 도 받아들일 수 있던데, 권한 설정도 가능한가? 확인해보자
 	playground 에서 iterator 구상해보기
 	main
