@@ -1,6 +1,8 @@
 #minishell
 
 pc
+	playground 에서 wait() 와 놀면서 익숙해지기
+	waitpid() 가 같은 pid 를 중복 호출했을 경우?, waitpid() 의 error return
 	- 공책을 보고 그려보면서 가장 적절한 모델이 무엇일지 생각해보기
 	아무래도 파일 시스템처럼 directory 와 file 이 존재하는 형식으로 작성해야 할 것 같다.
 		- 왜? 왜 이렇게 생각한 거지? 이유가 뭐지?
