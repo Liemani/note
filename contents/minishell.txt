@@ -1,7 +1,10 @@
 #minishell
 
 pc
+	- 공책을 보고 그려보면서 가장 적절한 모델이 무엇일지 생각해보기
 	아무래도 파일 시스템처럼 directory 와 file 이 존재하는 형식으로 작성해야 할 것 같다.
+		- 왜? 왜 이렇게 생각한 거지? 이유가 뭐지?
+			- || 와 && 를 처리할 때, 이전 process 의 결과값을 봐야 하는데, 지금은 subprocess 같은 개념을 사용하기 때문에, 이전 process 에 접근할 수가 없는 문제가 있다.
 		- 이 기반을 위해 lmt_c_library 에 t_lmt_double_linked_list 를 작성중이었다.
 	'echo 1 | echo 2 && echo 3 || echo 4' 가 정상 작동되도록 수정하기
 	'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
