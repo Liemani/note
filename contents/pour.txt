@@ -5,6 +5,14 @@
 
 
 
+#2021-10-20
+
+- ps -o pid,ppid,pgid,tty,comm
+- pgid 는 어떤 값으로 설정되는 것일까?
+	- sleep 1000 | sleep 1000 을 실행하면 새로 생성된 두 자식 process 는 첫 프로세스의 pid 를 pgid 로 갖는다. 왜그럴까? 그리고 이런 특성하에서 wait4(0,,,) 는 caller 의 pgid 와 같은 child process 가 exit 하는 것을 기다린다고 하는데, 생성된 자식 프로세스는 왜 parent process 와 pgid 가 다른 것일까?
+
+
+
 #2021-10-19
 
 - 주 작업이 무엇인지 확실히 하라

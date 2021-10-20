@@ -2,6 +2,8 @@
 
 pc
 	playground 에서 wait() 와 놀면서 익숙해지기
+	지금 exit || hi 는 뭔가 자식 프로세스에서 호출되는가 exit 을 하지 않는다.
+		하지만 built-in command 는 파이프 전후 외에는 parent process 에서 실행되어야 한다.
 	waitpid() 가 같은 pid 를 중복 호출했을 경우?, waitpid() 의 error return
 	- 공책을 보고 그려보면서 가장 적절한 모델이 무엇일지 생각해보기
 	아무래도 파일 시스템처럼 directory 와 file 이 존재하는 형식으로 작성해야 할 것 같다.
@@ -14,19 +16,15 @@ pc
 		debug: echo hi
 	t_lmt_process_method.c, t_lmt_process_redirection.c, t_lmt_process_list_method.c fold 되지 않은 함수들
 	작업이 끝난 후 dev fetch 하고 rebase 하기
+	lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
 
 
 
 같이 봐야 할 내용
-	프로세스 fork() 가 어떤 구조인지 눈으로 보여주기
-		sleep 1000 | sleep 1000
-		ps -o pid,ppid,pgid,comm
 	내 코드가 들어가는 것은 signal 관련 코드, 실제 실행하는 process_manager_execute() 코드
 	프로그램 종료 코드는 어디에 저장하면 될까?
 	redirection 이 path 를 string 으로만 처리하고 in 과 out 만 처리하도록 수정
 	t_token 의 type 을 설정하는 부분이 있는가?
-	builtin_cmd() 를 굳이 check_type() 안에서 호출할 필요 없이 직접 호출하는 것이 좋을 것 같다.
-		말 없이 막 바꾸기 보다는 말 없이 바꿔도 되는지 먼저 얘기를 해보자
 	어제 추가한 #include 를 minishell 에서 #include 하도록 수정하기
 
 

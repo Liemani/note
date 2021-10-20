@@ -3,6 +3,7 @@
 
 
 #current
+	playground git 에 version 기록으로 학습 내용을 남겼다면, 이 링크를 사용하여 블로그 글을 올려도 좋겠다
 	minishell
 	lmt_c_library 나 minishell 등의 프로젝트 페이지에 다양한 todo 들이 있는데, 이를 한 눈에 보기 편하게 한 페이지에 작성해주는 프로그램이 있었으면 좋겠다.
 
