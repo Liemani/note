@@ -1,7 +1,13 @@
 #minishell
 
 pc
-	playground 에서 wait() 와 놀면서 익숙해지기
+	- t_lmt_process_list_method.c 와 lmt_process_method.c 에서 wait 잘 작동하도록 수정하기
+	- 괄호가 다양한 컨트롤 연산자에 대해 잘 작동하는지 테스트 및 점검하기
+	- bash 에서 sleep 100 을 ^C 로 멈추면 echo $? 가 130 을 출력하는데 왜 그런걸까?
+	- remove lmt_process_list
+	- circular double linked list 로 전환
+	- lmt_process->type 이 TYPE_PROCESS_PARENTHESIS 일 때 해당 process->list 는 괄호 안의 lmt_process_list 의 주소를 가진다.
+	- wait() 을 호출하는 방식을 새로운 구조를 반영하도록 수정
 	지금 exit || hi 는 뭔가 자식 프로세스에서 호출되는가 exit 을 하지 않는다.
 		하지만 built-in command 는 파이프 전후 외에는 parent process 에서 실행되어야 한다.
 	waitpid() 가 같은 pid 를 중복 호출했을 경우?, waitpid() 의 error return
@@ -14,9 +20,12 @@ pc
 	'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
 	append_token_to_first() 가 target 과 source 가 같은 경우 발생하는 문제
 		debug: echo hi
-	t_lmt_process_method.c, t_lmt_process_redirection.c, t_lmt_process_list_method.c fold 되지 않은 함수들
 	작업이 끝난 후 dev fetch 하고 rebase 하기
 	lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
+	perror() 가 허용 함수가 아니다! strerror() 와 errno 로 바꿔서 사용하자
+	- fork() 로 생성된 자식 프로세스가 sleep(100) 을 하고 있고, 이 때 부모 프로세스가 wait() 중인데 signal 로 인해 interupt 되었을 때 wait() 의 반환값?
+		- 아니면 suspend 상태이기 때문에 WNOHANG 옵션을 주지 않는 이상 부모가 시그널을 받지 않는 것은 아닐까?
+		- 만약 시그널로 자식 프로세스가 종료된다면 어떤 행동을 해야 할까?
 
 
 

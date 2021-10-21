@@ -1,3 +1,4 @@
 프로세스의 오류 처리는 어떻게 하였는가?
 단순히 exit 을 사용하였는가?
 	그렇다면 자식 프로세스에서 exit 을 했을 때 부모 프로세스는 어떻게 되는가?
+builtin process 는 parent process 에서 실행되는가 child process 에서 실행되는가?
