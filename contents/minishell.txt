@@ -1,6 +1,8 @@
 #minishell
 
 pc
+	- 'echo 1 | (echo 2 && echo 3) || echo 4' 에서 무한 루프 해결하기
+	- << here doc 만들기
 	- lmt_perror() 적용하기
 	- not_builtin_cmd() 는 어디까지 검증해주는가? rerative path 는?
 		- '/' 가 하나라도 나오면 절대경로 혹은 상대 경로
