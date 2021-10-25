@@ -1,31 +1,53 @@
 #minishell
 
-pc
-	- 'echo 1 | (echo 2 && echo 3) || echo 4' 에서 무한 루프 해결하기
+#한 일
+
+#pc
+	- 아주 드물게 'cat' 후 exit 시 segmentation fault 가 발생하는 문제
+		- 'ls' 후 exit 시에도 발생
+		- 알게된 것 should_execute_on_child() 의 유무에 갈린다
+	- lmt_extension_token_refine_argv_0/lmt_refine_token_argv_0()
+		- 마지막 free 를 lmt_string_free 로 바꿔야 '/bin/echo' 등의 호출에서 leak 이 안날것이다
+	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
+			- 그래도 -1 을 return 하는 것이 가능하니 처리는 해야한다!
 	- << here doc 만들기
-	- lmt_perror() 적용하기
+	- <C-C> 로 자식 프로세스가 종료되었을 때 130 이 반환되도록 수정하기
+	- 'exit' 이 bash 의 마지막 status 를 return 하도록 수정하기
+	- 'ls' 만 해줘도 255 가 return 되는 문제
+		- 'exit' 으로 exit 을 실행하는 경우 exit_code 가 255 인 문제
+	- 'sleep 10' 중에 <C-C> 가 먹지 않는 문제
 	- not_builtin_cmd() 는 어디까지 검증해주는가? rerative path 는?
 		- '/' 가 하나라도 나오면 절대경로 혹은 상대 경로
-	- 두번째 이상의 token 의 command 가 empty 인 경우도 제대로 작동 하는가?
-	- t_lmt_process_list_method.c 와 lmt_process_method.c 에서 wait 잘 작동하도록 수정하기
-	- 괄호가 다양한 컨트롤 연산자에 대해 잘 작동하는지 테스트 및 점검하기
 	- bash 에서 sleep 100 을 ^C 로 멈추면 echo $? 가 130 을 출력하는데 왜 그런걸까?
-	- wait() 을 호출하는 방식을 새로운 구조를 반영하도록 수정
-	지금 exit || hi 는 뭔가 자식 프로세스에서 호출되는가 exit 을 하지 않는다.
-		하지만 built-in command 는 파이프 전후 외에는 parent process 에서 실행되어야 한다.
-	waitpid() 가 같은 pid 를 중복 호출했을 경우?, waitpid() 의 error return
-	- 공책을 보고 그려보면서 가장 적절한 모델이 무엇일지 생각해보기
-	아무래도 파일 시스템처럼 directory 와 file 이 존재하는 형식으로 작성해야 할 것 같다.
-		- 왜? 왜 이렇게 생각한 거지? 이유가 뭐지?
-			- || 와 && 를 처리할 때, 이전 process 의 결과값을 봐야 하는데, 지금은 subprocess 같은 개념을 사용하기 때문에, 이전 process 에 접근할 수가 없는 문제가 있다.
-		- 이 기반을 위해 lmt_c_library 에 t_lmt_double_linked_list 를 작성중이었다.
-	'echo 1 | echo 2 && echo 3 || echo 4' 가 정상 작동되도록 수정하기
 	'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
-	append_token_to_first() 가 target 과 source 가 같은 경우 발생하는 문제
-		debug: echo hi
-	작업이 끝난 후 dev fetch 하고 rebase 하기
 	lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
-	perror() 가 허용 함수가 아니다! strerror() 와 errno 로 바꿔서 사용하자
+	- lmt_perror() 만들고 적용하기
+	- error 가 발생하는 경우 잘 처리되고 있는지 면밀히 검토하기
+
+
+
+#같이 봐야 할 내용
+	- 함수를 분리하는 것을 거리껴하지 말아라. inline static 이라는 방법도 있다. (우리 프로젝트에서는 못사용하지만)
+	- Makefile
+
+
+
+#제출 전 확인
+	Makefile 설명해주기
+
+
+
+#test case
+	sleep 100 && sdflk
+		sleep 100 이 실행되고 끝난 후 다음 command 가 실행된다
+	sleep 100 | sdflk
+		sleep 100 과 sdflkj 가 동시에 실행되며, sleep 100 은 계속 돌아가는 상태에서 동시에 sdflkj 라는 명령어가 없다는 에러 메세지가 출력된다.
+
+
+
+#완료한 작업
+	- append_token_to_first() 가 target 과 source 가 같은 경우 발생하는 문제
+		- debug: echo hi
 	- fork() 로 생성된 자식 프로세스가 sleep(100) 을 하고 있고, 이 때 부모 프로세스가 wait() 중인데 signal 로 인해 interupt 되었을 때 wait() 의 반환값?
 		- 아니면 suspend 상태이기 때문에 WNOHANG 옵션을 주지 않는 이상 부모가 시그널을 받지 않는 것은 아닐까?
 		- 만약 시그널로 자식 프로세스가 종료된다면 어떤 행동을 해야 할까?
@@ -36,32 +58,24 @@ pc
 	- space[] 를 사용하여 뭔가 하도록 수정하기
 		- "" $USER""
 			- $USER
-	- lmt_perror() 만들고 적용하기
-	- error 가 발생하는 경우 잘 처리되고 있는지 면밀히 검토하기
-
-
-
-같이 봐야 할 내용
-	- 함수를 분리하는 것을 거리껴하지 말아라. inline static 이라는 방법도 있다. (우리 프로젝트에서는 못사용하지만)
-	- Makefile
 	- 보니까 echo 가 인자를 hand 에서 가져와서 사용하던데, 내가 그렇게 맞추는 방법은 있나?
-	내 코드가 들어가는 것은 signal 관련 코드, 실제 실행하는 process_manager_execute() 코드
 	redirection 이 path 를 string 으로만 처리하고 in 과 out 만 처리하도록 수정
-	어제 추가한 #include 를 minishell 에서 #include 하도록 수정하기
-
-
-
-제출 전 확인
 	t_token.token 을 char *[100] type 으로 설정함에 따라 buffer 영역을 넘어서는 메모리 영역에 접근 가능하다는 주장을 어떻게 생각하는가?
-	Makefile 설명해주기
-	t_token.token 이 array 이기 때문에 max size 가 존재하고, 이로 인해 array 범위를 초과하여 잘못된 메모리 주소에 접근하는 segmentation fault 가 발생할 수 있는 문제 수정
-	get_token_cnt() 에서 '-' 이면 'line++' 를 하고 있는데, 그러지 않아야 할 것 같다.
-	malloc() 의 결과가 NULL 인 경우를 처리해줘야 할 것 같다.
-	chk_symbol -> is_symbol 어떤가? 의논해보기 array.isEmpty() 와 같은 실사용 예시를 보여주며
-
-
-
-완료한 작업
+	- 무수히 많은 redirection 도 처리가 가능한가?
+		- seq -s ' > ' 1 100
+	- wait() 을 호출하는 방식을 새로운 구조를 반영하도록 수정
+	지금 exit || hi 는 뭔가 자식 프로세스에서 호출되는가 exit 을 하지 않는다.
+		하지만 built-in command 는 파이프 전후 외에는 parent process 에서 실행되어야 한다.
+	waitpid() 가 같은 pid 를 중복 호출했을 경우?, waitpid() 의 error return
+	'echo 1 | echo 2 && echo 3 || echo 4' 가 정상 작동되도록 수정하기
+	- 공책을 보고 그려보면서 가장 적절한 모델이 무엇일지 생각해보기
+	아무래도 파일 시스템처럼 directory 와 file 이 존재하는 형식으로 작성해야 할 것 같다.
+		- 왜? 왜 이렇게 생각한 거지? 이유가 뭐지?
+			- || 와 && 를 처리할 때, 이전 process 의 결과값을 봐야 하는데, 지금은 subprocess 같은 개념을 사용하기 때문에, 이전 process 에 접근할 수가 없는 문제가 있다.
+		- 이 기반을 위해 lmt_c_library 에 t_lmt_double_linked_list 를 작성중이었다.
+	- t_lmt_process_list_method.c 와 lmt_process_method.c 에서 wait 잘 작동하도록 수정하기
+	- 괄호가 다양한 컨트롤 연산자에 대해 잘 작동하는지 테스트 및 점검하기
+	- 두번째 이상의 token 의 command 가 empty 인 경우도 제대로 작동 하는가?
 	o remove lmt_process_list
 	o circular double linked list 로 전환
 	o lmt_process->type 이 TYPE_PROCESS_PARENTHESIS 일 때 해당 process->list 는 괄호 안의 lmt_process_list 의 주소를 가진다.
@@ -70,16 +84,6 @@ pc
 		- handler->status
 	t_token 의 type 을 설정하는 부분이 있는가?
 		- lmt_set_token_type()
-
-
-
-test case
-	sleep 100 && sdflk
-		sleep 100 이 실행되고 끝난 후 다음 command 가 실행된다
-	sleep 100 | sdflk
-		sleep 100 과 sdflkj 가 동시에 실행되며, sleep 100 은 계속 돌아가는 상태에서 동시에 sdflkj 라는 명령어가 없다는 에러 메세지가 출력된다.
-	- 무수히 많은 redirection 도 처리가 가능한가?
-		- seq -s ' > ' 1 100
 
 
 
