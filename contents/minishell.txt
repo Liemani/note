@@ -2,26 +2,24 @@
 
 #한 일
 
-#pc
+#pc: 한 작업이 끝날 때마다 commit 하기
+	- << here doc 만들기
+		- '<<' 를 다른 redirection 과 너무 다르게 할 필요는 없을 것 같다.
+		- lmt_attach_redirection() 에서 'pipe' 로 연결한 write 를 평범하게 old_fd 와 new_fd 를 설정해주도록 획일적으로 바꿔보자
 	- 아주 드물게 'cat' 후 exit 시 segmentation fault 가 발생하는 문제
 		- 'ls' 후 exit 시에도 발생
 		- 알게된 것 should_execute_on_child() 의 유무에 갈린다
-	- lmt_extension_token_refine_argv_0/lmt_refine_token_argv_0()
-		- 마지막 free 를 lmt_string_free 로 바꿔야 '/bin/echo' 등의 호출에서 leak 이 안날것이다
 	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
-			- 그래도 -1 을 return 하는 것이 가능하니 처리는 해야한다!
-	- << here doc 만들기
+		- 그래도 -1 을 return 하는 것이 가능하니 SA_RESTART 옵션은 넣어야 한다!
 	- <C-C> 로 자식 프로세스가 종료되었을 때 130 이 반환되도록 수정하기
-	- 'exit' 이 bash 의 마지막 status 를 return 하도록 수정하기
-	- 'ls' 만 해줘도 255 가 return 되는 문제
-		- 'exit' 으로 exit 을 실행하는 경우 exit_code 가 255 인 문제
+	- 'exit' 이 bash 의 마지막 status 를 return 하는지 확인하기
 	- 'sleep 10' 중에 <C-C> 가 먹지 않는 문제
 	- not_builtin_cmd() 는 어디까지 검증해주는가? rerative path 는?
 		- '/' 가 하나라도 나오면 절대경로 혹은 상대 경로
 	- bash 에서 sleep 100 을 ^C 로 멈추면 echo $? 가 130 을 출력하는데 왜 그런걸까?
-	'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
-	lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
-	- lmt_perror() 만들고 적용하기
+	- 'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
+	- lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
+	- lmt_perror() 적용하기
 	- error 가 발생하는 경우 잘 처리되고 있는지 면밀히 검토하기
 
 
@@ -46,6 +44,10 @@
 
 
 #완료한 작업
+	- lmt_extension_token_refine_argv_0/lmt_refine_token_argv_0()
+		- 마지막 free 를 lmt_string_free 로 바꿔야 '/bin/echo' 등의 호출에서 leak 이 안날것이다
+	- 'ls' 만 해줘도 255 가 return 되는 문제
+		- 'exit' 으로 exit 을 실행하는 경우 exit_code 가 255 인 문제
 	- append_token_to_first() 가 target 과 source 가 같은 경우 발생하는 문제
 		- debug: echo hi
 	- fork() 로 생성된 자식 프로세스가 sleep(100) 을 하고 있고, 이 때 부모 프로세스가 wait() 중인데 signal 로 인해 interupt 되었을 때 wait() 의 반환값?

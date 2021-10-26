@@ -4,11 +4,16 @@
 
 #current
 	- blog
+		- vim
+			- 장점: ft 로 한 line 에서 원하는 위치로 쉽게 이동할 수 있다.
+			- 게다가 c, d, y 와 조합하여 쉽게 문자열을 편집할 수 있다.
 		- while 문 안의 내용을 새로운 함수로 뺐을 때, 어떤 상수 값을 그 함수 내에서 계속 계산하여 할당하는 비효율적인 문제를 가독성을 많이 떨어뜨리지 않으면서 해결하는 방법
 			- ex) micro_paint
 		- playground git 에 version 기록으로 학습 내용을 남겼다면, 이 링크를 사용하여 블로그 글을 올려도 좋겠다
+		- pipe 와 fd
 	minishell
 	lmt_c_library 나 minishell 등의 프로젝트 페이지에 다양한 todo 들이 있는데, 이를 한 눈에 보기 편하게 한 페이지에 작성해주는 프로그램이 있었으면 좋겠다.
+	minishell main return segfault 의 원인 파악하기
 
 
 

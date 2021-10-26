@@ -8,3 +8,4 @@ lmt_unsafe_strrchr() 이 두 번째 인자로 char * 를 받는데, 왜 char 을
 lmt_unsafe_strdup() 의 변수 count 를 string_count 로 바꾸는게 더 readable 하지 않을까?
 그리고 sizeof(*string_dup) 를 사용할 필요가 있을까? 어차피 string_dup 는 항상 char * 타입일텐데
 strchr() 외에 추가적으로 중간의 어딘가서부터 처음으로 진행하면서 원하는 character 를 search 하는 함수가 있으면 좋겠다.
+lmt_write() 가 다른 fd 에도 사용 가능했으면 좋겠다.

@@ -5,6 +5,22 @@
 
 
 
+#2021-10-26
+
+- 어제 main 에서 return 시에 segfault 가 생기는 현상은 not_builtin_cmd() 를 1 번 호출하면 문제가 없었는데, non_builtin command 인지 체크하기 위해 여러번 호출해서 생기는 문제였다.
+- const 를 적지 않으니 해당 포인터의 내부 변수를 바꾸는지 확신하기가 힘들다.
+	- const 는 대박이다!
+- 와 진짜 이건 몰랐다!
+	- child process 에서 누수가 나고 있었다!
+	- should_execute_on_child() 가 child process 에서 실행 중이었는데, 여기서 호출하는 not_builtin_cmd 가 누수가 나고 있었을 것 같다
+	- 그래서 lldb 로 parent process 에서 leak 을 체크해도 leak 이 나지 않았던 것이다.
+	- 그 원인으로 인해 이번 문제인 main 문의 return 시 segfault 가 발생한 것 같다
+	- 아니다 leak 은 없었다.. 코드를 읽었을 때는 있을 것 같았는데..
+	- 잘은 모르겠지만 parent process 에서 not_builtin_cmd() 를 호출했을 때 동일한 문제가 발생하는 것을 확인하였다.
+
+
+
+
 #2021-10-25
 
 - 프로젝트가 커짐에 따라 모듈화를 잘 해둬야 '버그를 잡기 쉬워진다'.
