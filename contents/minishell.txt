@@ -3,24 +3,25 @@
 #한 일
 
 #pc: 한 작업이 끝날 때마다 commit 하기
-	- << here doc 만들기
-		- '<<' 를 다른 redirection 과 너무 다르게 할 필요는 없을 것 같다.
-		- lmt_attach_redirection() 에서 'pipe' 로 연결한 write 를 평범하게 old_fd 와 new_fd 를 설정해주도록 획일적으로 바꿔보자
+	- exit 의 인자가 숫자면 그 숫자를 exit_code 로 끝내기
+		- 300 을 return 해도 알아서 44 로 변한다
+	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
+		- 그래도 -1 을 return 하는 것이 가능하니 SA_RESTART 옵션은 넣어야 한다!
+	- not_builtin_cmd() 는 어디까지 검증해주는가? rerative path 는?
+		- '/' 가 하나라도 나오면 절대경로 혹은 상대 경로
+	- 'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
+	- lmt_perror() 적용하기
+	- error 가 발생할 수 있는 함수의 경우 에러가 처리되고 있는지 면밀히 검토하기
 	- 아주 드물게 'cat' 후 exit 시 segmentation fault 가 발생하는 문제
 		- 'ls' 후 exit 시에도 발생
 		- 알게된 것 should_execute_on_child() 의 유무에 갈린다
-	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
-		- 그래도 -1 을 return 하는 것이 가능하니 SA_RESTART 옵션은 넣어야 한다!
-	- <C-C> 로 자식 프로세스가 종료되었을 때 130 이 반환되도록 수정하기
-	- 'exit' 이 bash 의 마지막 status 를 return 하는지 확인하기
-	- 'sleep 10' 중에 <C-C> 가 먹지 않는 문제
-	- not_builtin_cmd() 는 어디까지 검증해주는가? rerative path 는?
-		- '/' 가 하나라도 나오면 절대경로 혹은 상대 경로
-	- bash 에서 sleep 100 을 ^C 로 멈추면 echo $? 가 130 을 출력하는데 왜 그런걸까?
-	- 'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
-	- lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
-	- lmt_perror() 적용하기
-	- error 가 발생하는 경우 잘 처리되고 있는지 면밀히 검토하기
+		- hand->path 를 free 해보니 pointer being freed was not allocated error 가 발생했다.
+			- 할당되지 않은 hand->path 를 사용함
+			- hand->path 에 우연히 상위 스택의 주소를 가리키고 있었음
+			- path 에 값을 설정하는 과정에서 상위 스택이 return 하기 위해 저장해 놓은 더 상위 stack 의 address 를 덮어씀
+			- main 이 return 을 하자 잘못된 주소가 쓰여진 값을 사용함
+			- 잘못된 주소에서 작업을 하여 segfault 에러가 발생함
+			- 배운 점: stack 에 할당한 데이터를 제대로 된 값을 초기화 하지 않은 채로 dereference 하여 사용할 경우 상위 stack 에 잘못된 값을 덮어쓸 가능성이 있다
 
 
 
@@ -44,6 +45,14 @@
 
 
 #완료한 작업
+	- 'exit' 이 bash 의 마지막 status 를 return 하는지 확인하기
+	- << here doc 만들기
+		- '<<' 를 다른 redirection 과 너무 다르게 할 필요는 없을 것 같다.
+		- lmt_attach_redirection() 에서 'pipe' 로 연결한 write 를 평범하게 old_fd 와 new_fd 를 설정해주도록 획일적으로 바꿔보자
+	- lmt_process_redirection.c 에서 errno 쓰나? include 확인해보기
+	- bash 에서 sleep 100 을 ^C 로 멈추면 echo $? 가 130 을 출력하는데 왜 그런걸까?
+	- <C-C> 로 자식 프로세스가 종료되었을 때 130 이 반환되도록 수정하기
+	- 'sleep 10' 중에 <C-C> 가 먹지 않는 문제
 	- lmt_extension_token_refine_argv_0/lmt_refine_token_argv_0()
 		- 마지막 free 를 lmt_string_free 로 바꿔야 '/bin/echo' 등의 호출에서 leak 이 안날것이다
 	- 'ls' 만 해줘도 255 가 return 되는 문제
