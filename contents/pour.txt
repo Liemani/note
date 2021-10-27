@@ -5,6 +5,14 @@
 
 
 
+#2021-10-27
+
+- 띠용, function prototype 에 void 를 명시해주지 않으면 그 함수를 사용할 때 인자를 넣어줘도 오류를 발생시키지 않네?
+	- 인자를 받지 않는 함수의 prototype 에는 반드시 void 를 명시해주도록 하자
+- 함수가 개인적으로 동작할 때 segfault 가 발생하는 상황이 존재하는 것은 좋지 않다
+
+
+
 #2021-10-26
 
 - 어제 main 에서 return 시에 segfault 가 생기는 현상은 not_builtin_cmd() 를 1 번 호출하면 문제가 없었는데, non_builtin command 인지 체크하기 위해 여러번 호출해서 생기는 문제였다.

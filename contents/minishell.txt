@@ -1,8 +1,7 @@
 #minishell
 
-#한 일
-
 #pc: 한 작업이 끝날 때마다 commit 하기
+	- write(); write('\n') 가 printf 에게 짤릴 위험성이 있다, 한 문자열로 출력하기
 	- exit 의 인자가 숫자면 그 숫자를 exit_code 로 끝내기
 		- 300 을 return 해도 알아서 44 로 변한다
 	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
@@ -33,6 +32,7 @@
 
 #제출 전 확인
 	Makefile 설명해주기
+	한글 없애기
 
 
 
