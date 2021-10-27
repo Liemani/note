@@ -3,7 +3,7 @@
 
 
 #pc: 한 작업이 끝날 때마다 commit 하기
-- lmt_iterator 만들기
+- include 마다 왜 include 했는지 주석 추가하기
 - norm
 - sequence 를 list 처럼 만드는 것이 아니라 하나의 데이터에 시작, 현재, next(), 끝 등의 정보를 담고 추적하는 방식으로 만들어 보자. 
 
