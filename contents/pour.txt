@@ -5,6 +5,15 @@
 
 
 
+#2021-10-28
+
+- iterator 등의 protocol 을 따르는 경우, structure 를 생성할 때 미리 그 protocol 을 위한 공간을 memory 에 같이 할당하면 좋겠다. 비록 무의미한 메모리는 많이 차지할 수 있겠지만, 속도는 조금 빨라질 것 같다.
+	- 즉, lazy type 은 메모리를 적게 먹는 대신 할당을 위해 시간이 더 걸릴 것이고, early type 은 메모리를 더 많이 먹지만 메모리 할당을 위한 런타임 시간이 줄어들 것이다. 초기 할당에는 근소하게 시간이 더 걸릴 수 있다.
+- vim <(cat $(find . -name "*.[ch]") | grep -v "/\*")
+	- 현재 directory 안의 파일 중 source file 들을 42header 를 제외한 코드를 vim 으로 실행하는 command
+
+
+
 #2021-10-27
 
 - 띠용, function prototype 에 void 를 명시해주지 않으면 그 함수를 사용할 때 인자를 넣어줘도 오류를 발생시키지 않네?
