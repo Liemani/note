@@ -1,5 +1,19 @@
 #philosophers
 
+#pc
+- lmt_c_library 를 philosopeher 에 맞게 수정하기
+	- lmt_alloc()
+	-
+
+#last confirm
+- lmt_c_library soft link 를 hard link 로 교체
+
+#finish
+- string_append 의 return type 을 int 로 바꾸기
+	- t_lmt_string_method.c
+	- t_lmt_string.h
+	- caller
+
 split 't_philos_method.c/philos_run()' several functions
 usage: ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
 	number_of_philosophers: number of philosophers and also the number of forks

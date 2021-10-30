@@ -3,13 +3,36 @@
 #pc: 한 작업이 끝날 때마다 commit 하기
 	- exit 의 인자가 숫자면 그 숫자를 exit_code 로 끝내기
 		- 300 을 return 해도 알아서 44 로 변한다
-	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
-		- 그래도 -1 을 return 하는 것이 가능하니 SA_RESTART 옵션은 넣어야 한다!
+	- notion 의 test case 확인
+	- cd 의 인자로 잘못된 경로가 들어왔을 때 hand->status = 1
+	- cd hi
+
+
+
+#같이 봐야 할 내용
+	- 함수를 분리하는 것을 거리껴하지 않아도 된다. inline static 이라는 방법도 있다. (우리 프로젝트에서는 못사용하지만)
+	- Makefile
+	- bonus rule 을 추가해야겠지?
+
+
+
+#제출 전 확인
+	debug 에 fclean 빼기
+	한글 없애기
+
+
+
+#완료한 작업
+	- sleep 100 && sdflk
+		sleep 100 이 실행되고 끝난 후 다음 command 가 실행된다
+	- sleep 100 | sdflk
+		sleep 100 과 sdflkj 가 동시에 실행되며, sleep 100 은 계속 돌아가는 상태에서 동시에 sdflkj 라는 명령어가 없다는 에러 메세지가 출력된다.
 	- not_builtin_cmd() 는 어디까지 검증해주는가? relrative path 는?
 		- '/' 가 하나라도 나오면 절대경로 혹은 상대 경로
-	- 'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
-	- lmt_perror() 적용하기
 	- error 가 발생할 수 있는 함수의 경우 에러가 처리되고 있는지 면밀히 검토하기
+	- 기본적으로 SIGCHLD 는 SIG_IGN 이다. signal() 에 옵션으로 SA_RESTART 를 넣어둔 것을 0 으로 돌려놓자(waitpid() 가 signal 에 의해 interupt 될 일이 거의 없다
+		- 그래도 -1 을 return 하는 것이 가능하니 SA_RESTART 옵션은 넣어야 한다!
+	- lmt_perror() 적용하기
 	- 아주 드물게 'cat' 후 exit 시 segmentation fault 가 발생하는 문제
 		- 'ls' 후 exit 시에도 발생
 		- 알게된 것 should_execute_on_child() 의 유무에 갈린다
@@ -20,33 +43,6 @@
 			- main 이 return 을 하자 잘못된 주소가 쓰여진 값을 사용함
 			- 잘못된 주소에서 작업을 하여 segfault 에러가 발생함
 			- 배운 점: stack 에 할당한 데이터를 제대로 된 값을 초기화 하지 않은 채로 dereference 하여 사용할 경우 상위 stack 에 잘못된 값을 덮어쓸 가능성이 있다
-	- unset, export 반복 segfault
-
-
-
-#같이 봐야 할 내용
-	- 함수를 분리하는 것을 거리껴하지 말아라. inline static 이라는 방법도 있다. (우리 프로젝트에서는 못사용하지만)
-	- Makefile
-	- bonus rule 을 추가해야겠지?
-
-
-
-#제출 전 확인
-	debug 에 fclean 빼기
-	Makefile 설명해주기
-	한글 없애기
-
-
-
-#test case
-	sleep 100 && sdflk
-		sleep 100 이 실행되고 끝난 후 다음 command 가 실행된다
-	sleep 100 | sdflk
-		sleep 100 과 sdflkj 가 동시에 실행되며, sleep 100 은 계속 돌아가는 상태에서 동시에 sdflkj 라는 명령어가 없다는 에러 메세지가 출력된다.
-
-
-
-#완료한 작업
 	- unset 한 env 를 사용할 때 leaks
 	- unset PATH 후 non-builtin command 를 입력했을 때, 찾지 못해야 하며, 따라서 실행되지 않아야 한다.
 	- 'exit' 이 bash 의 마지막 status 를 return 하는지 확인하기
@@ -99,6 +95,11 @@
 		- handler->status
 	t_token 의 type 을 설정하는 부분이 있는가?
 		- lmt_set_token_type()
+
+
+
+#안하기로 한 작업
+	- 'void exit_with_perror_int(int number)' 를 lmt_error/ 안에만들자
 
 
 

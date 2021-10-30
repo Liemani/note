@@ -4,7 +4,7 @@
 
 #pc: 한 작업이 끝날 때마다 commit 하기
 - include 마다 왜 include 했는지 주석 추가하기
-- norm
+- lmt_list 에 lmt_list_iterate_for_each_enumerate() 만들기
 
 
 
