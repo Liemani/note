@@ -1,28 +1,26 @@
 #minishell
 
 #pc: 한 작업이 끝날 때마다 commit 하기
-	- exit 의 인자가 숫자면 그 숫자를 exit_code 로 끝내기
-		- 300 을 return 해도 알아서 44 로 변한다
-	- notion 의 test case 확인
-	- cd 의 인자로 잘못된 경로가 들어왔을 때 hand->status = 1
-	- cd hi
 
 
 
 #같이 봐야 할 내용
-	- 함수를 분리하는 것을 거리껴하지 않아도 된다. inline static 이라는 방법도 있다. (우리 프로젝트에서는 못사용하지만)
-	- Makefile
-	- bonus rule 을 추가해야겠지?
 
 
 
 #제출 전 확인
-	debug 에 fclean 빼기
 	한글 없애기
 
 
 
 #완료한 작업
+	- Makefile
+	- 함수를 분리하는 것을 거리껴하지 않아도 된다. inline static 이라는 방법도 있다. (우리 프로젝트에서는 못사용하지만)
+	- notion 의 test case 확인
+	debug 에 fclean 빼기
+	- bonus rule 을 추가해야겠지?
+	- cd 의 인자로 잘못된 경로가 들어왔을 때 hand->status = 1
+	- cd hi
 	- sleep 100 && sdflk
 		sleep 100 이 실행되고 끝난 후 다음 command 가 실행된다
 	- sleep 100 | sdflk
