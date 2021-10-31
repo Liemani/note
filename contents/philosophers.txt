@@ -1,14 +1,14 @@
 #philosophers
 
 #pc
-- lmt_c_library 를 philosopeher 에 맞게 수정하기
-	- lmt_alloc()
-	-
+- philosopher 가 1 명일 때는 완전 예외로 빼서 처리하자
+- 대화와 관련해서 이전에는 어떻게 죽을 시 종료를 구현했는지 보고 싶은데, 너무 가독성이 구리다. 좀 다듬고 보도록 하자
 
 #last confirm
 - lmt_c_library soft link 를 hard link 로 교체
 
 #finish
+- lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
 - string_append 의 return type 을 int 로 바꾸기
 	- t_lmt_string_method.c
 	- t_lmt_string.h
@@ -55,7 +55,6 @@ last
 	에러가 깊숙한 곳부터 끊이지 않고 잘 전달되는지 확인하기
 }
 philosopher가 1 명인 경우 포크가 없어 죽도록 하자
-lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
 basic rules
 {
 	no norm error
