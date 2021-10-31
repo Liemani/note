@@ -1,5 +1,6 @@
 #vocabulary
 
+mne.mon.ic
 discipline
 prev.a.lent
 in.cor.po.rate

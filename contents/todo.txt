@@ -5,79 +5,59 @@
 #ps
 - 어떤 파일 시스템의 범위에 있는 파일들의 이름을 list 로 만든 후 $1 을 $2 로 수정하는 프로그램
 - blog
-	- vim
-		- 장점: ft 로 한 line 에서 원하는 위치로 쉽게 이동할 수 있다.
-		- 게다가 c, d, y 와 조합하여 쉽게 문자열을 편집할 수 있다.
-	- while 문 안의 내용을 새로운 함수로 뺐을 때, 어떤 상수 값을 그 함수 내에서 계속 계산하여 할당하는 비효율적인 문제를 가독성을 많이 떨어뜨리지 않으면서 해결하는 방법
-		- ex) micro_paint
-	- playground git 에 version 기록으로 학습 내용을 남겼다면, 이 링크를 사용하여 블로그 글을 올려도 좋겠다
-	- pipe 와 fd
-- minishell
+{
+	vim
+		장점: ft 로 한 line 에서 원하는 위치로 쉽게 이동할 수 있다.
+			게다가 c, d, y 와 조합하여 쉽게 문자열을 편집할 수 있다.
+			terminal 위에서 작동하기 때문에 쉽게 cli 와 화면 스위칭이 가능하다.
+			작업 자유도가 높다.
+	while 문 안의 내용을 새로운 함수로 뺐을 때, 어떤 상수 값을 그 함수 내에서 계속 계산하여 할당하는 비효율적인 문제를 가독성을 많이 떨어뜨리지 않으면서 해결하는 방법
+		ex) micro_paint 의 should_fill() 의 right_side, down_side
+	playground git 에 version 기록으로 학습 내용을 남겼다면, 이 링크를 사용하여 블로그 글을 올려도 좋겠다
+	작업 환경을 어떻게 구성하고 사용하고 있는지에 대한 글
+}
 - lmt_c_library 나 minishell 등의 프로젝트 페이지에 다양한 todo 들이 있는데, 이를 한 눈에 보기 편하게 한 페이지에 작성해주는 프로그램이 있었으면 좋겠다.
 - minishell main return segfault 의 원인 파악하기
 - memory simulator
-
-
-
-#recent
-	git rebase -i 를 하다보면 다양한 변경 사항이 뒤섞여 이해할 수 없는 상황이 발생한다. 이것이 구체적으로 어떻게 작동하는지 파악해두자.
-		일단 생각은 git rebase -i 로 살짝 변경된 commit 을 만들 때 commit 에 원래 담겨 있던 변경 사항을 사용하는 것보다는 파일의 내용을 또 비교하여 새로운 commit 을 만드는 것 같다
-	pull request 를 collaborator 도 받아들일 수 있던데, 권한 설정도 가능한가? 확인해보자
-	playground 에서 iterator 구상해보기
-	main
-		double linked list 를 lmt_c_library 에 추가하던가
-		아니면 iterable protocol 을 lmt_c_library 에 추가하자
-	minishell 등 허용 함수들의 예제를 playground 에 함수당 파일로 작성하기
-	궁금증
-		exit() 을 호출하면 자식 프로세스도 종료될까?
-	저번에 실행파일을 xxd 로 직접 수정해서 실행 결과를 바꾸는 작업을 해보았는데, 이 때 코드에 따라 생성되는 실행파일이 달랐었다. 코드가 어떻게 달라짐에 따라 실행파일이 어떻게 달라지는지 확인해보고, 어떨 때 실행 파일에 코드의 수정 내용이 담기고 담기지 않는지를 파악해보자. 그에따른 적절한 include 가 무엇인지 판단할 수 있게 될 것이다.
-	minishell
-	computer 의 programming spec 을 출력하는 프로그램
-		size of int, long long... so on
-	books
-		The c programming language
-		modern cpp
-		computer systems a programmer's perspective
-		computer science hunter unix lecture notes
-	malloc 이 NULL 을 return 할 때 어떻게 대응하는 것이 올바른 것일까?
-		어떤 작업까지 더 수행하는 것이 가능한가?
-		c 에서는 별다른 작업 없이 종료하거나, 문제가 무엇인지 출력하는게 일단 최선인 것 같다. 만약 어떤 작업을 하면 된다는 레퍼런스나 지침이 있다면 그렇게 하면 될 것이다. 그리고 나는 아직 그런 것을 보지 못했기 때문이다.
-	main implementation
-		lmt_atoui()
-exam03
-	empty_rectangle 의 border 인지를 판단할 때, border 를 포함한 rectangle 에서 포함하지 않는 rectangle 을 제외하는 것과 애초에 세로 변에 포함되는지를 먼저 확인하고 또는 세로 변에 있는지를 확인하는 방법의 차이가 를 알아보자
+- pull request 를 collaborator 도 받아들일 수 있던데, 권한 설정도 가능한가? 확인해보자
+- 저번에 실행파일을 xxd 로 직접 수정해서 실행 결과를 바꾸는 작업을 해보았는데, 이 때 코드에 따라 생성되는 실행파일이 달랐었다. 코드가 어떻게 달라짐에 따라 실행파일이 어떻게 달라지는지 확인해보고, 어떨 때 실행 파일에 코드의 수정 내용이 담기고 담기지 않는지를 파악해보자. 그에따른 적절한 include 가 무엇인지 판단할 수 있게 될 것이다.
+- computer 의 programming spec 을 출력하는 프로그램
+	- size of int, long long... so on
+- books
+	- The c programming language
+	- modern cpp
+	- computer systems a programmer's perspective
+	- computer science hunter unix lecture notes
+- main implementation
+	- lmt_atoui()
+- exam03
+	- empty_rectangle 의 border 인지를 판단할 때, border 를 포함한 rectangle 에서 포함하지 않는 rectangle 을 제외하는 것과 애초에 세로 변에 포함되는지를 먼저 확인하고 또는 세로 변에 있는지를 확인하는 방법의 차이가 를 알아보자
+- test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록 운영하는 깃 레포를 하나 만들고 싶다
 
 
 
 #investigate
-	nlp
-	{
-		tokenization
-		stemming
-		lemmatization
-	}
-	lexic
-	filedescriptors
-	file table
-	inode table
-	program counter(pc)
-	kernel panic
-	구조체를 반환하면 어떻게 작동할까?
-		구조체 전체를 복사하기 때문에 포인터로 하는 거에 비해 오래 걸린다는 것은 아는데, 그것이 구체적으로 어떻게 작동하는지는 모른다
-	automata
-		regex -> 무한 상태 머신 -> 유한 상태 머신
-	아마존 무료 클라우드 호스팅 서비스 알아보기
-	read vim manual
+	- ast
+	- nlp
+		- tokenization
+		- stemming
+		- lemmatization
+	- lexic
+	- filedescriptors
+	- file table
+	- inode table
+	- program counter(pc)
+	- kernel panic
+	- 구조체를 반환하면 어떻게 작동할까?
+		- 구조체 전체를 복사하기 때문에 포인터로 하는 거에 비해 오래 걸린다는 것은 아는데, 그것이 구체적으로 어떻게 작동하는지는 모른다
+		- 반환값을 담는 레지스터가 존재하는 것으로 아는데, 레지스터의 크기는 고정값일 것 아닌가?
+	- automata
+		- regex -> 무한 상태 머신 -> 유한 상태 머신
+	- 아마존 무료 클라우드 호스팅 서비스 알아보기
+	- read vim manual
 
 
 
-#project
-	minishell
-	philosophers
-
-
-
-test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록 운영하는 깃 레포를 하나 만들고 싶다
 
 #variabledText
   cli 에서 변수 값을 인자로 넣어줄 수 있으면 좋겠다
@@ -90,9 +70,6 @@ test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록
 	사용하지 않은 식별자 정의 경고
 	중복 정의된 식별자 경고
 
-#blog
-	블로그 모델을 만들고 모델을 github page format 으로 converting 하는 프로그램 만들기
-	작업 환경을 어떻게 구성하고 사용하고 있는지에 대한 글
 
 기록이 먼저
   프로그래밍 단어 정규화
@@ -133,7 +110,6 @@ test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록
 #lldb
   특정 시그널 보내기
   'memory read': 메모리를 출력함
-  변수 값 읽기 쓰기에 따른 breakpoint 설정
 
 #book
 	50/288 : The C Programming Language
