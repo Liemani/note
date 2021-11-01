@@ -1,6 +1,10 @@
 #philosophers
 
 #pc
+- thread 의 종료에 대해 알아보기
+	- 일반적인 종료 방법
+	- main thread 가 종료될 때 종료되는지
+	- detach 는 무엇인지
 - timeval_init() 은 제대로 된 숫자를 인자로 받는다
 	- 이미 전에 인자가 적절한지를 판단하는 추가적인 로직을 두도록 하자
 - 왜 pen 이 philosopher 를 알아야 하지?
