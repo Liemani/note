@@ -5,6 +5,16 @@
 
 
 
+#2021-11-01
+
+- 값을 변환할 때는 실패할 수도 있는데 메모리 관련으로 실패하면 어차피 exit() 을 할 것이니 파싱에 대한 성공 실패 여부만 return 하면 된다
+- value type 은 NULL 이 인자로 들어와도 빈 data 를 할당하여 반환하고, 그 외에는 NULL 인자에 대해 NULL 을 반환한다
+- 즉, value type 은 non-optional 을 반환하고, 그 외에는 optional 을 반환한다
+- exit() 이 불가능한 환경에서는 _new() 를 만들지 말고 _init() 까지만 만들자
+	- _new() 의 return 값으로 NULL 을 반환할 때 _init 의 실패만을 의미할 수 있다
+
+
+
 #2021-10-31
 
 - write() 를 쓰는 프로그램에서는 가급적 printf() 를 사용하지 말자

@@ -1,0 +1,3 @@
+#common
+- 잘못된 입력값에 프로그램이 터지지는 않는지
+- system call 과 system library function 들을 호출할 때 에러를 처리 했는지

@@ -10,9 +10,9 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nnoremap <F12><F12> :set modifiable:set write
-omap <F1> :Stdheader
 vmap <F1> :Stdheader
+omap <F1> :Stdheader
+nnoremap <F12><F12> :set modifiable:set write
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12> :set nomodifiable:set nowrite
@@ -350,7 +350,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 16
-normal! 011|
+normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
@@ -481,7 +481,7 @@ exe '1resize ' . ((&lines * 36 + 56) / 113)
 exe '2resize ' . ((&lines * 36 + 56) / 113)
 exe '3resize ' . ((&lines * 36 + 56) / 113)
 tabnext
-edit ~/git/note/contents/evaluation/minishell.txt
+edit ~/git/note/contents/evaluation/common.txt
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -1928,26 +1928,26 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 3
-normal! 010|
+normal! 01|
 lcd ~/git/note
 tabnext 7
 set stal=1
 badd +1 ~/git/note/contents/dream.txt
 badd +5 ~/git/note/dream.txt
-badd +1 ~/git/note/contents/evaluation/minishell.txt
+badd +2 ~/git/note/contents/evaluation/minishell.txt
 badd +1 ~/git/note/contents/todo.txt
 badd +1 ~/git/note/contents/teamwork.txt
 badd +1 ~/git/note/contents/env.txt
 badd +1 ~/git/note/contents/lmt_c_library.txt
-badd +14 ~/git/note/contents/minishell.txt
-badd +1 ~/git/note/contents/philosophers.txt
+badd +0 ~/git/note/contents/philosophers.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
 badd +1 ~/git/note/contents/system_call.txt
 badd +1 ~/git/note/contents/vocabulary.txt
-badd +0 ~/git/note/contents/pour.txt
+badd +1 ~/git/note/contents/pour.txt
 badd +1 ~/git/note/contents/link.txt
 badd +1 ~/git/note/contents/evaluation/minitalk.txt
 badd +2 ~/git/note/contents/evaluation/evaluation.md
+badd +14 ~/git/note/contents/minishell.txt
 badd +1 ~/git/note/evaluation/evaluation.md
 badd +1 ~/git/note/subject/todo.txt
 badd +1 ~/git/note/subject/teamwork.txt
@@ -1964,6 +1964,7 @@ badd +3 ~/git/note/subject/submit_protocol.txt
 badd +1 ~/git/note/study.txt
 badd +1 ~/git/note/..
 badd +1 ~/git/note/contents
+badd +0 ~/git/note/contents/evaluation/common.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

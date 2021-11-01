@@ -1,5 +1,6 @@
 #vocabulary
 
+specifier
 mne.mon.ic
 discipline
 prev.a.lent
