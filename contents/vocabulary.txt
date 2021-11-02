@@ -1,5 +1,12 @@
 #vocabulary
 
+pe.riph.er.al
+qual.i.fi.er
+in.ter.min.gle
+ex.pire
+gran.u.lar.i.ty
+re.lin.quish
+dis.ci.pline
 specifier
 mne.mon.ic
 discipline
