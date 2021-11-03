@@ -1,0 +1,9 @@
+#cli_game
+
+- thread 를 나누지 말고 하나의 main_loop 로 만들자
+- 오염: 자연, 시뮬레이션
+- buffer 에서 모든 문자가 같은 attribute 가 아닐 것이다. 특정한 attribute 데이터를 처리할 수 있도록 데이터 구조를 생각해보자
+- 본체는 위, 아래, 왼쪽, 오른쪽 을 바라보는 방향에 따라 II, ii, iI, Ii 로 표현한다
+- 두 글자가 하나의 타일을 이룬다
+- 나중에 lmt_c_library 에 exit 을 다시 넣으면 malloc() 을 lmt_alloc() 으로 교체하기
+	- write 도 lmt_write 으로?

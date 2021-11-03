@@ -1,6 +1,8 @@
 #lmt_c_library
 
 #pc: 한 작업이 끝날 때마다 commit 하기
+- 한 라이브러리는 그 라이브러리의 root 를 추가함으로 기능이 가능해야 한다
+	- 따라서 root 안의 directory 에 대한 접근을 root 에 대한 상대 경로로 수정하자
 - README.txt -> README.md
 - lmt_string_describe() 은 어떨까?
 
