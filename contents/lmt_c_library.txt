@@ -5,6 +5,7 @@
 	- 따라서 root 안의 directory 에 대한 접근을 root 에 대한 상대 경로로 수정하자
 - README.txt -> README.md
 - lmt_string_describe() 은 어떨까?
+- lmt_atoui()
 
 #finish
 - lmt_atoi 가 INT_MIN 을 제대로 파싱하지 못하는 문제 해결
