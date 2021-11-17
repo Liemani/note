@@ -5,6 +5,56 @@
 
 
 
+#2021-11-17
+
+- 작동 설명 은 2 가지 관점으로 작성하면 좋다. 전체적인 관점과 내부적인 관점이다. 이는 마치 argument 와 parameter 의 label 을 각각 두는 것과 같다.
+	- 즉 실 사용을 아는 것도 좋지만, 내부 동작을 아는 것도 좋다. 하지만 내부 동작에 대한 설명은 찾기 힘든 부분이 있다.
+- 인자로 전달할 일이 많은 배열 데이터는 null terminated 하게 만드는 것이 좋다.
+- 직접 내부 값을 변경하는 경우가 많은 배열 데이터는 시작과 끝의 주소를 저장하도록 하자.
+- 실행 순서대로 서술되지 않은 코드는 이해하기가 끔찍하다. 가능하면 실행 순서대로 서술하도록 하자.
+- 기능을 무작정 코드로 작성해나가기 보다는, 먼저 실제 언어로 서술해 보는 것이 도움이 된다.
+	- 각 행위를 명명하는 단어를 끄집어내는 데 도움이 된다.
+	- 큰 흐름을 잡는데 도움이 된다.
+- 가능하면 바로 세밀한 부분을 서술하기 보다는 크게 크게 덩어리를 잘 나누도록 로직을 짜면서 서술해보자.
+- local repository, wording directory
+- recommand book: pro git
+- binary large object
+	- add 를 하면 blob 형태로 stage 에 올라간다.
+	- git hash-object <file>: checksum 을 보여준다
+		- 내용이 같으면 hash 값이 같다(메타 정보는 사용하지 않음)
+	- tree .git: cli command
+- 파일이 어떤 파일인지 보는거 어떤 명령어였더라?
+- git add 시에 .git/ 에 파일이 저장된다.
+
+- git cat-file -t <hash>: type 을 알려준다.
+- git cat-file <type> <hash>: hash 파일을 type 으로 해석한 정보를 출력한다.
+
+- git ls-files --stage: stage 를 출력해준다.
+
+- git ls-tree <hash>: tree 의 내용을 읽기 좋게 보여준다.
+- 이런 명령들을 메타 명령이라고 한다.
+
+- git add: 대상 파일을 위한 blob 을 생성한다.
+- git commit: 새로운 commit 을 위한 tree 와 commit 을 생성한다.
+
+- git hash-object <file>: file 의 hash value 를 출력한다.
+- git write-tree: stage 를 가지고 새로운 tree 를 만든다.
+- echo "22" | git commit-tree <hash of tree> -p <hash of parent commit>
+- git rm --cached <path>
+
+#define STATE_NORMAL                    0
+#define STATE_ENCOUNT_SLASH             1
+#define STATE_IN_MULTI_LINE_COMMENT     2
+#define STATE_ENCOUNT_ASTERISK          3
+#define STATE_IN_SINGLE_QUOTE           4
+#define STATE_IN_SINGLE_QUOTE_BACKSLASH 5
+#define STATE_IN_DOUBLE_QUOTE           6
+#define STATE_IN_DOUBLE_QUOTE_BACKSLASH 7
+
+- 이런식으로 각 상수를 define 하는 것이 아니라 enum 을 사용한다면, 사이 사이에 새로운 constant 가 추가된다고 하더라도 아래의 숫자가 밀리지 않는 장점이 있다.!
+
+
+
 #2021-11-16
 
 - c 에서는 데이터와 메타 데이터가 짝으로 활동하는 경우가 종종 있다.

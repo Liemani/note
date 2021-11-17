@@ -1,6 +1,9 @@
 # todo #########################################################################
 
 #ps
+- automatic 이 아닌 변수는 프로그램이 시작하기 전에 한 번만 초기화를 한다고 한다. static variable 도 그럴까? 함수가 호출되기 전에 이미 초기화가 되어 있는 것일까? 아니다
+> 2.3p3. If the variable in question is not automatic, the initialization is done once only, conceptually before the program starts executing, and the initializer must be a constant expression.
+
 - unix lecture note 에서 more 을 구현할 때 처음 출력 scroll 을 어떻게 처리했는지 궁금하다. 그냥 일단 출력하고 본 것이었을까? 그리고 위로 스크롤 하는 것은 어떻게 구현했을까?
 - philosophers 가 끝나면 csapp 랑 unix lecture 을 보자!
 - 어떤 파일 시스템의 범위에 있는 파일들의 이름을 list 로 만든 후 $1 을 $2 로 수정하는 프로그램
