@@ -1,6 +1,7 @@
 # todo #########################################################################
 
 #ps
+- note 의 privet 분리하고 public 으로 전환하기
 - automatic 이 아닌 변수는 프로그램이 시작하기 전에 한 번만 초기화를 한다고 한다. static variable 도 그럴까? 함수가 호출되기 전에 이미 초기화가 되어 있는 것일까? 아니다
 	> tCpl 2.3p3. If the variable in question is not automatic, the initialization is done once only, conceptually before the program starts executing, and the initializer must be a constant expression.
 - zsh-dependent code 를 bash-compitable 하게 수정하기
