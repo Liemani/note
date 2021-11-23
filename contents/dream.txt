@@ -31,6 +31,7 @@
 
 # 미래
 
+- 역사를 시간축에 보기 좋게 표현하는 것은 변천사를 한 눈에 이해하는데 용이하다. 코드의 변천사도 이렇게 표현해주는 프로그램은 어떨까?
 - state machine in printf, automata, regex
 - git repo, branch name 을 가져오는 과정에서 git repo 안에 있지 않을 때 오류 메세지가 출력되는 문제
 - 'zshrc' 를 할 때마다 precmd_vcs_info 가 precmd_functions 에 추가되는 문제

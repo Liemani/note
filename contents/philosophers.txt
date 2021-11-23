@@ -1,7 +1,9 @@
 #philosophers
 
 #pc
-- parsing 함수에서 malloc() 을 사용하는 것이 아니라, 밖에서 할당항 buffer 의 주소를 인자로 전달하도록 하자
+- philosophers pdf subject 읽으면서 요구 사항을 분석하고 구체적인 구현을 생각해보기
+- process 를 종료하면서 thread 의 종료를 os 에게 맡기는 것은 좋은 연습이 아닌 것 같다.
+- pthread_mutex_destroy() 를 하려면 다른 thread 들이 종료되기를 join 했다가 후에 호출해야할 것 같다.
 - thread 의 종료에 대해 알아보기
 	- 일반적인 종료 방법
 	- main thread 가 종료될 때 종료되는지
@@ -26,6 +28,8 @@
 - lmt_c_library soft link 를 hard link 로 교체
 
 #finish
+- man pthread_exit()
+- man pthread_create()
 - lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
 - string_append 의 return type 을 int 로 바꾸기
 	- t_lmt_string_method.c
