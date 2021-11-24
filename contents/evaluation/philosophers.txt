@@ -1,2 +1,5 @@
-usleep 의 인자가 한계가 있는데
-time 들은 어느 한계까지 입력받아야 하는가?
+no leak, crash, undefined behavior
+일반적으로 thread 를 사용하는 이유
+usleep 의 인자의 정밀도 극복
+시간 정밀도
+time 은 어떤 데이터 타입으로 저장되고 계산되는가?
