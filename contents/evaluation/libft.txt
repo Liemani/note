@@ -1,0 +1,6 @@
+# libft
+
+undefind behavior 을 제외한 segfault, bus error, double free, etc
+no leak
+malloc() 을 사용하는 함수
+ft_split()
