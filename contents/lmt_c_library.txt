@@ -1,8 +1,7 @@
 #lmt_c_library
 
 #pc: 한 작업이 끝날 때마다 commit 하기
-- fork_array 를 먼저 만들고 philosopher 를 채워넣는 과정에서 fork1 과 fork2 를 설정해주자
-- philosopher 의 simulator 를 init 하는 것처럼 어떤 값을 통해 어떤 값을 형성하는데 실패하는 것을 통틀어 뜻하는 단어를 만들자 new?, init?, init!
+- philosopher 의 simulator 를 init 하는 것처럼 어떤 값을 통해 어떤 값을 형성하는데 실패하는 것을 통틀어 뜻하는 상수를 만들자 new?, init?, init!
 - README.txt -> README.md
 - lmt_string_describe() 은 어떨까?
 	- 왜?

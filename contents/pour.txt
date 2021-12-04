@@ -15,6 +15,18 @@
 			이 경우 이 예측을 위한 과거 데이터는 mutex 로 lock 을 해야 할 텐데, 성능 손실이 클 것 같다.
 		1. 각 philosopher 마다 sleep 예측을 위한 이전 데이터를 저장하도록 한다.
 			이 경우 예측을 위한 데이터 양이 적어지기 때문에 오차가 커질 것 같다.
+- 컴파일과 링크 과정에서는 현재 파일에 있는 header file 은 따로 include option 을 주지 않아도 알아서 탐색하는 것 같다.
+	- gcc main.c -> 같은 directory 의 .h 파일을 알아서 찾음
+	- 하지만 '.o' file 을 생성하기 위해 'gcc -c' 에서 '.h' 파일을 탐색할 때는 해당 source 파일의 위치를 중심으로 상대 주소로 탐색한다.
+- playground 에서 실험을 진행한 후에는 꼭 결과를 주석으로 남겨두도록 하자. 어떤 결과가 있었는지 확인하기 위해 다시 테스트를 진행해야 하는 불편함이 있다.
+- playground 에서 작성한 예제에 대한 설명을 커밋을 사용하여 변화마다 주석을 달아줄 수 있는데, 이 경우 주석의 설명을 보기 위해 각 커밋에 checkout 해야 하므로 불편하다. 따라서 이럴 경우 각 커밋의 주석 설명을 동시에 Readme.md 등의 파일에도 똑같이 기록하여 파악하기 쉽도록 하자. 자세한 내용을 보고 싶으면 그 때 가서 checkout 하면 되니까
+- 겨울은 눈이 부시다. 해가 낮게 떠서 여름에 비해 시야에 해가 들어온다
+- 만약 그런거(드론의 속도, 가속도 센서 값 등 다차 방정식 꼴의 데이터)라면 몰라도 sleep() 은 system 에서 자체적으로 구현한 함수이기 때문에 걸리는 시간을 예측하는 것이 결국 오차가 클 수밖에 없다. (다차 방정식 꼴이 아니다) 그러므로 그냥 내 방식을 사용하도록 하자!
+	- 그러므로 쓰레드의 갯수와 sleep 시간에 따른 평균 delay 를 이용하되, 크게 벗어난 값은 제외하는 방식으로 적용해보자!
+- local variable 로 선언한 변수의 주소를 thread 의 인자로 넘겨주어 thread 가 dereferencing 하여 사용하는 경우, thread 의 종료를 확인하지 않고 main() 함수를 종료하게 되면, 끝나지 않고 작동중인 thread 가 free 된 stack 영역을 접근하여 segmentation fault 에러가 날 수 있나?
+	- 그런 문제 때문에 segmentation fault 가 발생하지는 않는 것 같다. 내가 맞딱뜨린 segmentation fault 는 아래와 같은 이유로 발생했던 것이었다.
+- int 가 overflow 하는 것은 UB 이고, unsigned int 가 overflow 하는 것은 UB 가 아니다?
+	- https://stackoverflow.com/questions/59080105/illegal-hardware-instruction-from-very-simple-code
 
 
 
