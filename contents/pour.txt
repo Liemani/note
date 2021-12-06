@@ -5,6 +5,25 @@
 
 
 
+#2021-12-06
+- :ter[minal]: open terminal in vim
+- ^: jump to the first not white space character of the line
+- g_: jump to the last not white space character of the line
+- <C-T> in insert mode: indent
+- <C-D> in insert mode: unindent
+- <C-N>, <C-P> in insert mode: 다음, 이전 단어 자동 완성
+- gJ: 추가 공백 없이 행 연결
+- o in visual mode: jump another end of the selected range
+- O in visual block mode: jump another end of selected block
+- u, U in visual mode: to lower case or upper case
+- `., '.: jump to last edit
+- ==: auto align
+- cn, cp: vimgrep 으로 search 한 목록의 다음, 이전 item 으로 jump
+- cope[n], ccl[ose]: search 한 item 목록을 list 하는 분할 창 띄우기, 닫기
+- <C-W>x: 두 창의 위치 swap
+
+
+
 #2021-12-05
 
 - 기본적으로 overflow 는 instruction 을 오용하는 방법이다. 그런데 unsigned int 의 경우 6.2.6.1:3 에 의해 overflow 이후의 값이 보장되고 signed int 는 undefined 로 정의된다
