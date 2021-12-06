@@ -1,6 +1,7 @@
 #lmt_c_library
 
 #pc: 한 작업이 끝날 때마다 commit 하기
+- constant.h 에서 순차적이며 추가, 삭제 등의 확장이 예상되는 데이터를 enum 으로 변경하기
 - philosopher 의 simulator 를 init 하는 것처럼 어떤 값을 통해 어떤 값을 형성하는데 실패하는 것을 통틀어 뜻하는 상수를 만들자 new?, init?, init!
 - README.txt -> README.md
 - lmt_string_describe() 은 어떨까?
