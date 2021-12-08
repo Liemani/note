@@ -1,9 +1,10 @@
 #philosophers
 
 #pc
-- helper_ltoa() 작성하기
-	- 상수 정의해야한다 long 길이
-- pen 에서 상수의 이름을 수정하고 있었다. (messages -> log_bufs)
+- 초반에 thread 를 순간적으로 늘리면 생기는 sleep() 지연현상을 완화함과 동시에 홀수 짝수 철학자가 교대로 먹도록 한 쪽에 지연시간을 두도록, pthread_create 시에 한 쪽을 생성한 후, 다른 쪽을 생성하기 전에 sleep 을 두는 것은 어떨까?
+- const.h 의 pen format 을 정의해서 documentation 을 하고 있다
+- pen_write 점검
+	- 각 수치를 버퍼에 잘 복사해넣도록 수정
 - multi thread 구조에서 뭔가 한다는 것은 복잡해지기 때문에 가능하다면 오류가 조금 있어도 간결한 구조를 작성하고 넘어가도록 하자
 	- take fork 와 eat 사이에 다른 철학자의 log 가 올 수 있지만 신경쓰지 않겠다.
 - mutex 는 FIFO 가 아닌데, 이를 해결할 방법이 있나?
@@ -40,8 +41,13 @@
 
 #last confirm
 - lmt_c_library soft link 를 hard link 로 교체
+- note/contents/evaluation/philosophers.txt 확인
+- submit protocol 확인
 
 #finish
+- pen 에서 상수의 이름을 수정하고 있었다. (messages -> log_bufs)
+- helper_ltoa() 작성하기
+	- 상수 정의해야한다 long 길이
 - man pthread_exit()
 - man pthread_create()
 - lmt_exit 을 사용할 수 없으니 이전 방식대로 return 값을 확인하도록 하자 (특히 util.c 등)
