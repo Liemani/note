@@ -5,10 +5,23 @@
 
 
 
+#2021-12-10
+- git stash pop == git stash apply && git stash drop
+	- 만약 git stash apply 에서 conflict 가 발생하면 git stash drop 이 실행되지 않는다.
+	- 출처: https://www.theserverside.com/video/How-to-easily-merge-and-resolve-git-stash-pop-conflicts
+	- conflict 를 해결하고 git stash drop 을 하더라도 git stash 를 하려고 하면 '<path>: needs merge' 라는 문구가 출력되면서 실행되지 않는다.
+		- 이 때 간단히 해당 파일을 git add 하고 다시 git stash 를 실행하면 제대로 수행된다.
+- https://en.wikipedia.org/wiki/Lock_(computer_science)
+	- coarse granularity: 굵직하게 mutex lock 을 거는 것, thread 가 적을수록 효율이 좋다. 당연히 mutex 가 겹칠 일이 적으니 lock overhead 를 줄이면 효율이 좋아진다.
+	- fine granularity: 세세하게 mutex lock 을 거는 것, thread 가 많기 때문에 lock contention 을 줄여야 효율이 좋아진다.
+
+
+
 #2021-12-09
 - 함수의 내부에서 사용하는 단어와 외부로 표출되는 단어가 다르다. 내부적으로 사용할 때는 굳이 해당 함수가 포함되는 구조체의 이름을 접두어로 붙일 필요도 없다.
 - 행복한 완벽주의자가 되어라. 완벽주의 덕에 어떤 문제를 풀 때 여러 번 곱씹게 되지만, 스스로 원해서 그 문제를 완벽하게 푸는 것이기 때문에, 한 문제를 해결하는 과정에서 발생하는 수많은 의문과 작은 문제들을 추가적으로 맞닥뜨릴 때마다 새로운 특징과 기술을 학습하며, 이에 즐거움을 얻는다.
-- 야곰맨토님 특강
+
+야곰맨토님 특강
 	- 공유하라
 		- 공유해서 그 내용이 다른 사람들에게 알려진다고 해도, 직접 내용을 작성한 사람과, 단순히 다른 사람이 작성한 내용을 보고 터득한 사람 간에는 깊이의 차이가 있다.
 		- 공유를 할수록 내 특수성을 잃는 것이 아니고 기회가 많아지는 것이다.
@@ -30,7 +43,7 @@
 	- 질문의 핵심은 존중과 배려이다
 		- 내가 어떤 질문을 해야 상대가 더 명확한 대답을 해줄 수 있을까?
 
-- 급변하는 세상에서 커리어란 <한기용>
+급변하는 세상에서 커리어란 <한기용>
 - 급변하는 세상에서 전문성이란?
 - 내가 가진 장점이 언젠가 단점이 되는 순간이 있다.
 - 완벽주의자 -> 일의 경중을 따지지 않고 전부 열심히함 -> 오히려 단점
