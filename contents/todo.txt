@@ -126,8 +126,6 @@
   'memory read': 메모리를 출력함
 
 #book
-	- computer science
-		- liveness property and safety property
 	- 50/288 : The C Programming Language
 	- csapp
 	- 늑향: 10 권 114p

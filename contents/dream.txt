@@ -86,6 +86,8 @@
   - Real-World Software Developement
   - code (?)
   - cs
+  - computer science
+    - liveness property and safety property
   - [modern c](https://modernc.gforge.inria.fr)
   - The C Programming language
   - https://git-scm.com/book/en/v2
