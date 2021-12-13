@@ -1,7 +1,5 @@
-# subject.pdf
-  - Namespace, class, member functions, stdio stream, initialization lists, static, const, and lots of basic stuff
+# subject pdf
 
-- header 에 함수가 implemented 면, 그리고 unprotected header 가 존재하면 0 점이다
 - 모든 output 은 standard output 으로, 그리고 다른 언급이 없다면 newline 으로 끝나야 한다
 - 파일 이름과 class 이름, function 이름, method 이름은 letter 다음에 와야 한다.
 - 사용 불가능: *alloc, *printf, free
@@ -19,6 +17,11 @@
 - 평가자가 읽을 수 없는 코드는 점수를 받을 수 없다
 - 양식에 맞지 않으면 기계 평가에서 점수를 받을 수 없다
   - 놓친 것은 없는지 꼼꼼이 확인해보라
+
+
+
+  - Namespace, class, member functions, stdio stream, initialization lists, static, const, and lots of basic stuff
+
 
 
 # Exercise 00: Megaphone

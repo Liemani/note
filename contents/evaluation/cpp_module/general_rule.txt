@@ -1,0 +1,9 @@
+# general rule
+
+- templates 을 제외하고 header 에 함수 implemented 금지, 그리고 unprotected header 금지
+- 따로 언급이 없는 한 모든 output 은 standard output 이어야 하고 newline 으로 끝난다
+- 파일명, 클래스명, 함수명, 메서드명은 지정한 것을 따르기
+- c 가 아닌 cpp 이다
+	- alloc, printf, free 금지
+	- 모든 standard library 사용 가능
+	- 허가 전에 STL(vector, list, map, algorithm, etc) 금지

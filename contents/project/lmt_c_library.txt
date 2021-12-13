@@ -1,6 +1,8 @@
 #lmt_c_library
 
 #pc: 한 작업이 끝날 때마다 commit 하기
+- deprecated 를 .deprecated 라고 해도 좋겠다
+- lmt_c_library 를 lmi_c_library 로 수정하기
 - lmt_atoi 등의 파싱하는 함수가 문자열을 파싱한 후의 문자 주소를 caler 에게 전달했으면 좋겠다
 - MAX_INT_LEN 을 INT_MAX_LEN 으로 바꾸기
 - static 이 밑으로 가게 하고 위에 prototype 을 명시하도록 수정하기
