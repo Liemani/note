@@ -8,3 +8,8 @@ slack
 norm
 leak
 symbolic link 를 실제 파일로 교체하기
+evaluation/<project> 참고하기
+- 이 곳의 자료 확인하기
+	- https://tangible-harbor-c59.notion.site/FT_Cursus-98f688bd250a4601b6e55ac699d17cb0
+	- 더 알아야 할 만한 내용 확인하기
+	- tester 돌려보기
