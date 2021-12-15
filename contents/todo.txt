@@ -1,9 +1,10 @@
 # todo #########################################################################
 
-#ps
+#ps: 모든 할 일은 즉시 여기에 작성하고, 추후 다른 항목의 ps 로 옮깁니다.
+- todo.txt 를 ps 와 finish 만 남도록 나머지는 다른 파일로 옮기기
+- github page 를 마일스톤으로 하여 내 git repository 를 소개하면 좋겠다
 - 나는 detach 가 thread 가 끝나면 자원을 새로운 thread 가 사용할 수 있도록 하는 것이라고 본 것 같은데, 이 분은 thread 를 종료시켜버린다고 말하네? 직접 확인해보자
 	- https://42born2code.slack.com/archives/CMX2R5JSW/p1639492207443200?thread_ts=1639491300.441500&cid=CMX2R5JSW
-- c 언어 source 와 대응하는 asm code 를 볼 수 있는 방법이 있다. 궁금할 때 알아보자
 - 초패스트 언어 시작하기 글을 언어마다 만들어둬도 좋은 참고가 되겠다
 - cpp_module 진행하기
 - 한글로 된 프로그래밍 언어 만들기
@@ -47,9 +48,12 @@
 	- vim
 		- vim 의 기능을 어려운 기능에서 쉬운 기능 순서로 나열한 목록을 화면에 띄워놓고 시작하기 전에 모두 한 쪽 손을 들게 한 다음 순서대로 읽으면서 아는 사람은 손을 내리게 하여 전체적인 참여자의 실력 분폴르 알아보면 괜찮을 것 같다.
 
-
-
 #finish
+- c 언어 source 와 대응하는 asm code 를 볼 수 있는 방법이 있다. 궁금할 때 알아보자
+- playground 의 002_postfix_increment_operator.c 의 어셈블리 코드를 보기 좋게 출력하는 것을 cluster mac 에서 시도해보기
+- instruments 영상 시청하기
+- 12/18 일 닭가슴살이 떨어진다. 물량 확보하기
+- youtube 방금 본 이력서 작성 영상 정리하기
 - note 의 privet 분리하고 public 으로 전환하기
 
 

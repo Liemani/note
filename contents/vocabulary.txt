@@ -1,5 +1,8 @@
 #vocabulary
 
+im.per.a.tive
+pre.emp.tive
+dis.patch
 pe.riph.er.al
 qual.i.fi.er
 in.ter.min.gle

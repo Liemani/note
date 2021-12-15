@@ -1,0 +1,9 @@
+# basic
+
+norm
+error handle
+memory leak
+
+# 물어볼 것
+
+fork 후 error 가 발생하는 경우
