@@ -1,6 +1,15 @@
 # todo #########################################################################
 
 #ps: 모든 할 일은 즉시 여기에 작성하고, 추후 다른 항목의 ps 로 옮깁니다.
+- 자고 깨는 시간을 체계화하는 시스템 만들기
+- 유튜브 영상을 보면 항상 기록해놓을 수 있는 시스템 만들기
+	- background: 누워서 핸드폰으로 유튜브 영상을 보면 기록하면서 볼 수 없어서 너무 아쉽다.
+	- 아이폰으로 유튜브를 보지 말고 아이패드로 본다면 어떨까? 유튜브를 봄과 동시에 메모에 접근이 가능해서 기록을 할 수 있다.
+- tcpppl 을 읽으면서 cpp 의 역사를 보고 있다. 다른 언어의 역사와 함께 cpp 의 역사를 보면서 전체적인 프로그램 언어의 역사를 이해해보자
+	- https://en.wikipedia.org/wiki/Timeline_of_programming_languages
+		- programming language timeline
+- todo.txt 를 todo_now.txt, todo_future.txt 등으로 세분화해서 관리하기
+	- 개인 mac 에서 이 작업을 하면 vim version 이 달라 .vimsession 읽고 쓸 때 에러가 발생하는 것이 싫으니 나중에 클러스터에 가면 이 작업을 하도록 하자
 - todo.txt 를 ps 와 finish 만 남도록 나머지는 다른 파일로 옮기기
 - github page 를 마일스톤으로 하여 내 git repository 를 소개하면 좋겠다
 - 나는 detach 가 thread 가 끝나면 자원을 새로운 thread 가 사용할 수 있도록 하는 것이라고 본 것 같은데, 이 분은 thread 를 종료시켜버린다고 말하네? 직접 확인해보자
