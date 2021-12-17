@@ -1,5 +1,7 @@
 #vocabulary
 
+de.fin.i.tive
+se.man.tic
 im.per.a.tive
 pre.emp.tive
 dis.patch

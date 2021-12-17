@@ -7,6 +7,7 @@
 
 #2021-12-17
 - safari 에서 tab group 을 변경하면 이전 탭 그룹에 있던 tab 들의 memory 들은 활성 상태 보기 창에서 cache 로 상태가 변한다.
+- AppleScript 를 사용하면 System Preferences 의 설정을 매크로처럼 바꿀 수 있는 것 같았지만 cluster mac 의 administrator 권한이 없이는 제대로 사용할 수 없다
 
 
 
