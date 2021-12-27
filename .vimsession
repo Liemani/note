@@ -10,9 +10,9 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-vmap <F1> :Stdheader
-omap <F1> :Stdheader
 nnoremap <F12><F12> :set modifiable:set write
+omap <F1> :Stdheader
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12> :set nomodifiable:set nowrite
@@ -101,10 +101,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 14 + 30) / 61)
-exe '2resize ' . ((&lines * 14 + 30) / 61)
-exe '3resize ' . ((&lines * 14 + 30) / 61)
-exe '4resize ' . ((&lines * 13 + 30) / 61)
+exe '1resize ' . ((&lines * 65 + 37) / 74)
+exe '2resize ' . ((&lines * 1 + 37) / 74)
+exe '3resize ' . ((&lines * 1 + 37) / 74)
+exe '4resize ' . ((&lines * 1 + 37) / 74)
 argglobal
 balt contents/pour.txt
 setlocal autoindent
@@ -224,12 +224,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 7) / 14)
+let s:l = 18 - ((17 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 18
+normal! 080|
 lcd ~/git/note
 wincmd w
 argglobal
@@ -352,12 +352,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 6 - ((5 * winheight(0) + 7) / 14)
+let s:l = 8 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 6
-normal! 05|
+keepjumps 8
+normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
@@ -480,7 +480,7 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 7) / 14)
+let s:l = 1 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -608,7 +608,7 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 6) / 13)
+let s:l = 2 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -616,10 +616,10 @@ keepjumps 2
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 14 + 30) / 61)
-exe '2resize ' . ((&lines * 14 + 30) / 61)
-exe '3resize ' . ((&lines * 14 + 30) / 61)
-exe '4resize ' . ((&lines * 13 + 30) / 61)
+exe '1resize ' . ((&lines * 65 + 37) / 74)
+exe '2resize ' . ((&lines * 1 + 37) / 74)
+exe '3resize ' . ((&lines * 1 + 37) / 74)
+exe '4resize ' . ((&lines * 1 + 37) / 74)
 tabnext
 edit ~/git/note/contents/todo/todo_temp.txt
 set splitbelow splitright
@@ -640,11 +640,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 52 + 30) / 61)
-exe '2resize ' . ((&lines * 1 + 30) / 61)
-exe '3resize ' . ((&lines * 1 + 30) / 61)
-exe '4resize ' . ((&lines * 1 + 30) / 61)
+exe '1resize ' . ((&lines * 17 + 37) / 74)
+exe '2resize ' . ((&lines * 17 + 37) / 74)
+exe '3resize ' . ((&lines * 17 + 37) / 74)
+exe '4resize ' . ((&lines * 17 + 37) / 74)
 argglobal
+balt ~/git/note/contents/todo/todo_temp.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -762,16 +763,17 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
+let s:l = 4 - ((3 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 4
+normal! 067|
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/todo/todo_current.txt") | buffer ~/git/note/contents/todo/todo_current.txt | else | edit ~/git/note/contents/todo/todo_current.txt | endif
+balt ~/git/note/contents/todo/todo_temp.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -889,16 +891,144 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
-normal! 0
+normal! 05|
+lcd ~/git/note
+wincmd w
+argglobal
+if bufexists("~/git/note/contents/todo/todo\ near\ future.txt") | buffer ~/git/note/contents/todo/todo\ near\ future.txt | else | edit ~/git/note/contents/todo/todo\ near\ future.txt | endif
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'text'
+setlocal filetype=text
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal listchars=
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=auto
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'text'
+setlocal syntax=text
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 5 - ((4 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 5
+normal! 05|
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/todo/todo_dream.txt") | buffer ~/git/note/contents/todo/todo_dream.txt | else | edit ~/git/note/contents/todo/todo_dream.txt | endif
+balt ~/git/note/contents/todo/todo_temp.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1016,146 +1146,18 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
-normal! 0
+normal! 05|
 lcd ~/git/note
 wincmd w
-argglobal
-if bufexists("~/git/note/contents/todo/README.md") | buffer ~/git/note/contents/todo/README.md | else | edit ~/git/note/contents/todo/README.md | endif
-balt ~/git/note/contents/todo/todo-loop.txt
-setlocal autoindent
-setlocal backupcopy=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal cursorlineopt=both
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'markdown'
-setlocal filetype=markdown
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal listchars=
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal noscrollbind
-setlocal scrolloff=-1
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal showbreak=
-setlocal sidescrolloff=-1
-setlocal signcolumn=auto
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal spelloptions=
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'markdown'
-setlocal syntax=markdown
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tagfunc=
-setlocal tags=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal wincolor=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 6 - ((0 * winheight(0) + 0) / 1)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 6
-normal! 031|
-lcd ~/git/note
-wincmd w
-exe '1resize ' . ((&lines * 52 + 30) / 61)
-exe '2resize ' . ((&lines * 1 + 30) / 61)
-exe '3resize ' . ((&lines * 1 + 30) / 61)
-exe '4resize ' . ((&lines * 1 + 30) / 61)
+exe '1resize ' . ((&lines * 17 + 37) / 74)
+exe '2resize ' . ((&lines * 17 + 37) / 74)
+exe '3resize ' . ((&lines * 17 + 37) / 74)
+exe '4resize ' . ((&lines * 17 + 37) / 74)
 tabnext
 edit ~/git/note/contents/evaluation/cpp_module_00.txt
 set splitbelow splitright
@@ -1170,8 +1172,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 29 + 30) / 61)
-exe '2resize ' . ((&lines * 28 + 30) / 61)
+exe '1resize ' . ((&lines * 29 + 37) / 74)
+exe '2resize ' . ((&lines * 41 + 37) / 74)
 argglobal
 balt ~/git/note/contents/evaluation/cpp_module_00.txt
 setlocal autoindent
@@ -1419,7 +1421,7 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((0 * winheight(0) + 14) / 28)
+let s:l = 2 - ((0 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -1427,8 +1429,8 @@ keepjumps 2
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 29 + 30) / 61)
-exe '2resize ' . ((&lines * 28 + 30) / 61)
+exe '1resize ' . ((&lines * 29 + 37) / 74)
+exe '2resize ' . ((&lines * 41 + 37) / 74)
 tabnext
 edit ~/git/note/contents/project/Liemani.github.io.txt
 set splitbelow splitright
@@ -1446,9 +1448,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 19 + 30) / 61)
-exe '2resize ' . ((&lines * 19 + 30) / 61)
-exe '3resize ' . ((&lines * 18 + 30) / 61)
+exe '1resize ' . ((&lines * 19 + 37) / 74)
+exe '2resize ' . ((&lines * 19 + 37) / 74)
+exe '3resize ' . ((&lines * 31 + 37) / 74)
 argglobal
 balt ~/git/note/contents/project/Liemani.github.io.txt
 setlocal autoindent
@@ -1824,7 +1826,7 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -1832,26 +1834,29 @@ keepjumps 1
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 19 + 30) / 61)
-exe '2resize ' . ((&lines * 19 + 30) / 61)
-exe '3resize ' . ((&lines * 18 + 30) / 61)
+exe '1resize ' . ((&lines * 19 + 37) / 74)
+exe '2resize ' . ((&lines * 19 + 37) / 74)
+exe '3resize ' . ((&lines * 31 + 37) / 74)
 tabnext 2
 set stal=1
 badd +28 ~/git/note/contents/pour.txt
 badd +5 ~/git/note/dream.txt
-badd +0 ~/git/note/contents/todo/todo-loop.txt
+badd +1 ~/git/note/contents/todo/todo_temp.txt
 badd +1 ~/git/note/contents/evaluation/cpp_module_00.txt
 badd +1 ~/git/note/contents/project/Liemani.github.io.txt
-badd +0 ~/git/note/contents/cooperation.txt
+badd +1 ~/git/note/contents/cooperation.txt
 badd +2 ~/git/note/contents/vocabulary.txt
 badd +2 ~/git/note/contents/submit_protocol.txt
-badd +10 ~/git/note/contents/todo/todo-temp.txt
-badd +2 ~/git/note/contents/todo/todo-current.txt
-badd +6 ~/git/note/contents/todo/todo-dream.txt
-badd +1 ~/git/note/contents/todo/README.md
+badd +1 ~/git/note/contents/todo/todo_current.txt
+badd +1 ~/git/note/contents/todo/todo_dream.txt
+badd +6 ~/git/note/contents/todo/README.md
+badd +1 ~/git/note/contents/todo/todo-loop.txt
 badd +12 ~/git/note/contents/evaluation/common.txt
 badd +1 ~/git/note/contents/project/lmt_c_library.txt
 badd +1 ~/git/note/contents/project/env.txt
+badd +10 ~/git/note/contents/todo/todo-temp.txt
+badd +2 ~/git/note/contents/todo/todo-current.txt
+badd +6 ~/git/note/contents/todo/todo-dream.txt
 badd +1 ~/git/note/contents/project/cli_game.txt
 badd +2 ~/git/note/contents/teamwork.txt
 badd +2 ~/git/note/contents/system_call.txt
@@ -1884,11 +1889,9 @@ badd +3 ~/git/note/subject/submit_protocol.txt
 badd +1 ~/git/note/study.txt
 badd +1 ~/git/note/..
 badd +1 ~/git/note/contents
-badd +1 ~/git/note/contents/todo/todo_temp.txt
 badd +1 ~/git/note/contents/todo/todo_future.txt
-badd +1 ~/git/note/contents/todo/todo_dream.txt
 badd +1 ~/git/note/contents/todo/todo_loop.txt
-badd +0 ~/git/note/contents/todo/todo_current.txt
+badd +0 ~/git/note/contents/todo/todo\ near\ future.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
