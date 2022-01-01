@@ -1,12 +1,11 @@
 todo near future.txt
 
-#ps
+#pc
 - vim/help
 	- usr_20.txt
 	- editing.txt
 	- change.txt
 	- tips.txt
-- finish vs complete
 - vim 강의 만들기
 	- <C-]> 로 특정 단어에 해당하는 위치로 이동
 	- <C-I>, <C-O> 로 드나들기
@@ -34,5 +33,7 @@ todo near future.txt
 	- 아마존 무료 클라우드 호스팅 서비스 알아보기
 	- read vim manual
 	- 포인터가 가리키는 변수에 접근하는 것과 일반 변수에 접근하는 것의 속도 차이는?
+	- finish vs complete
+- 이너서클을 돌파하면 게임 개발 인원을 관리해 보자.
 
 #finish

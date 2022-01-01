@@ -1,4 +1,0 @@
-todo current.txt
-
-#ps
-- cpp_module_00 진행하기

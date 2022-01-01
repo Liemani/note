@@ -1,6 +1,6 @@
 todo dream.txt
-꿈과 장기 목표를 작성하는 공간
 
+- 마비노기 같은 온라인 게임에 마크처럼 샌드박스 요소도 존재, file system 처럼 관리자가 권한을 할당하는 방식, 몬스터가 학습할 수 있도록 만들어서 작업장을 방지하자, 혹은 자원을 유한하게 만들자
 - 네트워크를 통해 다른 기기의 데이터를 기반으로 화면에 3D 그래픽 화면을 출력하며, 연결된 다른 기기의 데이터를 수정하여 수정된 화면을 내 기기에 출력할 수 있는 게임
 	- 내가 가지고 있는 기기들(MacBook air, iPad, iPone)간에 연동이 가능했으면 좋겠다.
 	- 현실의 문서들을 데이터로 가져왔지만 데이터 상의 데이터를 다시 현실의 3D 처럼 입출력 장치를 통해 access 할 수 있다면 어떨까?
@@ -87,43 +87,42 @@ todo dream.txt
   - 게임을 만들고 싶은데 (아니면 간단한 보조 프로그램이라도) 혼자 하는건 싫고 반드시 멀티가 가능하도록 만들고 싶다!!!!!!!
     - 개인 플레이 게임을 만드는 것도 크게 나쁘지는 않으나 재미를 얻을 수 있는 요소가 멀티에 비해 제한된다
 - 읽고 싶은 책
-  - code
-  - jso 님이 추천해준 docker, kubernetes 근처에 있던, unix 탄생 스토리 책
-  - Computer Organization and Design: 많은 대학에서 사용하는 컴퓨터 구조의 바이블
-  - 성공과 실패를 결정하는 1%의 네트워크 원리
-  - strunk and white
-  - Real-World Software Developement
-  - code (?)
-  - cs
-  - computer science
-    - liveness property and safety property
-  - [modern c](https://modernc.gforge.inria.fr)
-  - The C Programming language
-  - https://git-scm.com/book/en/v2
-  - Don't Make Me Think
-  - [Laws of UX](https://lawsofux.com/)
-  - Code Complete
-  - Writing Solid Code
+	- code
+	- jso 님이 추천해준 docker, kubernetes 근처에 있던, unix 탄생 스토리 책
+	- Computer Organization and Design: 많은 대학에서 사용하는 컴퓨터 구조의 바이블
+	- 성공과 실패를 결정하는 1%의 네트워크 원리
+	- strunk and white
+	- Real-World Software Developement
+	- cs
+	- computer science
+		- liveness property and safety property
+	- [modern c](https://modernc.gforge.inria.fr)
+	- The C Programming language
+	- https://git-scm.com/book/en/v2
+	- Don't Make Me Think
+	- [Laws of UX](https://lawsofux.com/)
+	- Code Complete
+	- Writing Solid Code
+	- https://42born2code.slack.com/archives/CU6MTFBNH/p1637405508187600
+		- 대용량 데이터베이스 솔루션
+	- 최민준의 영상 제목 중 하나: 저의 20대는 이 책을 읽기 전후로 나뉩니다[최민준] -> 왜 링크를 올리지 않았지?
+		- 카네기 인간 관계론
+
+# 하면 좋지만 안해도 그만
+- 특정 문자열과 이미지를 입력받아서 해당 문자열 안에 있는 문자들만 사용하여 이미지를 ascii art 로 출력하는 프로그램
+- 방송으로 막 송출을 하다가 클립을 따서 위키 페이지에 정리하는 방식으로 프로젝트를 진행한다면 새로 들어오는 시청자도 클립으로 주요 부분을 이해하고 쉽게 참여가 가능하지 않을까?
+	프로그램의 구조를 다 보여주는 프로그램은 어떨까?
+		lldb 처럼 디버깅용 프로그램인데 어떤 함수에 어떤 변수가 존재하는지 다 보여주고 어떤 변수가 어떤 변화과정을 겪었는지 연대기를 다 보여주는거지
 - display_memory 에 2, 3, 4 번째 인자를 통해 prev, cur, end 를 표현하도록 하기
   - add, remove, move 등의 명령어를 통해 포인터 그래픽을 움직일 수 있으면 좋겠다 ㅎㅎㅎㅎ
+- 국어를 맞춤법에 더 잘 맞게 할 수 있었으면 좋겠다
+	- 띄어쓰기, 등
 - 층간 소음 및 담배 냄새 문제를 해결할 수 있는 데이터 검색 프로그램
 	- 저장 데이터: 주소, 나이, 흡연 여부
 	- 주소를 기준으로 주변(위, 아래, 왼쪽, 오른쪽) 집의 데이터를 보여준다
 	- 검색은 한 달에 최대 10 번 가능하다, 추가적으로 늘리고 싶은 경우 직접 통화로 문의하여 추가 가능
 		- 범죄에 오남용 예방
 	- 데이터 유출을 막기 위해 데이터 출입 로그를 공개
-
-#book
-	- 50/288 : The C Programming Language
-	- csapp
-	- 늑향: 10 권 114p
-	- 최민준의 영상 제목 중 하나: 저의 20대는 이 책을 읽기 전후로 나뉩니다[최민준] -> 왜 링크를 올리지 않았지?
-		- 카네기 인간 관계론
-	- 국어를 맞춤법에 더 잘 맞게 할 수 있었으면 좋겠다
-		- 띄어쓰기, 등
-
-# 쓸모 없는 짓
-- 특정 문자열과 이미지를 입력받아서 해당 문자열 안에 있는 문자들만 사용하여 이미지를 ascii art 로 출력하는 프로그램
-- 방송으로 막 송출을 하다가 클립을 따서 위키 페이지에 정리하는 방식으로 프로젝트를 진행한다면 새로 들어오는 시청자도 클립으로 주요 부분을 이해하고 쉽게 참여가 가능하지 않을까?
-	프로그램의 구조를 다 보여주는 프로그램은 어떨까?
-		lldb 처럼 디버깅용 프로그램인데 어떤 함수에 어떤 변수가 존재하는지 다 보여주고 어떤 변수가 어떤 변화과정을 겪었는지 연대기를 다 보여주는거지
+- 수학 문제
+	- 햄버거를 훔처갈 확률이 정규 분포를 띄는 사람이 있다.
+	- 이 사람들이 사회를 이루었을 때, 그 사회에서 햄버거를 도난당할 확률은 정규 분포를 띄는가?
