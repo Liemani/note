@@ -1,5 +1,6 @@
 #vocabulary
 
+tax.on.o.my
 de.fin.i.tive
 se.man.tic
 im.per.a.tive

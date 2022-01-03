@@ -11,6 +11,7 @@ todo near future.txt
 	- <C-I>, <C-O> 로 드나들기
 	- 그 외 다양한 jump 기능
 - 조사
+	- file system 의 구조
 	- cli 에서 * 의 구체적 작동
 		- */* 는 * 을 포함하는가?
 		- * 는 directory 를 포함하는가?
