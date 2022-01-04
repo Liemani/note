@@ -1,5 +1,8 @@
-#vocabulary
+vocabulary.txt
 
+in.cur
+con.cat.e.nate
+im.pose
 di.graph
 tax.on.o.my
 de.fin.i.tive

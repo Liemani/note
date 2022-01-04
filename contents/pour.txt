@@ -1,7 +1,15 @@
-- 생각을 자유롭게 써내려가는 공간
-- 단, 여기에 작성한 글은 참고는 하되 정리하지는 않는 것을 원칙으로 한다
-- 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
-- 발생한 문제는 전부 기록하자. 성장에 다 도움이 된다
+pour.txt
+
+2022-01-04
+- zero-overhead rule
+	- What you don't use, you don't pay for. And further: What you do use, you couldn't hand code any better
+	- runtime type identification 과 exception 만이 예외라고 한다
+- https://www.stroustrup.com/ETAPS-corrected-draft.pdf
+	- Foundations of C++
+	- object: set of data member and method for a notion
+	- data member: variable of object
+
+
 
 2022-01-03
 - ':set all': display all set

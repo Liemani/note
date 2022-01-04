@@ -2,6 +2,13 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
+cnoremap <C-D> <Del>
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
+cnoremap <C-B> <Left>
+cnoremap <C-F> <Right>
+cnoremap <C-E> <End>
+cnoremap <C-A> <Home>
 map! <D-v> *
 vnoremap / : norm i//	
 vnoremap ? : norm 3x
@@ -10,9 +17,9 @@ nnoremap GT gT
 map K <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-vmap <F1> :Stdheader
-omap <F1> :Stdheader
 nnoremap <F12><F12> :set modifiable:set write
+omap <F1> :Stdheader
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12> :set nomodifiable:set nowrite
@@ -32,6 +39,13 @@ vmap <D-x> "*d
 vmap <D-c> "*y
 vmap <D-v> "-d"*P
 nmap <D-v> "*P
+cnoremap  <Home>
+cnoremap  <Left>
+cnoremap  <Del>
+cnoremap  <End>
+cnoremap  <Right>
+cnoremap  <Down>
+cnoremap  <Up>
 inoremap fj 
 inoremap jf 
 let &cpo=s:cpo_save
@@ -65,7 +79,7 @@ set ttimeout
 set ttimeoutlen=100
 set wildmenu
 set window=0
-let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
@@ -101,12 +115,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 52 + 30) / 61)
-exe '2resize ' . ((&lines * 1 + 30) / 61)
-exe '3resize ' . ((&lines * 1 + 30) / 61)
-exe '4resize ' . ((&lines * 1 + 30) / 61)
+exe '1resize ' . ((&lines * 24 + 50) / 100)
+exe '2resize ' . ((&lines * 23 + 50) / 100)
+exe '3resize ' . ((&lines * 24 + 50) / 100)
+exe '4resize ' . ((&lines * 23 + 50) / 100)
 argglobal
-balt ~/git/note/.temp
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -168,7 +181,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -198,7 +210,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -223,18 +234,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 7 - ((6 * winheight(0) + 26) / 52)
+let s:l = 1 - ((0 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 7
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/cooperation.txt") | buffer ~/git/note/contents/cooperation.txt | else | edit ~/git/note/contents/cooperation.txt | endif
-balt ~/git/note/contents/pour.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -296,7 +305,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -326,7 +334,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -351,18 +358,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 8 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 8
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/vocabulary.txt") | buffer ~/git/note/contents/vocabulary.txt | else | edit ~/git/note/contents/vocabulary.txt | endif
-balt ~/git/note/contents/pour.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -424,7 +429,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -454,7 +458,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -479,18 +482,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+1
+normal! 014|
 lcd ~/git/note
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/submit_protocol.txt") | buffer ~/git/note/contents/submit_protocol.txt | else | edit ~/git/note/contents/submit_protocol.txt | endif
-balt ~/git/note/contents/pour.txt
+if bufexists("~/git/note/contents/submit\ protocol.txt") | buffer ~/git/note/contents/submit\ protocol.txt | else | edit ~/git/note/contents/submit\ protocol.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -552,7 +553,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -582,7 +582,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -607,19 +606,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 2 - ((0 * winheight(0) + 0) / 1)
+let s:l = 2 - ((1 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 2
+2
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 52 + 30) / 61)
-exe '2resize ' . ((&lines * 1 + 30) / 61)
-exe '3resize ' . ((&lines * 1 + 30) / 61)
-exe '4resize ' . ((&lines * 1 + 30) / 61)
+exe '1resize ' . ((&lines * 24 + 50) / 100)
+exe '2resize ' . ((&lines * 23 + 50) / 100)
+exe '3resize ' . ((&lines * 24 + 50) / 100)
+exe '4resize ' . ((&lines * 23 + 50) / 100)
 tabnext
 edit ~/git/note/contents/todo/todo\ temp.txt
 set splitbelow splitright
@@ -640,12 +638,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 14 + 30) / 61)
-exe '2resize ' . ((&lines * 14 + 30) / 61)
-exe '3resize ' . ((&lines * 14 + 30) / 61)
-exe '4resize ' . ((&lines * 13 + 30) / 61)
+exe '1resize ' . ((&lines * 24 + 50) / 100)
+exe '2resize ' . ((&lines * 23 + 50) / 100)
+exe '3resize ' . ((&lines * 24 + 50) / 100)
+exe '4resize ' . ((&lines * 23 + 50) / 100)
 argglobal
-balt ~/git/note/todo\ temp.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -707,7 +704,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -737,7 +733,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -762,18 +757,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 3 - ((2 * winheight(0) + 7) / 14)
+let s:l = 1 - ((0 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 3
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/todo/todo\ current.txt") | buffer ~/git/note/contents/todo/todo\ current.txt | else | edit ~/git/note/contents/todo/todo\ current.txt | endif
-balt ~/git/note/contents/todo/todo_current.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -835,7 +828,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -865,7 +857,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -890,17 +881,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 7) / 14)
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 1
+1
 normal! 0
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/todo/todo\ near\ future.txt") | buffer ~/git/note/contents/todo/todo\ near\ future.txt | else | edit ~/git/note/contents/todo/todo\ near\ future.txt | endif
-balt ~/git/note/contents/todo/todo\ temp.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -962,7 +951,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -992,7 +980,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1017,18 +1004,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 7) / 14)
+let s:l = 1 - ((0 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 2
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/todo/todo\ dream.txt") | buffer ~/git/note/contents/todo/todo\ dream.txt | else | edit ~/git/note/contents/todo/todo\ dream.txt | endif
-balt ~/git/note/contents/todo/todo_dream.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1090,7 +1075,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -1120,7 +1104,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1145,19 +1128,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 6) / 13)
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 1
+1
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 14 + 30) / 61)
-exe '2resize ' . ((&lines * 14 + 30) / 61)
-exe '3resize ' . ((&lines * 14 + 30) / 61)
-exe '4resize ' . ((&lines * 13 + 30) / 61)
+exe '1resize ' . ((&lines * 24 + 50) / 100)
+exe '2resize ' . ((&lines * 23 + 50) / 100)
+exe '3resize ' . ((&lines * 24 + 50) / 100)
+exe '4resize ' . ((&lines * 23 + 50) / 100)
 tabnext
 edit ~/git/note/contents/evaluation/cpp_module_00.txt
 set splitbelow splitright
@@ -1172,10 +1154,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 28 + 30) / 61)
-exe '2resize ' . ((&lines * 29 + 30) / 61)
+exe '1resize ' . ((&lines * 48 + 50) / 100)
+exe '2resize ' . ((&lines * 48 + 50) / 100)
 argglobal
-balt ~/git/note/contents/evaluation/cpp_module_00.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1237,7 +1218,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -1267,7 +1247,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1292,18 +1271,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 1
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/evaluation/common.txt") | buffer ~/git/note/contents/evaluation/common.txt | else | edit ~/git/note/contents/evaluation/common.txt | endif
-balt ~/git/note/contents/evaluation/cpp_module_00.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1365,7 +1342,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -1395,7 +1371,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1420,17 +1395,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 64 - ((28 * winheight(0) + 14) / 29)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 64
+1
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 28 + 30) / 61)
-exe '2resize ' . ((&lines * 29 + 30) / 61)
+exe '1resize ' . ((&lines * 48 + 50) / 100)
+exe '2resize ' . ((&lines * 48 + 50) / 100)
 tabnext
 edit ~/git/note/contents/project/Liemani.github.io.txt
 set splitbelow splitright
@@ -1448,11 +1422,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 19 + 30) / 61)
-exe '2resize ' . ((&lines * 19 + 30) / 61)
-exe '3resize ' . ((&lines * 18 + 30) / 61)
+exe '1resize ' . ((&lines * 32 + 50) / 100)
+exe '2resize ' . ((&lines * 32 + 50) / 100)
+exe '3resize ' . ((&lines * 31 + 50) / 100)
 argglobal
-balt ~/git/note/contents/project/Liemani.github.io.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1514,7 +1487,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -1544,7 +1516,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1569,18 +1540,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 5 - ((4 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 5
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/project/lmt_c_library.txt") | buffer ~/git/note/contents/project/lmt_c_library.txt | else | edit ~/git/note/contents/project/lmt_c_library.txt | endif
-balt ~/git/note/contents/project/Liemani.github.io.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1642,7 +1611,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -1672,7 +1640,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1697,18 +1664,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 19)
+let s:l = 1 - ((0 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 1
+1
 normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
 if bufexists("~/git/note/contents/project/env.txt") | buffer ~/git/note/contents/project/env.txt | else | edit ~/git/note/contents/project/env.txt | endif
-balt ~/git/note/contents/project/Liemani.github.io.txt
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1770,7 +1735,6 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 setlocal nolist
-setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
@@ -1800,7 +1764,6 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
@@ -1825,28 +1788,27 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
+exe s:l
 normal! zt
-keepjumps 1
+1
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 19 + 30) / 61)
-exe '2resize ' . ((&lines * 19 + 30) / 61)
-exe '3resize ' . ((&lines * 18 + 30) / 61)
+exe '1resize ' . ((&lines * 32 + 50) / 100)
+exe '2resize ' . ((&lines * 32 + 50) / 100)
+exe '3resize ' . ((&lines * 31 + 50) / 100)
 tabnext 1
 set stal=1
-badd +11 ~/git/note/contents/pour.txt
+badd +1 ~/git/note/contents/pour.txt
 badd +5 ~/git/note/dream.txt
 badd +4 ~/git/note/contents/todo/todo\ temp.txt
 badd +1 ~/git/note/contents/evaluation/cpp_module_00.txt
 badd +1 ~/git/note/contents/project/Liemani.github.io.txt
 badd +1 ~/git/note/contents/cooperation.txt
 badd +2 ~/git/note/contents/vocabulary.txt
-badd +2 ~/git/note/contents/submit_protocol.txt
+badd +1 ~/git/note/contents/submit\ protocol.txt
 badd +1 ~/git/note/contents/todo/todo\ current.txt
 badd +1 ~/git/note/contents/todo/todo\ near\ future.txt
 badd +1 ~/git/note/contents/todo/todo\ dream.txt
@@ -1897,6 +1859,8 @@ badd +1 ~/git/note/contents/todo/todo_temp.txt
 badd +1 ~/git/note/todo\ temp.txt
 badd +1 ~/git/note/contents/todo/todo_current.txt
 badd +1 ~/git/note/contents/todo/todo_dream.txt
+badd +1 ~/git/note/contents/submit_protocol.txt
+badd +1 ~/git/note/submit\ protocol.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -1904,10 +1868,10 @@ unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if filereadable(s:sx)
+if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
-let &g:so = s:so_save | let &g:siso = s:siso_save
+let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

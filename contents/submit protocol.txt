@@ -1,4 +1,4 @@
-#submit_protocol
+submit protocol.txt
 
 subject pdf
 42seoul-translation
