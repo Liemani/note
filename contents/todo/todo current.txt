@@ -1,9 +1,13 @@
 todo current.txt
 
-#pc
+# day
+- 시작: git push
+- 끝: 기록
+
+# pc
 - cpp_module_00 진행하기
 
-#book: 임시 기록(큰 의미 없음)
+# book: 임시 기록(큰 의미 없음)
 	- 50/288 : The C Programming Language
-	- csapp
+		- csapp
 	- 늑향: 10 권 114p

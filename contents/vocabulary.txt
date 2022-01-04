@@ -1,5 +1,6 @@
 #vocabulary
 
+di.graph
 tax.on.o.my
 de.fin.i.tive
 se.man.tic

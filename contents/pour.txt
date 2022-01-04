@@ -3,6 +3,26 @@
 - 나의 자유로운 생각보다는 얻은 지식을 base 로 정리하는 방식으로 작성해보자
 - 발생한 문제는 전부 기록하자. 성장에 다 도움이 된다
 
+2022-01-03
+- ':set all': display all set
+- 함수 이름을 여러개로 쓸 수 있도록 필요할 때마다 추가할 수 있도록 하면 결국 지저분해질 뿐이다, 따라서 문서 편집기에서 특정 이름들을 특정 상수로 바꾸도록 처리하여 서로 다른 이름을 쓰더라도 결국 같은 상수가 되도록 처리하는 것이 좋다. 일괄적으로 변수 이름을 바꾸는 기능을 상위단에서 제공하는 것이다
+- 여러 이름들, 최선의 이름은 있겠지만 최고의 이름은 없다
+	- 하지만 한 번 정해진 이름은 여기 저기서 쓰이게 되면 나중에 다른 이름으로 바꾸기가 쉽지 않은걸?
+- 'cut -f 9-': 9 번째 word 부터 끝까지 출력
+- 'c_<C-R>_<C-L>': insert the line under the cursor
+- ':range': 명령을 할 대상의 범위를 명시하는 방법들
+- :[range]m[ove] {address}			*:m* *:mo* *:move* *E134*
+			Move the lines given by [range] to below the line
+			given by {address}.
+	- 이 때 address 에 마크를 넣어주면 지정된 위치로 텍스트를 보낼 수 있어서 편리하다
+		- ex> '<,'>m 'f
+- ':*'
+								*cpo-star*
+		*	Use ":*" in the same way as ":@".  When not included,
+			":*" is an alias for ":'<,'>", select the Visual area.
+
+
+
 2022-01-02
 
 - 'git status' 는 한글을 제대로 출력하지 못하므로 가능하면 파일명에 영어 이외의 문자는 사용하지 말도록 하자

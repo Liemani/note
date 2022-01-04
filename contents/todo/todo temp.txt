@@ -1,20 +1,12 @@
 todo temp.txt
 
-#pc: 모든 할 일은 즉시 여기에 작성하고, 추후 다른 항목의 pc 로 옮깁니다.
-- 파일들의 이름을 읽고 특정 패턴을 찾아 특정 값으로 수정하는 프로그램
-	- 더불어 첫 줄에 파일의 이름이 들어있는 경우에는 동시에 파일의 첫 줄을 수정하여 저장해주면 좋겠다.
-- 어제 발견한 'git status 시 한글 출력이 안되는 문제' 의 진상을 밝히기
-- todo 파일들의 이름을 첫 줄의 이름으로 바꿔 저장하고 이전 파일을 삭제하기
-- vim/help/cmdline.txt
-- 무중력지대 등 밖에서 무료로, 혹은 저렴한 비용으로 개발할 장소를 확보할 수 있는 곳 찾아보기
-- 프로그래밍 단어 정규화
-- 자동으로 웹에 백업되는 것도 좋지만, 시간이 오래 걸리는 작업이기 때문에 캐쉬를 기본으로 하고 필요에 따라 사용자에게 백업 및 풀 권한을 주는 것도 좋을 것 같다
-- 오랜만에 배터리 클램쉘을 사용하기 위해 github blog 를 보았는데, pmset 설정하는 방법만 있고 잘 설정됐는지 확인하는 방법이 없어서 불편했다. 어떤 값을 수정할 경우 동시에 눈으로 담겨있는 값을 볼 수 있는 방법이 함께 동봉되야 할텐데 왜 그것 첨가하지 않은것이지? 추가하도록 하자
-- aux backup 에는 시간이 꽤 걸려서 거슬린다. 모든 파일을 읽어서 backup 하는 것이 아니라 적어놓은 특정 파일만 backup 하도록 해보는건 어떨까?
-- aux record 가 작동하지 않는다. 열받내? 수정하도록 하자
-- 정리할 자료 파악하기
+# pc: 모든 할 일은 즉시 여기에 작성하고, 추후 다른 항목의 pc 로 옮깁니다.
+- cpp_module 진행하기
+- books
+	- The c programming language
+- 정리할 자료 파악하고 정리하기
 	- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
-	- 이 apple note 어플, 하드 디스크, iCloud
+	- 이 apple note 어플, 하드 디스크, iCloud, git
 		- apple note 어플: 약 950 개
 		- 하드 디스크: 2 개
 		- iCloud: 일기 2 개
@@ -24,106 +16,39 @@ todo temp.txt
 		- 하드
 		- 메모
 		- 슬랙 saved
-		- back command 가 인자를 받아서 해당 git repo 만 처리하도록 하자
 	- 파악한 자료 정리하기
-- 자료 정리하기(하드 디스크, git repository)
-	- 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
-		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
+		- 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
+			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
+
+#finish
+- vim/help/cmdline.txt
+- 무중력지대 등 밖에서 무료로, 혹은 저렴한 비용으로 개발할 장소를 확보할 수 있는 곳 찾아보기
+- safari tab group 추가하기: 42 facility
+	- safari 의 tab group 으로 42 와 42 시설 탭 그룹으로 분리해서 관리하자
+	- 42 시설은 건물 관련된 tab 들
+- aux record 가 작동하지 않는다. 열받내? 수정하도록 하자
+- todo.txt 를 pc 와 finish 만 남도록 나머지는 다른 파일로 옮기기
 - 어떻게 해야 꾸준히 열심히 클러스터에 나올 수 있을까?
-- 어떻게 해야 일찍 잘 수 있을까?
-	- 일찍 잘 수 있는 환경을 만들어야 한다.
-	- 8시에 나오기 위해 7시에는 일어나서 밥먹고 준비하고 할 일 정리하기
-	- 유튜브는 진자 원흉이다. 꼭 필요한 것이 아니면 보지 말자
-	- 밥먹을 때도, 자기 전에도 보지 말자
-		- 할 수 있을까?
-		- 그럼 밥먹을 때랑 자기 전에는 무엇을 해야 할까?
-			- 자기 전에는 책을 읽으면 어떨까? (핸드폰으로)
-				- 영상보다 정적인 활동이며 해리포터는 다시 정주행을 하고 싶다
-			- 핸드폰으로 문서를 정리하면 더 좋겠지만, 솔직히 싫다
-		- 밥을 먹을 때도 무한 유튜브 영상 때문에 바로 이닦고 바로 설거지를 하지 못하고 다음 영상을 보고 끝날 때마다 하나씩 일을 처리하기 때문에 늦어지는 것이 큰 문제다
-			- 밥을 먹을 때는 딱히 뭘 하지 말도록 하자.
-			- 아니 그래도 책을 읽는 것 처럼 아주 작은 단위의 일은 할만 할 것 같다.
-			- 미리 읽을만한 위키 사이트 등을 모아서 탭 그룹으로 준비해두면 어떨까?
-- 핸드폰으로 모스부호를 이용해서 글을 입력하는 방식은 어떨까?
-	- 하지만 back space 같은건?
-- 별점 어플처럼, 연대기 어플이 있어서 원하는 연대기를 만들 수 있고, 원하는 연대기들을 같이 묶어서 볼 수 있는 프로그램
-- 자고 깨는 시간을 체계화하는 시스템 만들기
+	- '오늘만 나가자' 라는 마음으로!
 - 유튜브 영상을 보면 항상 기록해놓을 수 있는 시스템 만들기
 	- background: 누워서 핸드폰으로 유튜브 영상을 보면 기록하면서 볼 수 없어서 너무 아쉽다.
 	- 아이폰으로 유튜브를 보지 말고 아이패드로 본다면 어떨까? 유튜브를 봄과 동시에 메모에 접근이 가능해서 기록을 할 수 있다.
+	- 컴퓨터 화면을 누워서 볼 수 있도록 하면 누워서 컴퓨터를 보면서 키보드로 타이핑 하는 것이 가능해진다
 - tcpppl 을 읽으면서 cpp 의 역사를 보고 있다. 다른 언어의 역사와 함께 cpp 의 역사를 보면서 전체적인 프로그램 언어의 역사를 이해해보자
 	- https://en.wikipedia.org/wiki/Timeline_of_programming_languages
 		- programming language timeline
 - todo.txt 를 todo_now.txt, todo_future.txt 등으로 세분화해서 관리하기
 	- 개인 mac 에서 이 작업을 하면 vim version 이 달라 .vimsession 읽고 쓸 때 에러가 발생하는 것이 싫으니 나중에 클러스터에 가면 이 작업을 하도록 하자
-- todo.txt 를 ps 와 finish 만 남도록 나머지는 다른 파일로 옮기기
-- github page 를 마일스톤으로 하여 내 git repository 를 소개하면 좋겠다
-- 나는 detach 가 thread 가 끝나면 자원을 새로운 thread 가 사용할 수 있도록 하는 것이라고 본 것 같은데, 이 분은 thread 를 종료시켜버린다고 말하네? 직접 확인해보자
-	- https://42born2code.slack.com/archives/CMX2R5JSW/p1639492207443200?thread_ts=1639491300.441500&cid=CMX2R5JSW
-- 초패스트 언어 시작하기 글을 언어마다 만들어둬도 좋은 참고가 되겠다
-- cpp_module 진행하기
-- 한글로 된 프로그래밍 언어 만들기
-- safari 의 tab group 으로 42 와 42 시설 탭 그룹으로 분리해서 관리하자
-	- 42 시설은 건물 관련된 tab 들
-- 데이터를 이미지화하는 프로그램
-	- 더불어 git 에 저장된 데이터의 변천사를 이미지화하는 프로그램
-	- 1초 간격으로 과거와 미래의 두 시점을 동시에 보여주면 좋지 않을까? 또한 동영상처럼 지켜보다가 속도를 원하는 속도로 조절하는 것도 가능하다
-		- 과거의 이미지를 진하게, 미래의 이미지를 옇게해서 갑자기 큰 변화가 미래 이미지에 감지되면 재생 속도 배속을 낮춰서 과거의 진한 이미지 상으로 면밀히 볼 수 있는거지
-		- 그리고 추가적으로 특정 모듈을 달아서 원하는 이미지로 치환하여 보여주도록 하는 기능도 만드는 것이다. 기본적으로 제공하는 이미지 말고도, 이미지, 확장 방식 등을 정의해 놓은 파일을 추가하면 그 규칙대로 변하는 이미지를 감상하는 것도 가능한거지
 - automatic 이 아닌 변수는 프로그램이 시작하기 전에 한 번만 초기화를 한다고 한다. static variable 도 그럴까? 함수가 호출되기 전에 이미 초기화가 되어 있는 것일까? 아니다
-	> tCpl 2.3p3. If the variable in question is not automatic, the initialization is done once only, conceptually before the program starts executing, and the initializer must be a constant expression.
-- zsh-dependent code 를 bash-compitable 하게 수정하기
-- mac-dependent code 를 unix-compitable 하게 수정하기
-- unix lecture note 에서 more 을 구현할 때 처음 출력 scroll 을 어떻게 처리했는지 궁금하다. 그냥 일단 출력하고 본 것이었을까? 그리고 위로 스크롤 하는 것은 어떻게 구현했을까?
-- philosophers 가 끝나면 csapp 랑 unix lecture 을 보자!
-- 어떤 파일 시스템의 범위에 있는 파일들의 이름을 list 로 만든 후 $1 을 $2 로 수정하는 프로그램
-- lmt_c_library 나 minishell 등의 프로젝트 페이지에 다양한 todo 들이 있는데, 이를 한 눈에 보기 편하게 한 페이지에 작성해주는 프로그램이 있었으면 좋겠다.
-- memory simulator
-- pull request 를 collaborator 도 받아들일 수 있던데, 권한 설정도 가능한가? 확인해보자
-- 저번에 실행파일을 xxd 로 직접 수정해서 실행 결과를 바꾸는 작업을 해보았는데, 이 때 코드에 따라 생성되는 실행파일이 달랐었다. 코드가 어떻게 달라짐에 따라 실행파일이 어떻게 달라지는지 확인해보고, 어떨 때 실행 파일에 코드의 수정 내용이 담기고 담기지 않는지를 파악해보자. 그에따른 적절한 include 가 무엇인지 판단할 수 있게 될 것이다.
-- computer 의 programming spec 을 출력하는 프로그램
-	- size of int, long long... so on
-- books
-	- The c programming language
-	- modern cpp
-	- computer systems a programmer's perspective
-	- computer science hunter unix lecture notes
-	- unix lecture notes
-- test program 등 유용한 shell script 를 위키처럼 관리할 수 있도록 운영하는 깃 레포를 하나 만들고 싶다
-- 데이터를 특정 자료형으로 출력하는 프로그램
-- 각각의 기능을 직접 테스트해볼 수 있는 비효율적이지만 가독성이 꽤 괜찮은, 그리고 간단히 다양한 기능을 수행해볼 수 있는 연습용 프로그램을 항상 만들고 작업을 시작하는 것은 어떨까?
-	- 일단 구조체가 존재한다면, 그 구조체를 볼 수 있는 기능, 값을 수정할 수 있는 기능을 먼저 구현한 후 작업에 착수하는 것이지
-- assembly
-	- static variable 을 초기화할 때 어셈블리적으로 어떤 일이 발생할까?
+	> tcpl 2.3p3. If the variable in question is not automatic, the initialization is done once only, conceptually before the program starts executing, and the initializer must be a constant expression.
 - git
 	- github_pages_manager 같은 불필요한 git repository 정리하기
 	- note 가 private 인데 backup 용 repository 분리해서 남기고 public 용 note repository 추가하기
-- 강의
-	- vim
-		- vim 의 기능을 어려운 기능에서 쉬운 기능 순서로 나열한 목록을 화면에 띄워놓고 시작하기 전에 모두 한 쪽 손을 들게 한 다음 순서대로 읽으면서 아는 사람은 손을 내리게 하여 전체적인 참여자의 실력 분폴르 알아보면 괜찮을 것 같다.
--테스트 환경을 잘 만들어도 좋겠다
-	- 문자열, 숫자, 문자 등을 생성하여 인자로 넣어주는 프로그램, 혹은 라이브러리
-		- 각 인자는 범위 등을 지정 할 수 있다
-- 조사 및 생각
-	- float op int: 이 경우 int 가 float 로 형 변환이 되는데(tcpl.12p), 만약 int value 가 float 로 표현 가능한 범위 밖이라면? 알아서 precision 의 제한에 따라 approximation 으로 바뀌겠구나!
-	- 생각을 조금 해야 할 부분
-		- 여러 이름들, 최선의 이름은 있겠지만 최고의 이름은 없다
-			- 하지만 한 번 정해진 이름은 여기 저기서 쓰이게 되면 나중에 다른 이름으로 바꾸기가 쉽지 않은걸?
-	- env 가 setenv.sh 를 실행할 때 설정해줘야하는 파일을 vim 으로 열어도 좋을 것 같다
-		- 마치 git commit 시 commit message 를 기록하는 파일을 vim 으로 열어주는 것 처럼
-	- va_list 인자는 기존 인자와는 다른 방식으로 작동하는 모습을 보이는 것 같다. 더 큰 크기의 인자로 받아들일 때도 입력받은 인자의 크기만큼을 가져온다. 내부적으로 어떻게 되어있는 것일까?
-	- 기록 관리 프로그램 in cli!!!!
-	- git 처럼 vcs 이 아니라 기록 control system 을 만들자!
-	- git 에 자료를 보관하면서 보관되어 있는 자료를 쉽게 control 하는거지!
-	- 함수 이름을 여러개로 쓸 수 있도록 필요할 때마다 추가할 수 있도록 하면 결국 지저분해질 뿐이다, 따라서 문서 편집기에서 특정 이름들을 특정 상수로 바꾸도록 처리하여 서로 다른 이름을 쓰더라도 결국 같은 상수가 되도록 처리하는 것이 좋다. 일괄적으로 변수 이름을 바꾸는 기능을 상위단에서 제공하는 것이다
-	- 모든 local repo 의 branch 를 출력하는 프로그램은 어떨까?
-	- 문서편집기인데 모든 문자들이 저마다의 태그를 가지고 있고 특정 태그의 특정 문자나 단어를 replace 할 수 있는 프로그램
-	- ':set all': display all set
-	- 데이터를 마구마구 던지면 알아서 구조화하고 정리해주는 프로그램
-	- 일단 명령을 입력하기가 무조건 쉬워야 한다 (혹은 alias 를 사용할 수도 있겠지), 그러고 나서 보기 좋게 출력하는 것은 추가적인 출력 프로그램이 담당하는 것!
-	- unstable 버전을 두어서, 언제나 크리티컬한 부분이 변경 하능한 버전의 개념으로 사용하는 것은 어떨까?
-
-#finish
+- float op int: 이 경우 int 가 float 로 형 변환이 되는데(tcpl.12p), 만약 int value 가 float 로 표현 가능한 범위 밖이라면? 알아서 precision 의 제한에 따라 approximation 으로 바뀌겠구나!
+	- 뭔소리지?
+- todo 파일들의 이름을 첫 줄의 이름으로 바꿔 저장하고 이전 파일을 삭제하기
+- 어제 발견한 'git status 시 한글 출력이 안되는 문제' 의 진상을 밝히기
+	- 그냥 원래 git status 가 그런가보다, 가능하면 파일들의 이름을 영어로 작성하자
 - link.txt 분해해서 정리해버리기
 - c 언어 source 와 대응하는 asm code 를 볼 수 있는 방법이 있다. 궁금할 때 알아보자
 - playground 의 002_postfix_increment_operator.c 의 어셈블리 코드를 보기 좋게 출력하는 것을 cluster mac 에서 시도해보기
