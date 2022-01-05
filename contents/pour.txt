@@ -1,5 +1,20 @@
 pour.txt
 
+2022-01-05
+- Programming in C++
+	- 29p
+		- expression: 반환값이 존재
+		- statement: 반환값이 없음(?)
+			- expression 은 statement 에 포함된다
+	- 34p
+		- getopt() 라는 library function 도 있구나?!
+- interface vs implementation
+	- ISO 에서 열람할 수 있는 자료는 interface 에 해당한다
+	- 실제 구현된 compiler 등은 implementation 에 해당한다
+	- 따라서 우리는 범용적인 spec 을 확인하기 위해서 ISO 등의 spec 문서를 보아야 하고, spec 문서에서 명시하지 않는 실제 구체적인 동작을 확인하기 위해서는 implementation 을 보거나 test 를 하여 알아내야 한다
+
+
+
 2022-01-04
 - zero-overhead rule
 	- What you don't use, you don't pay for. And further: What you do use, you couldn't hand code any better

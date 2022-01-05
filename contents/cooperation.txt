@@ -1,4 +1,4 @@
-#cooperation
+cooperation.txt
 
 # 물리
 기간을 주 단위로 계획하고 진행하고 회고하기

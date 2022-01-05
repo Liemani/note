@@ -1,6 +1,7 @@
 todo temp.txt
 
 # pc
+- 어제 본 신사임당 영상 정리하기
 - cpp_module 진행하기
 - books
 	- The c programming language

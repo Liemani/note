@@ -1,5 +1,6 @@
 vocabulary.txt
 
+se.man.tic
 in.cur
 con.cat.e.nate
 im.pose

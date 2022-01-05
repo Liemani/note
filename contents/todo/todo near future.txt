@@ -34,6 +34,7 @@ todo near future.txt
 	- size of int, long long... so on
 
 # 조사
+- github cli
 - 나는 detach 가 thread 가 끝나면 자원을 새로운 thread 가 사용할 수 있도록 하는 것이라고 본 것 같은데, 이 분은 thread 를 종료시켜버린다고 말하네? 직접 확인해보자
 	- https://42born2code.slack.com/archives/CMX2R5JSW/p1639492207443200?thread_ts=1639491300.441500&cid=CMX2R5JSW
 - 저번에 실행파일을 xxd 로 직접 수정해서 실행 결과를 바꾸는 작업을 해보았는데, 이 때 코드에 따라 생성되는 실행파일이 달랐었다. 코드가 어떻게 달라짐에 따라 실행파일이 어떻게 달라지는지 확인해보고, 어떨 때 실행 파일에 코드의 수정 내용이 담기고 담기지 않는지를 파악해보자. 그에따른 적절한 include 가 무엇인지 판단할 수 있게 될 것이다.
