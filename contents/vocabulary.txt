@@ -1,5 +1,9 @@
 vocabulary.txt
 
+con.gre.gate
+sig.ni.fy
+de.fect
+an.tic.i.pate
 se.man.tic
 in.cur
 con.cat.e.nate

@@ -1,5 +1,25 @@
 pour.txt
 
+2022-01-06
+- Programming in C++
+	- 42p ~
+	- 231p ~
+	- cpp 는 함수 인자로 정의되지 않은 user-defined type 이 들어왔을 때도 자동으로 형변환을 할까?
+		- user-defined type 을 인자로, 필요한 type 의 생성자를 호출할까?
+	- cerr: unit-buffered ostream, 일반적 에러 출력
+	- clog: buffered ostream, 즉각 출력이 필요 없는 일반적 로그 출력
+- https://stackoverflow.com/questions/37905125/is-cout-put-recommended-over-cout-for-printing-characters
+	- Is cout.put() recommended over cout<< for printing characters
+- 언어를 익히기 위해서는 reference 문서 읽는 법부터 배워야 한다
+- https://www.cplusplus.com/reference/string/string/operator%3E%3E/
+	- function std::operator>> (string)
+	- 반환값이 'The same as parameter is.'라고 한다
+	- https://stackoverflow.com/questions/10349857/how-to-handle-wrong-data-type-input
+		- How to handle wrong data type input
+		- 하지만 이 페이지에서는 'If cin is in a bad state, it will return NULL' 이라고 주장한다
+	- 왜 reference 문서는 제대로된 설명이 적혀있지 않은 것일까?
+	- 어디에서 제대로 된 reference 문서를 찾을 수 있을까?
+
 2022-01-05
 - PM: Project Manager: 프로그램 전반적으로 굴러가는데 차질이 없도록 관리하는 역할
 - PD: Project Director: 프로그램의 핵심적인 부분이 잘 작성되도록 관리하는 역할

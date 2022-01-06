@@ -2,6 +2,10 @@ todo temp.txt
 
 # pc
 - cpp_module 진행하기
+	- cpp 는 함수 인자로 정의되지 않은 custom type 이 들어왔을 때도 자동으로 형변환을 할까?
+		- custom type 을 인자로 필요한 type 의 생성자를 호출할까?
+	- cin 이 fail 하면 NULL 읇 반환하는지 확인하기
+		- 이를 뒷받침하는 제대로 된 reference 문서 발굴하기
 - 정리할 자료 파악하고 정리하기
 	- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
 	- 이 apple note 어플, 하드 디스크, iCloud, git
