@@ -1,6 +1,8 @@
 pour.txt
 
 2022-01-05
+- PM: Project Manager: 프로그램 전반적으로 굴러가는데 차질이 없도록 관리하는 역할
+- PD: Project Director: 프로그램의 핵심적인 부분이 잘 작성되도록 관리하는 역할
 - Programming in C++
 	- 29p
 		- expression: 반환값이 존재
@@ -12,6 +14,14 @@ pour.txt
 	- ISO 에서 열람할 수 있는 자료는 interface 에 해당한다
 	- 실제 구현된 compiler 등은 implementation 에 해당한다
 	- 따라서 우리는 범용적인 spec 을 확인하기 위해서 ISO 등의 spec 문서를 보아야 하고, spec 문서에서 명시하지 않는 실제 구체적인 동작을 확인하기 위해서는 implementation 을 보거나 test 를 하여 알아내야 한다
+- https://www.youtube.com/watch?v=MOYymnAFhY0
+	- 성공하는 사람들의 공통적인 특징 3가지 (천인우 전 페이스북 LV5개발자)
+	- assume good intentions: 상대가 선한 의도를 가지고 말을 한다고 가정해라
+	- psychological safty: 심리적 안정감
+		- 리더로서 심리적 안정감이 있는 조직문화를 만드는 것이 중요하다
+	- 성과를 잘 내는 것도 중요하지만 주변 사람들을 얼마나 잘 retain 하느냐
+- https://www.youtube.com/watch?v=Geb5ScWrGhA
+	- 페이스북 개발자 시간관리의 5가지 비밀 (천인우 2부 전 페이스북 LV5 개발자)
 
 
 
