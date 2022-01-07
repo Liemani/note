@@ -22,7 +22,12 @@ todo temp.txt
 		- 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
 			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
-#finish
+# finish
+- default constructor 를 따로 정의하지 않으면 무엇이 호출될까?
+- default constructor 는 없지만 모든 argument 가 default value 를 가지는 parametric constructor 를 정의했다면 이것이 호출될까?
+- default constructor 도 있고 모든 argument 가 default value 를 가지는 parametric constructor 도 정의했다면 default constructor 가 호출될까?
+- reference type 에 NULL 을 넣는다면?
+	- 그런데 만약 void * 에 대한 constructor 가 존재한다면?
 - vim/help/cmdline.txt
 - 무중력지대 등 밖에서 무료로, 혹은 저렴한 비용으로 개발할 장소를 확보할 수 있는 곳 찾아보기
 - safari tab group 추가하기: 42 facility
