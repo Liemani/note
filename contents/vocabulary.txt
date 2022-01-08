@@ -1,5 +1,7 @@
 vocabulary.txt
 
+coarse
+com.po.si.tion
 con.gre.gate
 sig.ni.fy
 de.fect

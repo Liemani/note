@@ -1,5 +1,14 @@
 pour.txt
 
+2022-01-08
+- https://www.reddit.com/r/OSXElCapitan/comments/3lf3tj/help_reorder_results_in_spotlight_searches/
+	- [Help] Reorder results in Spotlight searches
+	- cmd-L in spotlight: 사전 항목으로 jump
+	- cmd-B in spotlight: 브라우저로 검색
+- tcpppl 389p ~ 393p
+	- 'void Parser::logical(bool);' -> error: no logical() in Parser
+		- namespace definition 밖에서 새로운 member 를 선언할 수 없다
+
 2022-01-07
 - c++ 에서 자동 형변환은 문제의 소지가 있는 나쁜 시스템인 것 같다
 	- 때문에 형변환이 필요한 경우 명시해주도록 하자
@@ -22,6 +31,25 @@ pour.txt
 				- Dynamic Cast
 				- Const Cast
 				- Reinterpret Cast
+- literal 3.14 는 matching function 을 탐색할 때 implicit type conversion 에서 char, int, float 중에 우선 순위가 존재하지 않는다
+	- 만약 literal 3.14f 라면 float 으로 우선 matching 된다
+	- 하지만 double type 이 존재하면 우선적으로 matching 된다
+- error: unused variable
+	- compiler 가 생성한 default constructor 에 의해 생성된 instance 는 사용하지 않으면 이 오류가 발생하면서 compile 이 되지 않는다
+	- 'Object object(2)' 와 같은 형태로 생성된 instance 는 사용하지 않아도 이 오류가 발생하지 않는다
+	- 'Object object = Object(2)' 로 생성한 object 는 사용하지 않으면 이 오류가 발생한다
+	- 'Object object = Object()' 와 같이 default constructor 를 호출하여 instance 를 생성한 후 object 를 사용하지 않으면 이 오류가 발생한다
+	- 하지만 declaration 과 assignment 를 분리하여 'Object object; object = Object();' 로 사용하면 이 object 를 사용하지 않았을 때 이 오류가 발생하지 않는다
+	- 한 줄 요약: declaration 시 default constructor 를 사용했다면, 이후 생성된 instance 를 사용하지 않았을 때 unused variable error 가 발생한다
+- compiler 에 의해 생성된 default constructor 는 member variable 에 default value 를 넣는다
+- NULL 은 (void *) 이기 때문에 "void (*)(int *)" 의 인자로 matching 되지만 "void (*)(int &)" 의 인자로는 matching 되지 않는다
+- user-defined constructor 를 정의하면 compiler 는 default constructor 를 자동 생성하지 않는다
+- compiler 는 default constructor 만 자동 생성하고, 인자를 사용하는 constructor 는 자동 생성하지 않는다
+- 모든 인자가 default value 를 갖는 parametric constructor 를 정의하고 default constructor 를 정의하지 않았다면, default constructor 를 호출할 때 이 parametric constructor 를 호출한다
+- 만약 위의 parametric constructor 를 정의했는데 default constructor 도 정의했다면, default constructor 를 호출했을 때 어떤 것을 사용해야 할지가 모호하기 때문에 'error: call to constructor of 'Object' is ambiguous' 에러가 발생한다
+- 'function()' 과 같이 인자가 없을 때 'void' 를 명시하지 않고 'function(42)' 와 같이 사용한다면 c 에서는 warning 이 떠서 compile 이 되므로 void 명시가 함수를 의도에 맞게 정의하기 위한 필수 과정이었지만 cpp 에서는 warning 이 아닌 error 가 발생하기 때문에 compile 이 진행되지 않아 void 를 생략하더라도 의도와 구현이 일치한다
+- 'Object object = Object();' 는 default constructor 호출 한 번으로 object instance 를 생성한다
+- c++ 에서도 c 와 마찬가지로 지역 변수는 자도으로 초기화하지 않는다
 
 2022-01-06
 - Programming in C++
