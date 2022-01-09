@@ -8,6 +8,36 @@ pour.txt
 - tcpppl 389p ~ 393p
 	- 'void Parser::logical(bool);' -> error: no logical() in Parser
 		- namespace definition 밖에서 새로운 member 를 선언할 수 없다
+- '::'(double colon) in cpp: Scope resolution operator
+- initialization list: 'Object::Object(Arg arg1, Arg arg2): _attr1(arg1), _attr2(arg2) {}'
+	- 이 때 _attr1 과 _attr2 는 assign 하는 것이 아니라 initialize 하는 것이다.
+		- 따라서 const type 의 member variable 도 initialization list 에 명시하여 initialize 하는 것이 가능하다.
+	- 'void Object::method(Arg arg) const {}' 에서 const 는 c 로 이해하자면 'void Object_method(Object *const this, Arg arg) {}' 인 것이다.
+		- 즉, 해당 method 를 호출하는 Object 를 const type 으로 받아서 사용하겠다는 의미이다.
+- visibility of access modifier
+	- visibility 가 private 과 같은 member variable 과 method 의 identifier 에는 prefix 로 '_' 를 붙이는 convention 이 있다고 한다.
+- structure vs class
+	- structure 는 default visibility 가 public 과 같다
+	- class 는 default visibility 가 private 과 같다
+- getter and setter
+	- 단순히 member variable 에 직접 접근하는 것을 금지하는 것 이상으로 값을 설정 시 특정 작업을 실행하고 싶다거나, 값을 읽을 시 특정 작업을 실행하고 싶을 때도 유용하다.
+- static member variable, static method
+	- static member variable 을 초기화할 때 global variable 이기 때문에 자동으로 0 으로 초기화되지 않을까?
+		- 그럼에도 불구하고 초기값을 0 으로 결정했다면 명시적으로 0 으로 초기화해 주도록 하자.
+		- 만약 자동으로 0으로 초기화가 된다고 하더라도 명시적으로 0 으로 초기화를 하면, 그 최적화는 compiler 의 역할이다.
+		- 초기값이 0 으로 초기화됨을 명시적으로 표기해주는 것이 가독성 측면에서 유리하다.
+	- class body 에 static member variable 를 선언하는 것은 extern 으로 선언하는 것과 같다.
+- pointer from object
+	- pointer from object to variable: 'type Object::*ptr;': 이 때 ptr 은 정확한 주소값을 저장하지 않는다.
+		- 'ptr = Object::member1;' 와 같이 특정 Object 의 member variable 중 하나를 할당받으면 이는 instance 가 차지하는 메모리 시작점으로부터 member1 의 위치를 기억한다.
+		- 'instance1.*ptr; instance2.*ptr;' 과 같이 각 instance 에 대해 member1 은 동일한 위치에 존재하므로 ptr 이라는 identifier 를 Object type 의 instance 모두에 사용 가능하다.
+		- 그리하여 각 instance 의 member1 맴버 변수에 접근할 수 있다.
+	- pointer from object to method: 'type (Object::*f)(Arg arg) [const];': 함수는 instance 마다 각각 갖는게 아니라 'Object::function' 으로 하나만 존재하므로 실제 함수의 주소가 저장된다.
+		- 'f = &Object::function;' 으로 원하는 함수의 주소를 넣어줄 수 있다.
+		- '(instance.*f)(arg);' 로 호출할 수 있다.
+		- 'type *f(Object *const, Arg arg);' 도 똑같이 사용할 수 있을까 싶었지만 'newF = &Object::function;' 로 주소값을 저장하려고 시도하자 compile time 에서 'assigning to 'void (*)(Object *const)' from incompatible type 'void (Object::*)() const'' 라는 error 가 발생하면서 compile 되지 않았다.
+		- compiler 가 이 둘을 명백히 다른 것으로 처리한다는 것을 알 수 있다.
+- member function 의 가장 첫 인자로 들어가는 this 를 object argument 라고 한다.
 
 2022-01-07
 - c++ 에서 자동 형변환은 문제의 소지가 있는 나쁜 시스템인 것 같다
@@ -41,7 +71,6 @@ pour.txt
 	- 'Object object = Object()' 와 같이 default constructor 를 호출하여 instance 를 생성한 후 object 를 사용하지 않으면 이 오류가 발생한다
 	- 하지만 declaration 과 assignment 를 분리하여 'Object object; object = Object();' 로 사용하면 이 object 를 사용하지 않았을 때 이 오류가 발생하지 않는다
 	- 한 줄 요약: declaration 시 default constructor 를 사용했다면, 이후 생성된 instance 를 사용하지 않았을 때 unused variable error 가 발생한다
-- compiler 에 의해 생성된 default constructor 는 member variable 에 default value 를 넣는다
 - NULL 은 (void *) 이기 때문에 "void (*)(int *)" 의 인자로 matching 되지만 "void (*)(int &)" 의 인자로는 matching 되지 않는다
 - user-defined constructor 를 정의하면 compiler 는 default constructor 를 자동 생성하지 않는다
 - compiler 는 default constructor 만 자동 생성하고, 인자를 사용하는 constructor 는 자동 생성하지 않는다

@@ -1,5 +1,6 @@
 vocabulary.txt
 
+slur.ry
 coarse
 com.po.si.tion
 con.gre.gate

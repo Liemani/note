@@ -1,6 +1,7 @@
 todo temp.txt
 
 # pc
+- 00/ex01 계속 진행하기 -> iomanip 을 보면서 wide 설정하는 방법 익히는 중
 - cpp_module 진행하기
 	- cpp 는 함수 인자로 정의되지 않은 custom type 이 들어왔을 때도 자동으로 형변환을 할까?
 		- custom type 을 인자로 필요한 type 의 생성자를 호출할까?
