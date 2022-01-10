@@ -1,5 +1,88 @@
 pour.txt
 
+2022-01-10
+- https://www.quora.com/What-is-the-difference-between-a-protocol-and-an-interface-An-interface-is-like-a-wall-plug-you-need-to-adapt-to-in-order-to-use-it-a-protocol-seems-to-be-the-same-but-using-the-word-rules-or-isnt
+	- What is the difference between a protocol and an interface? An interface is like a wall plug you need to adapt to in order to use it, a protocol seems to be the same but using the word rules, or isn't?
+	- network 관점에서, interface는 hardware를 의미하고 protocol은 software를 의미한다.
+	- interface는 두 layer가 공유하는 경계(shared boundary)이다.
+		- plug의 socket, computer의 printer, program의 호출 함수 등.
+	- protocol은 layer 간의 상호작용(interaction)을 위한 규칙(rule)들의 집합(set)이다.
+		- 내용물(content), 발생하는 환경(circumstance), 연속(sequence), 의미(meaning) 등.
+	- protocol은 interface에서 일어나는 일에 적용된다.
+		- booster cable을 사용해서 방전된 자동차 배터리에 시동걸기, 컴퓨터와 USB 프린터의 통신(communication) 등.
+	- 또한 protocol은 도중에 마주치는 interface 장치들과 별개로, 멀리 떨어진 통신 대상 사이에도 적용된다.
+		- http protocol은 web browser와 web server 사이의 문제이다. 이 protocol은 사이에 존재하는 우리 컴퓨터의 WiFi interface, 서버의 Ethernet interface, routing protocol과 flow control protocol이 무엇이든 상관이 없다.
+	- 우리는 개념적으로 일반화하여 "http protocol 은 web browser와 server 간의 interface를 제공한다"라고 말할 수 있다.
+- https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming)
+	- Protocol (object-oriented programming)
+	- 보다보니 protocol은 "interface의 interface"라는 생각이 들었다.
+	- 기본적으로 interface를 만족하는 구체적인 implementation은 다양하게 존재할 수 있다.
+	- 마찬가지로 protocol을 준수하는 구체적인 interface도 다양하게 존재할 수 있다.
+	- 그리고 interface는 developer와 user라는 두 layer 사이에 있는 것인데,
+	- protocol도 layer를 나누기는 하지만, protocol 'A'를 준수하면 implementation 'a'와의 어떤 interaction이 가능함을 보장하는 느낌이다.
+	- 이 protocol 'A'를 만족하는 implementation은 다양하게 존재할 수 있다.
+	- 그리고 그렇게 만든 다양한 implementation들은 안전하게[1] 'a'와의 그 interaction이 가능함을 보장받는다.
+	- 이렇게 구체적으로 보니 protocol은 implementation을 위한 set of rule로서 interface를 제공한다고 할 수 있겠다.
+- interface의 탄생 배경은 protocol과 달리 layer를 나눠서 큰 작업을 작은 작업으로 나누는 것이라고 생각한다.
+	- 큰 작업을 layer 하나로 퉁치고 작업할 수도 있겠지만, 누군가는 layer를 나누어 분업을 하고 싶었던 것이다.
+	- 가령 컴퓨터에서 운영체제 없이 바로 작동하는 프로그램을 만들 수도 있겠지만, 운영체제 layer와 그 위에서 작동하는 프로그램 layer로 나누어 개발을 한 것이다.
+	- 이 때 두 layer는 상위 layer를 지원하기 위한 개발을 하는 developer layer와 하위 layer를 활용하여 실질적인 program을 개발하는 user layer로 나뉜다고 할 수 있다.
+	- 즉, 한 layer는 공급을 담당하고 한 layer는 수요를 담당하는 수직구조가 되도록 layer를 나눈 것이다.
+	- 이 때 수요와 공급이 적용되는 대상이 있을텐데, 그 대상들의 집합을 interface라고 할 수 있겠다.
+	- 가령 문서 편집기 프로그램을 보면 개발자와 사용자가 있을 것인데, 사용자 입장에서는 어떤 키를 누르면 어떤 행동을 하기를 기대한다.
+		- 이런 '입력 - 행동'들이 사용자 층이 요구하는 수요이고, 이것을 개발자가 구현하여 공급하는 것이다.
+		- 그럼 사용자는 경험이나 문서화된 설명서를 통해 "어떤 키를 누르면 어떤 행동을 할 것이다"라는 interface를 어느정도[2] 이해한 상태에서 프로그램을 사용하게 되는 것이다.
+		- 만약 더 나아가 사용자가 편집기 프로그램의 interface를 자동화하여 방향키를 누르는 행동을 반복하는 것으로 <Home>, <End> 등의 기능을 구현할 수 있을 것이다.
+		- 또는 cursor가 위치한 문자를 저장해서 사용할 수 있도록 하는 기능을 interface에 추가했다면, 다음 스페이스까지 이동하는 기능 등도 구현할 수 있을 것이다.
+		- 이 때 사용자는 interface만 이해하면 구체적인 프로그램의 구현을 알지 않아도 복잡한 기능을 빠르게 구현할 수 있게 된다.
+		- 단, 프로그램 개발자가 프로그램의 구현을 전부 이해하고 직접 다음 스페이스까지 이동하는 기능을 추가하는 것 보다는 불필요한 동작을 더 할 수도 있다.
+		- 하지만 layer를 나누어 분업을 한다는 것은 그런 performance 손실에도 불구하고 여러 장점이 있다.
+			- 프로젝트의 작업을 분리하여 여러 인원이 같이 작업을 해도 자기 작업에 집중할 수 있다든가,
+			- 한 번 구현한 하위 layer를 재사용하여 상위 layer에서 빠르게 다음 기능을 구현할 수 있다든가,
+			- 하위 layer가 한 번 잘 작동하는 것을 확인했다면, 재사용하기 때문에 오류가 없는 안정된 layer라는 것을 보장하고 상위 layer에서의 작업을 진행할 수 있다든가,
+			- layer를 구분하여 작업함으로써 더 자주 풍부한 단어들을 정의하여 사용할 수 있게 된다든가,
+			- 사용하는 단어가 많아지니 필연적으로 저장 공간도 다양해지기 때문에 어떤 내용을 어디에 저장해야할지 판단하기가 쉬워진다든가,
+			- 동시에 어떤 내용이 어디에 적혀있을지 파악하기 쉬워진다든가,
+		- 등등 마치 반복되는 기능을 함수로 만들어서 재사용할 때 발생하는 trade-off와 거의 동일하다고 보면 된다.
+		- 단점이라면 위에서 말한 성능 손실과, 실제 행동을 정의하는 작업 이외의 부가적인 작업의 양이 많아진다는 점이다.
+- protocol의 예로는 통신 규약을 들 수 있다.
+	- 두 기기가 하나의 전선을 사용하여 데이터를 주고 받는다고 할 때, 데이터 원본을 보낼 수는 없고, 전압과 타이밍 등을 이용해 정의하는 언어(규칙)로 변환하여 송수신을 할 수 있을 것이다.
+	- 이 때 전압과 타이밍 등을 이용해 정의한 규칙을 protocol이라고 할 수 있을 것이다.
+	- 즉 기본 핵심 개념은, 데이터 송수신 시 나의 언어와 통신을 위한 언어를 서로 변환해가며 사용해야 하는데 이 때 "통신을 위한 언어는 이런 것이다"를 정의해 놓은 집합이 protocol인 것이다.
+	- 그럼 A와 B가 이 protocol을 사용하여 통신을 하기 위해 A는 이 프로토콜을 따르는(conform) 송신 프로그램을 만들고, B는 이 프로토콜을 따르는 수신 프로그램을 만들었을 때, A가 송신 프로그램을 사용해 데이터를 전송하면 데이터는 프로그램에 의해 protocol에 정의된 통신 언어로 변환될 것이고, B는 수신 프로그램을 통해 protocol이 정의하는 통신 언어를 데이터로 변환하는 것으로 통신이 이루어질 것이다.
+	- 이런 통신 protocol은 interface와 달리 수요와 공급이 따로 분리된 것이 아니라 자신이 필요한 것을 스스로 만드는 것 같다.
+		- A든 B든 어떤 경로[3]를 통해 서로 데이터를 주고 받기 위해서는 메모리를 공유하지 않는 이상 한 기기 내부에서 사용되는 데이터 전달 방식 이외의 통신 방법을 사용해야 할 것이다.
+		- 이 때 같은 경로를 사용한다고 하더라도 전압과 타이밍에 따라 데이터를 전송하기 위한 다양한 규칙이 존재할 수 있다.
+		- 따라서 송수신자가 서로 "데이터를 이렇게 보내겠습니다"라는 약속을 하여 송수신을 위해 데이터를 적절히 변환하여 송수신을 하는 것이다.
+		- 이 때 이 약속들의 집합을 protocol이라고 한다.
+		- 이 protocol을 준수하는 두 기기 사이에서는 서로 데이터 송수신이 가능한 것이다.
+		- 어떤 protocol을 준수한다는 것은 그 protocol에 포함된 규칙들을 잘 따르는 프로그램을 작성하는 것이다.
+	- interface가 두 layer 사이에서 수요와 공급이 존재하는 대상들의 집합이었고, protocol도 같은 방식으로 interface로 이해할 수 있다.
+		- 추상적으로 존재하는 어떤 protocol 개념이 존재할 때, 이걸 실재 작동하는 프로그램으로 구현하는 작업을 한다고 하자.
+		- 이 때 두 layer로 나눠서 작업을 하는 것이다.
+		- 하나는 추상 protocol을 구체화하는 일이고, 두 번째는 그렇게 구체화된 것을 구현하여 프로그램을 만드는 일이다.
+		- 그럼 두 layer는 서로 수직관계이고, 수요와 공급이 발생하며, 이 때 대상은 protocol을 이루는 규칙들이다.
+		- protocol을 이루는 규칙들이 프로그램에 어떤 추상 protocol을 구현하기 위한 interface가 되는 것이다.
+		- 하지만 구현의 주체가 다르다.
+			- interface는 두 layer가 함께 구체화하고, 하위 layer가 구현하고 상위 layer가 사용한다.
+			- protocol은 하위 layer가 구체화하고 상위 layer가 구현하고 사용한다.
+	- 가령, swift의 Collection 중에 Array의 method들을 보자면 사용하는 입장으로서 Array의 interface가 될 것이다.
+	- 만약 swift의 Array class의 interface요소들을 Array라는 class를 사용하기 위한 rule로 받아들이고, 그것들을 모아서 protocol로 만든다면, 그 protocol을 준수하는 나만의 Array class를 직접 정의해서 사용할 수도 있을 것이다.
+- type A에서 type B로 implicit type conversion을 할 때, 'A::operator B'가 정의되어 있고, 'B(A const &a)'도 정의되어 있다면 'error: conversion from 'A' to 'B' is ambiguous'가 발생한다.
+- change case in vim
+	- 'gu{motion}' in vim normal mode: Make {motion} text lowercase.
+	- 'gU{motion}' in vim normal mode: Make {motion} text uppercase.
+	- 'g~{motion}' in vim normal mode: Switch case of {motion} text uppercase.
+- ^D 같은 control character 문자 표기법을 caret notation이라고 한다.
+- https://stackoverflow.com/questions/4103086/defining-constants-in-c
+	- 
+	- c++ 에서는 const qualifier를 붙인 idenifier는 주소를 사용하지 않으면 메모리 공간을 사용하지 않는 상수로 컴파일된다.
+	- 반면 c에서는 const keyword를 사용해도, 값이 변하지 않는 변수로 컴파일되기 때문에 항상 메모리 공간을 차지해서, 진짜 상수를 정의하기 위해 반드시 #define이나 enum을 사용해 정의해야만 한다.
+	- 따라서 부작용이 있을 수 있고 제한된 기능을 가진 '#define'으로 상수를 정의하는 것보다 const keyword를 사용하는 것이 권장된다.
+[1] 버그를 제외한 예상치 못한 문제 없이
+[2] interface를 사용하는 사용자 입장에서는 interface의 모든 내용을 이해할 필요가 없다. 하지만 개발자는 사용자의 요구 이상의 내용을 interface에 담아 구현했을 수도 있다.
+[3] 전선 한가닥이든지, USB처럼 전선 여러가닥 이든지, HDMI cable 처럼 19가닥이든지
+
 2022-01-09
 - https://m.blog.naver.com/ttagui/10043795874
 	- Implementation defined, Unspecified, Undefined behavior
@@ -192,8 +275,6 @@ pour.txt
 - https://www.youtube.com/watch?v=Geb5ScWrGhA
 	- 페이스북 개발자 시간관리의 5가지 비밀 (천인우 2부 전 페이스북 LV5 개발자)
 
-
-
 2022-01-04
 - zero-overhead rule
 	- What you don't use, you don't pay for. And further: What you do use, you couldn't hand code any better
@@ -202,8 +283,6 @@ pour.txt
 	- Foundations of C++
 	- object: set of data member and method for a notion
 	- data member: variable of object
-
-
 
 2022-01-03
 - ':set all': display all set
@@ -223,16 +302,10 @@ pour.txt
 		*	Use ":*" in the same way as ":@".  When not included,
 			":*" is an alias for ":'<,'>", select the Visual area.
 
-
-
 2022-01-02
-
 - 'git status' 는 한글을 제대로 출력하지 못하므로 가능하면 파일명에 영어 이외의 문자는 사용하지 말도록 하자
 
-
-
 2022-01-01
-
 - vim: 가끔 한글이 마지막에 위치했을 때 보이지 않는 문제.
 	- 아마 여러 공간을 차지하는 문자가 마지막에 왔을 때, 표기를 다음 줄로 넘기기 위해 공백을 의미하는 '>' 를 쓰고 다음 줄에 출력하는데 이로 인한 버그로 이전 줄로 되돌아갈 때 표시하지 않게 되는 것이 아닐까?
 	- 마지막 2 칸에 한글 한 문자가 위치할 때 이전 한글 문자를 'r' 을 사용하여 다른 한글 문자로 수정하면 마지막 2 칸에 있던 한글 한 문자가 안보이게 되는 문제를 확인했다.
@@ -240,17 +313,11 @@ pour.txt
 - '<S-D>' in netrw: delete file
 - 아침에 작업을 시작하기 전에 backup 을 한 번씩 해주는 것은 어떨까?
 
-
-
 2021-12-31
-
 - https://www.sciencedirect.com/topics/engineering/memory-address-register
 	- pc: program counter
 
-
-
 2021-12-30
-
 # 시작 문서
 getting started: 아주 기초적인 사용법부터~
 	- 주로 실행 가능한 프로그램 등의 사용법을 소개하는 용도
@@ -265,10 +332,7 @@ reference: 모든 자료
 		- https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html
 			- A Swift Tour
 
-
-
 2021-12-27
-
 - project base learning 의 개념을 가져와서 sprint base working 은 어떨까?
 	- 작업을 진행할 때 한 번에 큰 일을 처리하는 것이 아니라 sprint 로 구분하여 작업을 처리하는 것이지
 		- 게다가 에자일 이념을 붙여서 계획-수행-회고 과정을 수행하는 것도 좋을 것 같다.
@@ -286,10 +350,7 @@ Untracked files:
 	"contents/list: \352\260\200\353\263\264\352\263\240 \354\213\266\354\235\200 \352\263\263.txt"
 ```
 
-
-
 2021-12-25
-
 - 아이폰에 한 손 키보드 모드가 있는지 몰랐다. 이게 그로스 해킹인가 뭔가 하는 녀석인가? 하지만 치명적인 문제가 있으니.. 아무리 한 손 키보드 모드라고 해도 결국 한 손으로 모든 조작을 처리하는 것은 불가능에 가까우며, 키보드가 더 작아져서 오타도 많아진다. 개인적으로 오타가 나지 않으려면 가로모드는 필수라고 생각한다. 키보드여서야 세로 모드의 빽빽한 키보드에서는 오타가 날 수밖에 없다. 다만, 한 손 키보드 모드가 두 손 사용을 전제로, 한 손만으로 타이핑을 하는 것을 목표로 만들어졌을 수 있다. 이 경우 그래도 약간은 의미가 있다고 생각한다.
 - 밸런스가 중요하다. 트레이드 오프에서는 무게에 따라 명칭을 달리하면 좋다. 가령 캐쉬-메모리 처럼, 개인화 정도에 따른 명칭이 있다면 좋을 것. 영화 inside 정도의 피망 개인화를 나타내는 단어가 있다면 좋을 것이다. 그리고 그모다 더 시간을 들인 최적화도 있을 것이다. 동시에 이보다 적은 시간으로 개인화하는 '더빙' 등을 의미하는 단어도 붙여줄 수 있겠다.
 - 일단 떠오른 단어를 먼저 적도록 하자. 서술하여 기록하다가는 10 중에 일부가 사라진다. 하지만 단어도 세세가 사라짐 가능, 동시 세세 선도 사라짐 추적 가능. 하지만 큰 틀을 잡는 것이 더 좋아보임. 마치 계획을 세우고 실천하는 느낌.
@@ -299,10 +360,7 @@ Untracked files:
 	- 일단 기차를 오랜만에 타서 좋은 경험이긴 하다. 버스보다 흔들림이 적어서 굳이 모바일을 사용할 필요도 없이 컴퓨터를 꺼내서 이 글을 작성할 수 있는 것이 좋았다. 그리고 자리가 넉넉하게 넓어서 비좁게 타는 버스보다 좋았다. 하지만 2시간 정도 걸리는 버스에 비해 싸고 느린 기차를 골랐기 때문에 3시간이나 걸리는 것은 단점이었다.
 	- 그리고 난 용산역에서 기차를 탔는데 다음에 또 이런 일이 있다면 영등포역에서 타는 것을 고려해보고 싶다.
 
-
-
 2021-12-23
-
 - 다른 것을 하고 싶은 마음이 생길 때 나를 올바른 길로 이끌 것이 필요하다.
 	- 이런 목적을 가진 무언가를 준비하도록 하자.
 - [초청특강] 알아두면 쓸데없는 신비한 개발잡담 BY LG유플러스 신정호 CTO
@@ -323,10 +381,7 @@ Untracked files:
 - ':sort' in vim normal mode: sort lines
 - ':g/<pattern>/y A' in vim normal mode: append all lines matching to register a
 
-
-
 2021-12-20
-
 - 동영상을 압축해서 단말기로 전송하는 것처럼, 만약 게임의 데이터가 크다면 압축해서 전송할 수 있을 것이다.
 	- link: https://www.youtube.com/watch?v=itdPTcBHRbM
 - 뭔가 정리를 할 때 정리할 대상의 규모가 예측 불가능해서 의지를 뺏기는 효과가 있다. 만약 정리할 대상의 규모가 예측 가능하다면 정리를 하면서도, '이 정도 시간이 걸리겠구나' 라는 생각을 가지고 각오를 다지고 진행할 것이다. 따라서 정말 끝까지 정리를 완료하고 싶다면 우선 무엇을 정리할 것인지를 정리하는 것이 필요해 보인다.
@@ -335,25 +390,16 @@ Untracked files:
 	- 각오를 다지고 일을 진행한다.
 - 환경만을 의지해서는 안된다. 자기 통제도 동시에 필요하다. 자기 통제란 스스로 약속하고 못지켜서 비참해지는 것이 아니라. 긴 시간의 사고 후 어떤 약속을 만들었으면 다음부터는 긴 시간을 들이는 사고 없이 그 약속을 지키는 것이다.
 
-
-
 2021-12-19
-
 - '날씨의 아이(2019)'를 보았다.
 	- '너의 이름은(2016)'을 만든 신카이 마코토 감독의 만든 작품이라고 한다. 사실 '너의 이름은'을 봤을 당시 너무 별로여서 큰 기대를 하지는 않았는데, 바로 다음 작품인 '날씨의 아이'를 보고 작품의 전체적인 밀도가 굉장히 빽빽해진 것을 보고 대단하다고 생각했다. 다음 작품도 정말 기대가 된다.
 	- 나는 최근에 어떻게 해야 다시 열심히 할까를 생각하고 있었는데, 이 작품을 보면서, 이런 작품이 나오기까지 정말 오랜 시간이 걸릴텐데, 어떤 과정으로 작품이 탄생했을까를 살짝 생각해 보았다. 그러다가 역시 뜬구름 잡는 이론을 주구장창 공부하는 것은 혼자 하기 힘들고, 뭔가 결과물이 있고 재밌는 프로젝트 베이스로 배우는 것이 좋겠다는 생각을 다시 해보았다. '날씨의 아이' 가 탄생하기까지 거쳐온 이전 작품들이 존재하기 때문에, 나도 뭔가 하려고 한다면 그런 식으로 실질적인 프로젝트 기반 학습을 하는 것이 좋을 것이라고 생각했다.
 
-
-
 2021-12-17
-
 - safari 에서 tab group 을 변경하면 이전 탭 그룹에 있던 tab 들의 memory 들은 활성 상태 보기 창에서 cache 로 상태가 변한다.
 - AppleScript 를 사용하면 System Preferences 의 설정을 매크로처럼 바꿀 수 있는 것 같았지만 cluster mac 의 administrator 권한이 없이는 제대로 사용할 수 없다
 
-
-
 2021-12-16
-
 - 도어락
 	- 마스터 비밀번호 여부
 	- 교통카드로 열 수 있는 도어락도 존재한다
@@ -364,10 +410,7 @@ Untracked files:
 		- 때문에 비밀 번호 전 후에 의미 없는 숫자를 누르도록 유도하는 허수 기능이 큰 변화 없이 문제를 해결하는 좋은 방법이라고 생각한다.
 			- 단, 이 허수 기능으로 인해 비밀번호와 일치하는 패턴이 더 많아지는 것은 아닌가?
 
-
-
 2021-12-15
-
 - http://beemarketer.co.kr/youtube/timetag/
 	- 유튜브 링크에 시간 추가하는 방법
 - https://www.youtube.com/watch?v=1bcmmc2rTBE#t=9m26s
@@ -395,18 +438,12 @@ Untracked files:
 	- 프로그래밍 언어 타임라인
 	- 1943-1946년에 한참 ANIAC 을 위한 프로그래밍 언어를 만들다가 1972 년에는 C언어, 1977년에는 APPLE2 가 출시되면서 APPLE2 를 위한 BASIC 언어가 생기기까지 했다. 그 사이에도 다양한 언어가 치열하게 생겨났다. 1980년에는 c++ 가 만들어졌다.
 
-
-
 2021-12-13
-
 - thread list
 - thread backtrace all
 - thread select 2
 
-
-
 2021-12-12
-
 - 두 쓰레드에서 동시에 printf 를 찍고 mutex 를 걸지 않는다면 아래와 같이 출력이 섞일 가능성이 있다.
 ```
 // 섞임
@@ -421,10 +458,7 @@ expect sleep: [0 199990], real sleep: [0 200345]
 - philosopher 과제를 진행하다보니 걱정했던 것보다 sleep 을 많이 걸어주니 실제 돌아가는 thread  가 적어져서 usleep()의 오차가 심하지 않았다.(200ms 을 주면 205ms 슬립 정도, 걱정은 1ms 만 줘도 160ms 정도 긴 잠을 자는 경우가 있지 않을까 생각했었음, 이 심각한 경우는 실제로 200 개의 쓰레드에 spin lock 을 걸면 관찰 가능)
 - 새로운 형태의 인재를 만드는 교육과정을 존중하기 때문에 공개적으로 silent 클러스터를 두는 것은 좋지 않은 것 같다. 역시 조용히 숨겨진 그룹을 구성해보도록 하자
 
-
-
 2021-12-11
-
 - playground repo 에서 새로운 branch 를 만들고 변화 과정을 commit 으로 기록하였지만, 그것이 전체적인 git 의 data 크기를 줄이지는 못한다는 것을 안다. git 은 변화를 기록하는 것이 아니라 프로그램 자체를 기록해버리기 때문이다. 그러니 굳이 보기 힘들게 commit 형식으로 내용을 기록하지 말고 하나의 directory 를 만들어서 그 안에 변화 과정이 담긴 각 내용들을 추가적인 directory 안에 담아서 commit 하도록 하자
 - 서브젝트에 있는 문장들을 아리송한 채로 놔두지 말고, 나의 언어로 정리하여 목적인 완성된 프로그램을 위한 구체적인 목표로 명시해두는 것이 좋다. 그렇지 않으면 구현할 때마다 아리송했던 정리되지 않은 명세 내역을 반복하여 확인하면서 매 상황에 따라 명세 내역을 새로 해석해야 할 것이다.
 	- 하지만 처음부터 명세 내역을 명확하게 이해하기는 쉽지 않다. 구현을 진행하면서 생각지 못했던 부분이 존재하여 기존에 정의한 명세 내역이 적절하지 않다는 것을 알게 될 수도 있다. 따라서 가장 좋은 것은 명세 내역을 제시하는 사람과 의견 교환을 하여 뚜렷하게 하고, 구현 진행 중에 의문이 생길 때마다 명세 내역 제시자와 반복적으로 의견을 주고 받으면서 서로에게 바람직한 제품을 만드는 것일 것이다. 단, 질문을 할 때는 기본 원칙인, 상대방에 대한 존중을 지켜야 한다.
@@ -432,10 +466,7 @@ expect sleep: [0 199990], real sleep: [0 200345]
 - philosophers 의 philosophers_loop 에 state machine 을 적용하기에는 status 를 저장하는 변수도 기존에 따로 없고, 상태가 복잡한 것이 아니라 무조건 차례대로 바뀌기 때문에 적절하지 않다고 생각한다. 그냥 평범하게 작업을 순서대로 나열하는 것이 바람직해 보인다.
 - race condition 이 발생하지 않도록 mutex 를 기술적으로 처리하는 코드가 삽입되면서 실제 원하는 작업이 가려져 가독성이 떨어지는 것 같다.
 
-
-
 2021-12-10
-
 - git stash pop == git stash apply && git stash drop
 	- 만약 git stash apply 에서 conflict 가 발생하면 git stash drop 이 실행되지 않는다.
 	- 출처: https://www.theserverside.com/video/How-to-easily-merge-and-resolve-git-stash-pop-conflicts
@@ -445,10 +476,7 @@ expect sleep: [0 199990], real sleep: [0 200345]
 	- coarse granularity: 굵직하게 mutex lock 을 거는 것, thread 가 적을수록 효율이 좋다. 당연히 mutex 가 겹칠 일이 적으니 lock overhead 를 줄이면 효율이 좋아진다.
 	- fine granularity: 세세하게 mutex lock 을 거는 것, thread 가 많기 때문에 lock contention 을 줄여야 효율이 좋아진다.
 
-
-
 2021-12-09
-
 - 함수의 내부에서 사용하는 단어와 외부로 표출되는 단어가 다르다. 내부적으로 사용할 때는 굳이 해당 함수가 포함되는 구조체의 이름을 접두어로 붙일 필요도 없다.
 - 행복한 완벽주의자가 되어라. 완벽주의 덕에 어떤 문제를 풀 때 여러 번 곱씹게 되지만, 스스로 원해서 그 문제를 완벽하게 푸는 것이기 때문에, 한 문제를 해결하는 과정에서 발생하는 수많은 의문과 작은 문제들을 추가적으로 맞닥뜨릴 때마다 새로운 특징과 기술을 학습하며, 이에 즐거움을 얻는다.
 
@@ -554,10 +582,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 스프린트를 달리면서 힘조절을 계속 잘 조절해서 하라.
 기본기가 충실해야 한다. 나의 무기 하나는 있으면 좋다. 왜 라는 질문을 던져라, 더 낫은 방법은 언제나 존재한다는 사실을 기억하자.
 
-
-
 2021-12-08
-
 - 소리의 착시를 이용해서 oni 에서 무한히 올라가는 음을 표현했다면, 색의 착시를 이용해서 무한히 어두워지는 색이나 무한히 밝아지는 색을 표현할 수 있을 것 같다
 - <S-I> or <S_A> in visual block mode: insert text at the beginning of visual block of each line
 - :'< or :'> in visual mode: the number of star or end line of block range
@@ -580,10 +605,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - 즉, 일반적으로는 함수를 새로 작성하는 것 보다 이미 작성된 함수를 수정하는 일이 더 쉽다.
 - 연산 결과가 포인터를 의미해야 할 때는 포인터를 operand 로 하는 포인터 연산을 하고, 결과가 배열의 index 번째 element 를 의미해야 하는 경우에는 [] 를 사용한 subscript 연산을 사용하도록 하자
 
-
-
 2021-12-07
-
 - _init()을 실행하고 나면 해당 오브젝트를 바로 사용 가능하도록, 모든 property 에 적절한 값을 넣어 주도록 하자.
 - sleep()과 마찬가지로 mutex_lock()도 때가 됐다고 바로 block 이 풀리는 것이 아니라 그 짧은 순간에 다른 thread 가 먼저 lock 을 걸어버리면 기존에 기다리던 thread 가 작동하기 전에 치고 들어온 thread 가 성공적으로 lock 을 걸면서 실행된다.
 - 정리좀 하고 살자,, 메모랑 여기 pour 에 아마 엄청 다양한 생각들이 담겨 있을 텐데, 이거 나중에 어디에 나가서 발표라도 하려고 하면, 정리를 하지 못해 평소 하고 있던 생각을 제대로 발표할 수 없을 것이다.
@@ -592,10 +614,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 		- 이런 내용을 누군가에게 전달하는 것은 어떤 문제를 맞닥뜨렸을 때 그 문제를 해결하는 포괄적인 관점을 제공할 수 있다. 즉 물고기를 주는 것이 아니라 물고기 잡는 법을 알려주는 셈이다. 하지만 내가 얻은 것은 물고기 뿐만 아니라 물고기 잡는 법 뿐만 아니라 물고기 잡는 방법을 만들거나 알아내는 방법을 얻은 것이다. 즉, 직접 부딪혀서 문제를 해결법(물고기)을 찾아내는 방식(잡는 법)을 스스로만의 방법으로 개척해나가는 것(물고기 잡는 방법을 만들거나 알아내는 방법)은 물고기 잡는 방법을 알려주는 것만으로는 전달될 수 없다.
 		- 다만 물고기 잡는 방법을 알려주면 다른 물고기 잡는 방법을 알아내기 위해 더 노력할 수도 있다. 혹은 반대로 앞으로도 물고기 잡는 방법을 직접 터득해나가지 않고 누군가에게 물어보는 수준에 머무르게 될 지도 모른다. 그것은 그 삶이 살아온 과거 성향을 통해 판가름날 것이다.
 
-
-
 2021-12-06
-
 - :ter[minal]: open terminal in vim
 - ^: jump to the first not white space character of the line
 - g_: jump to the last not white space character of the line
@@ -612,10 +631,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - cope[n], ccl[ose]: search 한 item 목록을 list 하는 분할 창 띄우기, 닫기
 - <C-W>x: 두 창의 위치 swap
 
-
-
 2021-12-05
-
 - 기본적으로 overflow 는 instruction 을 오용하는 방법이다. 그런데 unsigned int 의 경우 6.2.6.1:3 에 의해 overflow 이후의 값이 보장되고 signed int 는 undefined 로 정의된다
 	- 6.2.5:9 도 참고
 - thread 가 호출한 함수의 local variable 을 사용하여 값을 변경할 때, thread 보다 호출한 함수가 먼저 종료된다면, 이후 stack 에 다른 함수가 이 공간을 사용할 수 있기 때문에 thread 가 인자로 받은 변수의 값을 바꾸게 되면 엉뚱한 중요한 값이 바뀔 수 있다. -> segmentation fault 등 다양한 종류의 에러를 만날 수 있다.
@@ -624,10 +640,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 		- 1000us 를 sleep 했는데 162466us 가 걸린다거나!
 - sleep()에 대한 생각을 정리하고 나서 philosopher 프로그램으로 돌아와보니, 어디까지 작성했었는지 알 수가 없게 되버렸다.
 
-
-
 2021-12-04
-
 - 오늘은 벌써 토요일이다. 나의 일상을 전부 기록할 수 있는 것이 있으면 좋겠다. 그러면 다양한 정보가 나올 것이고, 그 정보를 바탕으로 다양한 개념 모델을 만들어볼 수 있을 텐데. 가령, 잠에 대한 개념 모델 같은 것 말이다.
 - philosophers 에서 sleep()을 예측하여 실행하는 방법은 썩 마음에 들지 않는다.
 	1. 제대로 예측하지 못하는 경우에 대한 에러를 결국 해결하지 못한다.
@@ -649,22 +662,13 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - int 가 overflow 하는 것은 UB 이고, unsigned int 가 overflow 하는 것은 UB 가 아니다?
 	- https://stackoverflow.com/questions/59080105/illegal-hardware-instruction-from-very-simple-code
 
-
-
 2021-12-03
-
 - 테라리아 문로드를 잡았다. 그리고 다양한 유튜브 영상도 보았다.
 
-
-
 2021-11-23
-
 - 개념을 모듈화하면 모듈들을 사용해 더 거시적이고 재밌는 것들을 할 수 있다.
 
-
-
 2021-11-18
-
 - 무언가를 알아가고 마스터해가는 과정
 	- 1. 필요성을 이해한다
 	- 2. interface 를 이해한다
@@ -674,10 +678,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 	- 이런 식으로 음악의 규칙을 그래픽에 적용하는 것은 어떨까?
 - 함수를 정의할 때 argument type 을 명시해준다. 그러면 caller 가 해당 argument type 의 값을 사용하여 함수를 호출하게 된다. 
 
-
-
 2021-11-17
-
 - 작동 설명 은 2 가지 관점으로 작성하면 좋다. 전체적인 관점과 내부적인 관점이다. 이는 마치 argument 와 parameter 의 label 을 각각 두는 것과 같다.
 	- 즉 실 사용을 아는 것도 좋지만, 내부 동작을 아는 것도 좋다. 하지만 내부 동작에 대한 설명은 찾기 힘든 부분이 있다.
 - 인자로 전달할 일이 많은 배열 데이터는 null terminated 하게 만드는 것이 좋다.
@@ -724,10 +725,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 
 - 이런식으로 각 상수를 define 하는 것이 아니라 enum 을 사용한다면, 사이 사이에 새로운 constant 가 추가된다고 하더라도 아래의 숫자가 밀리지 않는 장점이 있다.!
 
-
-
 2021-11-16
-
 - c 에서는 데이터와 메타 데이터가 짝으로 활동하는 경우가 종종 있다.
 	- array 와 array size: array 에 접근할 때 array 의 끝을 위한 메타 데이터가 함께한다
 	- string 과 null character: string 을 다룰 때 string 의 끝을 표시하기 위해 null character 를 사용한다.
@@ -737,62 +735,41 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - 어떤 source code 에서 source code 밖에 어떤 변수가 정의되어 있다고 가정하고 그 변수를 사용할 때 extern specifier 를 사용한다.
 	- 하지만 컴파일 또는 링크 시에는 해당 변수가 포함된 source 파일을 포함해야 할지도 모른다.
 
-
-
 2021-11-03
-
 - 장점을 살리는 방법: 추가 구현 없이 base 의 특성으로 대체 가능한 경우
 - 적절한 타협: 완전 무시하지는 않으나, base 가 제품 자체가 되지는 않음
 - 특성을 무시하는 방법: base 에 얽매이지 않고 general 한 구현
 
-
-
 2021-11-01
-
 - 값을 변환할 때는 실패할 수도 있는데 메모리 관련으로 실패하면 어차피 exit()을 할 것이니 파싱에 대한 성공 실패 여부만 return 하면 된다
 - value type 은 NULL 이 인자로 들어와도 빈 data 를 할당하여 반환하고, 그 외에는 NULL 인자에 대해 NULL 을 반환한다
 - 즉, value type 은 non-optional 을 반환하고, 그 외에는 optional 을 반환한다
 - exit()이 불가능한 환경에서는 _new()를 만들지 말고 _init() 까지만 만들자
 	- _new()의 return 값으로 NULL 을 반환할 때 _init 의 실패만을 의미할 수 있다
 
-
-
 2021-10-31
-
 - write()를 쓰는 프로그램에서는 가급적 printf()를 사용하지 말자
 - static 함수는 무조건 나만 호출하므로 내부에서 인자의 NULL 여부를 체크하지 않고, 호출하는 함수가 체크하도록 한다
 	- 호출하는 함수는 어차피 특정 값이 NULL 등일 때 반환하도록 로직을 작성해야하기 때문에 최소한 callee 에서의 guard 를 줄일 수 있는 것이다
 - 오늘 lmt_c_library 에서 exit()을 제거하기 위해 노력했었다. 그런데 exit()을 없애자 전체적인 코드의 가독성이 급격히 하락하는 큰 문제가 발생했다. 에러를 반환하고 이 값을 확인하기 위해 코드가 과하게 들어가다 보니 실제 실행에 필요한 로직을 읽기가 불편해졌다.
 
-
-
 2021-10-30
-
 - cherry-pick 은 delta 를 HEAD 에 적용하는 것이다
 - malloc 을 _alloc()에서 NULL 을 체크하여 exit()을 호출하는 것은 좋지 않은 방식일까?
 	- 만약 지금같이 작은 프로젝트가 아니라 더 큰 프로젝트의 모듈을 만든다면 exit()을 할 일이 결코 없을 것이다. 에러가 발생하면 에러를 검사한 후 적절한 처리를 하여 반환하는 로직이 대다수 일 것이다. 그러니 무작정 exit 하는 코드를 작성하기 보다는 오류를 잘 처리하고 반환하는 방식으로 코딩을 미리미리 연습해두자
 
-
-
 2021-10-28
-
 - iterator 등의 protocol 을 따르는 경우, structure 를 생성할 때 미리 그 protocol 을 위한 공간을 memory 에 같이 할당하면 좋겠다. 비록 무의미한 메모리는 많이 차지할 수 있겠지만, 속도는 조금 빨라질 것 같다.
 	- 즉, lazy type 은 메모리를 적게 먹는 대신 할당을 위해 시간이 더 걸릴 것이고, early type 은 메모리를 더 많이 먹지만 메모리 할당을 위한 런타임 시간이 줄어들 것이다. 초기 할당에는 근소하게 시간이 더 걸릴 수 있다.
 - vim <(cat $(find . -name "*.[ch]") | grep -v "/\*")
 	- 현재 directory 안의 파일 중 source file 들을 42header 를 제외한 코드를 vim 으로 실행하는 command
 
-
-
 2021-10-27
-
 - 띠용, function prototype 에 void 를 명시해주지 않으면 그 함수를 사용할 때 인자를 넣어줘도 오류를 발생시키지 않네?
 	- 인자를 받지 않는 함수의 prototype 에는 반드시 void 를 명시해주도록 하자
 - 함수가 개인적으로 동작할 때 segfault 가 발생하는 상황이 존재하는 것은 좋지 않다
 
-
-
 2021-10-26
-
 - 어제 main 에서 return 시에 segfault 가 생기는 현상은 not_builtin_cmd()를 1 번 호출하면 문제가 없었는데, non_builtin command 인지 체크하기 위해 여러번 호출해서 생기는 문제였다.
 - const 를 적지 않으니 해당 포인터의 내부 변수를 바꾸는지 확신하기가 힘들다.
 	- const 는 대박이다!
@@ -804,11 +781,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 	- 아니다 leak 은 없었다.. 코드를 읽었을 때는 있을 것 같았는데..
 	- 잘은 모르겠지만 parent process 에서 not_builtin_cmd()를 호출했을 때 동일한 문제가 발생하는 것을 확인하였다.
 
-
-
-
 2021-10-25
-
 - 프로젝트가 커짐에 따라 모듈화를 잘 해둬야 '버그를 잡기 쉬워진다'.
 	- 모듈화가 잘 되지 않은 경우, 버그가 어디서 난 것인지 확인하기 힘들어진다.
 		- 모듈화가 잘 되지 않았다는 뜻은, 전역 변수를 쓰는 것처럼, 수많은 많은 함수에 공통적인 인자로 들어가는 변수가 존재한다는 것이고, 따라서 이 변수가 어디서 변한 것인지 파악해야하는 일거리가 발생한다.
@@ -842,10 +815,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - 프로그램을 많이 수정한 후 에러와 마주하면 상당히 난감해진다.
 	- 반드시 조금씩 바꿔나가자!!!
 
-
-
 2021-10-24
-
 - 어떤 의도를 가지고 코드를 작성할 때, 의도에 의해 설정하는 규칙이 존재한다.
 	- 이 때, 어떤 분기를 나눌 조건문을 작성한다면, 의도를 표현해야 읽기 좋다. 조건문에 규칙을 표현하지 말자.
 - should_process_execute_on_child()와 prev_or_current_process_op_is_pipe()는 같은 역할을 수행하는 함수를 의미할 수 있다.
@@ -862,17 +832,11 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - issue 를 마구마구 날리고 나중에 같이, 혹은 인증된 사람이 검증을 쭉 하는 것도 좋겠다.
 - 압박받는 듯한 느낌을 주는 것은 좋지 않다. 편안하고 편안하게 하자.
 
-
-
 2021-10-23
-
 - 프로그램 소스 코드는 1 차원적이다.(위, 아래의 선형 구조)
 	- 때문에 이를 2 차원 이상으로 표현하여 정리하면 구조를 설계하고 이해할 때 도움이 된다. (공책 등에 구조를 정리해보기 == 2차원적)
 
-
-
 2021-10-21
-
 - structure 에 새로운 member variable 을 추가하면 바꿔야 할 것이 많아지는 경우가 있다.
 - 가령 single linked list 를 double linked list 로 변경할 때, 새롭게 prev node 를 가리키는 member variable 이 추가될 것인데, 이 때 기존에 만들어 두었던, insert, append, remove 등의 element 추가 제거 함수에 코드를 추가해야 할 것이다. 이 때 무작정 생각나는, 보이는 부분부터 바꿔나가기 보다는, 바꿀 대상을 적당히 적어놓고 순차적으로 바꿔나가도록 하자. 생각대로 바꾸다보면 반드시 놓치는 부분이 생긴다. 만약 목록을 작성하고 바꿔나가는 중에 더 바꿔야 할 부분이 보인다면, 당장 바꾸는 것이 아니라!! 목록을 수정하고 순차적으로 바꿔나가자!
 - man page 처럼 설명을 하면 될 것 같다. 설명을 할 때 대상이 무엇을 할 수 있는지 가능한 것을 먼저 제시해준다. 가령, "코드가 보고 싶으면 어떤 코드 보여달라고 얘기하고, 그림으로 그려달라고 하면 그려줄께!" 라는 얘기를 통해 상대방이 어떤 행동을 취하는 것이 허용되는지 알려주도록 한다.
@@ -881,28 +845,19 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - '_set': deep set
 - 데이터의 구조를 하나로 뭉치지 않고, 재귀적으로 작동하는 함수가 일부를 차지하도록 하면 데이터가 단절되어 서로 간의 접근이 불가능해진다. 만약 모든 데이터가 서로를 찾을 수 있게 하려면 하나의 뭉쳐진 구조로 모델링하라!
 
-
-
 2021-10-20
-
 - ps -o pid,ppid,pgid,tty,comm
 - pgid 는 어떤 값으로 설정되는 것일까?
 	- sleep 1000 | sleep 1000 을 실행하면 새로 생성된 두 자식 process 는 첫 프로세스의 pid 를 pgid 로 갖는다. 왜그럴까? 그리고 이런 특성하에서 wait4(0,,,)는 caller 의 pgid 와 같은 child process 가 exit 하는 것을 기다린다고 하는데, 생성된 자식 프로세스는 왜 parent process 와 pgid 가 다른 것일까?
 
-
-
 2021-10-19
-
 - 주 작업이 무엇인지 확실히 하라
 	- 주된 작업이 아니라면 비효율적이더라도 유지보수가 편한 방법 및 읽기 쉬운 방법, 그리고 생산성이 높은 방법을 선택하라!
 - 시간이 남고 할게 없으면 이전에 만든 코드를 유지보수 하는 것은 어떨까?
 	- 특히 variabledText!
 - 계획을 변경했다면, 왜 계획을 변경한 것인지, 전과 후의 장단점은 무엇인지를 꼭 꼭 꼭 기록해두도록 하자.
 
-
-
 2021-10-14
-
 - 내부적으로 반환에 사용하는 ERROR, NORMAL 과, program 이 반환하는 ERROR_CODE, NORMAL_CODE 를 분리하여 사용하면 좋겠다.
 - find . -not -path "./.git*" | grep "\.o"
 - child process 가 exit 을 하지 않으면 그 뒤의 코드가 끝날 때까지 계속 실행된다
@@ -911,34 +866,22 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 - 하지만 include 했던 stddef 를 stdlib 로 바꾸거나, include 하지 않도록 수정해도, 생성된 실행파일의 크기는 변하지 않았다.
 - 아마 stddef 나 stdlib 는 함수의 정의를 담고 있지 않고, 단순히 prototype 만을 담고 있기 때문에 그런 것 같다. 아마 실제 해당 함수를 실행해야 할 때는 컴파일되어 있는 해당 함수를 시스템에서 찾아서 호출하여 사용할 것 같다. 나는 모든 실행 파일이 각각 그런 시스템 함수를 바이너리 상태로 가지고 있을 것이라고 생각했으나, 오늘 확인한 결과를 보니 그렇지 않을 것 같다는 생각을 했다.
 
-
-
 2021-10-13
-
 - 빠르게 구현 가능한 방식으로 프로그램을 구조화하고 작성하는 것도 중요하다. 당장 눈에 결과가 보여야 오류도 잡아내고 방향도 결정할 수 있기 때문이다.
 - 하지만 동시에 확장성을 고려하여 작성하는 것도 무척 중요하다. 만약 내가 minishell 프로그램을 작성하기 시작했을 때 ()를 잘 고려해서 작성했더라면 lmt_process_manager 를 만들었다 지웠다 다시 만드는, 이렇게 큰 일이 되지 않았을 것이다. 또한 그런 확장성을 고려한 부분은 왜 그렇게 작성했는지 독자들에게 잘 전달되어야만 한다. 그렇지 않으면 불필요한 부분으로 여겨져 코드에서 삭제될 수 있다.
 - 무언가 색이 완전 같은 것은 좋지 않다. 구별이 가지 않기 때문이다. 미세한 차이라도 랜덤하게 주자.
 - 처음 한 번에 한해 수행하고 후에는 작동하지 않도록 함수를 작성하면 계속 호출해도 작동하지 않는 기능을 구현할 수 있다. 이런 특성을 담은 이름을 잘 지어주도록 하자.
 - 즉, 최초 한 회만 실행해야 하는 기능이 필요한 경우가 있고, 계속 같은 작동을 해야 하는 경우가 있는 것이다.
 
-
-
 2021-10-12
-
 계발 방식을 공고히 정해놓고 진행하는 것이 좋다.
 dev branch 에 항상 release 가능한 버전을 pull request 하는 식으로
 
-
-
 2021-10-11
-
 - 왜 rebase -i 를 해서 commit 의 순서를 바꾸면 Debug diff 와 일반 diff 가 섞이는 경우가 생기는 것일까?
 	- Debug commit 에서 수정한 내용이 일반 commit 에 섞여들어간다
 
-
-
 2021-10-10
-
 - function declaration 과 function prototype 의 argument name 은 같을 필요가 없다. function declaration 의 parameter name 은 argument label 을 사용하고 function prototype 의 parameter name 에는 parameter name 을 사용한다.
 return_type	function_prototype(parameter_type parameter_name);
 return_type	function_declaration(argument_type argument_label)
@@ -955,10 +898,7 @@ return_type	function_declaration(argument_type argument_label)
 	- 특수한 작업을 하는 중인지를 flag 에 기록해두고 매 loop 마다 체크하여 필요한 routine 실행하도록 하기.
 		- 매 loop 마다 어떤 상태인지 flag 를 확인해야하는 overhead 가 존재한다. 하지만 코드가 명확해지고 모듈화에 유리하다는 장점이 있다.
 
-
-
 2021-10-09
-
 - if 를 여러번 호출해야하는 함수가 있다면, 각 case 를 나누고, 그 case 에서 실행할 함수를 작성한 후 static array 에 저장하고, case 별로 index 를 return 하는 함수를 작성하여 static array 의 그 index 번째 함수에 접근하여 호출하는 방식이 좋겠다. static 사용에 제한은 없다.
 	- 또, static 을 사용할 때는 thread safe 하게 만들기 위해, 변하는 값이 아닌, 상수형 값에 대해서만 사용하는 것이 좋겠다. 그럼 즉, const 값이네? 거기에 함수가 실행되어야만 처음으로 static 변수의 값이 초기화되니 lazy 하다고 할 수 있다.
 - 함수의 분류
@@ -975,39 +915,24 @@ return_type	function_declaration(argument_type argument_label)
 - 어차피 git 의 기록은 github 에서 파일별로 message 가 표시된다. 따라서 파일을 생성했다는 message 등은 기록할 필요가 없는 것이다. message 에 파일 자체의 생성 소멸을 기록하기 보다는, object 나 function 에 중점을 둔 기록을 남기자.
 - swift 의 Array structure 에는 pop()을 구현할 필요가 없었다. remove 만으로 특정 위치의 element 를 제거할 수 있고, 반환값으로 나온 그 element 는 사용해도 되지만, @discardableResult directive 가 붙어있기 때문에, 그냥 무시한다면 warning 도 뜨지 않고 ARC 가 알아서 처리할 것이다.
 
-
-
 2021-10-07
-
 - 'ctags': aux ctags . .
 - 지금 하고 있는 일이 어떤 경로로 지금에 이르렀는지 꾸준히 기록해두자. 뭘 위해 뭘 하고 있었는지 까먹는 경우가 종종 있다.
 - 이미 compile 된 파일의 header 파일을 수정하는 경우 Makefile 을 해당 header 파일이 compile 을 위한 source file 의 의존성으로 고려하지 않기 때문에 re compile 되지 않는다
 
-
-
 2021-10-06
-
 - 'git branch -d -r origin/jeonpark_new'
 
-
-
 2021-10-05
-
 - 내가 짠 코드를 직접 읽기 보다는 위에 적힌 설명을 읽고 이해하기가 쉬웠다면, 코드를 예쁘게 작성하고 있지 않다는 뜻 아닐까?
 - 실행 흐름에 따라 프로그램을 쌓아나가듯이 제작하면 추가적인 코드 테스트용 코드가 적어질 수 있다.
 	- 만약 각자 맡은 모듈을 제작하고 결합하려고 한다면, 각 모듈별로 테스트용 코드가 필요할 것이다.
 		- 하지만 각 모듈읠 안정성을 검증하기에는 더 좋을 것이다.
 
-
-
 2021-10-04
-
 - 한 번 잠을 자기 시작하면 3 시간은 자게 된다. 잠을 자지 않기 위해 노력을 해보도록 하자. 가장 좋은 방법은 생각했던 프로그램을 빠르게 코딩하는 것이다.
 
-
-
 2021-10-03
-
 - 코드의 원본에 직접 주석으로 설명을 다는 것이 아니라, 마치 숫자로 표시하고 밑에 주석을 달듯이 설명을 추가하면 보다 기존 코드를 방해하지 않는 채로 설명이 가능해질 것 같다
 - xxd test.txt | xxd -r
 - xxd test.txt | xxd -r -s 100
@@ -1018,16 +943,10 @@ return_type	function_declaration(argument_type argument_label)
 - 'apropos <keyword>'
 - 'which, type'
 
-
-
 2021-10-02
-
 - 제품을 만든다는 것은 가능한 모든 것을 우겨넣는 것이 아니다. 핵심적인 것을 추가하고, 불필요한 것은 차단하는 것이다. UNIX 도 그런식으로 모델을 디자인하여 구현된 것이다.
 
-
-
 2021-09-27
-
 - 함수가 반환하는 값에 따라 함수가 에러 상태로 반환됐는지 등을 확인하는 것은 필수적인 과정이다. 그리고 내가 그 함수의 에러 여부를 어느정도 입력값 등으로 통제할 수 있는가도 제대로 파악해두는 것이 함수를 제대로 사용하는 것이다
 - 'Liemani/cLibrary' 에서 'general class' 를 구현하기 위해 'kernel class' 를 구현했었는데, 따라서 'kernel class' 는 'general class' 의 기능을 사용하는 것이 아니라 그 골격을 구성하는 구조로 만들었다.
 	- 마찬가지로 os 의 page 관리 시스템이 메모리 할당을 담당할텐데, 자기 자신의 메모리 할당에 대해서는 generic 한 함수를 사용하지 않을 것 같다	- 이런식으로 우리는 단순히 malloc() 이라는 함수를 사용할 때, 사실 이 함수가 제대로 작동하기 위해서는 시스템이 그 기반을 마련해주기 때문에 가능한 것이다
@@ -1036,10 +955,7 @@ return_type	function_declaration(argument_type argument_label)
 - 자료를 잘 모아두고 정리하는 것은 현대 사회에서 매우 중요한 작업이다. 그런데 이를 raw 하게 처리해주는 프로그램이 적다는 것이 아쉬울 따름이다. 데이터 자료를 구조화하는 standard model 을 정의하고 이로 encode, decode 하는 프로그램을 만들면 좋을 것 같다
 - 'git rebase -i' 는 순서를 변경했을 때 단순히 기록된 차이점을 사용하는 것이 아니라, 각 commit 의 tree 를 그 때 그 때 비교하여 새로 추가된 파일을 탐색하는 것 같다
 
-
-
 2021-09-21
-
 - 'git checkout --ours -- <path>'
 - 'git checkout --theirs -- <path>'
 - 포인터 타입의 값을 읽고 쓰는 것과, 일반 변수를 읽고 쓰는 것에 속도 차이가 있을까?
@@ -1047,10 +963,7 @@ return_type	function_declaration(argument_type argument_label)
 - 'git cherry-pick A^..B'
 - 'git cherry-pick A..B'
 
-
-
 2021-09-20
-
 - 'man 2 execve'
 - 'man 5 a.out'
 - 'man 1 as'
@@ -1072,16 +985,10 @@ return_type	function_declaration(argument_type argument_label)
 	- A process is a unit of resources
 	- A thread is a unit of scheduling and execution
 
-
-
 2021-09-19
-
 - predicate: iterate 하게 traverse 하면서 참과 거짓을 따질 때 그 참 거짓을 분별하는 함수를 predicate 라고 한다
 
-
-
 2021-09-18
-
 - 다양한 기능들을 복합적으로 섞지 말고 가능하면 쪼개서 추가/제거가 쉬운 구조로 만들자
 - 다양한 타입의 list 를 구현할 때, 한 번 list 를 구현하고 사용하는 방법은 크게 2 가지가 있다
 	- 'void *' 타입 의 member variable 을 content 로 갖는 list
@@ -1097,10 +1004,7 @@ return_type	function_declaration(argument_type argument_label)
 	- collection 은 random access 를 지원한다
 - traverse 는 방향과 차원에 상관 없이 탐색하는 느낌이고, iterate 는 선형적으로 진행하는 느낌이다
 
-
-
 2021-09-16
-
 - data segment 의 값을 프로그램이 바꾸려고 하면 bus error 가 발생한다
 - general command tty: print current ttyname
 - man stty
@@ -1110,10 +1014,7 @@ return_type	function_declaration(argument_type argument_label)
 - ps xao pid,ppid,pgid,comm
 - ps -o tty,pid,ppid,pgid,comm
 
-
-
 2021-09-15
-
 - 생각은 기록보다 빠르다, private 암호와 등으로 속기 기술을 익힌다면 어떨까?
 	- 복호화하여 public 이 이해 가능한 형태로 바꾸는 기술이 동반되어야 할 것이다
 - minishell tokenize: structure 를 재귀적으로 사용했다면 어땠을까?
@@ -1149,42 +1050,27 @@ return_type	function_declaration(argument_type argument_label)
 - 공부를 할 때 무엇을 참조했는지 기록해두는 것이 좋겠다
 - [what is a buffer overflow](https://www.veracode.com/security/buffer-overflow)
 
-
-
 2021-09-06
-
 - 종이처럼 직접 만지고 필기할 수 있는 모니터 -> 아이패드처럼 필기가 가능하도록
 - 더 나아가, 펜으로 프로그래밍이나 다양한 조작을 가능하도록?
 - 'echo $LINES': 터미널의 출력 줄 수를 담고 있는 변수의 값을 출력한다
 - 'echo $COLUMNS': 위와 유사
 - 'setupterm()': env 와 terminfo 사용하여 terminal type 변수 하나를 생성한다
 
-
-
 2021-09-04
-
 - 인터넷의 정제된 페이지를 가져와서 vim 처럼 보고 싶다면, vim 에 인터넷 페이지를 정제하여 읽어오는 기능을 넣으면 되는 것이 아닐까?
   - 하지만 그러려면 vim script 등을 배워야겠지
 
-
-
 2021-09-02
-
 - 'man 5 term' 을 보니 지금과 같이 16 진수 체계를 사용하기보다 8 진수를 사용한 기록이 눈에 띄었다. 아마 옛날에 8 진수와 16 진수 체계가 혼용되던 시절, 초기에는 단순히 아라비안 숫자 체계가 0 부터 9 까지 존재하기 때문에 표기가 가능한 8 진수 체계가 사용되었지 않았나 싶다. 지금 와서는 0 부터 f 까지 사용하는 16 진수 체계가 더 자연스럽고 통용되었지만 말이다
 
-
-
 2021-09-01
-
 - vimsession 은 폴더 이름이 바뀌는 등, 외부의 수정이 가해졌을 때 이 변화를 인지하지 못하는 문제가 있다
 - 왜 보기에 지저분한 html 을 사용해야만 하는가? 시각적으로도 더 읽기 쉽고 가벼운 언어를 사용할 수는 없는가?
 - 'man 2 read' 를 보면 '#include <sys/uio.h>' 가 있는데, 이는 readv 의 인자인 iovec 를 정의하고 있기 때문에 추가하는 듯 하다, 만약 read()만 사용한다면 sys/uio.h 를 include 할 필용는 없을 것이다
 - 내가 프로그램 지능이 나보다 낮은 사람에게 알려줄 수 있는 것은 앞길과, 그 시기에는 원래 그렇게 힘들다는 것이다
 
-
-
 2021-08-31
-
 - 가령, 모든 데스크 셋업을 커버할 수 있는 책상을 가지고 싶다고 하자
   - 그렇다면 왜 그런 책상을 원하는 것일까?
   - 그것은 지금 내 책상이 어떤 나의 이상적인 셋업을 커버하지 못하기 때문이다
@@ -1200,40 +1086,25 @@ return_type	function_declaration(argument_type argument_label)
   - <ctrl-k>: clear the line after the cursor
   - <ctrl-w>: delete the word before the cursor
 
-
-
 2021-08-27
-
 - 컨벤션 관리 파일을 만들어서 컨벤션을 기록해두고 버전관리도 하면 어떨까?
 
-
-
 2021-08-20
-
 - 'traceroute <ip>': ip 로 가는 경로의 ip 들을 출력한다
 - 'arp': local network 를 출력한다
 
-
-
 2021-08-15
-
 - OOP 는 기본적으로 다양한 주소를 무리지어서 하나의 그룹을 구성하기 위해 탄생한 것이 아닐까?
   - 모든 작업에서 1차적으로 발전할 때 그룹을 형성하는 것이 중요하다고 생각한다. 파일 시스템처럼 directory 를 만드는 것이다. 이를 위해 어떤 기준으로 그룹을 지을까가 중요해졌고, 여기서 물체 중심으로 관련된 주소들을 그룹지어서 저장하는 OOP 가 발전한 것 같다
 
-
-
 2021-08-14
-
 - xxd test.txt
   - '-s <address>'
     - xxd -s 0x10 test.txt
   - '-l <address>'
     - xxd -l 0x10 test.txt
 
-
-
 2021-08-05
-
 - 게임의 요소: 시청각의 값과 변화량
   - 시각 축 값: 그래픽
   - 시각 축 변화량: 모션
@@ -1250,10 +1121,7 @@ return_type	function_declaration(argument_type argument_label)
 
 이런 식으로, 하나의 서술에는 하나의 가정만을 두는 것이 가독성 측면에서 좋을 것 같다
 
-
-
 2021-07-19
-
 ```
 ...
 
@@ -1331,10 +1199,7 @@ print_state()
 
 - 이제 하나의 모듈로 묶여 중이적인 부분이 해소되었으므로 print normal 을 두 번 쓰지 않고, 실패 시에면 추가 실패 메세지를 출력하도록 해도 가독성이 떨어지지 않는다
 
-
-
 2021-07-17
-
 - 요구사항에 대한 자세한 내용은, 직접 만들어보고 나서야 기준을 세울 수 있는 경우가 존재한다
   - 그런데 막상 만들어보고 나서, 기존의 요구사항을 까먹기도 한다
 - 'git reset --hard <commit>': branch 를 옮기고 working directory 의 파일들도 commit 의 것으로 교체한다
@@ -1343,23 +1208,14 @@ print_state()
 	- 순서와 계층이 생길 수 밖에 없다
 	- A > B > C 순서로 코드를 작성했다면 C 는 A 와 B 에 영향을 끼치게 되고 B 는 A 에 영향을 끼칠 수 있다. 이 상태에서 A 를 뺀다고 했을 때 B 와 C 는 A 에 의존적이기 때문에 세부적인 부분의 수정이 불가피할 것이다
 
-
-
 2021-07-16
-
 - 이런식으로 한 줄이라도 오늘 생각한 것을 기록하는 것이 작은 성취감을 얻을 수 있는 귀한 행동인 것 같다
 - 해야 할 일을 전부 적어놓고, 우선순위를 매기자. 더 급한 것을 먼저 하며 하고 싶더라도 당장 급하지 않은 경우는 반드시 뒤로 미루도록 하자
 
-
-
 2021-07-15
-
 - const 는 해당 포인터가 가리키는 변수 내부의 포인터가 가리키는 변수의 값을 변경하는 것도 불가능한가?
 
-
-
 2021-07-09
-
 - function prototype 의 argument name 에는 argument name 을, function define 의 parameter name 에는 parameter name 을 기입하도록 해보자
 - general Debug commit 과 delicate Debug commit 을 구분해도 좋았을 것다
 - commit 에는 무엇이 기록되어 있을까? 다시 한 번 확인을 해 볼 필요가 있다
@@ -1367,26 +1223,17 @@ print_state()
 	- structure 를 재귀적으로 사용했다면 어땠을까?
 - process's filedescriptor table 에서 fd index 번재의 file data structure 를 읽고 사용 가능한 system call 함수가 해당 fd 의 file 에 사용 가능한지 판단한다
 
-
-
 2021-07-08
-
 - 'launchctl limit': show limit data
 
-
-
 2021-07-07
-
 - 요구사항을 분석하는 능력이 부족하다
 - n 이 m 개 있는 것을 표현하는 방법
   - (mn | n * m)
 - pseudo code 의 경우 시연용으로 작동 가능하도록 만들려면, 시연용 input 에 대한 output 을 출력하도록 만들어 놓는다(내부 구현은 없어도 된다)
 - 역시 조금 불필요한 동작이 있더라도 빠르게 구현하는 것이 더 중요한 것 같다. 아무리 잘 만든다고 오랫동안 공들여도 당장 작동하지 않는다면, 차라리 2~3 배의 자원을 사용하더라도 일단 작동하는 것이 더 좋다
 
-
-
 2021-07-06
-
 - 'ps -f <pid>': process 의 ppid 를 알 수 있다
 - 요구 사항이 있으면 요구사항을 최저 사양으로 설정하고 전체적 추상화를 진행하는 것이 좋을 것 같다
 - 상대가 원하는 정보가 따로 존재한다
@@ -1394,55 +1241,34 @@ print_state()
 - 피드백을 잘 해라
   - '너무 작아서 잘 안들렸어!'
 
-
-
 2021-07-05
-
 - 팀원들간의 사적 일정으로 인해 격차가 발생할 수 있다. 이 경우 일정을 잘 조율하지 않으면 부담이 가해질 수 있다
 - 말을 조금 더 조심스럽게 하자
 - 너무 말을 억세게 한다
 - 상대방도 말을 더 부드럽게 할 수 있도록 내가 유도해서 행동해보자
 
-
-
 2021-07-04
-
 - 화를 내지 않도록 조심해라! 화를 내면 내가 생각해보지 못했던 상대의 새로운 의견을 들을 기회가 사라질 수 있다
 
-
-
 2021-07-03
-
 - '~/.vimrc' 로부터 적용된 내용은 vimsession 에 저장되고, vimsession 을 open 할 때는 '~/.vimrc' 를 읽지 않는다
 - dm 메세지와 다르게 facebook 처럼 나의 line 에 메세지를 남기는 방식이 확실히 전파력도 강하고 가볍게 글을 남길 수 있어서 장점이 있는 것 같다
 
-
-
 2021-07-02
-
 - 잘 모르는 것에 대한 부분에서는 목소리를 높이지 말자. 잘 알지도 못하면서..
 
-
-
 2021-06-30
-
 - 나는 왜 타인을 무시하고 들어가는가?
   - 가치관이 다른 사람을 인정할 수 있는가?
 - 내가 의견이 너무 강하다
 - 물어보자 왜 왜 왜인지 물어보자
 - 상대의 말을 더 잘 들으려고 노력하자
 
-
-
 2021-06-29
-
 - 팀원 각각의 특성을 잘 파악하는 것이 중요하다
 - 대화는 한 명이 다른 한 명에게 생각을 전달하는 것이다. 혼자 말하는 것이 아니다. 전달하고자 하는 생각이 무엇인지 확실히 해둬라
 
-
-
 2021-06-28
-
 - 시간이 넉넉하지 않을 때 대화를 하지 않는 것은 좋지 않다
   - 시간이 넉넉하지 않다는 것을 대화를 해서 알리도록 하여라!
 - 규칙이 없다면 둘이 섞일 수 없다
@@ -1451,10 +1277,7 @@ print_state()
   - 각자가 하고 싶은 부분을 건들일 수 있다
 - detach 하면 thread 가 종료될 때 내부 할당이 free 될까?
 
-
-
 2021-06-27
-
 - 끝내기 전에 나의 성장을 위한 감사를 표현하자
 - "너무 무리하지는 말어"
   - 이렇게만 말하면 상대가 여러 의미로 해석이 가능하다
@@ -1467,10 +1290,7 @@ print_state()
     - 상황에 따라 상대를 조롱하는 것이 될 수 있다
 - 상대는 하고 싶은 것이 있는데, 내가 다른 것이 눈에 보인다고 그 것을 얘기하면, 상대의 입장에서는 자신의 문제를 해결하지 못한 채 추가적인 문제가 생기는 것이다!
 
-
-
 2021-06-26
-
 - ls 에 파일 내용을 출력하는 기능이 있더라
 - 설명을 할 때 평가를 받는 것처럼 중간 단계를 건너 뛰고 결과 및 큰 그림을 설명하는 문제
   - 상대에게 맞춰줘야한다!
@@ -1478,10 +1298,7 @@ print_state()
 - 단 usleep(1)만 해도 31019 usec 만큼이 걸릴 수 있다 (다른 thread 가 열심히 돌아가고 있다면)
   - 모든 작동이 한 번에 오래 걸리지 않도록 적당히 suspend 를 해주도록 하자 (그래야 thread 가 골고루 돌아갈 것 같다)
 
-
-
 2021-06-25
-
 - signal 에 대해 물어보셨을 때 'man signal' 을 보여드리면 더 좋았을 것 같다!!
 - 상대가 자신은 뭘 쓴다고 하면 그에 대한 반응을 해주자!! 가볍게!!
   - 기술 1. 오,, 어때요?
@@ -1503,10 +1320,7 @@ print_state()
 - 긍정적이냐 부정적이냐는 나의 관점에서 판단하는 것이 아니라 타인의 어제와 오늘을 비교하여 결정하는 것이다
   - 이것을 못하면 다양성의 긍정적인 면을 인정하기 힘들어질 것 같다
 
-
-
 2021-06-24
-
 - 함수가 pointer 를 인자로 받을 때는 그 인자가 const type 인지 아닌지가 중요해진다!! 변경되서는 안되는 인자라면 const 를 명시해주는 것이 좋다
 - 멘토 특강(오디오 신호 이해 및 딥러닝 음성인식 (Speech Recognition) (주) 보이스프린트 대표 김광호
 {
@@ -1541,36 +1355,24 @@ print_state()
 - 나는 exit_code 도 잘 관리를 해뒀으니 문제가 발생하면 exit_code 를 확인해봤어도 굉장히 훌륭한 방법이었을 것 같다!!
 - 디펜스 등록 이후에 문제를 발견했다면 빠른 취소보다는 디펜스를 한 번 해보는 게 도움이 될 것 같다
 
-
-
 2021-06-23
-
 - 감정을 잘 모르는 것이 아니라 이해하는데 시간이 좀 걸리는 것 아닐까?
 - 나는 처음에는 다 괜찮은 것처럼 말해놓고 나중에 가서는 딴 소리를 하는 것 같다?
   - 나는 내 생각보다 그렇게 다른 사람의 의견을 다 수용할 수 있는 사람이 아닌 것 같다
 - SIGUSR1 의 handler 를 호출하고 SIGUSR2 로 interrupt 를 하고 다시 SIGUSR1 signal 을 줬더니 반응이 없었다
   - handler 내부에서 empty mask 를 가진 sigaction 으로 새로운 sigaction 을 설정해주었지만 그럼에도 SIGUSR1 signal 에 interrupt 되지 않았다
 
-
-
 2021-06-22
-
 - minilibx
   - https://github.com/qst0/ft_libgfx#minilibx
   - https://harm-smits.github.io/42docs/libs/minilibx
 - semaphore 는 thread 에서도 사용할 수 있었던 것으로 기억하는데, process 간에서도 사용할 수 있는 건가? 애초에 process 간에도 같은 메모리 공간의 변수를 사용할 수 있나? 그럼 반대로 mutex 는 process 간에 사용될 수 있나?
 - 주석을 곳곳에 넣어서 언제나 완성된 코드를 유지하도록 하자! (pseudo 코드지만)
 
-
-
 2021-06-21
-
 - 생각을 못했던 부분을 지적당한다면 순간 당황을 할 수 밖에 없다. 나는 생각을 해본 부분이지만, 상대는 생각을 못 한 부분이기 때문이다. 이 경우 상대방에게 생각 할 시간을 넉넉하게 주는 것이 좋을 것 같다
 
-
-
 2021-06-20
-
 - 통신 장애
   - 1. 잘못된 값이 전달: checksum 으로 확인
   - 2. NAC 를 사용하는 경우 오작동으로, 정상적인 상황에서 데이터 수신 중에 NAC 전송
@@ -1588,10 +1390,7 @@ print_state()
 - 나는 말을 하는 사람이 말을 구체적으로 해야 한다고 생각했고, 상대는 말을 듣는 사람이 부족한 부분을 질문을 해야 한다고 생각했다
   - 둘 다 맞는 건데, 나는 질문을 하지 않았고, 상대는 말을 정교하게 하지 못했다
 
-
-
 2021-06-19
-
 - 상대가 무시 당한다는 느낌을 받지 않게 하기 위해서는 내가 계속 말을 해야 한다
   - 1. 목적 잊지 않기
   - 2. 상대가 물었으면 그에 대한 답을 하자 (상대가 그 말을 한 표면적인 의미부터 제대로 이해하자)
@@ -1608,10 +1407,7 @@ print_state()
   - 00100000000000000000000000000000100000000000000000000000000000001010101001101100100000000000000001100101100100110111111111111111 (앞에 한 번 001 만 출력되고 다음 전송은 제대로 출력됨)
 - 실패할 때 NAC 를 전송하여 재전송을 요청하는데, 그냥 가만히 있고, client 가 ACK 를 받지 못할 때 데이터를 재전송하도록 하면 어떨까?
 
-
-
 2021-06-18
-
 - 'echo "obase=2; $var" | bc': 숫자를 2 진수로 출력하기
 - 'echo "$((2#<binary number>))"': Binary 를 decimal 로 출력하기
 - 'echo "obase=10; ibase=2; 10" | bc': obase 가 ibase 보다 먼저 나와야 한다
@@ -1619,10 +1415,7 @@ print_state()
 - 스스로 생각하고 대답하도록 물어보고 난 후의 대답에는 상대가 더 그것을 자신의 생각이라고 여기고 인정하게 된다
 - 주어진 질문을 주체적으로 해석하여 답을 내는 것은 중요한 기술이다. 하지만 사람과 대화할 때 이 기술만 사용할 필요는 없다
 
-
-
 2021-06-17
-
 - 1. 사용 사례, 어떻게 사용할지를 조사하여 데이터 확보하기
   - 주의: 사용 가능한 모든 케이스가 아니라, 소요 시간이 가장 짧은 최고의 사례를 모아라
 - 2. 구현 및 테스트
@@ -1631,16 +1424,10 @@ print_state()
     - client 가 pid 를 전송한 후 pause 에 빠져서 server 가 client 에게 packet 을 보내지 못했다
 - sigaction 의 3 번째 인자: 기존 처리 방법을 저장할 struct sigaction 의 주소
 
-
-
 2021-06-16
-
 기존에 정의해 놓은 structure 의 구조를 변경할 경우 할 작업이 많아진다. 이를 자동화해도 재밌을 것 같긴 한데, 지금 상태에서 다른 사람들은 이를 어떻게 해결하고 있을까?
 
-
-
 2021-06-15
-
 - 종종 대화 중에 서로 다르게 이해하는 '같은' 단어를 사용하여 혼동이 생기곤 한다
   - 전문 지식을 전달하는 글도 어떤 단어에 보다 많은 의미를 부여하여 사용하기도 한다
     - 가령 'block' 이라는 단어를 사용할 때, 단어 그대로 의미의 '막다' 라는 의미 이외에도 'block' 이라는 것을 통한 추가적은 내부 구현을 내포하기도 한다 (어떤 변수가 어떤 값을 갖는다던가)
@@ -1654,10 +1441,7 @@ print_state()
   - 3. 입맛대로 코딩하기
 - structure 는 생각보다 순서에 의해 내부 구조가와 크기가 달라질 수 있다
 
-
-
 2021-06-14
-
 - level design: 처음에는 버튼을 누르는 수준으로 매우 쉽게 만들더라도 그 버튼에 쓰여있는 글씨 등에는 사실 다 의미가 있다. 이것을 이해하는데에는 하나의 level 을 거치는 것이 필요하다
   - 즉, 하나의 level 에는 단순히 그 목표를 달성하는 것 이외에도, 주변 환경과 정보들의 의미를 이해하는 숨은 목표도 있다
     - 이런 식의 널리 퍼지지 않은 개념을 계속 이해하고 적용하는 것이 중요하다. 이것이 미묘한 차이를 만들고, 이것이 품질의 차이가 된다
@@ -1678,20 +1462,14 @@ print_state()
 - 프로토콜이 필요한 이유는 두 기기가 정보를 주고받을 때 사용하는 시간과 계산하는 시간 간격이 하드웨어에 따라 서로 다를 수 있기 때문에, 이런 문제를 극복하고 원활한 소통을 하기 위해 서로 약속된 프로토콜을 따른다
   - 서로 안정적으로 통신이 가능하도록 구성된 '프로토콜' 을 따르면 안정적인 통신이 가능하다
 
-
-
 2021-06-13
-
 - ':args `find -L . -iname \*.\[hc\]`' in vim
 - 저번에 멤버변수의 type 으로 다른 structure 를 사용할 경우 그 structure 의 header file 을 include 해야 했던 것으로 기억하는데, 이를 한 번 더 검증했으면 좋겠다
   - 만약 그래야 한다면 하던데로 header file 에서 다른  structure 를 include 할 때 type.h 파일을 따로 만들어서 타입에 대한 정보를 먼저 주고 실제 header file 을 include 해야 할 것이고, 아니라면 그냥 type.h 파일만 include 해줘도 괜찮을 것이다
 - core data 를 다루는 structure 는 의존성을 끊고 잘 캡슐화하자
   - 그래야 여기서도 쓰고 저기서도 쓸 수 있다!
 
-
-
 2021-06-12
-
 - ':vimgrep /<word>/g <paths>' in vim
   - ex> ':vimgrep /ft_atoi_push_swap/g **/*.[hc]'
   - ex> ':vimgrep /ft_atoi_push_swap/g %': '%' means filepath of active buffer
@@ -1707,10 +1485,7 @@ print_state()
 - 오늘은 또 이상한 메모리 관련 문제가 있었다. 원래 존재하던 메모리의 주소가 계속 지워지는가 값이 0 으로 초기화가 되는 것이다. 그래서 lldb 로 위치를 찾아내고 (그런데 이 과정에서 lldb 는 처음에는 segmentatino fault 가 뜨다가 몇 번 브레이크 걸고 시도하다보면 다음 run 부터는 계속 성공하는 이상한 일도 있었다, 다시 껐다 키면 또 segmentation fault!?), lldb 로는 이해할 수 없는 일이 일어나서 printf 로 값을 출력해보니 확실히 특정 함수 호출을 기점으로 이상한 값이 적용되고 있었다 (특히 더 이상한 것은 그 함수는 문제의 구조체를 받지조차 않는다는 것이다). 문제의 원인은 할당하지 않은 변수를 free 해서 벌어진 일이었다. 그 변수에는 임의의 (어쩌다가 무조건적으로 특정 구조체의) 값이 들어있었고, 그 주소를 free 하자 필요한 구조체가 초기화된 것 같다. 그래서 해당 변수를 특정 구조체 안에 넣어서 구조체가 할당, 해제 될 때 직접 관리하도록 하여 불안전한 값이 들어가는 것을 방지하였다
 - settings set target.input-path <path>
 
-
-
 2021-06-11
-
 - alias 는 read-only 인 constant 고, variable 은 read-write 인 variable 이다
 - local repository 는 'git branch -m <old_branch> <new_branch>' 로 이름을 쉽게 변경할 수 있지만, remote branch 에서는 이가 허용되지 않는다
 - 'du -sh <path>': Print disk usage of 'path' directory or file with human-readable
@@ -1730,10 +1505,7 @@ print_state()
 - 모든 null 입력에 대한 guard 를 하는 것보다, 필요에 따라서는 error 를 발생하도록 하는 것이 문제 지점을 탐색하는 데 유리할 수도 있으르 것 같다
 - ':args `find . -iname \*.\[hc\]`' in vim
 
-
-
 2021-06-10
-
 - shell parameter expansion
   - 'repositories=(${repositories/#/$git\/})'
 - 'set -- $vimsession; vimsession=$1': Get first word from string
@@ -1742,10 +1514,7 @@ print_state()
 - ':cd %:h' in vim: See ':help expand'
 - 'seq' in cli
 
-
-
 2021-06-09
-
 - 어떤 프로그램 실행 전에 항상 어떤 코드를 실행시키도록 하는 방법
   - 1. precmd_function 목록에 추가하여, 모든 command 에 대해 선행 작업을 하도록 한다
     - 'precmd_function+=( precmd_vcs_info )'
@@ -1765,10 +1534,7 @@ print_state()
     - 그런대 'aux' alias 는 둘이 서로 다르긴 하다..
 - 'a=(${(s/:/)string})'
 
-
-
 2021-06-08
-
 - 'c rename t_sort t_sort_type'
 - 'basename 'git rev-parse --show-toplevel''
 - ':h <option>' in vim: Search help page for vim
@@ -1807,10 +1573,7 @@ print_state()
 - rule 의 dependency 와 상관 없이, .PHONY 에 명시했는지 상관 없이, 파일이 없는데 실행하고 나서 파일이 생성되지 않고, 실행 가능한 recipe 이 존재하면 rule 이 실행된다
 - 통찰력있는 분석을 제시했는가, 그러지 못했는가, 이는 한끝 차이지만 중요한 차이이다
 
-
-
 2021-06-07
-
 - [stackoverflow/How can I delete a newline if it is the last character in a file?]
 - how to implement hash function?
 - 'git ls-remote <remote>': 로 romote repository 를 list 할 수 있다
@@ -1880,10 +1643,7 @@ print_state()
 - hard link 는 같은 inode 를 사용하는 파일을 생성하는 것이다
   - 그런데 이것은 file system 의 구체적인 특징이기 때문에 OS 공통의 file system 을 추상화한 git 의 경우 hard link 를 file 로서 기록하고, symbolic link 는 구체적인 inode 연결 이외의 공통적인 file system 특징이므로 일반 파일과 구분하여 기록한다
 
-
-
 2021-06-06
-
 - 삭제된 'remote branch' 를 track 하는 'remote-tracking branch' 가 local 에 남아 있을 때 없애는 방법: 'git branch -dr origin/<branch>'
   - '-r' option 은 'https://git-scm.com/docs/git-branch' 에서 확인할 수 있으며 'remote-tracking branch' 를 의미한다
 - 확실히 void * 를 사용해서 generic 한 값을 담을 수 있도록 구성하는 것이 코드 재사용에 굉장히 큰 역할을 하는 것 같다. C++ 이나 swift 처럼 generic type 을 위한 코드를 생성해주는 기능이 없다면(추측) 컴파일 단계에서 처리 불가능한 부분을 가능한 run time 에서 적용이라도 하기 위해 'void *' type 으로 content 를 정의하여 generic 한 structure 를 구성해보도록 하자
@@ -1892,10 +1652,7 @@ print_state()
 - big o 계산 -> 수열의 합, 시그마 계산, 수열을 함수로 만들고 적분
 - 다음에는 에러 전용 구조를 만들도록 하자
 
-
-
 2021-06-05
-
 - 프로그램 함수 작성 시 함수의 종류는 크게 2 가지로 나눌 수 있다
   - 첫 번째는 기능을 구현하는 함수이다
     - 추상적인 동작이 중요한 것이 아니라, 하나의 구체적인 기능을 구현하기 위해 작성하는 함수이다
@@ -1912,10 +1669,7 @@ print_state()
 - 실제 파일을 삭제하는 'git clean' command 가 실행되기 위해서는 '-f' 옵션을 줘야 하도록 만든 것이 마음에 든다. 마치 '정말 실행하시겠습니까?' 라고 묻는 것 같이 보인다
 - 저 지랄맞은 현충일 캘린더 알림은 왜 계속 뜨는거지?
 
-
-
 2021-06-04
-
 - 전에 한 번 빼먹고 특별한 값에 대한 basis_vector 적용을 그냥 넘긴적이 있는데, 이로 인해 오늘 원기둥을 출력할 때 0,1,0 을 normal 로 하는 원기둥의 위, 아래 면을 그릴 때 제대로 출력되지 않는 문제가 있었다. 새로운 기능을 구현할 때는 그 기능을 구현하기 위한 sudo code 를 작성하고, 더 필요하다고 생각이 나면 그 즉시 코드에 sudo code 를 바로 바로 추가하여, 구현하려고 생각만 하고 잊고 마는 일은 없도록 하는 것이 좋겠다
 - 지금 bfs 와 lss 를 위한 데이터 및 인스트럭션을 각각 작성했는데, 이것 외에도, 마치 서버와 클라이언트처럼, 서버역할을 하는 데이터는 공통으로 두고 이를 통해 bfs 및 lss 전용 structure 를 다뤘으면 어땠을까?
 - 제발 키보드 좀 가져오자!! 클러스터 키보드 고장난거 걸리면 너무 불편하다!!
@@ -1932,32 +1686,20 @@ print_state()
 - 맴버 변수의 데이터 타입은 선언만 되어서는 정의하는 것을 컴파일러가 에러를 발생시킨다. 꼭 구현을 include 해야 한다
 - 텍스트를 생성하는 작업장이 있었으면 좋겠다
 
-
-
 2021-06-03
-
 - 'git show <commit hash>:<path/of/file>': Display content of the file to stdout.
 - 'git checkout <branch or commit> -- <path/of/file>': Get file from another branch or commit.
 
-
-
 2021-05-31
-
 docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 실행중이던 명령도 다 종료되면서 container 가 exit 상태가 된다
 
-
-
 2021-05-30
-
 - 어떤 대상과 비교를 할 때는 그 대상과 설명하는 내용하고의 공통점과 차이점을 가능한 한 구체적으로 해야 좋다
   - 예시> 신분증 제시와 ssl
     - 공통점: 제 3 자로부터 공인 받은 것으로 자신의 신분을 객관적으로 알린다
 	- 차이점: 신분증은 고객이 서비스 제공자에게 자신의 신분을 알리고, ssl 은 서비스 제공자가 고객에게 자신의 신분을 알린다
 
-
-
 2021-05-27
-
 - 어느 정도까지 최적화를 진행해야 하는가?
   - 사용하는 프로그램에 따라 정도가 다르다고 생각한다
   - 각 프로그램마다 가독성을 최우선으로 여기고, 그 다음에 최적화를 고려하도록 하자
@@ -1970,10 +1712,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 5. 점차 작은 수를 가져온다, 이 때는 rb 또는 rrb 중 빠른 것을 선택한다
 6. 만약 어떤 수를 탐색하던 중 그 수보다 바로 하나 작은 수를 먼저 마주치면 a 의 하단에 저장해놓으면 좋지 않을까?
 
-
-
 2021-05-26
-
 - 탐색의 제한을 하는 부분은 어디에 둘까?
   - instruction 과 별개로 작동했으면 좋겠다
   - 'check_should_instruction_pa() -> pa()' 처럼 instruction 을 실행할지 건너뛸지를 체크하는 함수를 instruction 전에 실행하는 것이 좋겠으나, 성능상 우선 통합하도록 하자
@@ -1989,20 +1728,14 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
   - while 에서 자연스럽게 1 씩 증가하는 경우 convention 적으로 뒤에 배치하도록 하자
   - 그 외에는 우선 loop 안에 count 의 증감식을 작성하고, 다른 내부 표현식들의 위치를 결정하자
 
-
-
 2021-05-21
-
 - 값을 읽어서 model 을 만드는 정도의, 성능에 critical 하지 않은 경우는 하드 코딩하여 성능 향상을 추구하기 보다는 유연하고 확장적인 추상화 모델을 만들도록 하자
 - name convention 을 통일하기 위해 vector3 를 p_vector3 로 하는 것이 더 좋았을 것이다
 - [stackexchange/Vim search replace all files in current (project) folder](https://vi.stackexchange.com/questions/2776/vim-search-replace-all-files-in-current-project-folder)
   - ':args <file or directory>': similar 'vim <file or directory>' on cli
   - ':argdo <vim command>': do command to all open file
 
-
-
 2021-05-20
-
 [wiki/regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 - '.' 은 '\n' 을 제외한 모든 문자와 matching 된다는데 regex 는 '\n' 와 matching 은 안되는 걸까?
   - 여러 주변 환경에 따라 추가할지 말지는 취향이다
@@ -2014,10 +1747,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 - '[!abc]': matches one character that is not given in the bracket
 - '[!a-z]': matches one character that is not from the range given in the bracket
 
-
-
 2021-05-18
-
 ```zsh
 Undefined symbols for architecture x86_64:
   "_bmp_write_image_to_file", referenced from:
@@ -2032,28 +1762,19 @@ make: *** [miniRT_debug.out] Error 1
   - permission / number of linked hard-links / owner of the file / to which group this file belongs to / size / modification or creation date and time / file or directory name
 - directory 를 hard link 로 만드는 것은 간단하지 않다, 그러므로 libft directory 를 hard link 로 만들어서 사용하는 것은 norm 을 벗어나고 나서 생각하자
 
-
-
 2021-05-17
-
 -[superuser/How to sort first directories then files etc… when using “ls” in Unix](https://superuser.com/questions/109537/how-to-sort-first-directories-then-files-etc-when-using-ls-in-unix)
   - ls | sort -k1,1 -k9,9 -r
 - 화면에 vim 을 10 개 이상씩 가득 띄워놓고 보는 것은 솔직히 썩 바람직한 방식은 아닌 것 같다. 오늘 keynote 로 struct 간의 reference 그래프를 그려보았는데, 이렇게 하고 보니 전체적인 프름이 한 눈에 보였고, 어떻게 추상화할지를 판단하기 훨씬 수월했다 (전에는 거의 불가능하거나 오랜 시간을 들여야만 했다)
 
-
-
 2021-05-13
-
 - search keyword
   - architecture
   - underneath
   - underlying mental model and architectur
 - line 을 읽는 기능과 split 을 구현할 때, 이미 많은 것을 구현한 miniRT 폴더에서 진행하는 것이 아니라 새로운 모듈을 만드는 장소를 따로 만들어서 진행하고, 기능이 충분히 구현되었다고 생각하면 그 때 합치는 것이 좋을 것 같다
 
-
-
 2021-05-07
-
 0x00 ~ 0x01:  2 "BM" as ascii
 0x02 ~ 0x05:  4 total size of bmp file in byte (file header size (14) + dib header size (124 in v5) + color array size (width * height * bpp / 8)
 0x06 ~ 0x09:  0 reserved, set 0
@@ -2095,10 +1816,7 @@ make: *** [miniRT_debug.out] Error 1
 - lldb 로 특정 frame 으로 이동하는 것이 가능 up, down, frame set
 - 나는 위치와 방향에 따른 모든 경우를 출력 가능하도록 구현햇는데, 다른 방법으로 default 상태를 구현하고 이를 평행 이동, 회전 이동 하여 도형의 최종 상태를 출력하는 방법도 있는 것 같다
 
-
-
 2021-05-06
-
 - 최적화를 위한 다양한 기법은 멀리서 보면 서로 다 다르고 각각을 공부해야 한다고 생각할 수도 있다. 하지만 하고자 하는 진정한 마음이 있고, 본질을 공부한다면 그것들은 공부하지 않아도 만들어낼 수 있는 것들이다, 라고 생각한다
 - t_bmp 가 엔디안을 신경 쓸 필요는 없다. 이미지를 생성하여 서버에 전송할 때 빅 엔디안이면 스몰 엔디안 형식으로 바꾼다던가, 등 작업을 하기 때문에 bmp 는 이렇게 생성된 이미지를 저장하기만 하면 된다
   - 아니다. 이미지의 주소를 받아오면서 얻는 endian 값은 서버의 endian 이기 때문에 이것이 적용된 상태로 이미지를 저장하면 안된다. 현재 프로그램이 작동하는 시스템의 endian 을 토대로 small endian 방식으로 저장하면 된다
@@ -2136,10 +1854,7 @@ make: *** [miniRT_debug.out] Error 1
 0x86 ~ 0x89: bV5Reserved
 - BMP format 으로 이미지를 저장하기 위해 file_header[], dib_header[] 등을 만들었는데, 각 데이터의 index 를 define 하여 데이터를 쓰고, 만들어진 배열을 파일에 write 하려고 했다. 그런데 index 로 입력한 값을 그냥 배열 통채로 사용해버릴 때는 문제가 없었지만, 결국 이미지의 width, height 등은 다른 곳에서도 쓰일 수 있기 때문인데 일단은 다른 곳에 있는 데이터를 가져다가 사용하기로 했다 (width 와 height 는 p_image 로부터 등)
 
-
-
 2021-05-05
-
 - 테스트 환경 구성하여 테스트 진행
   - 이점: 원하는 값을 넣고 결과 값이 잘 나오는지 확인할 수 있다
   - 디버깅 툴과의 차이점
@@ -2157,10 +1872,7 @@ make: *** [miniRT_debug.out] Error 1
   - bitmap 은 더 포괄적인 의미이고 BMP 는 bitmap 중 특정 포멧이다
   - 아마 최적화를 위해 프로그램 내부적으로 사용되는 이미지는 자신만의 bitmap 데이터 타입을 정의하는 모양이다
 
-
-
 2021-05-04
-
 - 빛이 평면 위의 점일 경우를 잘 처리해주자
 - 일단 돌아가는 프로그램을 작성하라, 그리고 계속 보다보면, 그리고 반복해서 작성하다 보면, 최적화를 할만한 부분이 보인다!
   - 물론 최소한의 계획은 가지고 프로그램을 작성해야 한다
@@ -2169,10 +1881,7 @@ make: *** [miniRT_debug.out] Error 1
   - 일단 내 잘못이면 나중에 후회할 확률이 높다 문젝 없더라도 사과하는 것이 맞다 그게 맞다
 - x 와 z 가 모두 0 인 카메라 orientation 을 받을 때 xz_magnitude 가 0 이 되어 0 으로 나누게 되는 문제
 
-
-
 2021-05-03
-
 - 공유의 목적이 아닌 기록 및 보관 용도로는 잘 꾸미는 데에 시간을 투자할 필요가 없으므로 (최소한의 가독성 확보가 목표이다) md 포멧보다는 txt 포멧을 사용하는 것이 유리하다
 - 우연히 발견한 것이지만 double 의 오차로 랜덤하게 0 또는 1 을 생성할 수 있을 것 같다
 - pow 의 남발을 지양하고 sqrt 와 * 를 사용하자
@@ -2186,10 +1895,7 @@ make: *** [miniRT_debug.out] Error 1
     - 이를 해결하기 위해서는 2 차 3 차 반사를 적용해야 한다
 - 삼각형은 각도록 점의 위치가 안에 있는지 밖에 있는지를 구분했다
 
-
-
 2021-04-11
-
 - 다음 두 함수의 차이가 있을까?
 
 int strlen(char s[])
@@ -2210,17 +1916,11 @@ int	strlen(char *s)
 
 - -1L vs 1UL: unsigned long 타입으로 변환되고 비교한다면 -1L 이 더 크게 된다. 실제는 어떨까?
 
-
-
 2021-01-28
-
 클러스터는 예약시스템 지금은 코로나가 심해져서 예약조차 안되는 듯 하다
 2.5 단계 밑으로 내려가야 클러스터 사용이 가능하다
 
-
-
 2021-01-15
-
 ```zsh
 % cat display_line.sh
 $1 | wc -l
@@ -2245,28 +1945,19 @@ bash-3.2$ set | wc -l
 
 - 왜 set 의 결과 값이 달라지는 것일까?
 
-
-
 2021-01-14
-
 - 전선이 모든 주파수를 다 통과시키지 못하고 제한된 영역의 주파수만 전달이 가능한 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=368)
 - 디지털 신호도 원하는 주파수를 만들어서 전송할 수 있을 것 같은데 굳이 아날로그 신호로 바꾸어서 전송해야 하는 이유가 무엇일까? [youtube](https://youtu.be/1pfTxp25MA8?t=386)
 ttps://opentutorials.org/module/3747
 
-
-
 2020-12-25
-
 (T: Think, D: Do)
 - T: Ratio of my study and others study
   - Just help others study, and if i get some thought of 'It's not right', then reject it
   - Never present a fish, teach how to get that
 - D: More practice the way to use `find` command
 
-
-
 2020-12-24
-
 (Q: Question, I: Idea)
 - Q: When i set the argument type of main, even making it pointer is common, making it array also possible, will there some difference?
 - Q: Will it possible executing according to the extension of file in vim?
@@ -2278,18 +1969,12 @@ ttps://opentutorials.org/module/3747
 - Idea: mobile golf game
   - Scroll the mobile display, if your display stop at to goal, you are hole in one :D
 
-
-
 2020-12-23
-
 - Q: I can set the data type of function as array or pointer, if I set the type as array, will it take all feature of array? (or it's actually just pointer)
     char    str[] = "lol";
 - Q: imo, `"lol"` might be stored in data block and copy it to str array, correct?
 
-
-
 2020-12-08
-
 1.3. x: delete a character
 1.4. i: enter `insert mode`
 1.5. a: enter `insert mode` with appending
@@ -2338,10 +2023,7 @@ ttps://opentutorials.org/module/3747
 how to show pressed command state?
 default output resolution: 853x480
 
-
-
 2020-11-27
-
 which vimmemo
 (in vim normal mode): ":echo $MYVIMRC"
 	# You can easily find the location and name of the file on any operating system.
@@ -2353,8 +2035,6 @@ how to move cursor to top or bottom of screen in vim?
 why use link?
 	# For to call same function as different names
 what is the difference between soft link and hard link?
-
-
 
 2020-11-05
 c7r9s4% ./a.out test.dat 10
@@ -2385,21 +2065,14 @@ after read last character, if you try to read more character, the return value w
 if `read()` try to read impossible, it will return 0.
 `read()` function return read byte size.
 
-
-
 2020-11-4
 "abcd"[2]: has something to think!
 strcmp return 2 case (1. -1, 0, 1), (2. ch1 - ch2)
 
-
-
 2020-11-1
 test git when init pull would delete another file?
 
-
-
 2020-10-21
-
 ctrl + u: clear current terminal line befor cursor
 ctrl + k: clear current terminal line after cursor
 [vim] d: cut selected text
@@ -2407,10 +2080,7 @@ ctrl + k: clear current terminal line after cursor
 [vim] p: paste selected text before cursor
 [vim] P: paste selected text after cursor
 
-
-
 2020-??-??
-
 echo "*"    # *
 echo '*'    # *
 echo /*    # *
@@ -2446,10 +2116,7 @@ ctrl d
 ctrl c
 ctrl \
 
-
-
 2020-10-14
-
 gzip -d <file>
 tar -zxvf <file>
 man cut
@@ -2457,10 +2124,7 @@ man diff
 man patch
 tar -cf exo2.tar *
 
-
-
 2020-10-13
-
 ctrl a
 ctrl e
 

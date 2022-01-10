@@ -1,12 +1,11 @@
 todo temp.txt
 
 # pc
-- 00/ex01 계속 진행하기 -> iomanip 을 보면서 wide 설정하는 방법 익히는 중
 - cpp_module 진행하기
-	- cpp 는 함수 인자로 정의되지 않은 custom type 이 들어왔을 때도 자동으로 형변환을 할까?
-		- custom type 을 인자로 필요한 type 의 생성자를 호출할까?
-	- cin 이 fail 하면 NULL 읇 반환하는지 확인하기
-		- 이를 뒷받침하는 제대로 된 reference 문서 발굴하기
+	- Contact::truncate() 만들고 적용하기
+	- constant들을 namespace안에 넣어 정리하기
+	- c++98이 아닌 것들 있는지 확인하기
+	- include에서 무엇을 사용하고 있는 것인지 표기하기
 - 정리할 자료 파악하고 정리하기
 	- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
 	- 이 apple note 어플, 하드 디스크, iCloud, git
@@ -24,6 +23,12 @@ todo temp.txt
 			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+- implicit type conversion을 할 때, source type을 인자로 하는 target type constructor와, source type의 conversion operator to target type이 모두 존재하면 ambiguous error가 발생할까?
+- cin 이 fail 하면 NULL 읇 반환하는지 확인하기
+	- 이를 뒷받침하는 제대로 된 reference 문서 발굴하기
+- 00/ex01 계속 진행하기 -> iomanip 을 보면서 wide 설정하는 방법 익히는 중
+- cpp 는 함수 인자로 정의되지 않은 custom type 이 들어왔을 때도 자동으로 형변환을 할까?
+	- custom type 을 인자로 필요한 type 의 생성자를 호출할까?
 - default constructor 를 따로 정의하지 않으면 무엇이 호출될까?
 - default constructor 는 없지만 모든 argument 가 default value 를 가지는 parametric constructor 를 정의했다면 이것이 호출될까?
 - default constructor 도 있고 모든 argument 가 default value 를 가지는 parametric constructor 도 정의했다면 default constructor 가 호출될까?

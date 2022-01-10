@@ -9,4 +9,8 @@ cpp_module_00.txt
 - test case
 	- '<CR>'
 	- '<CR><CR>'
+	- 'ADD 1 2 3 4 5<CR>'
+	- 'SEARCH 1<CR>'
+	- 'a' in search state'
+	- '<C-D>'(EOF)
 	- 오바다, 요구 사항이 아닐 것 같다. 그냥 이야기 정도는 나눠볼 것: contact 에 한글을 넣고 SEARCH로 출력했을 때 format에 맞게 출력되는지
