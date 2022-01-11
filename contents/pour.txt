@@ -1,5 +1,10 @@
 pour.txt
 
+2022-01-11
+- namespace의 identifier로 keyword를 사용할 수 없다. 
+- global에 선언된 type은 '::'로 global type에 접근 가능하기 때문에 namespace 내부에서 같은 identifier를 사용하여 namespace를 정의할 수 있다.
+- namespace에서 constant를 선언하려면 extern으로, class에서 type constant를 선언하려면 static const로 선언한다.
+
 2022-01-10
 - https://www.quora.com/What-is-the-difference-between-a-protocol-and-an-interface-An-interface-is-like-a-wall-plug-you-need-to-adapt-to-in-order-to-use-it-a-protocol-seems-to-be-the-same-but-using-the-word-rules-or-isnt
 	- What is the difference between a protocol and an interface? An interface is like a wall plug you need to adapt to in order to use it, a protocol seems to be the same but using the word rules, or isn't?

@@ -3,7 +3,6 @@ todo temp.txt
 # pc
 - cpp_module 진행하기
 	- Contact::truncate() 만들고 적용하기
-	- constant들을 namespace안에 넣어 정리하기
 	- c++98이 아닌 것들 있는지 확인하기
 	- include에서 무엇을 사용하고 있는 것인지 표기하기
 - 정리할 자료 파악하고 정리하기
