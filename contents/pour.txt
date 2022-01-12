@@ -1,8 +1,28 @@
 pour.txt
 
 2022-01-12
-- c++에서 정의한 class의 instance를 heap에 할당하기 위해 malloc() 등 c에서 사용하던 메모리 할당 함수를 호출하면 당연하게도 constructor가 호출되지 않는다.
+- C++에서 정의한 class의 instance를 heap에 할당하기 위해 malloc() 등 c에서 사용하던 메모리 할당 함수를 호출하면 당연하게도 constructor가 호출되지 않는다.
 - 마찬가지로 free()를 호출할 때도 destructor를 호출하지 않는다.
+- overload: 같은 identifier를 갖지만 인자가 다른, 실질적으로는 완전히 구분된 독립적인 새로운 함수를 정의할 때 overload한다고 한다.
+- https://www.geeksforgeeks.org/when-does-compiler-create-default-and-copy-constructors-in-cpp/
+	- When Does Compiler Create Default and Copy Constructors in C++?
+- constructor
+	- species
+		- default constructor
+		- copy constructor
+		- parameterized constructor
+	- If no user-defined constructor is defined, the compiler creates a default constructor.
+		- Auto created default constructor's body is empty.
+	- If no user-defined constructor is defined, the compiler creates a copy constructor.
+		- Auto created copy constructor's body is not empty.
+		- It copies all instance variables.
+- https://www.interviewsansar.com/default-member-functions-for-a-class-in-c/
+	- What default functions provided by compiler in C++?
+- default instance methods
+	- default constructor
+	- copy constructor
+	- assignment operator
+	- destructor
 
 2022-01-11
 - namespace의 identifier로 keyword를 사용할 수 없다. 
@@ -17,7 +37,7 @@ pour.txt
 	- error: taking the address of a temporary object of type 'const std::string' [-Waddress-of-temporary]
 	- identifier가 없는 temporary object는 non-lvalue이며, 주소 연산자를 사용해 주소를 알아낼 수 없다.
 	- 이 경우 형변환을 통해 identifier를 가지지 않는 temporary object가 생겨난다.
-	- 따라서 c++에는 'Type' 을 'const Type'으로 형변환하고 바로 주소를 알아내어 'Type *const' 개념의 type을 갖는 값을 얻는 것은 불가능하다.
+	- 따라서 C++에는 'Type' 을 'const Type'으로 형변환하고 바로 주소를 알아내어 'Type *const' 개념의 type을 갖는 값을 얻는 것은 불가능하다.
 	- reference를 사용하는 방법
 		- 수정이 불가능한 object type의 주소를 전달하기 위해서는 reference type을 사용할 수 있다.
 		- 입력받는 입장에서 'const Type &'을 인자로 받으면 수정 불가능한 object의 주소를 전달할 수 있다.
@@ -38,8 +58,8 @@ pour.txt
 		- 다시 말해, 'std::string::push_back(ch)'와 'std::string::push_back(ch &)'는 완전히 다른 작동을 한다.
 	- 반복문에 초기에 'std::string::clear()'를 호출하고 있어서 값이 제대로 축적되지 않았던 것이었다!
 	- 게다가 인자로 포인터 타입을 받고 있었는데 가끔은 주소값에 연산을 해서 segmentation fault도 발생했다!
-- c++의 핵심은 어떤 함수가 호출됐는지를 집요하고 정확하게 파악하는 것이다.
-	- swift는 argument label과 parameter label이라는 개념을 통해 모든 사용 가능한 함수들을 다르게 표기하는 훌륭한 방법을 사용했지만, 반면 c++는 정확히 똑같은 이름을 가진 함수 일지라도 들어가는 인자의 type에 따라 완전 다른 함수가 실행될 수 있다.
+- C++의 핵심은 어떤 함수가 호출됐는지를 집요하고 정확하게 파악하는 것이다.
+	- swift는 argument label과 parameter label이라는 개념을 통해 모든 사용 가능한 함수들을 다르게 표기하는 훌륭한 방법을 사용했지만, 반면 C++는 정확히 똑같은 이름을 가진 함수 일지라도 들어가는 인자의 type에 따라 완전 다른 함수가 실행될 수 있다.
 - 'echo > .temp; hexdump .temp'를 하니 0x0a가 나왔다.
 	- 'man ascii'로 0x0a를 찾아보면 new line을 의미하는 nl이 적혀있다.
 	- 내 cli에서 new line character를 줄바꿈으로 사용하는 것이다.
@@ -129,7 +149,7 @@ pour.txt
 - ^D 같은 control character 문자 표기법을 caret notation이라고 한다.
 - https://stackoverflow.com/questions/4103086/defining-constants-in-c
 	- 
-	- c++ 에서는 const qualifier를 붙인 idenifier는 주소를 사용하지 않으면 메모리 공간을 사용하지 않는 상수로 컴파일된다.
+	- C++ 에서는 const qualifier를 붙인 idenifier는 주소를 사용하지 않으면 메모리 공간을 사용하지 않는 상수로 컴파일된다.
 	- 반면 c에서는 const keyword를 사용해도, 값이 변하지 않는 변수로 컴파일되기 때문에 항상 메모리 공간을 차지해서, 진짜 상수를 정의하기 위해 반드시 #define이나 enum을 사용해 정의해야만 한다.
 	- 따라서 부작용이 있을 수 있고 제한된 기능을 가진 '#define'으로 상수를 정의하는 것보다 const keyword를 사용하는 것이 권장된다.
 [1] 버그를 제외한 예상치 못한 문제 없이
@@ -176,9 +196,9 @@ pour.txt
 		- 또한 implicit type conversion이 일어날 곳에 항상 explicit하게 type conversion을 명시하는 것도 좋겠다.
 			- 사실 이런 시도는 만들어 놓은 기능을 반대로 틀어막는 식이라 썩 좋은 습관은 아니다.
 	- 이제 이것의 정체가 operator method 라는 것은 알았는데 더 찾아보니 operator type 뿐만 아니라 operator!도 존재했다.
-	- 살펴보니 c++98에는 'std::istream::operator bool'이 없기 때문에 'if (std::cin)'으로는 사용할 수 없고,
+	- 살펴보니 C++98에는 'std::istream::operator bool'이 없기 때문에 'if (std::cin)'으로는 사용할 수 없고,
 	- 'std::istream::operator!'가 있기 때문에 'if (!std::cin)'으로 사용해야 한다.
-	- 그럼 c++98에서는 'if (std::cin)' 을 사용하면 type conversion 이 불가능하다는 에러가 발생할까? 아니면 c++11 의 'std::istream::operator bool'을 사용할까?
+	- 그럼 C++98에서는 'if (std::cin)' 을 사용하면 type conversion 이 불가능하다는 에러가 발생할까? 아니면 C++11 의 'std::istream::operator bool'을 사용할까?
 	- 추가적으로 if, while, for 등의 condition은 bool 타입을 기대하는데, 이 경우 condition의 결과 type 이 bool 은 아닌데 'explicit operator bool()'을 정의했을 경우, explicit 하게 type conversion 을 명시하지 않았더라도 implicit 하게 type conversion이 된다고 한다.
 	- 가장 좋은 방법은 type conversion을 정의하고 사용할 때는 반드시 type conversion 용도로만 사용하는 것이다.
 	- 그 외에 맞지 않는 행동을 하면 가독성과 직관성이 떨어지게 된다.
@@ -230,7 +250,7 @@ pour.txt
 - member function 의 가장 첫 인자로 들어가는 this 를 object argument 라고 한다.
 
 2022-01-07
-- c++ 에서 자동 형변환은 문제의 소지가 있는 나쁜 시스템인 것 같다
+- C++ 에서 자동 형변환은 문제의 소지가 있는 나쁜 시스템인 것 같다
 	- 때문에 형변환이 필요한 경우 명시해주도록 하자
 - constructor and destructor
 	- default constructor
@@ -268,7 +288,7 @@ pour.txt
 - 만약 위의 parametric constructor 를 정의했는데 default constructor 도 정의했다면, default constructor 를 호출했을 때 어떤 것을 사용해야 할지가 모호하기 때문에 'error: call to constructor of 'Object' is ambiguous' 에러가 발생한다
 - 'function()' 과 같이 인자가 없을 때 'void' 를 명시하지 않고 'function(42)' 와 같이 사용한다면 c 에서는 warning 이 떠서 compile 이 되므로 void 명시가 함수를 의도에 맞게 정의하기 위한 필수 과정이었지만 cpp 에서는 warning 이 아닌 error 가 발생하기 때문에 compile 이 진행되지 않아 void 를 생략하더라도 의도와 구현이 일치한다
 - 'Object object = Object();' 는 default constructor 호출 한 번으로 object instance 를 생성한다
-- c++ 에서도 c 와 마찬가지로 지역 변수는 자도으로 초기화하지 않는다
+- C++ 에서도 c 와 마찬가지로 지역 변수는 자도으로 초기화하지 않는다
 
 2022-01-06
 - Programming in C++
@@ -489,7 +509,7 @@ Untracked files:
 - 'file://<path>' on safari address line: open a file on safari
 - https://en.wikipedia.org/wiki/Timeline_of_programming_languages
 	- 프로그래밍 언어 타임라인
-	- 1943-1946년에 한참 ANIAC 을 위한 프로그래밍 언어를 만들다가 1972 년에는 C언어, 1977년에는 APPLE2 가 출시되면서 APPLE2 를 위한 BASIC 언어가 생기기까지 했다. 그 사이에도 다양한 언어가 치열하게 생겨났다. 1980년에는 c++ 가 만들어졌다.
+	- 1943-1946년에 한참 ANIAC 을 위한 프로그래밍 언어를 만들다가 1972 년에는 C언어, 1977년에는 APPLE2 가 출시되면서 APPLE2 를 위한 BASIC 언어가 생기기까지 했다. 그 사이에도 다양한 언어가 치열하게 생겨났다. 1980년에는 C++ 가 만들어졌다.
 
 2021-12-13
 - thread list
