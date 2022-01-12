@@ -1,11 +1,11 @@
 todo current.txt
 
-# day
-- 시작: git push
-- 끝: 기록
-
 # pc
-- cpp_module_00 진행하기
+- cpp module
+- webserv
+- inception
+- ft_container
+- ft_transcendence
 
 # book: 임시 기록(큰 의미 없음)
 	- 50/288 : The C Programming Language
