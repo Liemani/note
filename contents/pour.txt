@@ -1,28 +1,74 @@
 pour.txt
 
+2022-01-14
+- const type
+- https://www.youtube.com/watch?v=mx2HFzRvQg0
+	- title
+	- Class의 constructor를 호출하여 새로운 instance를 얻어냈을 때, c++은 Object Oriented Programming language이기 때문에 이 instance는 object이다.
+	- instance의 사전적 한글 단어는 실례, 예, 예증이다.
+		- 내 iPhone은 iPhone이라고 애플이 정의한 iPhone Class의 한 예(instance)이며 동시에 실제 하나의 iPhone(object)이다.
+		- 내 다른 iphone도 iPhone의 한 예(instance)이며 동시에 실존하는 하나의 iPhone이다.
+	- 나라는 존재는 하나의 object로 존재하지만 보는 관점에 따라 사람의 한 instance일 수도 있고, 남자의 instance일 수도 있고 한국인의 instance일 수도 있다.
+	- swift에서는 Type이라는 관점에서 새로운 object를 생성하기 때문에 instance라고 부르는 모양이다.
+		- 만약 Shape Type의 자식 Type인 Circle이 있다고 하자.
+			- 이 때 Circle Type object를 하나 만든다면 이는 Circle의 instance이며 동시에 Shape의 instance이다.
+			- object를 생성했다고 하면, 
+			- 즉, instance라는 단어를 사용하는 이유는 단순히 Circle이라는 Type으로 하나의 object를 생성했다는 의미 전달을 넘어서 이 object가 다른 어떤 Type의 instance일 수도 있지만 특히 Circle의 instance임을 강조하고 싶어서 사용한 것 같다.
+- https://en.wikipedia.org/wiki/Instance_(computer_science)
+	- Instance (computer science)
+	- instance를 생성을 instantiation이라고 한다.
+	- concrete class가 아닌 abstract class는 instantiated될 수 없다.
+- https://stackoverflow.com/questions/779091/what-does-object-reference-not-set-to-an-instance-of-an-object-mean
+	- What does "Object reference not set to an instance of an object" mean?
+	- 어떤 object가 아직 instantiated되지 않았다면 이 object는 해당 Type의 instance가 아니다.
+		- 하지만 그럼에도 불구하고 object이기는 하고 type도 Type이겠지만 Type의 instance는 아니다.
+		- 그래서 모든 instance는 object이지만 모든 object가 instance인 것은 아니라고 생각한다.
+		- object > instance
+- https://www.fluentcpp.com/2019/04/19/compiler-generated-functions-rule-of-three-and-rule-of-five/
+	- Compiler-generated Functions, Rule of Three and Rule of Five
+	- default constructor: Type(void)
+	- copy constructor: Type(const Type& type)
+	- copy assignment operator: Type& operator=(const Type& rhs)
+	- destructor: ~Type(void)
+	- If the class contains a const or address property, the compiler won't be able to come up with an copy assignment operator.
+- assignment operator: Type1& operator=(const Type2& rhs)
+- compiler가 필요에 따라 자동으로 생성해주는 default method의 내부 구현은 딱 필요에 맞게 생성한다.
+	- default constructor: super class의 default constructor와 property의 default constructor를 호출한다.
+
 2022-01-12
 - C++에서 정의한 class의 instance를 heap에 할당하기 위해 malloc() 등 c에서 사용하던 메모리 할당 함수를 호출하면 당연하게도 constructor가 호출되지 않는다.
 - 마찬가지로 free()를 호출할 때도 destructor를 호출하지 않는다.
 - overload: 같은 identifier를 갖지만 인자가 다른, 실질적으로는 완전히 구분된 독립적인 새로운 함수를 정의할 때 overload한다고 한다.
 - https://www.geeksforgeeks.org/when-does-compiler-create-default-and-copy-constructors-in-cpp/
 	- When Does Compiler Create Default and Copy Constructors in C++?
-- constructor
-	- species
-		- default constructor
-		- copy constructor
-		- parameterized constructor
-	- If no user-defined constructor is defined, the compiler creates a default constructor.
-		- Auto created default constructor's body is empty.
-	- If no user-defined constructor is defined, the compiler creates a copy constructor.
-		- Auto created copy constructor's body is not empty.
-		- It copies all instance variables.
+	- constructor
+		- species
+			- default constructor
+			- copy constructor
+			- parameterized constructor
+		- If no user-defined constructor is defined, the compiler creates a default constructor.
+			- Auto created default constructor's body is empty.
+		- If no user-defined constructor is defined, the compiler creates a copy constructor.
+			- Auto created copy constructor's body is not empty.
+			- It copies all instance variables.
 - https://www.interviewsansar.com/default-member-functions-for-a-class-in-c/
 	- What default functions provided by compiler in C++?
-- default instance methods
-	- default constructor
-	- copy constructor
-	- assignment operator
-	- destructor
+	- default instance methods
+		- default constructor
+		- copy constructor
+		- assignment operator
+		- destructor
+- error
+	- content
+		- error: no viable overloaded '='
+		- zombies[i] = Zombie(name);
+		- note: candidate function (the implicit copy assignment operator) not viable: 'this' argument has type 'const Zombie', but method is not marked const
+	- 'no viable overloaded '=''라는 문구는 overloading된 instance method 'operator=' 중에 argument Type들이 matching되는 method가 존재하지 않는다는 뜻이다.
+	- 나는 zombies를 선언할 때 const qualifier를 붙였는데, 따라서 'zombies[i] = Zombie(name)'은 'Zombie& Zombie::operator=(const Zombie& zombie) const'를 찾으려 시도할 것이다.
+	- 하지만 나는 따로 assign operator를 define하지 않았기 때문에 compiler가 자동으로 생성한 'Zombie& Zombie::operator=(const Zombie& zombie)'만 존재할 것이다.
+	- 따라서 원하는 method는 'this' argument가 'const Zombie'인데 존재하는 비슷한 함수는[1] const가 mark되어 있지 않다는 메세지가 출력된 것 같다.
+		- 그런데 왜 'this'를 'const Zombie' type으로 출력하는 것일까? 'const Zombie&' type이어야 하지 않을까?
+[1] argument type이 일치하는 함수를 찾지 못하면 const만 다른 함수를 찾아보고 이 때 발견하면 const가 빠졌다는 메세지를 출력하는 것 같다.
 
 2022-01-11
 - namespace의 identifier로 keyword를 사용할 수 없다. 

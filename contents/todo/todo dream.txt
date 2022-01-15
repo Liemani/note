@@ -128,6 +128,7 @@ todo dream.txt
 	- 이 사람들이 사회를 이루었을 때, 그 사회에서 햄버거를 도난당할 확률은 정규 분포를 띄는가?
 
 # 읽으면 좋을 책
+- 잘 그리기 금지
 - computer science hunter unix lecture notes
 - unix lecture notes
 - modern cpp

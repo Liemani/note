@@ -1,6 +1,9 @@
 todo temp.txt
 
 # pc
+- 조사
+	- default copy constructor와 default assign operator의 내부 구현
+	- defference between object and instance
 - 새로운 실험을 할 때는 기존 코드에서 하기보다는 문제와 실험을 쏙 빼서 테스트하여 나중에 쉽게 재구현 및 실험의 결과를 통해 알게된 점을 쉽게 revisit할 수 있게 하자.
 - cpp_module_01 진행하기
 	- intra 영상 시청
