@@ -1,5 +1,14 @@
 pour.txt
 
+2022-01-15
+- https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/
+	- 1.4 — Variable assignment and initialization
+	- initialization: 변수를 선언하고 초기값을 설정하는 과정을 말한다
+	- default initialization: When no initialization value is provided, this is called default initialization.
+		- In most cases, default initialization leaves a variable with an indeterminated value.
+	- copy initialization
+		- copy constructor와 유사하게 생각하면 된다.
+
 2022-01-14
 - const type
 - https://www.youtube.com/watch?v=mx2HFzRvQg0
