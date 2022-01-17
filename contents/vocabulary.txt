@@ -1,5 +1,7 @@
 vocabulary.txt
 
+ne.glect
+en.deav.or
 slur.ry
 coarse
 com.po.si.tion

@@ -1,5 +1,18 @@
 pour.txt
 
+2022-01-16
+- 협업 시 remote repository와 자주 동기화를 해주는 것이 좋다.
+	1. 내가 처리해야 할 conflict가 작아져서 해결 난이도가 낮아진다.
+	2. 내가 적용한 변경사항에 대해 협업자가 해결해야 할 conflict가 작아져서 해결 난이도가 낮아진다.
+- prettier같은 자동으로 소스의 작성 형식을 동일하게 수정해주는 프로그램을 사용하여 코드 리뷰 때 시간을 절약할 수 있다.
+- https://www.learncpp.com
+	- binary digit을 줄여 bit이다.
+- https://etherealmind.com/network-dictionary-magic-hand-wave/
+	- Network Dictionary – magic hand wave
+	- Refers to those times when a colleague says “let me fix that” and proceeds to issue a string of commands on the keyboard (thus waving hands about) and then says “there you go”.
+	- 어떤 문제를 해결하기 위해 프로그래머가 타다닥 작업하고 짠 보여주는 것을, 마법사가 마법을 사용하기 위해 어떤 동작을 하고나서 발휘되는 것에 비유한 말인 것 같다.
+	- magic hand wave는 그렇게 마법사(현상을 이해하는 사람)가 어떤 마법(관측자가 이해하지 못하는 현상)을 시전하기 위해 하는 손놀림 등을 이르는 말이다.
+
 2022-01-15
 - https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/
 	- 1.4 — Variable assignment and initialization
