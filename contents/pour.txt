@@ -1,5 +1,37 @@
 pour.txt
 
+2022-01-17
+- https://www.learncpp.com/cpp-tutorial/comments/
+	- 1.2 — Comments
+	- 저번에 그래픽 과제를 하면서 특정 함수는 복잡한 수식으로 이루어져 있어서 도대체 각 연산이 왜 필요한지 알기 어려웠었다.
+	- 그런 함수의 경우 복잡한 수식의 이유를 수식을 보면서 파악하는 것이 아니라 주석으로 설명을 했다면 좋았을 것 같다.
+	- 그리고 두 가지 선택지 중에 하나를 선택했다면 왜 그것을 선택했는지도 주석으로 남겨놓으면 좋다.
+	- "왜 저렇게 하지 않고 이렇게 한거지?"라는 의문이 들 때 그 선택을 한 이유를 쉽게 이해할 수 있다.
+	- 관점에 따른 주석 내용
+		- 함수 밖에서 주석을 달 때는 사용자를 위한 주석을 담는다.
+		- 함수 내에서 주석을 달 때는 제작자를 위한 주석를 담는다.
+	- assignment operator 중에 lhs와 rhs의 Type이 같으면 copy assignment operator라고 한다.
+	- 선언과 동시에 값을 할당하는 것을 initialization이라고 한다.
+- https://en.cppreference.com/w/cpp/language/initialization
+	- Initialization
+	- value initialization
+	- direct initialization: 선언의 identifier에 바로 괄호를 붙여 새로운 instance를 생성하는 initializer
+		- int a(5);
+	- copy initialization
+	- list initialization
+	- aggregate initialization: array나 class등을 초기화할 때 사용할 수 있는 initializer
+		- T object = { arg1, arg2, ... };
+	- reference initialization
+	- default initialization
+	- zero initialization
+- https://en.cppreference.com/w/cpp/language/lookup
+	- name lookup
+	- unqualified name lookup
+	- qualified name lookup
+		- scope resolution operator(::)
+		- identifier가 scope resoultion operator 뒤에 오는 경우 qualified name이라고 한다.
+	- argument-dependent lookup
+
 2022-01-16
 - 협업 시 remote repository와 자주 동기화를 해주는 것이 좋다.
 	1. 내가 처리해야 할 conflict가 작아져서 해결 난이도가 낮아진다.
