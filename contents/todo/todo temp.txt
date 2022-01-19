@@ -9,6 +9,7 @@ todo temp.txt
 	- intra 영상 시청
 	- subject 구현
 	- submit protocol 확인
+- excell 가계부 만들기
 - 정리할 자료 파악하고 정리하기
 	- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
 	- 이 apple note 어플, 하드 디스크, iCloud, git

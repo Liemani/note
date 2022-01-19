@@ -1,5 +1,31 @@
 pour.txt
 
+2022-01-18
+- https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/
+	- 1.4 — Variable assignment and initialization
+	- declaration과 동시에 assignment를 하면 initialization이라고 한다.
+	- default initialization: 초기값이 없는 initialization
+		- 대게 결정되지 않은 값이 들어간다.
+		- int a;
+	- copy initialization: primitive type의 경우 효율적이나 복잡한 Type에서는 비효율적일 수 있다.
+		- int a = 5;
+	- direct initialization: identifier 바로 뒤의 괄호 안의 값으로 초기화
+		- int a(5);
+	- brace initialization: 중괄호를 사용하여 여러 값을 한 번에 array 등을 초기화
+		- int a[2] { 5, 6 };	// direct brace initialization
+		- int a[2] = { 5, 6 };	// copy brace initialization
+		- int a {};				// value initialization
+		- == uniform initialization == list initialization
+		- data loss가 없는 경우에만 conversion이 일어난다고 한다.
+			- int a { 4.5 };	// error: not all double values fit into an int
+	- value initialization: 선언 시 identifier 뒤에 빈 중괄호를 붙이면 value initialization이 일어난다.
+		- 대게 0으로 값을 초기화한다.
+		- Type에 따라 다른 값으로 초기화될 수도 있다고 한다.
+		- 0으로 초기화되는 경우 zero initialization이라고 한다.
+	- zero initialization:
+		- int a {};
+	- insertion operation(<<)
+
 2022-01-17
 - https://www.learncpp.com/cpp-tutorial/comments/
 	- 1.2 — Comments
