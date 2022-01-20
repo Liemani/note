@@ -1,5 +1,47 @@
 pour.txt
 
+2022-01-19
+- buffer in vim
+	- 주기: load -> unload -> delete -> wipeout
+	- load는 buffer가 memory에 할당된 상태이다.
+		- active나 hidden 상태이다.
+	- unload는 buffer를 위해 할당한 memory를 free한다.
+		- buffer list에는 보인다.
+	- delete는 unload를 하고 buffer list에서 제거한다.
+		- unlisted 상태가 된다.
+		- :buffers!로 이렇게 unlist된 buffer도 볼 수 있다.
+		- file name과 mark를 기억하기 위해 남는다.
+	- wipeout은 delete를 하고 buffer에 대한 모든 것을 지운다.
+		- mark와 option 설정도 사라진다.
+- 여러 파일을 동시에 수정하는 명령으로 :argdo 외에 :bufdo, :tabdo, :windo 등도 있다.
+- ciw in normal mode: 커서가 위치한 단어를 삭제 후 insert mode
+- ci" in normal mode: 커서가 위치한 ""로 둘러쌓인 내용 삭제 후 insert mode
+- http://www.lirmm.fr/%7Educour/Doc-objets/ISO+IEC+14882-1998.pdf
+	- Programming languages - C++
+	- 2.5 Alternative tokens
+		- %:(#)
+		- and(&&)
+		- or(||)
+		- not(!)
+		- 이걸 활용해서 더 가독성이 좋은 코드를 작성할 수 있을 것 같다.
+- The C++ Programming Language 3rd Ed
+	- data abstraction
+	- data hiding
+	- overloading resolution
+	- abstract class
+	- multiple inheritance
+- http://www.softwarepreservation.org/projects/c_plus_plus/cfront/release_e/doc/ReferenceManual.pdf
+	- The C++ Programming Language - Reference Manual
+- ambiguous error가 발생하는 경우
+	- Type A에서 Type B로의 conversion operator를 정의하였는데, Type B에서 Type A를 인자로 받는 constructor를 정의하였을 때
+	- 어떤 overloaded function을 호출할 때, 인자가 여러 Type으로 implicit type conversion이 가능해서 한 함수를 특정하지 못할 때
+	- default constructor를 정의하였는데, 모든 인자가 default value를 가지는 parameterized constructor를 정의하였을 때
+- https://stackoverflow.com/questions/1568091/why-use-getters-and-setters-accessors
+	- Why use getters and setters/accessors?
+	- getter와 setter를 사용하면, 나중에 derived class에서 해당 property에 대한 read/write 시에 특별한 작업을 추가하기 쉽다.
+	- 언제나 해당 property에 대한 추가 작업이 필요할 때 getter와 setter를 수정하는 것으로 간단히 추가할 수 있다.
+
+
 2022-01-18
 - https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/
 	- 1.4 — Variable assignment and initialization

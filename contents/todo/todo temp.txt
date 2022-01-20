@@ -4,12 +4,12 @@ todo temp.txt
 - 조사
 	- initialization
 	- private property는 접근 권한을 instance에만 허용하는 줄 알았는데, snpark은 class에 허용하는 경우를 발견했다고 한다. 조사해보자.
+	- std::string을 바꿀 때 copy assignment operator를 사용할까 아니면 char*로 쉽게 교체하는 함수가 존재할까?
 - 새로운 실험을 할 때는 기존 코드에서 하기보다는 문제와 실험을 쏙 빼서 테스트하여 나중에 쉽게 재구현 및 실험의 결과를 통해 알게된 점을 쉽게 revisit할 수 있게 하자.
 - cpp_module_01 진행하기
 	- intra 영상 시청
 	- subject 구현
 	- submit protocol 확인
-- excell 가계부 만들기
 - 정리할 자료 파악하고 정리하기
 	- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
 	- 이 apple note 어플, 하드 디스크, iCloud, git
