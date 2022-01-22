@@ -1,5 +1,8 @@
 pour.txt
 
+2022-01-21
+- c++03부터는 value initialization이 생겼지만 c++98에서는 empty initializer의 경우 zero initialization이 됐던 모양이다.
+
 2022-01-20
 - constructor에서 member variable에게 assign operator를 사용하면 member variable의 constructor가 두 번 호출될까?
 	- default constructor도 호출되고 추가적인 constructor도 호출되고 copy assignment opertor도 호출되고 destructor도 호출된다.
