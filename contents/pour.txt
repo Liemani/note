@@ -1,5 +1,29 @@
 pour.txt
 
+2022-01-22
+- https://zhjwpku.com/assets/pdf/books/C++.Primer.Plus.6th.Edition.Oct.2011.pdf
+	- 1103p
+		- cout >> ch는 spaces를 건너뛰기 때문에 space까지 읽어 처리하기 위해서는 cout.get() 등을 이용해야 한다.
+		- get(char& ch)가 아닌 get(void)를 사용한다면 c로 porting할 때 이점이 있다.
+		- 반대로 c를 c++로 porting할 때 getchar를 get(void)로 바꾸어 쉽게 할 수 있다.
+	- 1108p
+		- getline()은 termination charaacter를 discard하고 get()은 termination character를 discard하지 않는다.
+- C++ Primer Plus 5th edition
+	- 13p
+		- procedural language
+		- structured programming
+		- base name for file, period, file name extention
+	- 44p
+		- BASIC 같은 언어에서는 선언이 따로 없이 새로운 identifier를 사용할 수 있기 때문에 오타로 인해 다른 identifier를 사용하는 경우를 debugging하기 어렵다.
+		- declaration이 따로 존재하는 것은 이런 문제를 방지한다.
+	- 72p
+		- initialization: 선언과 동시에 값을 할당
+		- 함수 안에서 변수를 초기화하지 않으면 그 변수의 값은 undefined이다.
+	- ~ 78p
+- 반환값만 다른 함수는 overloading되지 않는다.
+- cppreference.com이 설명이 더 구체적이고 좋다.
+
+
 2022-01-21
 - c++03부터는 value initialization이 생겼지만 c++98에서는 empty initializer의 경우 zero initialization이 됐던 모양이다.
 
