@@ -1,5 +1,92 @@
 pour.txt
 
+2022-01-23
+- C++ Primer Plus 5th edition
+	- 75p
+		- unsigned types의 overflow는 보장이 되지만 signed types의 overflow는 implementation defined이다.
+	- 79p
+	- decimal int의 literal constant는 int, long, unsigned long 순서로 matching되고, hexadicimal과 oxtal의 literal constant는 int, unsigied int, long, unsigned long 순서로 matching된다.
+	- 81p
+	- membership operator(.)
+	- 86p
+	- char의 기본형은 하드웨어에 따라 signed일 수도, unsigned일 수도 있다.
+	- 90p
+	- exponent: 지수부
+	- mantissa: 가수부
+	- 91p
+	- sigmificant figures: 유효 숫자
+	- 95p
+	- arithmetic types
+		- integer types
+			- bool, char, wchar_t, signed integer, unsigned integer
+			- signed integer types
+				- signed char, short, int, long
+			- unsigned integer types
+				- unsigned char, unsigned short, unsigned int, unsigned long
+		- floating-point types
+			- float, double, long double
+	- arithmetic operator
+		- addition opeerator(+)
+		- subtraction operator(-)
+		- multiplication operator(*)
+		- division operator(/)
+		- modulus operator(%)
+			- 두 operands 중 하나가 음수일 때 결과값의 sign은 implementation defined이다.
+			- 가능하면 양수만 사용하자.
+	- 97p
+	- associativity
+		- left-to-right associativity
+		- right-to-left associativity
+	- int dues = 20 * 5 + 24 * 6;
+		- 에서 associativity가 왼쪽 곱연산을 먼저 하라는 것을 의미하지는 않는다.
+		- 이 경우 implementation defined이다.
+	- 99p
+	- operator overloading
+	- 102p
+	- int 범위를 넘는 부동 소수점 상수를 int에 할당하는 것은 implementation defined이다.
+	- 110p
+	- compound type(= derived type): 다른 type을 사용하여 만든 type
+	- 113p
+	- array를 initialize하지 않으면 element value는 undefined이다.
+	- array에서 {}를 사용하여 값을 할당하는 것은 오직 initialization 시에만 가능하다.
+	- 한 array의 내용을 다른 array로 할당하는 것도 불가능하다.
+	- 전체 array의 개수보다 적은 양으로 initialize하면 남은 element는 0으로 initialize된다.
+	- array initialization에서 [] 안을 비워두면 알아서 element의 개수만큼 메모리를 할당한다.
+	- 115p
+	- char boss[8] = "Bozo";
+		- bozo\0\0\0\0가 할당된다.
+		- 아마 배열을 초기화할 때는 모든 element를 할당해야만 하는 모양이다.
+	- 123p
+	- function overloading
+	- basic_istream::getline(char_type* s, std::streamsize count)은 '\n'를 extract하기 때문에, 버퍼가 꽉 채워졌을 경우 인자로 준 count만큼이 다 차서 extract가 멈춘 것인지 아니면 '\n'를 만나서 입력이 멈춘 것인지 알 수 없다.
+	- 반면 basic_istream::get(char_type* s, std::streamsize count)는 delimiter를 extract하지 않기 때문에 다음 character를 보고 왜 멈춘 것인지 알 수 있다.
+	- 131p
+	- istream class는 string class가 추가되기 전에 C++에 포함됬다. 그래서 istream은 primitive type에 대해 작동하도록 design되었고, 따라서 string type은 제외되었다. 그래서 basic_istream::getline()의 인자는 primitive type만 인자로 받고, string type을 위한 static std::getline 함수는 friend specifier를 사용하여 cin으로부터 input을 받도록 작성되었다.
+	- 133p
+	- struct Type { char name[20]; double price; };
+		- Type instance = {"Gloria", 4.2};
+		- structure를 이런식으로 {}를 사용하여 initialization하는 것이 가능하다.
+	- 136p
+	- assignment operator는 기본적으로 shallow copy를 한다.
+		- 또한 이를 memberwise assignment라고 한다.
+	- 137p
+	- struct Type {int a, int b} instance = {4, 2};
+		- 이런식으로 struct definition과 동시에 해당 struct의 instance initialization을 할 수도 있다.
+	- struct {int a, int b} instance;
+		- 이런식으로 Type을 이름 없이 정의할 수도 있다.
+		- 하나의 instance만을 생성하는 경우 이름에 prefix를 부여하는 용도로 사용할 수 있을 것 같다. 그런데 그러면 namespace가 더 좋지 않을까?
+	- 139p
+	- bit fields in structures
+		- 이런 것은 처음 본다.
+		- C에도 이런 것이 있던가?
+	- 141p
+	- anonymous union
+		- union {int a, int* b);
+		- a = 42; b = &a;
+		- union의 instance이름을 생략하고 사용할 수 있다.
+		- 이런 사용법이 가능하다니 C에서도 가능한건가? 미쳤다.
+
+
 2022-01-22
 - https://zhjwpku.com/assets/pdf/books/C++.Primer.Plus.6th.Edition.Oct.2011.pdf
 	- 1103p
@@ -25,7 +112,7 @@ pour.txt
 
 
 2022-01-21
-- c++03부터는 value initialization이 생겼지만 c++98에서는 empty initializer의 경우 zero initialization이 됐던 모양이다.
+- c++03부터는 value initialization이 생겼지만 c++98에서는 empty initializer의 경우 zero initialization이 되었던 모양이다.
 
 2022-01-20
 - constructor에서 member variable에게 assign operator를 사용하면 member variable의 constructor가 두 번 호출될까?
@@ -274,7 +361,7 @@ pour.txt
 		- 다시 말해, 'std::string::push_back(ch)'와 'std::string::push_back(ch &)'는 완전히 다른 작동을 한다.
 	- 반복문에 초기에 'std::string::clear()'를 호출하고 있어서 값이 제대로 축적되지 않았던 것이었다!
 	- 게다가 인자로 포인터 타입을 받고 있었는데 가끔은 주소값에 연산을 해서 segmentation fault도 발생했다!
-- C++의 핵심은 어떤 함수가 호출됐는지를 집요하고 정확하게 파악하는 것이다.
+- C++의 핵심은 어떤 함수가 호출되었는지를 집요하고 정확하게 파악하는 것이다.
 	- swift는 argument label과 parameter label이라는 개념을 통해 모든 사용 가능한 함수들을 다르게 표기하는 훌륭한 방법을 사용했지만, 반면 C++는 정확히 똑같은 이름을 가진 함수 일지라도 들어가는 인자의 type에 따라 완전 다른 함수가 실행될 수 있다.
 - 'echo > .temp; hexdump .temp'를 하니 0x0a가 나왔다.
 	- 'man ascii'로 0x0a를 찾아보면 new line을 의미하는 nl이 적혀있다.
@@ -896,7 +983,7 @@ CI/CD 버튼 한번 누르면 사내 앱스토어에 배포되고 이렇게 테�
 
 2021-12-07
 - _init()을 실행하고 나면 해당 오브젝트를 바로 사용 가능하도록, 모든 property 에 적절한 값을 넣어 주도록 하자.
-- sleep()과 마찬가지로 mutex_lock()도 때가 됐다고 바로 block 이 풀리는 것이 아니라 그 짧은 순간에 다른 thread 가 먼저 lock 을 걸어버리면 기존에 기다리던 thread 가 작동하기 전에 치고 들어온 thread 가 성공적으로 lock 을 걸면서 실행된다.
+- sleep()과 마찬가지로 mutex_lock()도 때가 되었다고 바로 block 이 풀리는 것이 아니라 그 짧은 순간에 다른 thread 가 먼저 lock 을 걸어버리면 기존에 기다리던 thread 가 작동하기 전에 치고 들어온 thread 가 성공적으로 lock 을 걸면서 실행된다.
 - 정리좀 하고 살자,, 메모랑 여기 pour 에 아마 엄청 다양한 생각들이 담겨 있을 텐데, 이거 나중에 어디에 나가서 발표라도 하려고 하면, 정리를 하지 못해 평소 하고 있던 생각을 제대로 발표할 수 없을 것이다.
 - pthread_mutex 가 FIFO 가 아닌 것은 알았다. 그럼 다음으로 드는 생각이, FIFO 가 아니어도 그게 발생할 일이 thread 200 이하에서는 발생하지 않기 때문에 그냥 지나칠 것인지, 아니면 그럼에도 불구하고 정말 절묘한 타이밍에 FIFO 가 아니어서 발생하는 문제가 존재할 수 있기 때문에, 순서대로 write 하는 추가적인 처리를 하는 것이 맞을지 궁금할 수 있다.
 	- 이 경우 나라면 먼저 FIFO 가 아니어서 발생할 수 있는 문제를 떠안고 프로그램을 작성하는 것이 무척 불편한 상황이기 때문에, 이를 어떻게 해결할 수 있을까 스스로 생각해본다. 지금 내가 할 수 있는 것으로부터 이 문제를 해결할 수 있는가를 생각해본다. 그리고 불가능하다면 무엇이 더 있어야 이 문제를 해결할 수 있을지 찾아본다. 그리고 해결책이 없다면 슬랙에 질문을 올려볼 것이다. 그렇게 해서 그나마 문제를 해결할 수 있는 방법을 발견했을 때, 만약 그 해결방법이 여러 이유로 마음에 들지 않거나, 적용에 투자하는 시간에 비해 얻는 것이 적다고 판단되면 과감히 버린다. 하지만 꼭 필요하거나, 불가능을 가능으로 만들어주는 부류의 내용이라면 가능하면 해보고 지나간다.
@@ -1236,7 +1323,7 @@ return_type	function_declaration(argument_type argument_label)
 - 제품을 만든다는 것은 가능한 모든 것을 우겨넣는 것이 아니다. 핵심적인 것을 추가하고, 불필요한 것은 차단하는 것이다. UNIX 도 그런식으로 모델을 디자인하여 구현된 것이다.
 
 2021-09-27
-- 함수가 반환하는 값에 따라 함수가 에러 상태로 반환됐는지 등을 확인하는 것은 필수적인 과정이다. 그리고 내가 그 함수의 에러 여부를 어느정도 입력값 등으로 통제할 수 있는가도 제대로 파악해두는 것이 함수를 제대로 사용하는 것이다
+- 함수가 반환하는 값에 따라 함수가 에러 상태로 반환되었는지 등을 확인하는 것은 필수적인 과정이다. 그리고 내가 그 함수의 에러 여부를 어느정도 입력값 등으로 통제할 수 있는가도 제대로 파악해두는 것이 함수를 제대로 사용하는 것이다
 - 'Liemani/cLibrary' 에서 'general class' 를 구현하기 위해 'kernel class' 를 구현했었는데, 따라서 'kernel class' 는 'general class' 의 기능을 사용하는 것이 아니라 그 골격을 구성하는 구조로 만들었다.
 	- 마찬가지로 os 의 page 관리 시스템이 메모리 할당을 담당할텐데, 자기 자신의 메모리 할당에 대해서는 generic 한 함수를 사용하지 않을 것 같다	- 이런식으로 우리는 단순히 malloc() 이라는 함수를 사용할 때, 사실 이 함수가 제대로 작동하기 위해서는 시스템이 그 기반을 마련해주기 때문에 가능한 것이다
 - 프로그램 곳곳에서 magic number 를 마치 약속된 고정 수 인것처럼 사용하는 것이 아니라 define 등으로 상수를 선언하여 사용하는 것이 좋다
@@ -2012,7 +2099,7 @@ docker 를 run (또는 start) 할 때 실행한 명령이 종료되면 다른 �
 - array 만 heap 에 할당하고 그 외에 정적 크기를 갖는 list, queue 등은 stack 에 할당할까 생각해 보았는데, 매번 새로운 스택에서 list 와 queue 와 array 의 주소 값을 연결해줘야하는 overhead 가 존재해서, 그냥 heap 에 다 할당하는 것이 좋을 것 같다 (한 번 만들면 프로그램이 끝날 때까지 해제 없이 사용하기 때문에)
 - 다음 프로젝트는 generic 한 구조로 진행해보자. 우선 성능을 신경쓰지 않고 작성한 후, 문제가 된다면 시간 복잡도가 가장 복잡한 곳부터 수정하는 방식이다
 - 아무 값도 넣지 않아도 기본적으로 작동하도록 만들자
-  - 직접 값을 설정하도록 만들고, 딱 한 번만 값을 쓰도록 여러 함수에 나눠놓았더니, 어떤 값이 설정됐는지 안됐는지 확인하기가 무척 어려웠다
+  - 직접 값을 설정하도록 만들고, 딱 한 번만 값을 쓰도록 여러 함수에 나눠놓았더니, 어떤 값이 설정됬는지 안됬는지 확인하기가 무척 어려웠다
 - count 의 증가는 앞에서, 혹은 뒤에서?
   - while 에서 자연스럽게 1 씩 증가하는 경우 convention 적으로 뒤에 배치하도록 하자
   - 그 외에는 우선 loop 안에 count 의 증감식을 작성하고, 다른 내부 표현식들의 위치를 결정하자

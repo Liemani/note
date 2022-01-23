@@ -1,5 +1,7 @@
 vocabulary.txt
 
+vi.tal
+in.cor.po.rate
 en.deav.or
 slur.ry
 coarse
