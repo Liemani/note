@@ -1,5 +1,88 @@
 pour.txt
 
+2022-01-25
+- C++ Primer Plus 5ed
+	- 207p
+	- C-style string과 달리 string class instance는 string의 끝에 '\0'이 없다.
+		- 하긴 끝에 '\0'을 넣는 C-style string은 간단히 첫 문자의 주소를 주고 받음으로써 string 전체를 인식하기 위해 끝을 표시했지만 필요한 모든 data를 가지는 string class의 경우 끝을 표시하지 않아도 되는 것이다.
+		- 만약 그럼에도 불구하고 끝에 '\0'을 넣고 싶다면 그 때는 string class가 독립된 단일 class로서의 최적화보다 C-style string과의 compatibility를 우선시 할 때일 것이다.
+	- 208p
+	- for statement의 test expression을 비우면 true로 evaluated된다.
+	- 'for' statement와 'while' statement는 서로 전환이 가능하지만 'continue;' statement가 사용될 경우 좀 복잡해진다.
+	- 일반적으로 loop count가 명확할 때는 'for' statement를, 그렇지 않을 때는 'while' statement를 사용하곤 한다.
+	- 209p
+	- clock() in <ctime>
+	- 211p
+	- #define vs typedef
+		- #define TypeB	TypeA*
+		- typedef TypeA*	TypeB
+		- 위의 두가지 방식이 가능할텐데 'TypeB typeA, typeB;'라는 선언 시 define을 사용한 경우 'TypeA* typeA, typeB;'가 되어 typeA는 'TypeB*' type으로 선언되는 반면 typeB는 'TypeB' type으로 선언되는 문제가 있다.
+		- 하지만 typedef로 TypeB를 alias한 경우 이런 문제가 없다.
+		- compiler가 제공하는 기능이 존재하면 굳이 define을 사용하지 않고 compiler의 기능을 사용하는 것이 좋다.
+		- 그래야 다양한 예외 상황에서 내 의도에 맞는 실행을 보장할 수 있다.
+	- 212p
+	- 'do while' statment는 exit-condition loop이다.
+	- 214p
+	- sentinel character: a character indicating when to stop
+	- 217p
+	- 만약 cin이 EOF signal을 받으면 eofbit와 failbit을 1로 set한다.
+	- basic_istream::eof()는 eofbit를 return한다.
+	- basic_istream::fail()은 eofbit | failbit를 return한다.
+		- 엄밀히 말하면 basic_istream::fail()은 failbit를 return하지만, 대부분의 경우 eofbit가 set될 때 failbit도 set되는 것이다.
+		- 참고: https://en.cppreference.com/w/cpp/io/ios_base/iostate
+	- 218p
+	- basic_istream::eof()와 basic_istream::fail()은 다음 호출 시 일어날 일을 반환하는 것이 아니라 바로 이전에 호출했을 때 발생한 일을 반환한다.
+	- 220p
+	- c에서 'int putchar(int)'는 argument로 int type을 받지만 c++에서 'ostream& std::ostream::put(char ch)'는 argument로 char type을 받는다.
+	- https://jike.in/?qa=1136832/c-why-argument-type-of-putchar-fputc-and-putc-is-not-char
+		- c - Why argument type of `putchar()`, `fputc()` and `putc()` is not `char`?
+		- 이 글에 의하면 과거에는 argument로 char을 받을 때는 기본 정수 자료형인 int를 사용했었는데, putchar()은 그것이 남은 거라고 한다.
+	- 상수 EOF는 iostream에 정의되어 있다.
+	- 221p
+	- EOF는 어떤 문자를 표현하지 않는다.
+	- 대신 EOF는 더 이상 문자가 없다는 것을 의미하는 signal이다.
+	- 즉 'int std::istream::get()'의 return value는 어떤 문자 또는 signal이다.
+	- 'int std::istream::get()'이 반환하는 EOF는 int type의 음수이기 때문에 이를 char type에 담으려고 시도하면 unsigned char을 default로 하는 하드웨어에서는 저장된 값이 EOF와 달라질 수 있다.
+	- (int)(unsigned char)EOF == 255 != EOF == -1
+	- 따라서 반드시 int type 변수로 값을 저장하도록 해야한다.
+	- 다만 이 경우 'std::ostream::put()'이 overloaded일 경우 argument를 int type으로 받는 prototype이 있을 수 있기 때문에 char type으로 explicit type conversion을 해주어야만 한다.
+	- 222p
+	- subexpression: 특히 expression 안에 포함된 expression을 지칭할 때
+	- 반면 'istream& istream::get(char& ch)'는 argument로 받는 ch에 EOF를 저장하지 않기 때문에 ch에 저장될 수 있는 값은 온전히 어떤 문자 값이다.
+	- 227p
+	- string의 array를 만들 때,
+		- 내용을 바꾸지 않을 것이라면 'char* []'으로 선언한다.
+		- 내용들의 길이가 고만고만하고 살짝 바꾸고 싶다면 'char [][]'으로 선언한다.
+		- 자유자재로 변경하기를 원한다면 'std::string []'으로 선언한다.
+		- 바꾸지는 않을 생각이지만 std:: string의 이점을 이용하고 싶다면 'const std::string []'으로 선언한다.
+- cppModule01
+	- std::ifstream	ifs = std::ifstream(name, std::ifstream::in);
+	- 위의 코드는 implicit copy constructor를 중심으로 하는 error를 발생시킨다.
+	- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/streambuf:492:64: error: base class 'std::__1::ios_base' has private copy constructor
+	- 대충 private으로 선언된 copy constructor를 implicit하게 호출하려 시도하는 것에 대해 error를 출력하는 것이다.
+	- 나는 원래 위와 같은 코드의 경우 copy constructor가 아니라 단순히 std::ifstream의 parameterized constructor 중 하나가 호출될 거라고 생각했다.
+	- 일단 실제로는 parameterized constructor가 아닌 copy constructor를 호출하려 시도했기 때문에 왜 그런가 천천히 알아보기 위해 error가 출력하고 있는 파일의 해당 위치로 가보았다. 
+```
+488 #ifndef _LIBCPP_DO_NOT_ASSUME_STREAMS_EXPLICIT_INSTANTIATION_IN_DYLIB
+489 _LIBCPP_EXTERN_TEMPLATE(class _LIBCPP_EXTERN_TEMPLATE_TYPE_VIS basic_streambuf<char>)
+490 _LIBCPP_EXTERN_TEMPLATE(class _LIBCPP_EXTERN_TEMPLATE_TYPE_VIS basic_streambuf<wchar_t>)
+491 
+492 _LIBCPP_EXTERN_TEMPLATE(class _LIBCPP_EXTERN_TEMPLATE_TYPE_VIS basic_ios<char>)
+493 _LIBCPP_EXTERN_TEMPLATE(class _LIBCPP_EXTERN_TEMPLATE_TYPE_VIS basic_ios<wchar_t>)
+494 #endif
+```
+	- 뭔지는 몰라도 EXTERN이라는 글자가 눈에 보인다.
+	- 그리고 이 코드가 추가되는 조건을 ifndef가 친절하게 설명해주고 있다.
+	- 'dylib에서 stream이 instantiation을 explicit하게 가정하지 말것'이 정의되어 있지 않을 경우에 해당 라인을 추가한다.
+	- 즉, explicit이라 가정하도록 하는 것이 해당 라인의 역할이라는 얘기다.
+	- 그런데 내가 작성한 코드는 implicit하니 error로 인식한 것이다.
+	- 그럼 initialization으로 instance를 초기화하는 것을 불가능하도록 강제하는 explicit instantiation이 무엇인지 알아보자.
+	- https://leimao.github.io/blog/CPP-Explicit-Constructor/
+		- C++ Explicit Constructor
+	- https://en.cppreference.com/w/cpp/language/explicit
+		- explicit specifier
+
+
 2022-01-24
 - C++ Primer Plus 5ed
 	- 141p
