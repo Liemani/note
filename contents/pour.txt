@@ -1,5 +1,46 @@
 pour.txt
 
+2022-01-26
+- stack segment를 큰 주소에서 작은 주소로 키워나가는 것의 장점 중 하나는, 어떤 변수가 할당된 공간을 넘은 공간에 값을 write할 때, 실행에 치명적인 공간이 corruption될 확률이 높아지기 때문에 corruption 시 crash를 유도하여 문제를 인식할 수 있다는 점이다.
+- i_CTRL-G_[jk] in vim: [위, 아래] 줄의 입력을 시작한 column으로 jump
+- i_CTRL-G_u in vim: undo element를 redefine하기 시작한다.
+- i_CTRL-G_U [<LEFT><RIGHT>]in vim: undo element를 redefine하지 않고 [<LEFT>, <RIGHT>]를 한다.
+- i_CTRL-O <command> in vim: command를 하나 실행하고 다시 insert mode로 돌아온다.
+- i_CTRL-\_CTRL-O <command> in vim: i_CTRL-O와 같지만 eol에 있을 때 전 column으로 cursor를 옮기지는 않는다.
+- v_b_[IAcC<>r] in vim: 각 줄의 range마다 해당 command를 적용한다.
+- i_CTRL-V <number> in vim: 문자를 number로 입력할 수 있다.
+- i_CTRL-R <register> in vim: register에 있는 데이터를 typing한다.
+- i_CTRL-R_CTRL-R <register> in vim: register에 있는 데이터를 literally insert한다.
+- i_CTRL-K <char1> <char2> in vim: digraph를 insert한다.
+- C++ Primer Plus 5ed
+	- 238p
+	- ; , || &&는 모두 sequence point이다.
+	- 241p
+	- 입력받은 값이 valid한지 판단할 필요가 있는 경우 우선 임시 변수에 값을 입력받은 후 valid한 경우에만 실제 변수에 저장하는 방식이 멋있다.
+	- 245p
+	- 수를 입력받을 때 결국 저장할 데이터는 int type인데도 불구하고 double type으로 입력받는다.
+	- 난 long type으로 입력받을 줄 알았는데, double type으로 입력받음으로써 long type이상으로 큰 수도 처리할 수 있게 된다.
+	- INT_MAX와 INT_MIN은 <climits>에 정의되어 있다.
+	- 처음부터 입력받을 때 입력값의 range를 명시하는 것이 아니라, user가 잘못된 입력을 했을 때 valid range를 출력하는 ui가 세련된 것 같다.
+	- 247p
+	- alternative representation은 keyword는 아니지만 reserved word이다.
+	- C++에서는 특별한 header file을 include하지 않아도 alternative representation을 사용할 수 있지만,
+	- C에서는 alternative representation을 사용하기 위해서는 iso646.h 파일을 include해야 한다.
+	- <cctype>에는 isalpha(ch), ispunct(ch)등 data를 다양한 기준으로 분류한 값을 반환하는 함수들이 존재한다.
+	- 248p
+	- 어떤 statements를 함수화하는 것은 그 기능을 추상화하여 사용하는 것이다.
+		- 마치 constant를 정의하면 한 constant를 추상화하여 사용하는 것이기 때문에, 그 constant하나를 수정하여 코드 전역에 영향을 미치는 것처럼, statements를 함수로 추상화시켜 사용하면 그 추상화된 함수 하나를 수정하는 것으로 코드 전역에 영향을 미칠 수 있다.
+		- constant와 function의 가장 중요한 기능이 바로 이 추상화를 통해 코드 전역으로 영향 미칠 수 있다는 점인 것 같다.
+	- 250p
+	- conditional operator(?:)
+	- 251p
+	- switch statement의 case의 label은 integer constant expression이다.
+	- case label에 문자 등 의미있는 expression을 작성하기 어렵다면 enumerator를 사용할 수도 있다.
+	- 만약 integer-expression이 어떠한 label과도 match하지 않는다면 line labeled default로 jump하고, 만약 line labeled default가 없다면 switch statement가 끝나고 이어 나오는 statement로 jump한다.
+	- 256p
+	- 분기가 3개 이상이고 switch statement를 사용할 수 있는 상황이라면 일반적으로 if statement보다 switch statement를 사용한다.
+- 구체적인 자료 수집 > 공통점을 추려내어 추상화 > 작동하는 프로그램 구현
+
 2022-01-25
 - C++ Primer Plus 5ed
 	- 207p
