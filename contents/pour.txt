@@ -1,5 +1,37 @@
 pour.txt
 
+2022-01-27
+- ipad를 sidecar로 연결할 때 같은 wi-fi에 연결되어 있을 필요는 없다.
+- C++ Primer Plus 5ed
+	- 258p
+	- if 안에서 break나 continue를 사용할 경우 else를 사용하지 않아도 된다.
+		- 이 if statement의 test condition이 true인 경우 loop를 빠져나오거나 다음 loop를 진행할 것이고, false인 경우 if statement의 다음 statement가 실행될 것이기 때문에 else가 필요가 없다.
+	- 261p
+	- 함수는 기본기를 익혀두고 잔기술은 필요할 때마다 익히는 것이 좋은 것 같다.
+	- 입력을 처리할 때는 기본적으로 'cin.get()'을 사용하고, 복잡한 작업을 쉽게 처리할 수 있는 경우 해당 함수를 사용하는 식으로 구현해 나가는 것이 좋은 것 같다.
+	- 263p
+	- consol I/O
+	- file I/O
+	- 264p
+	- cin은 stdard input을 text file format이라고 가정하고 입력을 parsing한다.
+	- 265p
+	- cin: console input
+	- cout: console output
+	- 268p
+	- std::ofstream의 default mode는 파일의 크기를 0으로 truncate한다고 한다.
+	- 파일이 이미 존재하는데 open()을 시도할 경우 파일의 권한에 따라 실패할 수 있다.
+	- 269p
+	- std::ifstream이 default mode로 존재하지 않는 파일을 open()하려고 시도하면 실패할 수 있다.
+	- 270p
+	- cstdlib에는 exit()의 prototype과 EXIT_FAILURE의 define이 있다.
+- https://stackoverflow.com/questions/146452/what-are-pod-types-in-c
+	- What are POD types in C++?
+	- POD(Plain Old Data)
+	- POD is a user-defined Type.
+	- POD has no user-defined destructor, no user-defined copy assignment operator, and no nonstatic members of pointer-to-member ype.
+	- 272p
+	- ifstream::open()을 호출할 때, 존재하지 않는 파일을 인자로 넣어주는 것 뿐만 아니라, 권한이 없어서 deny되면서 실패할 수도 있다.
+
 2022-01-26
 - stack segment를 큰 주소에서 작은 주소로 키워나가는 것의 장점 중 하나는, 어떤 변수가 할당된 공간을 넘은 공간에 값을 write할 때, 실행에 치명적인 공간이 corruption될 확률이 높아지기 때문에 corruption 시 crash를 유도하여 문제를 인식할 수 있다는 점이다.
 - i_CTRL-G_[jk] in vim: [위, 아래] 줄의 입력을 시작한 column으로 jump

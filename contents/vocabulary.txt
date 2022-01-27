@@ -1,5 +1,6 @@
 vocabulary.txt
 
+des.ig.nate
 vi.tal
 in.cor.po.rate
 en.deav.or
