@@ -1,5 +1,66 @@
 pour.txt
 
+2022-02-05
+- C++ Primer Plus 5ed
+	- 330p
+	- pointer to function인 pf는 (*pf)()로도 호출할 수 있다.
+	- 340p
+	- https://wikidiff.com/alias/nickname
+		- Nickname vs Alias - What's the difference?
+	- nickname은 별칭인 것이 공공연한 가명이고, alias는 실제 이름과 마찬가지의 권위를 지니는 가명이다.
+	- 342p
+	- standpoint, aspect, perspect, point of view
+		- https://wikidiff.com/aspect/standpoint
+			- Standpoint vs Aspect - What's the difference?
+		- standpoint는 point of view를 의미한다.
+		- aspect는 겉보기 모습의 뜻을 가진다. 측면이라는 뜻도 있다. direction을 가진다.
+		- perspective는 전망이라는 뜻이다. '멀리 내다보기' 같은 느낌이다.
+	- 'Type&' type은 마치 'Type* const' type처럼 처음 한 번 초기화 후 alias 대상을 변경할 수 없다.
+	- 344p
+	- interface와 implementation을 구분지어 설명하도록 노력하자.
+	- "call by value가 실제 값을 복사하여 사용하는 반면 call by reference는 인자에 직접 접근하여 사용한다"라는 문장은 마음에 들지 않는다.
+		- 이는 interface를 설명한 것인데, interface인지 implementation인지 설명을 해주지 않으면 implementation으로 생각할 수 있다.
+		- 실제로 내가 이 설명을 implementation으로 생각하고 "응? 그러면 reference type의 인자는 값을 그대로 사용하니까 포인터보다 더 가볍겠네?"라는 어리석은 생각을 갖게 되었다.
+		- 하지만 이 설명은 implementation이 아니고 interface이기 때문에, 실제 implementation은 pointer와 완전 동일할 수도 있다는 것이 중요하다.
+	- 349p
+	- temporary variable
+		- 'x + 3.0'이라는 expression을 평가한 값을 지니는 개념의 변수를 (nameless | unnamed | anonymous) temporary variable이라고 한다.
+	- reference type을 인자로 받는 함수에 인자로 variable이 아닌 expression을 pass할 때 c++는 temporary variable을 생성할 수 있다.
+	- 단, const reference type을 인자로 받는 함수에 한해서 temporary variable을 생성한다.
+	- 이렇게 생성된 temporary variable은 stack에 존재할 것이기 때문에 값을 바꾼다고 해도 다른 곳에 저장하지 않으면 사라진다.
+	- 따라서
+		1. 다른 곳에 저장하지 않을 것이라면 값을 바꾸는 것이 의미가 없다.
+		2. 다른 곳에 저장할 것이라면 저장하고 그것을 바꾸면 된다.
+	- 따라서 temporary variable은 값을 수정할 필요가 없다.
+	- 하지만 그렇다고 해도 const qualifier가 붙지 않는 type을 인자로 받는 함수의 인자로 사용되지 못할 이유는 무엇일까? 
+	- lvalue와 rvalue를 생각해보자.
+	- temporary variable은 명백한 rvalue이다.
+	- rvalue의 다양한 형태를 생각해 보자(데이터 수집): 'var + 1'(operator expression), 'function()'(function return)
+	- 이런 rvalue들은 반드시 특정 메모리 공간을 할당받는 것이 보장되지 않는다.
+	- 단지 register에서 load, store를 사용하는 것만으로 rvalue를 처리하는데 충분할 때도 있을 것이다.
+	- 따라서 rvalue라는 interface를 정의할 때 const type으로 강제하자고 해도 납득이 간다.
+	- 게다가 rvalue의 interface를 const type으로 강제하더라도 code를 작성할 때 추가적으로 문제가 생기는 것도 아니다.
+	- 추가적으로 temporary variable을 값을 바꾸지 않도록 제한함으로써, 실수로 non-const type의 인자를 받는 함수의 인자로 전달할 때 error를 발생시켜서 빨리 문제를 파악할 수 있는 이점을 얻는다.
+	- 351p
+	- const keyword는 프로그램의 작동에 차이를 만들지는 않는다.
+	- 하지만 값을 쓰지 않는 공간이라는 개념을 표현함으로써, 실수로 값을 update했을 때 이를 인지하고 error 메세지를 출력하도록 할 수 있다.
+- array[index] = 0
+	- 이 표현을 assembly에서 하나의 instruction으로 처리한다.(array와 &index를 x9와 x10에 저장하는 instruction 제외)
+	- str w8, [x9, x10, lsl #2]
+		- w8도 굳이 'mov w8, #0'을 하던데 왜 wzr를 사용하지 않은 것인지는 모르겠다.
+- index가 0부터 n이 될 때까지 loop하면서 array의 값에 접근해야 하는 경우 array[index]가 body에서 2~3번 이상 호출된다면 아래와 같은 방식이 가장 좋은 것 같다.
+```
+int	index = 0;
+Type*	element = array;
+while (index < n) {
+	//	body
+
+	element += 1;
+	index += 1;
+}
+```
+- local variable은 stack의 마지막 위치에 생성되는데, sp는 0x10 단위로 감소하기 때문에 변수를 위한 공간이 딱 맞아떨어지지 않으면 남는 공간이 생기는데, 이 때 sp가 가리키게 되는 stack의 마지막 공간(가장 작은 주소)이 사용되지 않고 남는다.
+
 2022-02-04
 - minishell project를 AST를 사용하려고 시도하는 분이 계시던데, minishell의 경우 특정 syntax가 여럿 존재하는 것이 아니라 AST로 구현하는 것은 적합하지 않다고 생각한다.
 - 'adrp xn k' in assembly: 특정 주소부터 0x1000 * k 만큼 더한 주소값을 xn에 저장한다.
