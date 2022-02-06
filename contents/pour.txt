@@ -1,5 +1,84 @@
 pour.txt
 
+2022-02-06
+- C++ Primer Plus 5ed
+	- 352p
+```
+sysop	copycat;
+copycat = (const sysop&)looper;
+copycat.used = 42;
+```
+	- 위 코드가 error나 warning 없이 잘 컴파일되고 실행되네?
+	- 왜 const type으로 형변환해서 non-const type에 넣어줬는데도 불구하고 error가 발생하지 않는거지?
+	- 왜 'sysop&	copycat = looper'와 같이 받지 않고 'copycat = (const sysop&)looper'와 같이 할당해도 alias로 동작하는 거지?
+		- 아하, 이 때 copycat은 looper의 alias가 아니라 looper를 copy한 것이구나!
+	- const reference type을 인자로 받은 경우 그 object를 non-const reference type으로 return하는 것은 어떨까?
+		- 이 경우 const qualifier는 해당 함수 내에서 해당 인자를 수정하지 않겠다는 의미를 지닌다.
+		- 반환값에 추가적인 method를 concatenate할 수 있다는 장점이 있다.
+		- 하지만 const type을 인자로 넣었을 경우 non-const type을 인자로 받는 method를 concatenate할 수 있다는 치명적인 부작용이 존재한다.
+		- 즉, const는 한 번 더 진화할 필요가 있다.
+		- const type이 들어오면 const type을 반환하고, non-const type이 들어오면 non-const type을 반환하도록!
+	- 355p
+	- 만약 c++에서 이런 method call chain을 의도한 것이 아니라면, 이는 의도된 interface들의 side effect이며, 그런 side effect는 직접적으로 의도된 것이 아닌 경우 작동이 보장되지 않을 수도 있고, 작동을 명확하게 이해하기 힘들게 될 수 있다.
+		- 따라서 가능하면 작동이 보장되지 않는 side effect를 사용한 기능 구현은 피하여 명확한 코드 작성을 추구하자.
+	- 357p
+	- conversion from TypeA to TypeB이 존재하는지는 2 부분을 확인한다.
+		1. TypeA가 지원하는가?
+			TypeA가 TypeB를 인자로 받는 constructor가 존재하는지 확인할 것이다.
+		2. TypeB가 지원하는가?
+			TypeA로의 type conversion operator가 존재하는지 확인할 것이다.
+		- 만약 둘 다 지원하는 경우에는 compiler가 ambigous conversion error를 출력할 것이다.
+	- 358p
+	- derived class
+	- base class reference can refer to a derived class instance without requiring a type cast.
+	- 359p
+	- EXIT_FAILURE
+	- 362p
+	- callee에서 primitive type인 caller의 variable을 수정하기 위해서는 pointer type으로 전달받는 것이 좋다.
+		- 단순 값을 복사하여 전달하는 것이 아니라 구체적으로 주소를 전달한다는 의도를 명백하게 서술할 수 있다.
+	- 363p
+	- 꼭 method가 아니더라도, 일반 함수도 default argument를 설정할 수 있다.
+	- 365p
+	- 함수에 추가적인 guard를 두게 되면
+		1. 프로그램의 크기가 커진다.
+		2. 프로세스의 처리 시간이 길어진다.
+		3. 추가적인 dependency가 생길 수 있다.
+	- c 프로그래머는 guard를 두기 보다는 사용자가 함수를 올바르게 사용하도록 두는 경향이 있다.
+	- 반면 c++는 안정성에 무게를 둔다.
+	- 빠르게 작동하지만 잘못된 동작을 하는 프로그램보다, 천천히 작동하더라도 제대로된 동작을 하는 프로그램이 더 낫기 때문이다.
+	- function polymorphism is also called function overloading.
+	- function's argument list of function overloading is also called function signature.
+	- 366p
+	- 함수 호출 시 function signature가 일치하는 prototype을 발견하지 못하는 경우 type conversion을 하여 일치시킬 수 있는 prototype을 찾기 시작하는데, 이 때 이렇게 찾은 prototype이 여러개인 경우 compiler가 ambiguous error를 출력한다.
+	- reference to a type과 type itself는 같은 signature로 판단한다.
+	- argument type에 const qualifier 유무도 다른 function signature로 판단한다.
+	- return type은 function signature에 포함되지 않는다.
+		- 따라서 return type만 다른 경우 function overloading이 불가능하다.
+	- 370p
+	- name decoration(= name mangling)
+	- function templates let you program in terms of a geniric type instead of  a specific type
+	- generic programming
+	- parameterized type
+	- 371p
+	- template에서 class keyword 대신 typename keyword를 사용할 수 있다.
+	- 373p
+	- template 기능을 사용하면 기능이 적용된 함수를 호출할 때마다 실제 사용된 type을 위한 함수를 생성한다고 하는데, 그러지 말고 대신 특정 register에 type의 크기를 담고 함수를 실행하여 동적 size를 사용하면 실행할 함수를 하나만 생성해도 되지 않을까?
+	- 하지만 c++의 template 기능은 단순히 Type의 size를 치환하는 것을 넘어 Type의 operator를 호출할 때 호출할 함수도 Type이 달라질 때마다 달라질 것 같다.
+	- 376p
+	- explicit specialization
+	- override: 덮어쓰기(overload는 과적)
+	- template, specialization, non-template
+	- specialization function은 template을 override하고, non-template function은 둘 다를 override한다.
+```
+template <typename T>
+void	swap(T& lhs, T&rhs);
+
+template <> void	swap<Type>(Type& lhs, Type& rhs);
+//	== template <> void	swap(Type& lhs, Type& rhs);
+
+void	swap(Type& lhs, Type& rhs);
+```
+
 2022-02-05
 - C++ Primer Plus 5ed
 	- 330p
