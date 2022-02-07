@@ -1,5 +1,80 @@
 pour.txt
 
+2022-02-07
+- C++ Primer Plus 5ed
+	- 378p
+	- template function을 override하기 위해 non-template function을 사용하면 되는데 굳이 explicit specialization function을 사용하는 이점이 무엇일까?
+	- swift의 generic function은 특정 조건을 만족하는 Type을 위해 mece하게 정의한다.
+	- 반면 c++의 template은 조건 없이 모든 Type에 대해 함수를 정의한다.
+	- 그래서 swift는 추가적인 syntax인 specialization등이 필요 없이 필요에 따라 generic function을 더 구현하면 된다.(수평적 구성)
+	- 하지만 c++는 specialization이라는 추가적인 syntax를 만들어서 특정 Type을 위한 특별한 함수 호출을 가능하게 하였다.(수직적 구성)
+	- 380p
+	- template으로부터 생성된 특정 Type을 정의하는 함수를 an instantiation of the template이라고 한다.
+	- Compiler generates an instantiation of template function.
+	- implicit instantiation
+	- explicit instantiation
+```
+template
+void	swap<Type>(Type& lhs, Type& rhs);
+```
+	- 해당 prototype을 구현할 때 swap template을 사용한다는 의미이다.
+	- 381p
+	- explicit specialization
+```
+template <>
+void	swap<Type>(Type& lhs, Type& rhs);
+
+template <>
+void	swap(Type& lhs, Type& rhs);
+```
+	- 381p
+	- implicit instantiation, explic instantiation, explicit specialization은 모두 specialization에 포함된다.
+	- 382p
+	- overload resolution: best viable function을 찾아가는 과정
+		1. 이름이 같은 함수들의 list를 만든다.
+		2. viable function list를 만든다.
+			- viable function: signature가 일치하거나, implicit type conversion을 했을 때 일치하도록 만들 수 있는 함수
+		3. best viable function을 결정한다.
+			- best viable precedence
+			1. template이 아닌 정확한 일치
+			2. conversion by promotion(char, short를 int로, float을 double로)
+			3. conversion by standard conversion(int를 char나 long이나 double로)
+			4. user-defined conversion
+	- 383p
+	- c++는 exact match를 결정하기 위해 trivial conversion을 한다.
+		- trivial conversion
+			- Type <-> Type&
+			- Type[] -> * Type
+			- Type (argument-list) -> Type (*) (argument-list)
+			- Type -> const Type
+			- Type -> volatile Type
+			- Type* -> const Type*
+			- Type* -> volatile Type*
+		- 단, exact match에서도 non-value type에 대해 non-const type이 const type보다 more viable이다.
+		- 그리고 template function보다 non-template function이 more viable이다.
+		- more specialized template이 more viable이다.
+	- 385p
+	- most specialized
+		- most specialized는 explicit specialization을 의미하는 것이 아니다.
+		- compiler가 overload resolution 중에 viable function list에서 best viable function을 결정하기 위해 template들의 viable 정도를 비교하는 과정에서 적용할 template type을 추론하는 과정에서 가장 적은 type conversion을 요구하는 것을 most specialized라고 한다.
+```
+template <typename T> void	myFunc(T t);
+template <typename T> void	myFunc(T* t);
+
+Type	type;
+myFunc(&type);
+```
+		- 이 경우 viable function pool에 2개의 function prototype이 발견되어 포함될 것이다.
+			- void	myFunc<Type*>(T* t)
+			- void	myFunc<Type>(T* t)
+		- compiler는 이 둘 중에 'void	myFunc<Type>(T* t)'가 more specialized라고 판단한다.
+			- 어떤 Type을 추가적인 conversion 없이 template의 T에 그대로 적용할 수 있기 때문이다.
+	- partial ordering rule: function template들 중에 most specialized function template을 결정하는 rule
+	- 388p
+	- more viable of multiple argument function
+		- 인자가 여러개인 함수간에 more viable이라고 하기 위해서는, 한 쪽이 다른 쪽에 비해 모든 인자에서 일치하는 정도가 부족하지 않은 채로, 최소 하나의 인자가 더 일치해야 한다.
+- gv in vim normal mode: reselect previous selected range
+
 2022-02-06
 - C++ Primer Plus 5ed
 	- 352p
