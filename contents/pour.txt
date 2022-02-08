@@ -1,5 +1,92 @@
 pour.txt
 
+2022-02-08
+- C++ Primer Plus 5ed
+	- 395p
+	- template declaration은 compiler의 instruction이라고 볼 수 있다.
+	- current working directory
+	- 398p
+	- translation unit: compiler의 번역 대상(흔히 file이 이에 속한다)
+	- 399p
+	- 서로 다른 두 compiler는 한 함수에 대해 다른 name decoration을 생성할 수도 있다.
+		- 따라서 서로 다른 두 compiler가 생성한 두 object file은 정상적으로 link되지 않을 수도 있다.
+	- automatic storage duration
+	- static storage duration
+	- dynamic storage duration
+	- scope: how widely is a name visible in translating unit
+	- external linkage: A name with external linkage can be shared across translation units.
+	- internal linkage: A name with internal linkage can be shared by functions within a single translation unit.
+	- Names of automatic variable have no linkage.
+	- local scope(= block scope)
+	- global scope(= file scope)
+	- 400p
+	- function prototype scope
+	- class scope
+	- namespace scope
+	- global scope is a special case of namespace scope.
+	- A function can't have local scope.
+	- local variable이 정의된 block이 실행될 때 local variable이 할당되지만 scope는 선언 후에서야 시작된다.
+	- The new definition hides the prior definition.
+	- 405p
+	- register variable
+		- local variable declaration 앞에 register qualifier를 쓰면 "이 변수는 자주 접근하니 memory보다 빠른 공간에 두고 사용하는 것이 좋다"라고 compiler에게 요청하는 것이다.
+		- 따라서 해당 변수는 memory address를 가지지 않는 것으로 간주하여 adress operator(&)를 사용하는 것이 불가능하다.
+	- 406p
+	- static variable은 값을 initialize하지 않으면 complier가 0으로 설정한다.
+	- non-static global variable은 external linkage를 갖는다.
+	- static global variable은 internal linkage를 갖는다.
+	- static variable declared in function은 linkage를 갖지 않는다.
+	- linkage는 direct accessable scope 같은 느낌이다.
+	- static variable declared in function은 the function declared the static variable in이 실행되지 않더라도 메모리의 공간을 할당받는다.
+	- 407p
+	- 초기화하지 않은 static variable의 모든 bit는 0이다.
+	- static variable은 constant expression으로만 초기화할 수 있다.
+```
+int	x = sizeof(int) + 1;	// valid, sizeof() is a constant expression
+int	y = x;	// invalid, x is not a constant
+```
+	- 408p
+	- external variable(= global variable)
+	- scope-resolution operator(::)
+	- 409p
+	- 함수 내에서 변수에 extern keywrod를 명시하여 해당 함수가 external variable을 사용함을 명시할 수 있다.
+		- 일반적으로 함수는 external variable을 사용하지 않기 때문에 명시하지 않고 external variable을 사용하기 보다는 redeclare하고 사용하는 것이 코드를 이해하는 측면에서 월등히 우월할 것 같다.
+	- defining declaration(= definition)
+	- referencing declaration(= declaration)
+	- Initializing referencing declaration is not allowed.
+	- initialization은 오직 실제 공간을 할당하는 defining declaration에만 가능하다.
+	- prefix, postfix
+	- 410p
+	- data integrity: 데이타 무결성: 데이터가 의도한 바에 따라 올바른 값을 지니고 있으며 이에 결점이 없음
+	- non-static global variable의 defining declaration은 모든 translating unit에서 1 개만 있을 수 있다.
+	- static global variable의 defining declaration은 translating unit마다 1 개씩 있을 수 있다.
+	- 413p
+	- static storage duration
+		- file-scope variable with external linkage(= external variable)
+		- file-scope variable with internal linkage(= static variable with internal linkage)
+		- local variable with no linkage
+		- static local variable을 initialize하면 프로그램이 시작될 때 값을 초기화한다.
+	- 415p
+	- specifier
+	- qualifier
+	- storage class specifier: auto, register, static, extern, mutable
+	- 416p
+	- cv-qualifier: const, volatile
+	- volatile은 프로그램 외부 요인으로 인해 값이 변경될 수 있는 변수 앞에 표기한다.
+		- compile는 volatile이 있는 변수의 값을 읽는 경우 값을 매번 새로 register로 옮겨온다.
+	- mutable: 어떤 structure나 class의 member variable에 표기한다.
+		- 그 structure나 class가 const type의 variable로 선언되었더라도, mutable로 선언된 member variable은 value update가 가능하다.
+	- 417p
+	- c와 달리 c++에서는 global variable에 const qualifier를 앞에 붙이면 internal linkage를 갖게 된다.
+		- 그래서 header file에 const global variable을 정의해도 duplicated symbol error가 발생하지 않는다.
+		- 'const int'와 'static const int'가 같은 linkage를 갖는 것이다.
+	- extern const int states = 50;
+		- defining declaration과 referencing declaration을 구분하지 않고 공통되게 작성한다.
+		- extern keyword를 붙여 referencing declaration처럼 보이지만 const type이기 때문에 initialize해야 한다.
+		- 이런건 도대체 언제 필요한걸까?
+- c++에서는 global variable에 extern keyword를 명시하지 않으면 linker가 duplicate symbol error를 발생시키지만, c에서는 추가적인 extern keyword를 명시하지 않아도 duplicate symbol error 없이 공통적인 하나의 global variable로 판단한다.
+- 프로그램을 잘 구조화하는 것은 graph data를 1차원 데이터로 잘 transform하는 과정 같다.
+
 2022-02-07
 - C++ Primer Plus 5ed
 	- 378p
