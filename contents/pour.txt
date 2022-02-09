@@ -1,5 +1,55 @@
 pour.txt
 
+2022-02-09
+- C++ Primer Plus 5ed
+	- 418p
+	- variable은 value를 update해도 차지하는 공간의 크기가 변하지 않아서 automatic storage duration을 갖는 variable을 stack으로 쉽게 구현할 수 있다.
+		- 반면 function은 값을 update하면 차지하는 공간의 크기가 변하고, 값이 하드웨어에 따라 달라지기 때문에 직접적으로 값을 바꾸는 것이 불가능하다.
+		- 따라서 값이 수정될 것을 신경 쓰지 않아도 되기 때문에 automatic storage duration이나 dynamic storage duration을 쓸 필요가 없다.
+	- function은 external linkage를 갖는다.
+		- 따라서 어떤 function prototype이 다른 파일에 정의되어 있음을 명시적으로 표기하기 위해 extern keyword를 앞에 붙여줘도 된다.
+	- static variable이 external variable을 hide하는 것과 마찬가지로 static function은 external function을 hide한다.
+	- one definition rule: external linkage를 갖는 변수나 함수는 definition이 정확히 하나만 존재해야 한다.
+	- 419p
+	- language linking
+	- precompiled: 컴파일러는 .h 확장자 파일을 매번 compile하는 것을 피하기 위해 .pch 등의 확장자를 가지는 precompiled 파일을 생성하여 사용하기도 한다.
+		- 이 때, c와 c++의 language linkage의 차이로 인해 func(int)가 c에서는 _func로 기록될 수 있고, c++에서는 _func_i로 기록될 수 있는데, 이렇게 다르게 기록된 .pch 파일을 사용하게 되면 link time에 올바른 symbol을 찾지 못할 수 있다.
+		- 'extern "C" void func(int);'
+			- 이렇게 외부 함수의 prototype을 선언하면 name look-up에 C protocol을 사용한다고 한다.
+	- dynamic memory
+	- 420p
+	- placement new
+	- 423p
+	- placement new는 전달받은 주소를 사용한다.
+		- Type* pointer = new (addressToNew) Type[size];
+		- 반환할 pointer를 계산할 때, 해당 공간이 이미 사용중인지 여부는 고려하지 않는다.
+		- placement new를 사용하여 반환된 주소는 다 쓰고 나서 delete를 호출할 수 없다.
+	- 424p
+	- namespace problem
+	- declarative region
+	- potential scope
+	- 어떤 변수의 potential scope는 그 변수의 declaration에서부터 declarative region까지이다.
+	- 어떤 변수에 scope-resolution operator 없이 직접 접근할 수 있는 범위를 scope라고 한다.
+	- 426p
+	- namespace는 global level이나 다른 namespace 안에서 정의될 수 있다.
+	- block 안에서는 정의될 수 없다.
+		- 따라서 namespace 안에서 정의된 name은 non-const라면 external linkage를 갖는다.
+	- global namespace
+		- global variable은 global namespace에 있는 셈이다.
+	- namespace를 여러번 정의하여 필요한 name을 더 추가하는 것이 가능하다.
+	- 427p
+	- unqualified name: namespace를 명시하지 않은 name
+		- var = 0;
+	- qualified name: namespace를 명시한 name
+		- Program::isStop = true;
+	- using declaration: 어떤 qualified name을 unqualified name으로 접근할 수 있도록 한다.
+		- 어떤 name에게 declarative region을 추가해 주는 것과 같다.
+		- 이미 어떤 name이 존재하는 declarative region에 using declaration으로 같은 name을 선언할 수 없다.
+	- using directive: 어떤 namespace 안의 name들을 unqualified name으로 접근할 수 있도록 한다.
+		- 어떤 namespace 안에서 선언된 모든 name들에게 declarative region을 추가해 주는 것과 같다.
+		- using declaration과 namespace를 포괄하는 가능한 작은 declarative region에서 name을 선언한 것처럼 처리된다.
+		- local variable의 name과 using directive로 declarative region이 추가된 name이 같다면 local variable이 다른 쪽을 hide한다.
+
 2022-02-08
 - C++ Primer Plus 5ed
 	- 395p
