@@ -1,5 +1,50 @@
 pour.txt
 
+2022-02-10
+- C++ Primer Plus 5ed
+	- 431p
+	- nested namespace
+	- namespace 안에서도 using directive나 using declaration을 사용할 수 있다.
+	- transitive relation: if a->b and b->c, then a->c
+	- 432p
+	- namespace alias
+		- namespace AliasingNamespaceName = AliasedNamespaceName;
+	- unnamed namespace
+		- 바로 다음에 이 namespace의 using directive가 붙는 것처럼 행동한다.
+		- 따라서 internal linkage를 가지는 static storage duration variable을 선언할 때 사용할 수 있다.
+	- c++ standard는 namespace 안에서의 static keyword 사용과, global scope에서의 static keyword 사용을 deprecate한다.
+		- 하지만 철회되었다는 듯하다.
+		- https://stackoverflow.com/questions/4726570/deprecation-of-the-static-keyword-no-more
+			- Deprecation of the static keyword... no more?
+	- 434p
+	- namespace 안에서 함수를 정의할 수도 있다.
+		- header file의 어떤 namespace 안에서 함수를 선언하고, source file의 그 namespace 안에서 함수를 정의하고.
+	- 436p
+	- 만약 어떤 namespace 안에 어떤 함수가 overload되어 있을 때, using declaration을 사용하여 어떤 함수의 name을 선언하면 overload된 모든 함수의 prototype이 선언된다.
+	- 437p
+	- header file에서 using directive를 사용하게 되면 header file을 include하는 순서에 따라 name이 refer to하는 것이 달라질 수 있기 때문에 header file에서는 using directive를 피하는 것이 좋다.
+	- 445p
+	- abstraction
+	- encapsulation and data hiding
+	- polymorphism
+	- inheritance
+	- reusability of code
+	- 448p
+	- int type이나 pointer type 등, primitive type조차 type에 따라 사용 가능한 operation이 결정되어 있다.
+	- 어떤 변수를 어떤 type으로 선언하는 것은
+		- 변수의 크기를 결정한다.
+		- 변수에 사용할 operation을 결정한다.
+	- built-in type
+	- 451p
+	- data hiding: class의 private member variable을 직접 접근하는 것을 허락하지 않고, public member function을 통해 접근하도록 하는 것.
+	- abstraction: 머리 속에만 존재하던 추상적인 존재의 구체적인 interface를 구현하는 것.
+		- 반대로, 코드로 존재하는 class가 현실의 추상적은 무언가를 흉내내도록 구현하는 것.
+- https://www.geeksforgeeks.org/placement-new-operator-cpp/
+	- Placement new operator in C++
+	- delete는 인자로 받는 주소를 동적 할당 해제하기 때문에 placement new를 사용하여 반환받은 주소를 인자로 줄 수 없다.
+	- 따라서 placement new를 사용하여 반환받은 주소에 descturtor를 호출할 때는 explicit하게 호출해야 한다.
+		- nameOfAddress->~Type();
+
 2022-02-09
 - C++ Primer Plus 5ed
 	- 418p
