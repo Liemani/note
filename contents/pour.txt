@@ -1,5 +1,43 @@
 pour.txt
 
+2022-02-16
+- 버전관리 툴 선정
+	- https://www.softwaretestinghelp.com/version-control-software/
+	- 이 사이트에서 상위 3개의 버전관리 툴을 비교해 보았습니다.
+	- Git, CVS, SVN
+- CVS
+	- 오래된 버전관리 툴이라 설정이 복잡하다.
+		- 환경 변수를 설정하는 등..
+	- 참조: https://www-mrsrl.stanford.edu/~brian/cvstutorial/
+- Git vs SVN
+
+- https://www.khronos.org/opengl/wiki/Related_toolkits_and_APIs
+	- opengl 관련 페이지
+- conio.h
+	- POSIX와 상관 없이 ms-dos의 header file이다.
+- https://www.youtube.com/watch?v=oZafamKmV44
+	- GLFW를 사용한 한국어 영상
+- https://github.com/libsdl-org/SDL
+	- SDL
+
+- conio.h
+- GLFW
+	- 플랫폼 독립적
+- SDL
+
+- clang++을 사용하여 libglfw3.a를 link하였는데 c로 작성된 glfw3 library의 함수들이 잘 link되었다. 어떻게 그런걸까?
+``` 
+#elif defined(__GNUC__) && defined(_GLFW_BUILD_DLL)
+ #define GLFWAPI __attribute__((visibility("default")))
+#endif
+```
+- 'glfw3.h'에는 위와 같은 코드가 들어있는데, 검색해보니 linker의 symbol resolution을 도와주는 역할을 한다고 한다.
+	- 구체적인것은 모르겠지만, 헤더 파일 상에 c++과 link했을 때 잘 작동하도록 처리가 되어있는 것 같다.
+	- 참조: https://ancdesign.tistory.com/99
+
+- 대화 나눠야 할 것
+	- Chapter 1
+
 2022-02-15
 - 어제는 어떤 언어를 사용하여 개발을 진행할지 정해야 했는데, 이를 제대로 진행하지 못했다.
 	- 아직 조준선 정렬이 되지 않은 상황에서 개인 작업을 시작해서 그런가?
@@ -48,7 +86,7 @@ pour.txt
 	- 따라서 생산성이 높은 언어가 좋다.
 
 - 모르는 사람이든 누구든 보여줘서 설명이 가능한 것이 좋다.
-	- Visual Studio Code
+	- Visual Studio
 		- performance: better than CLion on large project.
 		- debugging
 		- profiling
