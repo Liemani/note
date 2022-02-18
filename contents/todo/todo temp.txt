@@ -1,9 +1,7 @@
 todo temp.txt
 
 # pc
-- git에 코드 올리고 협업 요청하기
 - 이슈 트래킹 해결 일지 작성하기
-- 코드 다듬기
 - safari 정리하기(tab group 너무 무겁다;;)
 - webserv팀원 천천히 구하기
 - merge .private(origin/backup)
