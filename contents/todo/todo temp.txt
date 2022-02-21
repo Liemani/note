@@ -34,6 +34,10 @@ todo temp.txt
 			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+- 이슈 트래킹 해결 일지 작성하기
+- 조사
+	- initialization
+	- private property는 접근 권한을 instance에만 허용하는 줄 알았는데, snpark은 class에 허용하는 경우를 발견했다고 한다. 조사해보자.
 - implicit type conversion을 할 때, source type을 인자로 하는 target type constructor와, source type의 conversion operator to target type이 모두 존재하면 ambiguous error가 발생할까?
 - cin 이 fail 하면 NULL 읇 반환하는지 확인하기
 	- 이를 뒷받침하는 제대로 된 reference 문서 발굴하기
