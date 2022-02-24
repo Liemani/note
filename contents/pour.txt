@@ -5,6 +5,23 @@ pour.txt
 - 좋은 경험 감사
 - 일을 해 본 적이 없어서 일을 하는 것처럼 진행하는 프로젝트를 하면서 
 - 많은 카뎃들이 한 번쯤 PBL을 경험해보면 좋겠습니다.
+- C++ Primer Plus 5ed
+	- 510p
+	- overload가 불가능한 operator도 존재한다.
+	- 511p
+	- non-member function이 아닌 member function에서만 overload 가능한 operator도 존재한다.
+	- 516p
+	- friend Type operator*(int lhs, const Type& rhs);
+		- 이렇게 앞에 friend를 붙이면 해당 함수 정의에서 Type의 private member에 직접 접근할 수 있다.
+	- 522p
+	- 위와 같은 friend function은 class 안에서 prototype을 선언한다.
+		- 이 함수를 정의할 때는 member function이 아니기 때문에 unqualified name으로 정의한다.
+		- 그리고 함수 정의에서는 friend를 붙이지 않는다.
+	- 525p
+	- 같은 type의 인자에 대한 operator의 경우 member function으로 선언하든 friend non-member function으로 선언하든 큰 차이는 없다.
+		- 단, friend non-member function으로 선언하는 경우 lhs에 type conversion이 적용될 수 있다.
+	- 538p
+	- rand(), time()
 
 2022-02-22
 - 왜 안 지라?
