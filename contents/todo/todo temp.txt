@@ -1,10 +1,7 @@
 todo temp.txt
 
 # pc
-- PBL-LV1-MISSION1
-	- keyStoreMovingKey 적용하기
-	- KIController를 static으로 만들기 보다는 그냥 instance로 활용하는게 더 좋지 않을까?
-	- 보고서 발표 연습하기
+- global const가 다른 두 파일에서 사용됐을 경우 서로 다른 두 메모리 공간을 차지하는 것이 아니라 정말 메모리를 덜 차지하는 상수처럼 쓰이는지 확인해보기
 - safari 정리하기(tab group 너무 무겁다;;)
 - webserv팀원 천천히 구하기
 - merge .private(origin/backup)
@@ -34,7 +31,11 @@ todo temp.txt
 			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
-- 이슈 트래킹 해결 일지 작성하기
+- PBL-LV1-MISSION1
+	- keyStoreMovingKey 적용하기
+	- KIController를 static으로 만들기 보다는 그냥 instance로 활용하는게 더 좋지 않을까?
+	- 보고서 발표 연습하기
+	- 이슈 트래킹 해결 일지 작성하기
 - 조사
 	- initialization
 	- private property는 접근 권한을 instance에만 허용하는 줄 알았는데, snpark은 class에 허용하는 경우를 발견했다고 한다. 조사해보자.

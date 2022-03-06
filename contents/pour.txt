@@ -1,5 +1,52 @@
 pour.txt
 
+2022-03-05
+# 미래 예측에 실패했다.
+- 코로나가 심해짐에 따라 규제가 강화되면서 지방에 오래 머무르게 될줄 알았다.
+- 하지만 3주만에 규제가 되려 완화되어 교육장에 나가야만 하게 되었다.
+- 너무 낙담하지는 말자.
+- 작은 실패라고 생각하자.
+- 큰 실패를 하지 않아서 정말 다행이다.
+# 갈까 말까
+- 집에서 벗어나서 집중을 하기 위해서는 이보다 좋은 기회는 없다.
+- 비록 짧은 기간만 남아서 42서울을 수료하지 못할지라도 
+의미는 있다 과제를 하는게
+근대 솔직히 별로 하고 싶지 않다.
+나는 42서울을 어떻게 시작하게 되었을까?
+혼자 공부하려느 힘들어서 공부할 환경을 만들고자 시작했었지
+그러다 c언어가 재미있어서 열심히 했고
+c++는 솔직히 싫다.
+하지만 c++는 많은 곳에서 사용된다.
+이번 기회에 제대로 익혀두는 것이 좋다.
+하지만 c++는 솔직히 싫다.
+하지만 c볻는 괜찮을지도?
+c의 장단점이 있고 c++의 장단점이 있다.
+	# 코로나 3차 접종 효과 알아보기
+	- 아빠가 계속 맞아야 코로나 가볍게 넘긴다고 하는데 맞을지 말지를 결정해야 한다.
+	- 안맞고 싶다. 맞아야 면역율이나 덜아프다는 정보가 너무 신뢰도가 낮다.
+# 도대체 호준리 멘토님이 나한테 한 독설이 무슨 도움이 되는거지?
+	# 도대체 내가 선킴에게 한 독설이 무슨 도움이 되는거지?
+- 나중에 비슷한 일을 맞닥뜨릴 때 좀 더 강하게 만들어줌
+- 하지만 나는 그냥 즐겁게 하는 것이 좋은거 같다.
+
+2022-02-25
+- https://stackoverflow.com/questions/1409216/receiving-key-press-and-key-release-events-in-linux-terminal-applications
+	- 일반적인 terminal emulator에서, key press는 감지하여 custom routine을 실행시킬 수 있지만 key release는 감지할 수 없다.
+	- 따라서 key release를 처리하기 위해서는 GUI환경을 사용해야만 한다.
+- C++ Primer Plus 5ed
+	- 544p
+	- 인자가 한 개인 constructor는 implicit type conversion에 사용된다.
+	- 인자가 한 개인 생선자 앞에 explicit 키워드를 붙이면 automatic feature를 수행하지 않도록 할 수 있다.
+	- 어떤 Type에 어떤 type의 인자 하나를 argument list로 하는 생성자가 존재할 때 implicit type conversion이 발생하는 경우
+		- type의 값을 사용하여 Type을 초기화를 하는 경우
+		- type을 Type에 할당하는 경우
+		- Type을 기대하는 인자에 type의 값을 전달하는 경우
+		- Type 값을 반환하는 함수에서 type을 반환하는 경우
+		- 위 경우에서 type으로 unambiguously convert 가능한 built-in type을 사용하는 경우
+			- 만약 double과 long을 각각 인자로 받는 constructor가 있는데 int type으로 초기화하려 한다면 ambiguous하다.
+	- 548p
+	- conversion function
+
 2022-02-23
 - 우선 고생해주신 hojun lee 멘토님 
 - 좋은 경험 감사
