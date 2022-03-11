@@ -32,6 +32,7 @@ todo temp.txt
 			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+- slack 다 읽어보고 slack email 왜 내 메일로 안날라오는지 알아보기
 - merge .private(origin/backup)
 - PBL-LV1-MISSION1
 	- keyStoreMovingKey 적용하기
