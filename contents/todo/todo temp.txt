@@ -1,13 +1,16 @@
 todo temp.txt
 
 # pc
+- 두 파트로 분리된 내용을 A 하나 B 하나 식으로 하나로 합치는 방법 고안하기
 - global const가 다른 두 파일에서 사용됐을 경우 서로 다른 두 메모리 공간을 차지하는 것이 아니라 정말 메모리를 덜 차지하는 상수처럼 쓰이는지 확인해보기
 - setenv.sh를 더 잘게 나누기
 	- 작은 실행 가능한 단위들로 나눠두면 좋을 것이다.
 - safari 정리하기(tab group 너무 무겁다;;)
 - webserv팀원 천천히 구하기
-- add env/aux amend "message"
 - 조사
+	- copy constructor의 구현에 따라 copy constructor 시에 assignment operator가 호출될 수 있다?
+		- 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
+			- cppModule02ex00, c++ prime plus
 	- minicanvas web program
 	- std::string을 바꿀 때 copy assignment operator를 사용할까 아니면 char*로 쉽게 교체하는 함수가 존재할까?
 - 새로운 실험을 할 때는 기존 코드에서 하기보다는 문제와 실험을 쏙 빼서 테스트하여 나중에 쉽게 재구현 및 실험의 결과를 통해 알게된 점을 쉽게 revisit할 수 있게 하자.
