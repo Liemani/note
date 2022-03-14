@@ -1,5 +1,55 @@
 pour.txt
 
+2022-03-14
+copy constructor를 private에 정의하면 public하게 copy constructor를 호출하는 것을 막을 수 있다.
+# C++ Primer Plus 5ed
+595p
+349p에서 말하는 것은 const가 아닌 reference type을 전달받는 함수가 temporary type object를 받았을 때 error가 발생할 것이라는 것이고(함수의 의도가 temporary object를 입력받는 것이 아닐 것이기 때문에), 595p에서 말하는 것은 temporary object의 값이 수정 가능하다는 것이다.
+local scope에 존재하는 object를 caller에게 반환하기 위해서는 reference type이 아닌 object를 반환해야만 한다.
+copy constructor가 존재하지 않는 ostream과 같은 object를 반환하기 위해서는 반드시 reference type을 반환해야만 한다.
+reference object와 reference가 아닌 object 모두 반환 가능한 경우에는, 성능상의 이유로 reference type을 반환하는 것이 선호된다.
+600p
+프로그램 실행이 전체 프로그램의 끝에 도달하면 static object의 destructor를 호출한다.
+603p
+placement new를 사용할 때 지정할 주소는 사용자가 직접 겹치지 않도록 신경써야 한다.
+611p
+nested class
+private section에서 선언됐다면 class scope에서만 접근할 수 있다.
+public section에서 선언됐다면 class scope 밖에서도 scope resolution operator를 통해 접근 가능하다.
+612p
+member initializer list
+constructor의 body를 실행하기 전에 member variable들의 메모리 공간을 할당한다.
+따라서 const로 선언된 member variable을 초기화하고 싶은 경우 body가 실행되기 전에 초기화해야 한다.
+이를 위해 member initializer list를 사용할 수 있다.
+const type의 member variable과 reference type의 member variable은 반드시 member initializer list를 통해 초기화해야 한다.
+이 외의 경우 member initializer list를 사용하든 사용하지 않든 큰 차이는 없으나, object type의 member variable은 member initializer list를 통해 초기화하는 것이 효율적이다.
+이 때 member variable들은 member initializer list에 명시한 순서가 아니라 class declaration에 선언된 순서대로 초기화된다.
+618p
+queue를 만드는데 copy constructor와 assignment operator를 사용하지 못하도록 할 때는 private section에 선언하면 된다.
+622p
+cycle, MIN_PER_HR, perHour
+633p
+upcasting, downcasting, virtual member function, early binding, late binding, abstract base class, pure virtual function, public inheritance
+636p
+class DerivedClass: public BaseClass {
+};
+public derivation
+The public members of the base class become public members of the derived class.
+The private members of the base class become part of the derived class, but they can be accessed only through public and protected methods of the base class.
+638p
+derived class의 constructor에서 base class의 private member에 직접 접근할 수 없기 때문에 base class의 constructor를 사용해야 한다.
+639p
+memberwise copy
+640p
+base class의 constructor가 먼저 실행된다.
+derived class의 destructor가 먼저 실행된다.
+virtual base class
+643p
+derived class type은 base class type으로 implicit type conversion이 가능하다.
+BaseClass& baseClassInstance = derivedClassInstance;
+647p
+polymorphic
+
 2022-03-13
 프로그램이 알아서 처리해주는 부분을 완전히 이해하지 못한 채 사용하면 후에 이해하기 힘들어진다.
 따라서 제대로 이해하고 사용하며, 만약 프로그램이 예외적으로 처리하는 부분에 대해 완전히 이해하지 못했다면, 이해하고 있는 만큼만 사용하던가 주석으로 추후 읽을 때 쉽게 이해할 수 있도록 해주자.
