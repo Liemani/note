@@ -1,5 +1,76 @@
 pour.txt
 
+2022-03-15
+# C++ Primer Plus 5ed
+650p
+virtual methods
+virtual keyword를 붙이지 않으면, reference나 pointer를 사용하여 method를 호출할 때 reference type과 pointer type의 method를 호출한다.
+virtual keyword를 붙인 method는, reference와 pointer가 가리키는 object의 type을 run time에 계산하여 맞는 method를 호출한다.
+651p
+base class에서 virtual를 붙인 method는 derived class에서도 자동으로 virtual이지만, 명시적으로 virtual를 붙이는 것이 일반적이다.
+virtual keyword는 class declaration의 method prototype에서 붙이고 method definition의 header에는 붙이지 않는다.
+658p
+virtual keyword를 유용하게 사용하는 경우로, base class type의 배열에 base class와 derived class의 instance들을 저장하고 일괄 처리할 때 유용하다.
+660p
+바로 위와 같이 base class type의 배열에 base class instance와 derived class instance를 저장하는 경우 destructor가 virtual일 필요가 있다!
+source code의 함수 호출을 특정 함수 block의 실행으로 해석하는 것을 binding이라고 한다.
+함수의 이름과 인자를 통해 실행할 함수를 compile time에 결정하는 것을 static binding(or early binding)이라고 한다.
+compile time에 실행할 함수를 결정하지 못해 program run time에 결정하도록 compile가 코드를 생성하는 것을 dynamic binding(or late binding)이라고 한다.
+type conversion은 실제 데이터를 다른 type으로 물리적으로 전환하는 것이다.
+type cast는 실제 데이터를 물리적으로 건들이지 않고 compiler에게 정보만 주는 것이다.
+explicit type cast 없이도 derived class는 base class로 implicit type cast가 가능하며, 이 경우를 upcasting이라고 한다.
+661p
+upcastring은 transitive하다.
+- A를 inherit하는 B를 inherit하는 C가 있을 때 C는 A로 upcasting이 가능하다.
+반대로 base class를 derived class로 type cast하는 것을 downcast라고 하며, implicit downcast는 허용되지 않는다.
+663p
+base class를 declare할 때 method에 virtual keyword를 붙이거나 붙이지 않음으로써 해당 method의 redefined 의도를 명시할 수 있다.
+virtual method 기능을 구현하는 일반적인 방법
+- object의 추가 member가 virtual function table(vtbl)의 pointer를 저장하도록 한다.
+- vtbl은 virtual method의 address를 저장하고 있다.
+665p
+base class를 의도하는 class는 destructor가 virtual이어야만한다.
+- 그래야 derived class가 언제나 derived class의 destructor를 호출함을 보장할 수 있다.
+- 따라서 destructor가 필요하지 않더라도 아무런 동작을 하지 않는 destructor를 implement해야 한다.
+666p
+만약 friend function이 virtual의 특징을 가져야 한다면 내부적으로 virtual member function을 호출하도록 만들 수 있다.
+667p
+상속받은 method를 redefine하는 것은 overload의 개념이 아니다.
+- 상속받은 method를 redefine하는 것은 단순히 같은 function signature를 override하는 것을 넘어, function signature과 상관 없이 base class의 같은 function name의 모든 function을 hide한다.
+- 단 예외적으로 반환 type이 base class의 reference나 pointer type이었다면 derived class의 reference나 pointer type으로 교체할 수 있다.
+- 이런 특징을 covariance of return type이라고 한다.
+- 만약 base class의 어떤 virtual method가 overload되어 있다면 이를 redefine할 때는 모든 overload된 base class의 method들을 redefine해야 한다.
+	- 일부만 redefine한다면 redefine하지 않은 method들은 hide된다.
+668p
+protected access
+- 일반적으로는 private access와 같다.
+- base class의 private section에 정의된 member들은 derived class scope에서 직접 access가 불가능 한 것과 달리 base class의 protected에 정의된 member들은 derived class scope에서 직접 access가 가능하다.
+669p
+생성자를 protected section에 선언하면 외부에서는 생성자를 호출할 수 없고 derived class만 생성자에 접근할 수 있어서 singleton pattern을 구현할 때 유용하다.
+670p
+abstract base class
+semimajor axis, semiminor axis
+671p
+원은 타원의 일부임에도 불구하고 타원을 상속받아서 구현하는 것은 상속 없이 원을 구현하는 것보다 복잡하다.
+pure virtual function을 사용하여 unimplemented function을 명시할 수 있다.
+최소 하나의 pure virtual function을 가지고 있어야 abstract base class가 된다.
+672p
+pure virtual function으로 선언해도 definition을 작성해도 된다.
+- 즉 pure virtual function으로 선언하는 것은 class가 abstract base class라는 것을 명시하는 것이며, 해당 함수가 반드시 정의될 필요는 없다는 것을 의미한다.
+abstract base class의 반댓말은 concrete class이다.
+677p
+abstract base class를 구현하는 것은 derived class의 interface를 구현하기 위해 사용되기도 한다.
+680p
+base class의 assignment operator를 명시적으로 호출할 수 있다.
+684p
+derived class 안에서 base class의 member method를 호출하기 위해서는 qualified name을 사용하여 함수를 호출하면 된다.
+derived class 안에서 overloaded function 중에 특히 base class type을 인자로 받는 함수를 호출하고 싶다면 base class의 reference type으로 explicit type cast하여 원하는 signature를 가진 함수를 호출하면 된다.
+# https://stackoverflow.com/questions/12487424/uppercase-first-character-in-a-variable-with-bash
+	uppercase first character in a variable with bash
+foo="$(tr '[:lower:]' '[:upper:]' <<< ${foo:0:1})${foo:1}"
+# https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
+	How to do case insensitive search in Vim
+
 2022-03-14
 copy constructor를 private에 정의하면 public하게 copy constructor를 호출하는 것을 막을 수 있다.
 # C++ Primer Plus 5ed
