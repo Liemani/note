@@ -1,5 +1,74 @@
 pour.txt
 
+2022-03-16
+# C++ Primer Plus 5ed
+701p
+object type을 member variable로 갖는 것
+- containment
+- composition
+- layering
+706p
+class declaration의 private portion에 typedef를 정의하면 class 내부적으로는 해당 type에 접근할 수 있지만 외부적으로는 접근이 불가능하다.
+707p
+member initialization list에 명시한 순서대로 초기화되는 것이 아니라 class declaration에 선언한 member 순서대로 초기화가 된다.
+712p
+public derivation은 derived class가 base class의 protected member에 접근할 수 있는 것이고, private inheritance은 base class의 public memeber와 protected member가 derived class의 private member가 된다.
+713p
+private inheritance은 interface는 물려받지 않고 implementation은 물려받음으로써 containment와 유사하게 has-a 관계를 갖는다.
+class의 default access qualifier가 private인 것은 상속받을 때도 적용된다.
+multiple inheritance
+multiple inheritance의 생성자에서는 initialization list에서 상속받은 base member class들의 생성자를 호출하면 된다.
+715p
+multiple inheritance를 한 derived class에서 base class의 method를 호출하기 위해서는 함수 이름이 겹칠 수 있기 때문에 qualified name을 사용하여 호출하면 된다.
+multiple inheritance를 사용하여 containment 같은 구현을 하는 것이 가능하지만 전역 변수를 사용하는 것과 인자를 전달받는 것 사이 정도의 차이가 있는 것 같다.
+multiple inheritance를 사용하게 되면 마치 has-a 관계의 object가 전역으로 선언된 것 처럼 다루게 되고, containment의 구현은 내부적으로 인자를 전달받은 것 같이 object를 다루게 된다.
+따라서 containment를 구현하기 위한 multiple inheritance 사용은 피하는 것이 좋다.
+capsule화가 덜 된 것 같은 코드를 작성해야 하기 때문이다.
+게다가 만약 같은 class의 member를 2개 이상 has-a 관계로 갖을 때는 inheritance로 구현하기 힘들 것 같다.
+716p
+multiple inheritance에서 자기 자신안에서 base class object의 reference를 가져올 때는 type cast를 하면 된다.
+private inheritance에서 interface는 상속받지 않기 때문에 implicit type cast는 되지 않는다.
+721p
+containment한 class의 protected member에는 접근할 수 없다.
+inherit한 class의 protected member에는 접근할 수 있다.
+의도상 has-a 관계에 있을 때, protected member에 접근할 필요가 있거나 virtual function을 override할 필요가 있는 것이 아니면 가능하면 상속을 하여 사용하지 않도록 하자.
+- 이 때 상속을 한다고 하며 private을 사용하여 interface를 물려받지 않도록 하자.
+protected inheritance은 base class의 public member와 protected member를 protected member로 만든다.
+protected inheritance는 base class의 public member와 protected member를 derived class scope 밖에서는 접근하지 못하고 내부에서는 접근이 가능하다는 점에서 private inheritance와 동일하지만 derived class를 상속받는 또 다른 derived class를 선언할 때 차이를 보인다.
+722p
+using을 사용하여 method의 access level을 redefine할 수 있다.
+- 이 때, const 버전과 non-const 버전이 있다면 모두 redefine된다.
+729p
+같은 base class를 상속받은 두 class를 다중 상속받은 class는 그 최상위 base class의 method를 호출할 때 첫 번째 subobject의 base class로 호출할지 두 번째 subobject의 base class로 호출할지 불확실해진다.
+- ((FirstClass&)instanceOfDerivedClass).baseMethod(); 이런식으로 어떤 subobject의 base class로 method를 호출할지 정해줄 수 있다.
+730p
+virtual base classes
+732p
+virtual base class를 만들기 위해서는 다이아몬드 상속에서 중간에 있는 두 class가 base class를 virtual로 상속받아야 한다.
+그러면 base class를 딱 하나만 상속받는다.
+이 때 제일 밑에 있는 class의 constructor는 중간에 있는 class들의 constructor를 호출하게 되면 기존과 달리 virtual인 base class의 constructor가 호출되지 않기 때문에 추가적으로 base class의 constructor를 직접 호출해 줘야 한다.
+734p
+마찬가지로 describe() 등의 출력 함수들도 중간 class의 describe()를 그대로 가져와서 사용하게 되면 base class의 describe()가 2 번 호출되는 문제가 발생할 것이다.
+따라서 각 class만을 describe하는 함수를 따로 protected로 만들어서 모듈화하여 사용하는 것이로 base class method 중복 호출 문제를 해결할 수 있다.
+742p
+dominates rule
+743p
+- access rule에 영향을 받지 않는다.
+- 다이아몬드 상속에서 중간 class 중 하나만 어떤 method를 overried한다면, derived class 안에서 그 이름은 ambiguous 없이 중간 class에서 overriede된 method를 의미한다.
+744p
+typedef등으로 generic을 흉내낼 수는 있지만 한 코드로 여러 template을 위한 class들을 생성할 수는 없는 한계가 있다.
+746p
+template의 definition은 그 자체로 class나 function이 아니고 compiler에게 이런 방식으로 class와 method 등을 implement하라는 instruction이다.
+instantiation, specialization
+- template을 통해 실제를 만드는 것
+748p
+만약 Type에 할당 연산자를 사용하면 primitive type과 custom class에서는 잘 작동하겠지만 array에서는 잘 작동하지 않을 것이다.
+type parameter
+function template과 달리 class template은 explicit하게 type parameter를 적어주어야 한다.
+# error message
+error: non-static member 'takeDamage' found in multiple base-class subobjects of type 'ClapTrap':
+	multiple inheritance를 한 class의 base class들이 동일한 class type의 base class를 가지면 위와 같은 error message가 출력될 수 있다.
+
 2022-03-15
 # C++ Primer Plus 5ed
 650p
