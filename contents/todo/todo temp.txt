@@ -1,7 +1,7 @@
 todo temp.txt
 
 # pc
-- vimsession이 상호 호환 안되는 문제 해결
+- 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
 - cppModule
 	- 01
 		- sed 작성하기
@@ -42,6 +42,7 @@ todo temp.txt
 			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+- vimsession이 상호 호환 안되는 문제 해결
 - cppModule
 	- 03
 		- ClapTrap, ScavTrap, FragTrap의 destructor가 virtual이도록 수정하기

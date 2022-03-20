@@ -1,5 +1,67 @@
 pour.txt
 
+2022-03-20
+# vim compatibility
+지금 교육장 mac과 내 mac의 vim version이 달라서 vimsession이 호환되지 않는 문제가 있다.
+교육장 mac의 vim으로 생성한 session파일을 내 mac의 vim으로 열려고 하면 crash가 발생한다.
+# C++ Primer Plus 5ed
+756p
+template argument로 type 뿐만 아니라 특정 constant를 위한 value도 전달할 수 있다.
+757p
+이 경우에 해당 argument를 non-type argument 또는 expression argument라고 한다.
+type에 제한이 있다.
+- integral type
+- enumeration type
+- reference
+- pointer
+758p
+따라서 double은 template의 non-type argument에 사용할 수 없다.
+하지만 double&과 double*은 가능하다.
+non-type argument는 값을 수정하거나 주소값을 얻을 수 없다.
+non-type argument를 사용하여 크기를 결정하는 container를 정의하면 compile time에서 container의 크기를 결정하기 때문에 run time 시에 낫은 performence를 보여줄 것이다.
+하지만 compile time이 길이질 것이다.
+만약 다른 size를 가진 array끼리 데이터 교환이 빈번하거나 array의 size를 바꿀 필요가 많은 경우에는 non-type argument를 사용하지 않고 size 값을 member variable로 갖도록 하는 것이 더 versatile할 것이다.
+template calss는 일반 class와 마찬가지로 base class가 될 수 있다.
+또한 template class는 다른 template class의 type argument도 될 수 있다.
+template의 type argument로 template class를 사용하는 경우 등으로 angle bracket이 두 개 반복하여 적어야 하는 경우에는 shift operator와 구분하기 위해 두 angle bracket 사이에 공백을 하나 두는 것이 좋다.
+- Array< Stack<int> > array;
+762p
+class template의 type parameter에도 default value를 설정할 수 있다.
+하지만 template function의 type parameter는 default value를 설정할 수 없다.
+하지만 non-type parameter는 class template과 function template 모두 default value를 설정할 수 있다.
+376p
+explicit specialization
+```
+template <typename T>
+void functionName(T argument);
+
+template <>
+void functionName<TypeName>(TypeName argument);
+
+template <>
+void functionName(TypeName argument);
+```
+implicit instantiation: deduce하여 필요에 따라 코드 생성
+explicit instantiation: deduce 관계 없이 바로 특정 type을 위한 코드 생성
+```
+template
+void functionName<TypeName>(TypeName argument);
+```
+381p
+specialization
+- implicit instantiation
+- explicit instantiation
+- explicit specialization
+762p
+class template도 function template과 마찬가지로 3 가지 specialization을 모두 적용할 수 있다.
+763p
+specialized template class type을 사용하여 선언만 하고 실제 object를 생성하지 않은 경우 등, 실제 필요한 경우가 아니라면 implicit instantiation을 생성하지 않는다.
+explicit instantiation은 template 정의와 같은 namespace에 있어야 한다.
+```
+typename class ClassName<TypeName>;
+typename <> class ClassName<TypeName> { ... };
+```
+
 2022-03-16
 # C++ Primer Plus 5ed
 701p
