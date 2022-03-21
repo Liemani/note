@@ -1,5 +1,71 @@
 pour.txt
 
+2022-03-21
+# C++ Primer Plus 5ed
+764p
+partial specialization
+```
+template <typename T, typename U> class ClassName { ... };	// general class template
+template <typename T> class ClassName<T, TypeName> { ... };	// partial specialization of class template
+```
+위와 같은 경우 두 번재 type argument가 TypeName인 특정 경우에 사용할 template을 정의할 수 있다.
+```
+template <typename T> class ClassName { ... };	// general class template
+template <typename T*> class ClassName { ... };	// partial specialization of class template for pointer
+```
+765p
+member template
+class template 안에 template을 선언할 수 있다.
+이렇게 하면 코드의 모듈화가 되지 않고 한 파일에 여러 것들이 통으로 담겨 가독성이 떨어지는 단점이 있다.
+하지만 private에 class template을 nest함으로써 외부에서 접근 불가능한 class template을 만들 수 있어 capsulation에 유리할 수 있다.
+768p
+template as type argument
+770p
+class의 friend function은 인자로 해당 class type을 전달받지 않더라도 global variable을 통해 해당 class type의 변수에 접근할 수 있다면 그 변수의 private member에 접근할 수 있다.
+788p
+friend를 사용하면 더 flexible한 class interface를 구성할 수 있다.
+확실히 어떤 특정 type과의 소통을 위해 특정한 method를 public으로 선언해야 한다면 friend를 사용하는 것이 더 깔끔할 것이다.
+하지만 friend의 모든 private member에 접근 가능한 것은 불편하다.
+789p
+friend declaration은 어떤 접근 section에 선언되든지 상관 없다.
+단, 어떤 friend로 선언된 type이 friend를 선언한 type을 내부에서 접근하는 시점에서는 compiler가 둘의 friend 관계를 이미 알고 있어야 한다.
+793p
+특정 method만 friend이도록 할 수도 있다!
+```
+class TypeName {
+	friend void FriendTypeName::FuncName(argument_list);
+}
+```
+하지만 이 시점에서 compiler는 FriendTypeName의 declaration을 알고 있어야 한다.
+하지만 FriendTypeName은 내부적으로 TypeName에 접근할 것이기 때문에 다음과 같이 작성할 수 있다.
+```
+class TypeName;
+class FriendTypeName { ... };
+class TypeName { ... };
+```
+여기서 class TypeName;을 forward declaration이라고 한다.
+하지만 FriendTypeName의 declaration이 TypeName의 method를 inline으로 사용한다면 그 시점에서 compiler는 TypeName을 읽은 상태여야 compile이 가능하기 때문에, FriendTypeName의 declaration에서 inline으로 TypeName의 method를 호출할 수 없다.
+TypeName의 method가 필요한 FriendTypeName의 method는 declaration만 작성하고 TypeName class의 declaration 이후에 implementation을 작성하도록 해야 한다.
+필요하다면 이 implementation에 inline을 붙여서 inline method로 만들어주면 된다.
+그런데 생각해보니 TypeName이 특정 FriendTypeName에 dependency가 생겨서 정말 좋지 않은 코드라고 생각한다.
+- 차라리 TypeName의 모든 private member를 FriendTypeName이 접근할 수 있도록 하는 것이 좋을 것 같다.
+- 그리고 아직 책에 나오진 않았지만 nested class가 더 적절해 보인다.
+inline method는 internal linkage를 갖기 때문에 헤더 파일에 있어야 다른 source 파일들에 include될 수 있다.
+non-inline method는 external linkage를 갖기 때문에 source 파일에 정의해도 된다.
+특정 함수만 friend를 하는 것이 아닌 class 자체를 friend하는 경우에는 그 자체로 FriendTypeName이 class라는 것을 인식하기 때문에 forward declaration이 필요가 없다.
+796p
+두 class가 서로 friend라면 서로의 member에 접근이 필요한 method는 가능하면 source file에 두자
+꼭 inline으로 하고 싶다면 해당 method의 구현은 상대 class declaration 뒤에 두면 된다.
+797p
+shared friend
+두 class에 동시에 friend이도록 함수 선언을 각각 해주면 두 class 모두의 private member에 접근 가능한 함수를 선언할 수 있다.
+# https://stackoverflow.com/questions/620137/do-the-parentheses-after-the-type-name-make-a-difference-with-new
+- Do the parentheses after the type name make a difference with new?
+c++98에는 zero initializer와 default initializer가 있다.
+# https://en.cppreference.com/w/cpp/language/value_initialization
+- Value initialization
+여기에 new TypeName[arrayCount]()의 예제가 있다.
+
 2022-03-20
 # vim compatibility
 지금 교육장 mac과 내 mac의 vim version이 달라서 vimsession이 호환되지 않는 문제가 있다.
