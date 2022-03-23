@@ -1,5 +1,93 @@
 pour.txt
 
+2022-03-23
+# C++ Primer Plus 5ed
+840p
+typeid operator: object의 실제 type을 의미하는 id를 반환한다.
+type_info structure: 특정 type에 대한 정보를 가지고 있다.
+RTTI 기능은 virtual method를 가지는 type hierarchy에만 적용된다.
+841p
+dynamic_cast<Type *>(pointer)
+dynamic_cast 기능을 굳이 사용하지 않고 원하는 기능을 구현한다고 생각해보자.
+그러면 각 object가 실제 어떤 type이 저장되어 있는지를 파악할 용도의 어떤 변수를 하나 두어야 할 것이다.
+그리고 특정 함수를 호출할 때 특정 type인지를 검사한 후 호출해야 할 것이다.
+그냥 dynamic_cast를 사용하는 것이 깔끔하고 좋은 것 같다.
+만약 dynamic_cast에 reference type을 사용했는데 cast에 실패하면, reference type은 NULL을 가질 수 없기 때문에, bad_cast exception을 throw한다.
+845p
+typeid operator는 instance of type_info class를 반환한다.
+만약 typeid operator에 적절하지 않은 인자를 전달하면 bad_typeid exception을 throw한다.
+# throw
+이전에 throw가 없었어도 인자 없이 throw를 호출하면 뭔가 throw된다.
+849p
+type cast operator
+- dynamic_cast
+- const_cast: 실제 type의 const 여부는 error 발생 조건과 상관 없다.
+	- 만약 const type을 non-const type으로 바꾸려고 하면 새로운 instance를 copy하여 반환하기 때문에 실제 object가 수정되는 것을 막을 수 있다.
+	- 하지만 const type을 non-const type으로 cast하고 값을 update하는 것은 standard에서 undefined behavior로 규정하고 있기 때문에 기존 object를 copy해서 새로운 object를 만들지 어떨지는 구현에 따라 다를 수 있다.
+- static_cast: implicit type cast가 가능한 경우 static_cast가 가능하다. implicit type cast가 가능한 경우, 그 반대 방향으로도 static_cast가 성공한다.
+- reinterpret_cast: const는 바꿀 수는 없지만 다양한 강제 type cast를 허용한다.
+	- 단, 더 작은 크기의 data type으로의 type cast는 허용하지 않는다.
+	- function pointer와 data pointer 간의 type cast도 허용하지 않는다.
+- plane type cast: 대체로 거의 모든 type cast가 가능하다.
+	- 단, 더 작은 type으로의 casting은 허용하지 않는다.
+858p
+NBTS(null byte terminated string)
+862p
+std::istream::operator>>(char*);
+std::istream::get(char*, int);	// default delimiter is '\n'
+std::istream::getline(char*, int);
+operator>>(std::istream, std::string);
+getline(std::istream, std::string);
+863p
+getline(std::string&)이 실패하는 가능성은 3 가지가 있다.
+865p
+machine collating sequence
+std::string compare std::string
+std::string compare C-style string
+C-style string compare std::string
+std::string::length()가 먼저 만들어졌다.
+후에 STL과의 compatibility를 위해 std::string::size()가 만들어졌다.
+870p
+std::string::capacity(): 현재 std::string block이 문자열을 위해 할당한 memory block의 size를 반환한다.
+std::string::reserve(int): 최소한 인자로 들어온 값 만큼의 공간을 문자열을 위한 memory block으로 할당하도록 한다.
+871p
+std::string::c_str(): string에 저장된 문자열을 갖는 C-style string의 pointer를 반환한다.
+872p
+많은 c library들이 case-insensitive string compare을 하는 stricmp()나 _stricmp()를 지원하곤 한다.
+- 하지만 이 함수들은 c standard가 아니기 때문에 일반적으로 잘 사용하지 않는다.
+874p
+auto_ptr는 주소를 생성자의 인자로 받는 class이기 때문에 일반 pointer처럼 쉽게 사용하면서도 필요에 따라 destructor가 호출되는 이점을 가지고 있다.
+하지만 auto_ptr을 사용하면 local variable이기 때문에 pointer에 들어있는 address를 caller에게 전달하지 못하는 것 아닌가?
+아하! auto_ptr에 저장된 address를 NULL로 바꾸고 원하는 address를 caller에게 전달하면 되겠다!
+875p
+auto_ptr의 생성자는 explicit이기 때문에 일반 pointer와는 생성 syntax가 조금 다르다.
+auto_ptr은 다양한 operator를 overload하여 일반 pointer와 같이 다양한 operator를 사용할 수 있다.
+876p
+auto_ptr의 destructor는 address를 delete하기 때문에 operator new[]로 생성한 주소로 초기화해서는 안된다.
+만약 배열로 할당한 memory 공간을 auto_ptr처럼 다루고 싶다면 auto_ptr을 복사하여 destructor가 operator delete[]를 사용하는 새로운 class를 만들면 된다.
+또한 auto_ptr의 생성자의 인자로 heap에 할당된 주소를 전달하면 안된다.
+할당 시 같은 주소를 가리키는 auto_ptr이 동시에 여러개 존재할 수 있는 문제를 해결하는 방법
+- deep copy
+- ownership transferring
+- reference counting
+877p
+smart pointer
+768p
+```
+template <template <typename T> class Thing>
+class TypeName {
+	Thing<int> intThing;
+	Thing<double> doubleThing;
+};
+
+int main(void) {
+	TypeName<Stack> typeName = TypeName<Stack>();
+
+	return 0;
+}
+```
+TypeName 안에서 사용하는 Thing은 인자로 건내줄 class template을 의미한다.
+
 2022-03-22
 # C++ Primer Plus 5ed
 809p
