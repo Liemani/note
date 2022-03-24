@@ -1,5 +1,126 @@
 pour.txt
 
+2022-03-24
+# template
+template class의 type argument로 전달받은 type은 resolution operator를 사용하여 안에 있는 nested class에 접근할 때, 그 nested class가 항상 어떤 nested class type임을 확신할 수 없기 때문에, 이것이 nested class임을 명시하기 위해 앞에 typename keyword를 붙여준다.
+```
+template <typename T>
+void funcName(T& c) {
+	typename T::allocator = c.begin();
+}
+```
+# C++ Primer Plus 5ed
+882p
+std::vector<T>::size();
+std::vector<T>::begin();
+std::vector<T>::end();
+std::vector<T>::push_back(what);
+std::vector<T>::erase(begin, end);
+std::vector<T>::insert(hereBefor, begin, end);
+885p
+모든 container class에서 사용 가능한 find()라는 template 함수가 존재한다.
+만약 custom container class가 주어진 guideline을 따라 만들었다면, custom container class 또한 find()를 사용할 수 있다!
+container class에서 사용 가능한 template function
+- for_each(begin, end, funcObj);
+- random_shuffle(beegin, end);	// require random-access protocol
+- sort(begin, end);	// require random-access protocol, require operator<() implementation
+- sort(begin, end, how); // require random-access protocol
+887p
+total ordering
+strict weak ordering
+total ordering에서 <가 아니고 >도 아니면 ==이다.
+하지만 strict weak ordering에서는 그렇지 않다.
+890p
+object-oriendted programming은 data에 집중한다.
+generic programming은 type과는 별개로 algorithm에 집중한다.
+iterator를 사용하는 복잡한 algorithm을 한 번 만들어놓으면 어떤 type이든 iterator를 잘 작성하는 것 만으로 해당 algorithm을 실행할 수 있다!
+893p
+prefix, suffix
+894p
+algorithm마다 iterator에 다른 protocol을 요구한다.
+input iterator
+output iterator
+forward iterator
+bidirectional iterator
+random access iterator
+895p
+input iterator
+- program 관점에서 input이기 때문에 container로부터 입력을 받아올 수 있다.
+- input iterator는 같은 순서로 traverse하는 것을 보장하지는 않는다.
+- 지나쳐 온 element들이 여전히 존재하는 것 또한 보장하지 않는다.
+- 단방향 iterator이기 때문에 이전 element를 향해 traverse하는 것도 불가능하다.
+output iterator
+- program 관점에서 output이기 때문에 container에 값을 넣어줄 수 있다.
+- output을 보장하지만 input은 보장하지 않는다.
+- cout으로 terminal에 문자를 출력하는 것처럼 한 번 사용하고 나면 다시 읽는 것을 보장하지 않는 model이다.
+forward iterator
+- input iterator와 output iterator와 달리 항상 같은 순서로 traverse한다.
+- 이전 element의 iterator를 저장해 놓았다면 dereference를 했을 때 같은 값이 반환된다.
+- 이런 속성이 여러번 traverse해야하는 algorithm을 가능하게 한다.
+- forward iterator는 읽고 쓰기를 모두 허용할 수도 있고, 읽기만 허용할 수도 있다.
+- int*는 read-write forward iterator, const int*는 read-only forward iterator의 instance이다.
+bidirectional iterator
+- forward iterator의 특징들에 더해 decrement operator를 정의한다.
+- 앞뒤로 traverse하는 것이 가능하다.
+random access iterator
+- random access를 요구하는 sort() 같은 algorithm을 지원하기 위한 iterator
+- bidirectional iterator의 특징들에 더해 random access를 위해 pointer addition 같은 operator들과, 순서를 매기기 위한 relational operator를 정의한다.
+- 이 때 iter + n과 같은 표현은 iter와 iter + n이 iterator의 range 안에 있어야만 valid하다.
+input iterator + output iterator < forward iterator < bidirectional iterator < random access iterator
+899p
+container class들은 class scope에 iterator를 typedef한다.
+copy()는 source container range에서 destination container로 값을 복사하는데, source container는 충분한 공간이 할당되어 있어야 한다.
+std::vector<T>나 std::string이 가변 길이를 가진다고 해도 copy가 복사하는 값에 따라 크기를 조절하지는 않는다.
+copy()에서 InputIt와 OutputIt는 function template의 type argument이다.
+ostream_iterator
+900p
+adapter: 특정 behavior를 다른 behavior로 전환하는 매개 역할을 하는 class나 function
+algorithm만 잘 작성해 놓고 적절한 adapter를 인자로 전달하는 것 만으로 출력을 통한 behavior를 다양하게 결정할 수 있다.
+https://en.cppreference.com/w/cpp/iterator/istream_iterator/istream_iterator
+- std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator
+istream_iterator()은 input stream의 input이 끝났음을 의미하는 iterator이다.
+901p
+reverse_iterator
+back_insert_iterator
+front_insert_iterator
+insert_iterator
+std::vector<T>::rbegin();
+std::vector<T>::rend();
+std::vector<T>::rbegin()과 std::vector<T>::rend()가 반환하는 std::vector<T>::reverse_iterator에 저장된 실제 데이터의 address는 각각, std::vector<T>::end()와 std::vector<T>::begin()이 반환하는 std::vector<T>::iterator에 저장된 실제 데이터의 address와 일치하지만, std::vector<T>::reverse_iterator는 dereference operator를 호출할 때 의도에 맞는 값을 반환하기 위해, 저장된 실제 데이터의 address를 dereference하는 것이 아니라 1 적은 주소값을 dereference한다.
+903p
+template<typename InputIt, typename OutputIt> OutputIt copy(InputIt begin, InputIt end, OutputIt d_begin);는 container에 할당된 메모리의 크기를 고려하지 않는다.
+그래서 할당된 메모리 공간을 고려하여 dynamic하게 insert를 하도록하기 위해 insert_iterator family를 만들었다.
+back_insert_iterator: inserts items at the end of the container
+- 오직 rapid insertion at the end를 허용하는 container에만 사용할 수 있다.(constant time이 걸리는 것을 의미한다.)
+front_insert_iterator: inserts items at the front of the container
+- back_insert_iterator와 마찬가지로 rapid insertion at the beginning를 허용하는 container에만 사용할 수 있다.
+insert_iterator: inserts items in front of the specified as an argument to the insert_iterator constructor
+- 위의 두 insert_iterator와 달리 추가적인 restriction이 없다.
+insert_iterator를 사용하여 first element 앞에 insert를 할 수 있지만 front_insert_iterator를 지원하는 경우 front_insert_iterator를 사용하는 것이 더 빠르다.
+904p
+std::back_insert_iterator<T>는 T::push_back()을 요구한다.
+```
+std::back_insert_iterator<T> bii = std::back_insert_iterator<T>(t);
+std::front_insert_iterator<T> fii = std::front_insert_iterator<T>(t);
+std::insert_iterator<T> bii = std::insert_iterator<T>(t, t.begin());
+```
+# https://stackoverflow.com/questions/6305906/why-does-operator-return-a-non-const-value?rq=1
+- Why does operator ++ return a non-const value?
+- + C++ Primer Plus 5ed 892p
+operator++()의 반환 값을 const로 하는 경우도 있고 non-const로 하는 경우도 있다.
+나는 다양한 목적을 위해 가능하면 non-const로 하는 것이 좋을 것 같다.
+입력으로 들어오는 this를 반환하는데, 이 때 this가 const가 아니기 때문이다.
+만약 반환해야 하는 값을 인자로 전달 받을 때 이미 const type이었다면 const type으로 반환해야만 할 것이다.
+# template as type argument of template
+```
+template <template <typename, typename> class T, typename U>
+int easyfind(T<U, std::allocator<U> >& t, U n);
+
+std::vector<int, std::allocator<int>> v;
+easyfind(v, 0);
+```
+type argument로 사용한 template의 type argument 갯수와 instantiation을 위해 사용한 template의 type argument 갯수가 일치해야 instantiation을 한다.
+
 2022-03-23
 # C++ Primer Plus 5ed
 840p
