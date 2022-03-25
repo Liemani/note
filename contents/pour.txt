@@ -1,5 +1,198 @@
 pour.txt
 
+2022-03-25
+# C++ Primer Plus 5ed
+905p
+deque, list, queue, priority_queue, stack, vector, map, multimap, set, multiset, bitset
+publicly copy constructable and assignable인 type만 container의 type argument로 전달해야 한다.
+basic container는 element의 order가 유지되는 것을 보장하지는 않는다.
+906p
+<expression>: <complexity>: <description>
+C::value_type: compile time: element type
+c.size(): constant: returns number of elements
+c.swap(d): constant: swaps contents of a and b
+a == b: linear: returns true if a and b have the same size and each element in a is equivalent to the corresponding element in b
+907p
+detail implementation은 숨겨져 있어도 complexity와 같은 performance specification은 공개되어야 한다.
+그래야 어떤 작업을 수행할 때 computing cost를 고려할 수 있다.
+sequence protocol
+- deque, list, queue, priority_queue, stack, vector가 sequence protocol을 따른다.
+- iterator가 forward iterator이다.
+- elements are arranged in strict linear order
+	- there is first and last element.
+	- first element has exactly one element immediately ahead of it.
+	- each element but the first and last has exactly one element immediately ahead of it and one element immediately after it.
+	- last element has exactly one element immediately after it.
+	- this property make possible inserting element at a particular location and erasing a particular range.
+908p
+Sequence protocol
+- requirements
+	- Sequence(count, element):			creates a sequence containing the specified number of elements.
+	- Sequence(begin, end):				creates a sequence containing a range of elements.
+	- insert(position, element):		inserts a element at the specified position.
+	- insert(position, count, element):	inserts the specified number of elements at the specified position.
+	- insert(position, begin, end):		inserts a range of elements at the specified position.
+	- erase(position):					removes the element at the specified position.
+	- erase(begin, end):				removes the range of element.
+	- clear():							removes all the elements.
+- optional requirements
+	- front():				the first element of the sequence.(vector, list, deque)
+	- back():				the last element of the sequence.(vector, list, deque)
+	- push_front(element):	inserts a element at the beginning of the sequence.(list, deque)
+	- push_back(element):	inserts a element at the end of the sequence.(vector, list, deque)
+	- pop_front(element):	removes the first element of the sequence.(list, deque)
+	- pop_back(element):	removes the last element of the sequence.(vector, list, deque)
+	- operator[](index):	accesses the element at the specified position.(vector, deque)
+	- at(index):			accesses the element at the specified position. checks bound.(vector, deque)
+910p
+vector
+- reversible container
+	- rbegin(): begin() for reversed sequence
+	- rend(): end() for reversed sequence
+	- 이 iterator들은 vector::reverse_iterator type이다.
+- vector는 가장 단순한 sequence class template이며, 다른 추가 기능을 필요하는 것이 아니라면 vector를 사용하면 된다.
+deque
+- vector보다 구조가 복잡하기 때문에 특정 작업이 아닌 일반 작업에서 vector보다 느리다.
+911p
+list
+- some member functions
+	- merge(list): ascending order로 정렬되어 있는 두 list를 invoking list에 병합하고 인자로 전달받은 list는 empty한다.
+	- remove(element): removes all the elements that equivalent to from the list.
+	- sort(): sort the list
+	- splice(position, list): inserts the list at the specified position. the passed list get empty.
+	- unique(): removes all consecutive duplicate elements from list.
+- list::iterator는 random access iterator가 아니기 때문에 sort(begin, end)를 사용할 수 없다.
+	- 그래서 정렬을 할 때 list가 따로 가지고 있는 sort()를 사용한다.
+	- list의 remove는 swift의 removeall을 의미한다.
+914p
+queue
+- adapter class이다.
+- elements의 random access를 허용하지 않는다.
+- iterate도 허용하지 않는다.
+- operations
+	- bool empty() const;
+	- size_type size() const;
+	- element& front();
+	- element& back();
+	- void push(const element&);
+	- void pop();
+priority_queue
+- adapter class이다.
+- queue와 같은 operation을 지원한다.
+- 가장 큰 element가 front에 온다.
+- default underlying class는 vector이다.
+- construct 시에 comparison function을 전달할 수 있다.
+```
+priority_queue<int>(funcName);
+```
+stack
+- adapter class이다.
+- default underlying class는 vector이다.
+- elements의 random access를 허용하지 않는다.
+- iterate도 허용하지 않는다.
+- 대신 stack을 정의하기 위해 필요한 기초적인 operation만을 하도록 제한한다.
+- operations
+	- bool empty() const;
+	- size_type size() const;
+	- element& top();
+	- void push(const element&);
+	- void pop();
+915p
+associative container
+- member type
+	- value_type
+	- key_type
+- rapid access to the element
+- family: set, multiset, map, multimap
+916p
+set
+- reversible
+- sorted
+- set_union(begin, end, begin, end, position)
+	- position에는 일반 iterator가 아니라 insert_iterator를 넣어야 값을 insert할 수 있다.
+- set_intersection(), set_difference()
+- lower_bound(), upper_bound()
+919p
+multimap
+- reversible
+- sorted
+- key는 const type이다.
+- count(key)
+- equal_range(key)
+922p
+function object(functor)
+function object는 function처럼 뒤에 ()를 붙여 실행하는 것이 가능한 any object이다.
+family
+- normal function name
+- pointer to function
+- class object for which the operator() is overloaded
+for_each() 같이 함수를 인자로 받는 function template은 어떤 type이 인자로 들어오더라도 해당 인자를 전달받는 코드를 생성하기 때문에 모든 type을 전달받을 수 있다.
+923p
+STL은 3개의 function protocol을 정의한다.
+- generator: 인자가 없음
+- unary function: 인자가 한 개
+	- predicate: bool을 반환
+- binary function: 인자가 두 개
+	- binary predicate: bool을 반환
+for_each()이 전달받는 함수는 UnaryFunction protocol을 따라야 한다.
+함수를 인자로 전달해야 할 때 함수 내부에 상수를 조절해야 할 필요가 있는 경우 function object를 사용하면 유용하다.
+function object가 복잡한 함수의 다양한 상수를 가짐으로써 함수 그 자체를 의미하고 위하는 object를 표현할 수 있다.
+cpu의 instruction 수준에서 함수를 다룰 수는 없지만 원하는 함수를 부를지 말지는 function object의 member variable 등을 통해 더 가독성 좋게 execution time에 dynamic하게 control할 수 있다.
+function object를 사용하면 인자를 여러개 받는 함수를 constructor와 함수 호출로 나눠서 받도록 만들 수 있다.
+- 전달받는 인자의 갯수가 다른 함수들의 interface를 연결해주는 adapter라고 할 수 있다.
+927p
+functor equivalents for operators
++: plus
+-: minus
+*: multiplies
+/: divides
+%: modulus
+-: negate
+==: equal_to
+!=: not_equal_to
+>: greater
+<: less
+>=: greater_equal
+<=: less_equal
+&&: logical_and
+||: logical_or
+!: logical_not
+928p
+adaptable protocol family
+- adaptable generators
+- adaptable unary functions
+- adaptable binary functions
+- adaptable predicates
+- adaptable binary predicates
+member type
+- result_type
+- first_argument_type
+- second_argument_type
+std::bind1st(std::multiplies<int>(), val)를 통해 unary function으로 adapt할 수 있는 이유는 std::multiplies가 adaptable protocol을 conform하기 때문이다.
+bind1st는 constant를 첫 인자로 전달한다.
+bind2nd는 constant를 두 번째 인자로 전달한다.
+931p
+container의 operator==는 element의 count와 iterator를 사용해서 비교하기 때문에 set과 list 등, 서로 다른 두 type이 같은 내용물을 가지고 있는지도 비교할 수 있다.
+lgorithm
+family
+- nonmodifying sequence operation
+	- find(), for_each()
+- mutating sequence operation
+	- transform(), random_shuffle(), copy()
+- sorting and related operation
+	- sort()
+- generalized numeric operation: declared in numeric
+in-place algorithm: sort(): container 내부적 값 변경
+copying algorithm: copy(): 다른 container로 값 전달
+treansform()은 위의 두 역할을 다 할 수 있다.
+어떤 algorithm function은 두 역할을 위한 각각의 version을 정의한다.
+replace()는 in-place algorithm이고, replace_copy()는 copying algorithm이다.
+933p
+next_permutation(begin, end);
+효율을 생각한다면 결국 container type에 따라 필요한 함수를 호출해야 하고, container에 상관 없이 iterator로 일반화 시킬 수는 없다.
+따라서 같은 작동을 시키더라도 container type에 따라 다른 함수를 호출해야 하며, 단 container가 유리한 부분은 container type에 상관 없이 융통성 있게 작동하는 algorithm 함수들이 있다는 것이다.
+모든 것을 위한 generalization은 실현하지 못했지만, 많은 것을 연결해주는 flexibility를 구현한 것이다.
+
 2022-03-24
 # template
 template class의 type argument로 전달받은 type은 resolution operator를 사용하여 안에 있는 nested class에 접근할 때, 그 nested class가 항상 어떤 nested class type임을 확신할 수 없기 때문에, 이것이 nested class임을 명시하기 위해 앞에 typename keyword를 붙여준다.
