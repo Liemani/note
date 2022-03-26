@@ -1,5 +1,29 @@
 pour.txt
 
+2022-03-26
+# C++ Primer Plus 5ed
+map을 사용하는 이유는 hashable한 구조를 만들어서 key로 value를 constant time으로 얻기 위함이다.
+만약 key-value pair의 구조를 원하지만 key를 사용하여 value에 access할 필요가 없는 경우에는 key-value pair를 element로 하는 vector를 사용하도록 하자.
+function object는 가능하면 계산 식 자체가 object화 할 정도로 유명한 경우에만 사용하도록 하자.
+기본적으로는 iterator를 사용해서 for statement를 loop한다고 생각하고, 만약 내가 사용하는 방법을 간결하게 만들어주는 함수가 이미 존재하는 때에는 그 함수를 사용하도록 하자.
+강제할 수 있는 어떤 concept의 feature
+- 함수인가?
+	- signature가 어떻게 되는가?
+	- return type이 특정 type으로 convert가 가능한가?
+- object type인가?
+	- 특정 member를 public으로 가지고 있는가?
+		- 특정 member variable을 가지고 있는가?
+		- 특정 member type을 가지고 있는가?
+		- 특정 member method를 가지고 있는가?
+953p
+전형적으로, disk drive 같은 장치들은 정보를 512 bytes block 단위나 그 이상으로 전송한다.
+프로그램은 정보를 한 번에 1 byte 단위로 처리하기 때문에, buffer에 값을 담아 놓고 사용하게 된다.
+이런식으로 stream이라는 개념을 도입함으로써 stream 개발자와 그 stream을 사용하는 개발자를 나눌 수 있다.
+streambuf
+numeric type을 적절한 char type으로 convert하여 출력하는 것도 ostream의 instance가 담당한다.
+983p
+formatted input function
+
 2022-03-25
 # C++ Primer Plus 5ed
 905p
