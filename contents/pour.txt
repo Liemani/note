@@ -1,5 +1,82 @@
 pour.txt
 
+2022-03-27
+# C++ Primer Plus 5ed
+985p
+cin.operator>> skips over white space
+만약 extraction에 실패하면 인자로 전달받은 reference를 수정하지 않는다.
+989p
+exception은 unusual, unexpected occurrence를 catch해야 한다.
+즉, intended behavior에는 exception을 사용하지 않도록 하자.
+991p
+cctype
+isspace();
+istream.get();			([^delimiter]*)(.*)/\1/\2
+istream.getline();		([^delimiter]*)[delimiter](.*)/\1/\2
+istream.operator>>();	[isspace]*([match]*)([^match]*)/\1/\2
+995p
+istream.ignore();		[^delimiter]*[delimiter](.*)//\1
+998p
+istream.get()과 달리 istream.getline()은 empty line을 입력받아도 '\n'을 stream buffer에서 discard하는 작업을 하기 때문에 failbit를 set하지 않는다.
+istream.getline();
+1. is eof?
+2. is next character new line character?
+3. did read specified number of character already? set failbit also.
+istream.get();
+1. did read specified number of characters already?
+2. is eof?
+3. is next character new line character?
+999p
+read();
+peek();
+gcount();
+putback();
+read();
+peek()는 get() 후 putback()으로 읽은 문자를 다시 넣는 것과 같다.
+1004p
+ofstream object는 create할 때 output buffer를 allocate한다.
+output buffer가 가득 차면 buffer의 contents를 destination file로 transfer한다.
+1008p
+invalid file mode argument를 인자로 전달하여 ifstream.open()을 호출했을 때 fin.good() 등으로는 detecting이 되지 않는다.
+ifstream.is_open()이 이런 세밀한 것까지 고려한 값을 반환해준다.
+std::ios_base::out
+std::ios_base::out | std::ios_base::app
+1018p
+text mode로 file을 open하면 system에 따라 new line을 적절히 처리하는 등 추가적인 작업을 한다.
+object를 binary로 read()하고 write()할 때 virtual method를 가지고 있으면 virtual method table도 복사가 되어 virtual method가 제대로 실행되지 않을 수 있다.
+마찬가지 이유로 실제 데이터가 아닌, 데이터의 주소 데이터는 저장해도 다음 실행 때 달라지기 때문에 실제 데이터를 저장하는지를 잘 보도록 하자.
+- 가령 문자들을 저장하면 실제로 문자열을 저장하고 불러올 수 있지만 std::string 처럼 문자열의 주소값을 member variable로 가지는 object는 저장해도 실제 문자열을 불러올 수 없다.
+1022p
+fstream
+- input buffer
+- input pointer
+- output buffer
+- output pointer
+std::ios_base::app
+- 이미 존재한느 파일 뒤에 데이터를 추가로 write할 수 있다.
+- 이미 존재했던 부분은 read-only이다.
+ifstream.seekg(): moves the input pointer to a specified position.
+ofstream.seekp(): moves the output pointer to a specified position.
+1023p
+std::ios_base::beg;
+std::ios_base::cur;
+std::ios_base::end;
+streampos가 Type이기 위해서는 int를 인자로 받는 생성자와 streamoff를 인자로 받는 생성자가 존재해야 한다.
+ifstream.tellg();
+ofstream.tellp();
+instance of fstream는 tellg()와 tellp()의 반환 값이 같지만, 한 파일에 대해 ifstream과 ofstream을 생성하는 경우 반환값이 서로 다를 수 있다.
+1030p
+incore formatting
+istringstream
+ostringstream
+std::string ostringstream.str();
+1032p
+use-case analysis
+CRC(Class/Responsibilities/Collaborators) cards
+1033p
+UML(Unified Modeling Language)
+1035p finish
+
 2022-03-26
 # C++ Primer Plus 5ed
 map을 사용하는 이유는 hashable한 구조를 만들어서 key로 value를 constant time으로 얻기 위함이다.
