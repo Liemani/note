@@ -1,5 +1,10 @@
 pour.txt
 
+2022-03-28
+cppModule 등 subject를 진행하면서 내가 내용을 따로 요약 정리해서 관리하면 좋겠다.
+shift operator는 인자가 0보다 크고 number of bit보다 작음을 보장해야 한다.
+get method가 built-in type에 대해 reference type을 반환하지 않는 이유는 word 단위의 built-in type에 대해서는 value로 reeturn하는 것이 빠르기 때문일 것 같다.
+
 2022-03-27
 # C++ Primer Plus 5ed
 985p

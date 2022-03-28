@@ -1,10 +1,13 @@
 todo temp.txt
 
 # pc
+cppModule
+- 03
+	- ScavTrap과 FragTrap에 polymorphism feature을 test하기
+	- DiamondTrap test file 작성하기
+- 04, 05, 06, 07, 08
+
 - 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
-- cppModule
-	- 01
-		- sed 작성하기
 - 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
 - likedin 좀 내용을 추가해볼까?
 - new를 사용했을 때 발생할 수 있는 memory error를 어떻게 처리할지 알아보고 적용하기
@@ -15,6 +18,7 @@ todo temp.txt
 - safari 정리하기(tab group 너무 무겁다;;)
 - webserv팀원 천천히 구하기
 - 조사
+	- global const type은 공간을 차지하지 않을까?
 	- copy constructor의 구현에 따라 copy constructor 시에 assignment operator가 호출될 수 있다?
 		- 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
 			- cppModule02ex00, c++ prime plus
@@ -44,6 +48,8 @@ todo temp.txt
 # finish
 - vimsession이 상호 호환 안되는 문제 해결
 - cppModule
+	- 01
+		- sed 작성하기
 	- 03
 		- ClapTrap, ScavTrap, FragTrap의 destructor가 virtual이도록 수정하기
 		- derived class에서 overried되는 method를 virtual로 수정하기
