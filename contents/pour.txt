@@ -1,5 +1,10 @@
 pour.txt
 
+2022-03-29
+object를 initialize할 때 인자가 같은 object의 temporary type이면 copy constructor를 호출하지 않고 해당 object가 temporary type 역할로 들어가서 값을 초기화 한다.
+variable을 property로 사용하기 위해서 constructor에서 initialize하는 built-in variable의 경우 set method를 호출하여 값을 initialize하도록 하자.
+c++에서 ad-hoc polymorphism은 function overloading을 말한다.
+
 2022-03-28
 cppModule 등 subject를 진행하면서 내가 내용을 따로 요약 정리해서 관리하면 좋겠다.
 shift operator는 인자가 0보다 크고 number of bit보다 작음을 보장해야 한다.

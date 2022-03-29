@@ -2,116 +2,121 @@ todo temp.txt
 
 # pc
 cppModule
-- 03
-	- ScavTrap과 FragTrap에 polymorphism feature을 test하기
-	- DiamondTrap test file 작성하기
-- 04, 05, 06, 07, 08
-
-- 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
-- 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
-- likedin 좀 내용을 추가해볼까?
-- new를 사용했을 때 발생할 수 있는 memory error를 어떻게 처리할지 알아보고 적용하기
-- 두 파트로 분리된 내용을 A 하나 B 하나 식으로 하나로 합치는 방법 고안하기
-- global const가 다른 두 파일에서 사용됐을 경우 서로 다른 두 메모리 공간을 차지하는 것이 아니라 정말 메모리를 덜 차지하는 상수처럼 쓰이는지 확인해보기
-- setenv.sh를 더 잘게 나누기
-	- 작은 실행 가능한 단위들로 나눠두면 좋을 것이다.
-- safari 정리하기(tab group 너무 무겁다;;)
-- webserv팀원 천천히 구하기
-- 조사
-	- global const type은 공간을 차지하지 않을까?
-	- copy constructor의 구현에 따라 copy constructor 시에 assignment operator가 호출될 수 있다?
-		- 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
-			- cppModule02ex00, c++ prime plus
-	- minicanvas web program
-	- std::string을 바꿀 때 copy assignment operator를 사용할까 아니면 char*로 쉽게 교체하는 함수가 존재할까?
-- 새로운 실험을 할 때는 기존 코드에서 하기보다는 문제와 실험을 쏙 빼서 테스트하여 나중에 쉽게 재구현 및 실험의 결과를 통해 알게된 점을 쉽게 revisit할 수 있게 하자.
-- cpp_module_01 진행하기
-	- intra 영상 시청
-	- subject 구현
-	- submit protocol 확인
-- 정리할 자료 파악하고 정리하기
-	- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
-	- 이 apple note 어플, 하드 디스크, iCloud, git
-		- apple note 어플: 약 950 개
-		- 하드 디스크: 2 개
-		- iCloud: 일기 2 개
-		- 북마크
-			- tab group 은 cache 로 사용하고 북마크는 memory
-		- 읽기 목록
-		- 하드
-		- 메모
-		- 슬랙 saved
-	- 파악한 자료 정리하기
-		- 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
-			- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
+- 04
+	- Animal을 잘 만들었다. 다른 class들도 잘 작성해주도록 하자.
+- 05, 06, 07, 08
+나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
+42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
+likedin 좀 내용을 추가해볼까?
+new를 사용했을 때 발생할 수 있는 memory error를 어떻게 처리할지 알아보고 적용하기
+두 파트로 분리된 내용을 A 하나 B 하나 식으로 하나로 합치는 방법 고안하기
+global const가 다른 두 파일에서 사용됐을 경우 서로 다른 두 메모리 공간을 차지하는 것이 아니라 정말 메모리를 덜 차지하는 상수처럼 쓰이는지 확인해보기
+setenv.sh를 더 잘게 나누기
+- 작은 실행 가능한 단위들로 나눠두면 좋을 것이다.
+safari 정리하기(tab group 너무 무겁다;;)
+webserv팀원 천천히 구하기
+조사
+- global const type은 공간을 차지하지 않을까?
+- copy constructor의 구현에 따라 copy constructor 시에 assignment operator가 호출될 수 있다?
+	- 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
+		- cppModule02ex00, c++ prime plus
+- minicanvas web program
+- std::string을 바꿀 때 copy assignment operator를 사용할까 아니면 char*로 쉽게 교체하는 함수가 존재할까?
+새로운 실험을 할 때는 기존 코드에서 하기보다는 문제와 실험을 쏙 빼서 테스트하여 나중에 쉽게 재구현 및 실험의 결과를 통해 알게된 점을 쉽게 revisit할 수 있게 하자.
+cpp_module_01 진행하기
+- intra 영상 시청
+- subject 구현
+- submit protocol 확인
+정리할 자료 파악하고 정리하기
+- 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
+- 이 apple note 어플, 하드 디스크, iCloud, git
+	- apple note 어플: 약 950 개
+	- 하드 디스크: 2 개
+	- iCloud: 일기 2 개
+	- 북마크
+		- tab group 은 cache 로 사용하고 북마크는 memory
+	- 읽기 목록
+	- 하드
+	- 메모
+	- 슬랙 saved
+- 파악한 자료 정리하기
+	- 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
+		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
-- vimsession이 상호 호환 안되는 문제 해결
-- cppModule
-	- 01
-		- sed 작성하기
-	- 03
-		- ClapTrap, ScavTrap, FragTrap의 destructor가 virtual이도록 수정하기
-		- derived class에서 overried되는 method를 virtual로 수정하기
-		- base class의 private member accessor method를 protected section으로 옮겨야 할까?
-		- ex03
-			- DiamondTrap 작성하기
-			- 책 읽고 필요 지식 학습하기
-- slack 다 읽어보고 slack email 왜 내 메일로 안날라오는지 알아보기
-- merge .private(origin/backup)
-- PBL-LV1-MISSION1
-	- keyStoreMovingKey 적용하기
-	- KIController를 static으로 만들기 보다는 그냥 instance로 활용하는게 더 좋지 않을까?
-	- 보고서 발표 연습하기
-	- 이슈 트래킹 해결 일지 작성하기
-- 조사
-	- initialization
-	- private property는 접근 권한을 instance에만 허용하는 줄 알았는데, snpark은 class에 허용하는 경우를 발견했다고 한다. 조사해보자.
-- implicit type conversion을 할 때, source type을 인자로 하는 target type constructor와, source type의 conversion operator to target type이 모두 존재하면 ambiguous error가 발생할까?
-- cin 이 fail 하면 NULL 읇 반환하는지 확인하기
-	- 이를 뒷받침하는 제대로 된 reference 문서 발굴하기
-- 00/ex01 계속 진행하기 -> iomanip 을 보면서 wide 설정하는 방법 익히는 중
-- cpp 는 함수 인자로 정의되지 않은 custom type 이 들어왔을 때도 자동으로 형변환을 할까?
-	- custom type 을 인자로 필요한 type 의 생성자를 호출할까?
-- default constructor 를 따로 정의하지 않으면 무엇이 호출될까?
-- default constructor 는 없지만 모든 argument 가 default value 를 가지는 parametric constructor 를 정의했다면 이것이 호출될까?
-- default constructor 도 있고 모든 argument 가 default value 를 가지는 parametric constructor 도 정의했다면 default constructor 가 호출될까?
-- reference type 에 NULL 을 넣는다면?
-	- 그런데 만약 void * 에 대한 constructor 가 존재한다면?
-- vim/help/cmdline.txt
-- 무중력지대 등 밖에서 무료로, 혹은 저렴한 비용으로 개발할 장소를 확보할 수 있는 곳 찾아보기
-- safari tab group 추가하기: 42 facility
-	- safari 의 tab group 으로 42 와 42 시설 탭 그룹으로 분리해서 관리하자
-	- 42 시설은 건물 관련된 tab 들
-- aux record 가 작동하지 않는다. 열받내? 수정하도록 하자
-- todo.txt 를 pc 와 finish 만 남도록 나머지는 다른 파일로 옮기기
-- 어떻게 해야 꾸준히 열심히 클러스터에 나올 수 있을까?
-	- '오늘만 나가자' 라는 마음으로!
-- 유튜브 영상을 보면 항상 기록해놓을 수 있는 시스템 만들기
-	- background: 누워서 핸드폰으로 유튜브 영상을 보면 기록하면서 볼 수 없어서 너무 아쉽다.
-	- 아이폰으로 유튜브를 보지 말고 아이패드로 본다면 어떨까? 유튜브를 봄과 동시에 메모에 접근이 가능해서 기록을 할 수 있다.
-	- 컴퓨터 화면을 누워서 볼 수 있도록 하면 누워서 컴퓨터를 보면서 키보드로 타이핑 하는 것이 가능해진다
-- tcpppl 을 읽으면서 cpp 의 역사를 보고 있다. 다른 언어의 역사와 함께 cpp 의 역사를 보면서 전체적인 프로그램 언어의 역사를 이해해보자
-	- https://en.wikipedia.org/wiki/Timeline_of_programming_languages
-		- programming language timeline
-- todo.txt 를 todo_now.txt, todo_future.txt 등으로 세분화해서 관리하기
-	- 개인 mac 에서 이 작업을 하면 vim version 이 달라 .vimsession 읽고 쓸 때 에러가 발생하는 것이 싫으니 나중에 클러스터에 가면 이 작업을 하도록 하자
-- automatic 이 아닌 변수는 프로그램이 시작하기 전에 한 번만 초기화를 한다고 한다. static variable 도 그럴까? 함수가 호출되기 전에 이미 초기화가 되어 있는 것일까? 아니다
-	> tcpl 2.3p3. If the variable in question is not automatic, the initialization is done once only, conceptually before the program starts executing, and the initializer must be a constant expression.
-- git
-	- github_pages_manager 같은 불필요한 git repository 정리하기
-	- note 가 private 인데 backup 용 repository 분리해서 남기고 public 용 note repository 추가하기
-- float op int: 이 경우 int 가 float 로 형 변환이 되는데(tcpl.12p), 만약 int value 가 float 로 표현 가능한 범위 밖이라면? 알아서 precision 의 제한에 따라 approximation 으로 바뀌겠구나!
-	- 뭔소리지?
-- todo 파일들의 이름을 첫 줄의 이름으로 바꿔 저장하고 이전 파일을 삭제하기
-- 어제 발견한 'git status 시 한글 출력이 안되는 문제' 의 진상을 밝히기
-	- 그냥 원래 git status 가 그런가보다, 가능하면 파일들의 이름을 영어로 작성하자
-- link.txt 분해해서 정리해버리기
-- c 언어 source 와 대응하는 asm code 를 볼 수 있는 방법이 있다. 궁금할 때 알아보자
-- playground 의 002_postfix_increment_operator.c 의 어셈블리 코드를 보기 좋게 출력하는 것을 cluster mac 에서 시도해보기
-- instruments 영상 시청하기
-- 12/18 일 닭가슴살이 떨어진다. 물량 확보하기
-- youtube 방금 본 이력서 작성 영상 정리하기
-- note 의 privet 분리하고 public 으로 전환하기
-- exam03
-	- empty_rectangle 의 border 인지를 판단할 때, border 를 포함한 rectangle 에서 포함하지 않는 rectangle 을 제외하는 것과 애초에 세로 변에 포함되는지를 먼저 확인하고 또는 세로 변에 있는지를 확인하는 방법의 차이가 를 알아보자
+vimsession이 상호 호환 안되는 문제 해결
+cppModule
+- 01
+	- sed 작성하기
+- 02
+	- 마지막 테스트 작성
+	- try catch로 0으로 나누는 테스트 케이스 작성하기
+	- shift에 따른 instruction차이 살펴보기
+	- float을 shift할 때 발생하는 변화 관찰하기
+- 03
+	- ClapTrap, ScavTrap, FragTrap의 destructor가 virtual이도록 수정하기
+	- derived class에서 overried되는 method를 virtual로 수정하기
+	- base class의 private member accessor method를 protected section으로 옮겨야 할까?
+	- ex03
+		- DiamondTrap 작성하기
+		- 책 읽고 필요 지식 학습하기
+	- ScavTrap과 FragTrap에 polymorphism feature을 test하기
+	- DiamondTrap test file 작성하기
+slack 다 읽어보고 slack email 왜 내 메일로 안날라오는지 알아보기
+merge .private(origin/backup)
+PBL-LV1-MISSION1
+- keyStoreMovingKey 적용하기
+- KIController를 static으로 만들기 보다는 그냥 instance로 활용하는게 더 좋지 않을까?
+- 보고서 발표 연습하기
+- 이슈 트래킹 해결 일지 작성하기
+조사
+- initialization
+- private property는 접근 권한을 instance에만 허용하는 줄 알았는데, snpark은 class에 허용하는 경우를 발견했다고 한다. 조사해보자.
+implicit type conversion을 할 때, source type을 인자로 하는 target type constructor와, source type의 conversion operator to target type이 모두 존재하면 ambiguous error가 발생할까?
+cin 이 fail 하면 NULL 읇 반환하는지 확인하기
+- 이를 뒷받침하는 제대로 된 reference 문서 발굴하기
+00/ex01 계속 진행하기 -> iomanip 을 보면서 wide 설정하는 방법 익히는 중
+cpp 는 함수 인자로 정의되지 않은 custom type 이 들어왔을 때도 자동으로 형변환을 할까?
+- custom type 을 인자로 필요한 type 의 생성자를 호출할까?
+default constructor 를 따로 정의하지 않으면 무엇이 호출될까?
+default constructor 는 없지만 모든 argument 가 default value 를 가지는 parametric constructor 를 정의했다면 이것이 호출될까?
+default constructor 도 있고 모든 argument 가 default value 를 가지는 parametric constructor 도 정의했다면 default constructor 가 호출될까?
+reference type 에 NULL 을 넣는다면?
+- 그런데 만약 void * 에 대한 constructor 가 존재한다면?
+vim/help/cmdline.txt
+무중력지대 등 밖에서 무료로, 혹은 저렴한 비용으로 개발할 장소를 확보할 수 있는 곳 찾아보기
+safari tab group 추가하기: 42 facility
+- safari 의 tab group 으로 42 와 42 시설 탭 그룹으로 분리해서 관리하자
+- 42 시설은 건물 관련된 tab 들
+aux record 가 작동하지 않는다. 열받내? 수정하도록 하자
+todo.txt 를 pc 와 finish 만 남도록 나머지는 다른 파일로 옮기기
+어떻게 해야 꾸준히 열심히 클러스터에 나올 수 있을까?
+- '오늘만 나가자' 라는 마음으로!
+유튜브 영상을 보면 항상 기록해놓을 수 있는 시스템 만들기
+- background: 누워서 핸드폰으로 유튜브 영상을 보면 기록하면서 볼 수 없어서 너무 아쉽다.
+- 아이폰으로 유튜브를 보지 말고 아이패드로 본다면 어떨까? 유튜브를 봄과 동시에 메모에 접근이 가능해서 기록을 할 수 있다.
+- 컴퓨터 화면을 누워서 볼 수 있도록 하면 누워서 컴퓨터를 보면서 키보드로 타이핑 하는 것이 가능해진다
+tcpppl 을 읽으면서 cpp 의 역사를 보고 있다. 다른 언어의 역사와 함께 cpp 의 역사를 보면서 전체적인 프로그램 언어의 역사를 이해해보자
+- https://en.wikipedia.org/wiki/Timeline_of_programming_languages
+	- programming language timeline
+todo.txt 를 todo_now.txt, todo_future.txt 등으로 세분화해서 관리하기
+- 개인 mac 에서 이 작업을 하면 vim version 이 달라 .vimsession 읽고 쓸 때 에러가 발생하는 것이 싫으니 나중에 클러스터에 가면 이 작업을 하도록 하자
+automatic 이 아닌 변수는 프로그램이 시작하기 전에 한 번만 초기화를 한다고 한다. static variable 도 그럴까? 함수가 호출되기 전에 이미 초기화가 되어 있는 것일까? 아니다
+> tcpl 2.3p3. If the variable in question is not automatic, the initialization is done once only, conceptually before the program starts executing, and the initializer must be a constant expression.
+git
+- github_pages_manager 같은 불필요한 git repository 정리하기
+- note 가 private 인데 backup 용 repository 분리해서 남기고 public 용 note repository 추가하기
+float op int: 이 경우 int 가 float 로 형 변환이 되는데(tcpl.12p), 만약 int value 가 float 로 표현 가능한 범위 밖이라면? 알아서 precision 의 제한에 따라 approximation 으로 바뀌겠구나!
+- 뭔소리지?
+todo 파일들의 이름을 첫 줄의 이름으로 바꿔 저장하고 이전 파일을 삭제하기
+어제 발견한 'git status 시 한글 출력이 안되는 문제' 의 진상을 밝히기
+- 그냥 원래 git status 가 그런가보다, 가능하면 파일들의 이름을 영어로 작성하자
+link.txt 분해해서 정리해버리기
+c 언어 source 와 대응하는 asm code 를 볼 수 있는 방법이 있다. 궁금할 때 알아보자
+playground 의 002_postfix_increment_operator.c 의 어셈블리 코드를 보기 좋게 출력하는 것을 cluster mac 에서 시도해보기
+instruments 영상 시청하기
+12/18 일 닭가슴살이 떨어진다. 물량 확보하기
+youtube 방금 본 이력서 작성 영상 정리하기
+note 의 privet 분리하고 public 으로 전환하기
+exam03
+- empty_rectangle 의 border 인지를 판단할 때, border 를 포함한 rectangle 에서 포함하지 않는 rectangle 을 제외하는 것과 애초에 세로 변에 포함되는지를 먼저 확인하고 또는 세로 변에 있는지를 확인하는 방법의 차이가 를 알아보자

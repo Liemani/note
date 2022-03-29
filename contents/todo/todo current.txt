@@ -1,13 +1,13 @@
 todo current.txt
 
 # pc
-- cpp module
-- webserv
-- inception
-- ft_container
-- ft_transcendence
+cpp module
+webserv
+inception
+ft_container
+ft_transcendence
 
 # book: 임시 기록(큰 의미 없음)
-	- 50/288 : The C Programming Language
-		- csapp
-	- 늑향: 10 권 114p
+- 50/288 : The C Programming Language
+	- csapp
+- 늑향: 10 권 114p

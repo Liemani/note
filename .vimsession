@@ -2,13 +2,13 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-inoremap <C-D> <Del>
-inoremap <C-E> <End>
-inoremap <C-A> <Home>
-inoremap <C-F> <Right>
 inoremap <C-B> <Left>
+inoremap <C-F> <Right>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+inoremap <C-D> <Del>
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
 cnoremap <C-D> <Del>
 cnoremap <C-E> <End>
 cnoremap <C-A> <Home>
@@ -20,11 +20,12 @@ vnoremap ? : norm 3x
 nnoremap GG G
 nnoremap GT gT
 map K <Nop>
+nnoremap U <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-vmap <F1> :Stdheader
-omap <F1> :Stdheader
 nnoremap <F12><F12> :set modifiable:set write
+omap <F1> :Stdheader
+vmap <F1> :Stdheader
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12> :set nomodifiable:set nowrite
@@ -123,10 +124,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 24 + 50) / 100)
-exe '2resize ' . ((&lines * 23 + 50) / 100)
-exe '3resize ' . ((&lines * 24 + 50) / 100)
-exe '4resize ' . ((&lines * 23 + 50) / 100)
+exe '1resize ' . ((&lines * 24 + 49) / 98)
+exe '2resize ' . ((&lines * 23 + 49) / 98)
+exe '3resize ' . ((&lines * 22 + 49) / 98)
+exe '4resize ' . ((&lines * 23 + 49) / 98)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -242,11 +243,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 12) / 24)
+let s:l = 5 - ((4 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
+5
 normal! 0
 lcd ~/git/note
 wincmd w
@@ -490,7 +491,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 12) / 24)
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -622,10 +623,10 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 24 + 50) / 100)
-exe '2resize ' . ((&lines * 23 + 50) / 100)
-exe '3resize ' . ((&lines * 24 + 50) / 100)
-exe '4resize ' . ((&lines * 23 + 50) / 100)
+exe '1resize ' . ((&lines * 24 + 49) / 98)
+exe '2resize ' . ((&lines * 23 + 49) / 98)
+exe '3resize ' . ((&lines * 22 + 49) / 98)
+exe '4resize ' . ((&lines * 23 + 49) / 98)
 tabnext
 edit ~/git/note/contents/todo/todo\ temp.txt
 set splitbelow splitright
@@ -646,10 +647,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 24 + 50) / 100)
-exe '2resize ' . ((&lines * 23 + 50) / 100)
-exe '3resize ' . ((&lines * 24 + 50) / 100)
-exe '4resize ' . ((&lines * 23 + 50) / 100)
+exe '1resize ' . ((&lines * 24 + 49) / 98)
+exe '2resize ' . ((&lines * 23 + 49) / 98)
+exe '3resize ' . ((&lines * 22 + 49) / 98)
+exe '4resize ' . ((&lines * 23 + 49) / 98)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -765,12 +766,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 12) / 24)
+let s:l = 6 - ((5 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 020|
+6
+normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
@@ -889,11 +890,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 13 - ((12 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+13
 normal! 0
 wincmd w
 argglobal
@@ -1012,12 +1013,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 37 - ((11 * winheight(0) + 12) / 24)
+let s:l = 68 - ((17 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-37
-normal! 012|
+68
+normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
@@ -1144,12 +1145,12 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 24 + 50) / 100)
-exe '2resize ' . ((&lines * 23 + 50) / 100)
-exe '3resize ' . ((&lines * 24 + 50) / 100)
-exe '4resize ' . ((&lines * 23 + 50) / 100)
+exe '1resize ' . ((&lines * 24 + 49) / 98)
+exe '2resize ' . ((&lines * 23 + 49) / 98)
+exe '3resize ' . ((&lines * 22 + 49) / 98)
+exe '4resize ' . ((&lines * 23 + 49) / 98)
 tabnext
-edit ~/git/note/contents/evaluation/cpp_module_00.txt
+edit ~/git/note/contents/evaluation/cpp_module_04.txt
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -1162,10 +1163,8 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 48 + 50) / 100)
-exe 'vert 1resize ' . ((&columns * 178 + 90) / 180)
-exe '2resize ' . ((&lines * 48 + 50) / 100)
-exe 'vert 2resize ' . ((&columns * 178 + 90) / 180)
+exe '1resize ' . ((&lines * 47 + 49) / 98)
+exe '2resize ' . ((&lines * 47 + 49) / 98)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -1281,11 +1280,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+let s:l = 6 - ((5 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+6
 normal! 0
 lcd ~/git/note
 wincmd w
@@ -1405,7 +1404,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+let s:l = 1 - ((0 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1413,10 +1412,8 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 48 + 50) / 100)
-exe 'vert 1resize ' . ((&columns * 178 + 90) / 180)
-exe '2resize ' . ((&lines * 48 + 50) / 100)
-exe 'vert 2resize ' . ((&columns * 178 + 90) / 180)
+exe '1resize ' . ((&lines * 47 + 49) / 98)
+exe '2resize ' . ((&lines * 47 + 49) / 98)
 tabnext
 edit ~/git/note/contents/project/Liemani.github.io.txt
 set splitbelow splitright
@@ -1434,12 +1431,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 32 + 50) / 100)
-exe 'vert 1resize ' . ((&columns * 178 + 90) / 180)
-exe '2resize ' . ((&lines * 32 + 50) / 100)
-exe 'vert 2resize ' . ((&columns * 178 + 90) / 180)
-exe '3resize ' . ((&lines * 31 + 50) / 100)
-exe 'vert 3resize ' . ((&columns * 178 + 90) / 180)
+exe '1resize ' . ((&lines * 31 + 49) / 98)
+exe '2resize ' . ((&lines * 32 + 49) / 98)
+exe '3resize ' . ((&lines * 30 + 49) / 98)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -1555,7 +1549,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 16) / 32)
+let s:l = 1 - ((0 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1803,7 +1797,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 15) / 31)
+let s:l = 1 - ((0 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1811,18 +1805,15 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 32 + 50) / 100)
-exe 'vert 1resize ' . ((&columns * 178 + 90) / 180)
-exe '2resize ' . ((&lines * 32 + 50) / 100)
-exe 'vert 2resize ' . ((&columns * 178 + 90) / 180)
-exe '3resize ' . ((&lines * 31 + 50) / 100)
-exe 'vert 3resize ' . ((&columns * 178 + 90) / 180)
-tabnext 1
+exe '1resize ' . ((&lines * 31 + 49) / 98)
+exe '2resize ' . ((&lines * 32 + 49) / 98)
+exe '3resize ' . ((&lines * 30 + 49) / 98)
+tabnext 3
 set stal=1
 badd +1 ~/git/note/contents/pour.txt
 badd +5 ~/git/note/dream.txt
 badd +4 ~/git/note/contents/todo/todo\ temp.txt
-badd +1 ~/git/note/contents/evaluation/cpp_module_00.txt
+badd +2 ~/git/note/contents/evaluation/cpp_module_00.txt
 badd +1 ~/git/note/contents/project/Liemani.github.io.txt
 badd +1 ~/git/note/contents/cooperation.txt
 badd +2 ~/git/note/contents/vocabulary.txt
@@ -1879,6 +1870,7 @@ badd +1 ~/git/note/contents/todo/todo_current.txt
 badd +1 ~/git/note/contents/todo/todo_dream.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
 badd +1 ~/git/note/submit\ protocol.txt
+badd +0 ~/git/note/contents/evaluation/cpp_module_04.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
