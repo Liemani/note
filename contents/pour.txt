@@ -1,5 +1,9 @@
 pour.txt
 
+2022-03-30
+member initializer로는 parent class의 protected member를 initialize할 수 없다.
+pointer type으로 선언한 변수는 입출력시 마찬가지로 pointer type으로 하고 reference type은 reference로 하는 것이 좋다.
+
 2022-03-29
 object를 initialize할 때 인자가 같은 object의 temporary type이면 copy constructor를 호출하지 않고 해당 object가 temporary type 역할로 들어가서 값을 초기화 한다.
 variable을 property로 사용하기 위해서 constructor에서 initialize하는 built-in variable의 경우 set method를 호출하여 값을 initialize하도록 하자.

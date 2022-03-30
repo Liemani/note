@@ -1,9 +1,10 @@
 todo temp.txt
 
 # pc
+man page에서는 SYNOPSIS라고 표기하고 git 등에서는 usage라고 표기한다. 실제 데이터와 front end를 따로 분리하면 좋을 것 같다.
 cppModule
 - 04
-	- Animal을 잘 만들었다. 다른 class들도 잘 작성해주도록 하자.
+	- ex03 마무리하고 평가받기
 - 05, 06, 07, 08
 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
