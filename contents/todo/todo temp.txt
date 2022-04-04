@@ -1,11 +1,16 @@
 todo temp.txt
 
 # pc
+variabled name을 c에서 cpp로 잘 정리해서 porting하기, 유지보수 쉽도록 수정하기
 man page에서는 SYNOPSIS라고 표기하고 git 등에서는 usage라고 표기한다. 실제 데이터와 front end를 따로 분리하면 좋을 것 같다.
 cppModule
-- 04
-	- ex03 마무리하고 평가받기
-- 05, 06, 07, 08
+- 05
+	- ex02
+		- 세 form의 orthodox 작성
+		- 세 form의 exception throw 검토
+		- test case 검토
+	- ex03
+- 06, 07, 08
 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
 likedin 좀 내용을 추가해볼까?
@@ -63,6 +68,12 @@ cppModule
 		- 책 읽고 필요 지식 학습하기
 	- ScavTrap과 FragTrap에 polymorphism feature을 test하기
 	- DiamondTrap test file 작성하기
+- 04
+	- character
+		- inventory에서 unequip한 materia의 주소를 반환하여 할당 해제를 할 수 있도록 만들어야 한다.
+		- use()를 할 때 사용한 materia를 delete해줄까?
+		- 지금 character의 inventory가 어떤 materia를 가지고 있는지 가시적으로 출력하던가 보여줄 필요가 있다.
+	- ex03 마무리하고 평가받기
 slack 다 읽어보고 slack email 왜 내 메일로 안날라오는지 알아보기
 merge .private(origin/backup)
 PBL-LV1-MISSION1

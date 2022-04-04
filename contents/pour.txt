@@ -1,5 +1,8 @@
 pour.txt
 
+2022-04-04
+construct 시에 exception이 발생하면 constructor를 빠져나오는데, 이 때 만들다 만 instance는 destructor를 호출하지 않는다.
+
 2022-03-30
 member initializer로는 parent class의 protected member를 initialize할 수 없다.
 pointer type으로 선언한 변수는 입출력시 마찬가지로 pointer type으로 하고 reference type은 reference로 하는 것이 좋다.
