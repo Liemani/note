@@ -4,13 +4,12 @@ todo temp.txt
 variabled name을 c에서 cpp로 잘 정리해서 porting하기, 유지보수 쉽도록 수정하기
 man page에서는 SYNOPSIS라고 표기하고 git 등에서는 usage라고 표기한다. 실제 데이터와 front end를 따로 분리하면 좋을 것 같다.
 cppModule
-- 05
-	- ex02
-		- 세 form의 orthodox 작성
-		- 세 form의 exception throw 검토
-		- test case 검토
-	- ex03
-- 06, 07, 08
+- 06
+	- ex00
+		- 각 class의 set이 detect를 호출하도록 하고, overflow등이 발생하지 않아야 true를 반환하도록 하기
+		- inspector를 private으로 옮기기
+		- class마다 std::string를 반환하는 describe() 작성하기
+- 07, 08
 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
 likedin 좀 내용을 추가해볼까?
@@ -74,6 +73,12 @@ cppModule
 		- use()를 할 때 사용한 materia를 delete해줄까?
 		- 지금 character의 inventory가 어떤 materia를 가지고 있는지 가시적으로 출력하던가 보여줄 필요가 있다.
 	- ex03 마무리하고 평가받기
+- 05
+	- ex02
+		- 세 form의 orthodox 작성
+		- 세 form의 exception throw 검토
+		- test case 검토
+	- ex03
 slack 다 읽어보고 slack email 왜 내 메일로 안날라오는지 알아보기
 merge .private(origin/backup)
 PBL-LV1-MISSION1
