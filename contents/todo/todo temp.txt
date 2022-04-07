@@ -1,6 +1,7 @@
 todo temp.txt
 
 # pc
+function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.
 variabled name을 c에서 cpp로 잘 정리해서 porting하기, 유지보수 쉽도록 수정하기
 man page에서는 SYNOPSIS라고 표기하고 git 등에서는 usage라고 표기한다. 실제 데이터와 front end를 따로 분리하면 좋을 것 같다.
 cppModule
