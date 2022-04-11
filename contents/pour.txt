@@ -1,5 +1,20 @@
 pour.txt
 
+2022-04-11
+c++98은 'Type instance = value;'와 같은 문장을 compile할 때 instance의 reference를 인자로 전달하여 value로 initialize를 하는데, 이 때 'binding a reference to a temporary'라는 표현을 사용한다.
+'binding a reference to a temporary'는 copy constructor에 접근 가능해야 사용할 수 있다.
+# https://stackoverflow.com/questions/19147208/difference-between-using-ipp-extension-and-cpp-extension-files
+- Difference between using .ipp extension and .cpp extension files
+- template은 구현이 header file에 포함되야 하기 때문에, 선언과 정의를 파일 단위로 구분하기 위해 template의 declaration은 .hpp 파일에 작성하고 definition은 .ipp 파일에 작성하여 .hpp 파일의 하단에서 .ipp 파일을 include하는 식으로 파일을 구성하기도 한다.
+# webserv tutorial(https://42seoul.gitbook.io/webserv/or-web)
+RFC7230 ~ RFC7235
+HTTP/1.1
+# 해치지 않는 웹 네트워크 https://brunch.co.kr/magazine/webnetwork
+WAS(Web Application Server)
+DB(Data Base)
+# HTTP
+client와 server가 소통할 때 request와 response가 발생할텐데, 이 통신 시 적용 가능한 protocol 중 대중적인 것이 HTTP(Hypertext Transfer Protocol)이다.
+
 2022-04-07
 ```
 template <typename T>

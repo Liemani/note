@@ -1,0 +1,74 @@
+webserv.txt
+
+general rules
+어떤 환경에서도 crash 없어야 함, 예상치 못한 프로그램 중단이 없어야 함
+Makefile 필요, relink 방지
+최소 rule: $(NAME), all, clean, fclean, re
+'CXX = c++', 'CXXFLAG = -Wall -Wextra -Werror'
+'CXXFLAG += -std=c++98'
+최신 C++ feature 사용(string.h -> cstring) C 함수 가능 but 가능하면 C++ 버전 사용
+외부 library, Boost 라이브러리 금지
+
+Mandatory part
+C++98에서 HTTP server 만들기
+usage: ./webserv [<configuration file>]
+Please read the RFC and do some tests with telnet and NGINX before starting this project. Even if you don’t have to implement all the RFC, reading it will help you develop the required features.
+
+Requirements
+인자가 없으면 default path를 사용할 것
+다른 web server를 execve하지 말것
+server가 절대 block하지 않게 해주세요. client는 필요에 따라 bounce할 수도 있습니다.
+non-blocking이어야 하며 client와 server 사이의 모든 I/O를 위한 단 하나의 poll()만 사용하세요(listen 포함).
+poll()(또는 유사 함수)은 반드시 R/W를 동시에 check하세요.
+poll()(또는 유사 함수) 없이는 R/W를 하지 마세요.
+이 과제에서는 R/W 후에 errno 값을 사용하면 안됩니다.
+configuration file을 읽기 전에는 poll()(또는 유사 함수)을 사용할 필요가 없어요.
+non-blocking fd를 사용할거기 때문에 read/recv나 write/send 함수를 poll()(또는 유사 함수) 없이 사용할 수 있습니다. 그래도 우리의 server는 block하지 않아요. 하지만 자원을 더 소모합니다. 따라서 poll() 없이는 어떠한 fd에 대해서도 read/recv나 write/send를 호출하는 것은 0점입니다!
+macro, define된 것들 사용 가능!(FD_SET, FD_CLR, FD_ISSET, FD_ZERO 등) 이것들이 뭐고 무엇을 하는지 이해하는 것은 유용해요.
+server에 request는 영원히 hang하지 마세요!
+setver는 원하는 web browser와 호환되야 합니다.
+NGINX는 HTTP 1.1 compliant로 간주합니다. and may be used to compare headers and answer behaviors.
+HTTP response status codes는 accurate해야 해요.
+server가 아무것도 제공받지 않을 경우 default error pages를 가지도록 해주세요.
+CGI(PHP, Python 등)를 제외한 fork는 하면 안되요!
+fully static website를 만들어주세요.
+Clients는 file을 upload할 수 있어요.
+최소한 GET, POST, DELETE는 있어야 해요.
+stress test를 하세요. server는 어떤 경우에도 사용 가능해야 해요.
+multiple ports로부터 listen할 수 있어야 해요.(Configuration file을 참조하세요)
+
+MacOS 주의 사항
+MacOS는 타 Unix OS들 처럼 'write()'이 없습니다. fcntl()을 사용하는건 어떨까요? 다른 Unix OS들처럼 작동시키기 위해 non-blocking mode의 fd를 사용하세요.
+단, fcntl()은 다음 같은 방식만 허합니다. 'fcntl(fd, F_SETFL, O_NONBLOCK);' 다른 flag는 금지합니다.
+
+Configuration file
+NGINX server 부분의 configuration file에서 영감을 얻는건 어떨까요?
+각 server마다 port와 host 선택
+server_names 설정(할 수도 안할 수도)
+host:port를 위한 첫 server는 host:port의 default가 되도록 하세요.(다른 server에 속하지 않은 모든 request에 answer하도록요)
+default error pages를 만들어주세요.
+client의 body size 제한
+아래의 rule/configuration을 따르는 route를 하나 또는 여럿 설정(routes는 wont be using regexp);
+- route를 위해 준수하는 HTTP methods list를 정의하세요.
+- HTTP redirection을 정의하세요.
+- file을 어디서 search할지 directory나 file을 정의하세요.(가령, url /kapouet은 /tmp/www를 root로 해고, url /kapouet/pouic/toto/pouet은 /tmp/www/pouic/toto/pouet를 root로 해요.)
+- directory listing을 on/off 설정할 수 있게 해주세요.
+- request가 directory일 때 answer할 default file 설정
+- CGI 기반 특정 file extension 실행(.php 처럼)
+- route가 upload된 file들을 accept할 수 있게 해주세요. route가 upload된 file들을 어디에 저장할지 configure할 수 있게 해주세요.
+	- CGI(Common Gateway Interface)
+	- CGI를 직접 호출하지 않을 것이기 때문에, full path는 PATH_INFO를 사용하세요.
+	- chunked request를 위해 server는 unchunk해야 합니다. CGI는 EOF를 end of the body로 여깁니다.
+	- CGI 출력도 마찬가지입니다. CGI가 content_length를 반환하지 않았다면 EOF로 반환된 data의 끝을 식별할 수 있을 것예요.
+	- 우리 program은 첫 인자로 request된 file로 CGI를 호출해야 해요.
+	- CGI는 상대경로 접근을 위해 올바른 directory에서 실행시키세요.
+	- 우리 server는 하나의 CGI와 작업해야 해요.(php-CGI, Python 등)
+test와, 평가시 모든 기능이 정상 작동함을 증명하기 위해 반드시 configuration 파일들과 default basic 파일들을 제출하세요.
+어떤 behavior에 궁금한 부분이 있다면 NGINX와 비교해보세요. 가령, server_name이 어떻게 작동하는지 확인하세요. 우리는 작은 tester를 제공하는데요. 선택한 브라우저와 test가 모두 잘 작동한다면, 이 tester를 통과하는 것이 mandatory는 아니예요. 그래도 이 tester로 bug를 잡는데 사용할 수 있을 거예요.
+회복력이 키 포인트입니다. server가 죽지 않도록 노력해주세요.
+단 하나의 program만 test하지 마세요. Python이나 Golang등과 같은 더 편리한 언어로 당신의 test를 작성하세요. 물론 C나 C++도 가능하죠.
+
+Bonus part
+추가할만한 추가적인 것들:
+- cookie 지원, session management 지원
+- 다수의 CGI 다루기
