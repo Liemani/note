@@ -1,5 +1,71 @@
 pour.txt
 
+2022-04-12
+URI(Uniform Resource Identifier)
+URL(Uniform Resource Locator)
+IP(Internet Protocol)
+IP address
+LAN(Local Area Network)
+WAN(Wide Area Network)
+NAT(Network Address Translation)
+TCP(Transmission Control Protocol)
+UDP(User Datagram Protocol)
+# https://brunch.co.kr/magazine/romanplan
+옛날 기술들이 특정 기능이 없는 것은 하지 못해서 않한 것이 아니라 안하는 것이 더 유리했기 때문에 그 기능을 지원하지 않았었을 것 같다.
+가령 network protocol이 초기에는 하나의 회선이 단 하나의 연결만 지원하고 다른 연결은 다른 회선을 사용해야 했는데, 만약 연결이 필요한 경우가 아주 극소수인 경우에는 회선이 동시에 여러 연결을 지원하지 않는 것이 유리하다.
+한 회선이 여러 연결을 지원하기 위해서는 node가 통신 데이터를 전달받을 때 반드시 어떤 말단으로부터 들어온 정보인지를 식별해야만 한다.
+즉, 통신을 위해 더 많은 데이터 전송이 불가피하다.
+따라서 회선이 극소수인 경우에는 불필요한 말단 식별 데이터를 제거하여 빠르게 데이터 전송이 가능하다.
+web은 인터넷으로 할 수 있는 다양한 통신 중에 특히 HTML 데이터를 받는 것을 말한다.
+FTP(File Transfer Protocol)
+SMTP(Simple Mail Transfer Protocol)
+UA(User-Agent)
+# https://www.geeksforgeeks.org/hyperlink-vs-hypertext/
+hyperlink는 상호작용을 통해 request를 전송할 수 있는 것을 의미한다.
+hypertext는 단순한 1byte text가 아닌, 다양한 custom이 가능한 text를 말한다.
+# O'Reilly - HTTP - The Definitive Guide
+MIME(Multipurpose Internet Mail Extensions)
+URI(Uniform Resource Identifier)
+- URL(Uniform Resource Locator)
+- URN(Uniform Resource Name)
+	- ex> urn:ietf:rfc:2141
+	- location independent
+SSL(Secure Sockets Layer)
+RFC2616(HTTP/1.1): http://www.ietf.org/rfc/rfc2616.txt
+RFC1945(HTTP/1.0): http://www.ietf.org/rfc/rfc1945.txt
+RFC2396(URI: Generic Syntax): http://www.ietf.org/rfc/rfc2396.txt
+RFC2141(URN Syntax): http://www.ietf.org/rfc/rfc2141.txt
+RFC2046(MIME Part 2: Media Types): http://www.ietf.org/rfc/rfc2046.txt
+INDEX
+Chapter 2. URLs and Resources
+Chapter 3. HTTP Messages
+Chapter 4. Connection Management
+Chapter 5. Web Servers
+Chapter 6. Proxies
+Chapter 7. Caching
+Chapter 8. Integration Points: Gateways, Tunnels, and Relays
+Chapter 9. Web Robots
+Chapter 10. HTTP-NG
+Chapter 11. Client Identification and Cookies
+Chapter 12. Basic Authentication
+Chapter 13. Digest Authentication
+Chapter 14. Secure HTTP
+Chapter 15. Entities and Encodings
+Chapter 16. Internationalization
+Chapter 17. Content Negotiation and Transcoding
+Chapter 18. Web Hosting
+Chapter 19. Publishing Systems
+Chapter 20. Redirection and Load Balancing
+Chapter 21. Logging and Usage Tracking
+Appendix A. URI Schemes
+Appendix B. HTTP Status Codes
+Appendix C. HTTP Header Reference
+Appendix D. MIME Types
+Appendix E. Base-64 Encoding
+Appendix F. Digest Authentication
+Appendix G. Language Tags
+Appendix H. MIME Charset Registry
+
 2022-04-11
 c++98은 'Type instance = value;'와 같은 문장을 compile할 때 instance의 reference를 인자로 전달하여 value로 initialize를 하는데, 이 때 'binding a reference to a temporary'라는 표현을 사용한다.
 'binding a reference to a temporary'는 copy constructor에 접근 가능해야 사용할 수 있다.

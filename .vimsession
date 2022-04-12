@@ -2,13 +2,13 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <C-B> <Left>
-inoremap <C-F> <Right>
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
-inoremap <C-D> <Del>
-cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+inoremap <C-D> <Del>
+inoremap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-F> <Right>
+inoremap <C-B> <Left>
 cnoremap <C-D> <Del>
 cnoremap <C-E> <End>
 cnoremap <C-A> <Home>
@@ -23,9 +23,9 @@ map K <Nop>
 nnoremap U <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nnoremap <F12><F12> :set modifiable:set write
-omap <F1> :Stdheader
 vmap <F1> :Stdheader
+omap <F1> :Stdheader
+nnoremap <F12><F12> :set modifiable:set write
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <F12> :set nomodifiable:set nowrite
@@ -243,12 +243,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 12) / 24)
+let s:l = 22 - ((21 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 0
+22
+normal! 014|
 lcd ~/git/note
 wincmd w
 argglobal
@@ -1150,7 +1150,7 @@ exe '2resize ' . ((&lines * 23 + 49) / 98)
 exe '3resize ' . ((&lines * 22 + 49) / 98)
 exe '4resize ' . ((&lines * 23 + 49) / 98)
 tabnext
-edit ~/git/note/contents/evaluation/cpp_module_04.txt
+edit ~/git/note/contents/evaluation/webserv.txt
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -1280,11 +1280,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 23) / 47)
+let s:l = 1 - ((0 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
+1
 normal! 0
 lcd ~/git/note
 wincmd w
@@ -1813,7 +1813,7 @@ set stal=1
 badd +1 ~/git/note/contents/pour.txt
 badd +5 ~/git/note/dream.txt
 badd +4 ~/git/note/contents/todo/todo\ temp.txt
-badd +2 ~/git/note/contents/evaluation/cpp_module_00.txt
+badd +7 ~/git/note/contents/evaluation/cpp_module_04.txt
 badd +1 ~/git/note/contents/project/Liemani.github.io.txt
 badd +1 ~/git/note/contents/cooperation.txt
 badd +2 ~/git/note/contents/vocabulary.txt
@@ -1824,6 +1824,7 @@ badd +1 ~/git/note/contents/todo/todo\ dream.txt
 badd +12 ~/git/note/contents/evaluation/common.txt
 badd +1 ~/git/note/contents/project/lmt_c_library.txt
 badd +1 ~/git/note/contents/project/env.txt
+badd +2 ~/git/note/contents/evaluation/cpp_module_00.txt
 badd +6 ~/git/note/contents/todo/README.md
 badd +1 ~/git/note/contents/todo/todo-loop.txt
 badd +10 ~/git/note/contents/todo/todo-temp.txt
@@ -1870,7 +1871,7 @@ badd +1 ~/git/note/contents/todo/todo_current.txt
 badd +1 ~/git/note/contents/todo/todo_dream.txt
 badd +1 ~/git/note/contents/submit_protocol.txt
 badd +1 ~/git/note/submit\ protocol.txt
-badd +0 ~/git/note/contents/evaluation/cpp_module_04.txt
+badd +0 ~/git/note/contents/evaluation/webserv.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
