@@ -1,6 +1,17 @@
 todo temp.txt
 
 # pc
+webserv
+- syn, async
+- recap what i learn good to see
+- CGI, RFC
+- what header should implement
+- what status code should implement
+- check nginx in subject
+- configuration file parsing
+- check library functions
+- check useful macros(FD_SET, FD_CLR, FD_ISSET, FD_ZERO 등)
+- is POST differ between file and text?
 ft_containers
 - 마지막에 다 만들고 pdf 변경점 있는지 확인이 필요하다.
 function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.
