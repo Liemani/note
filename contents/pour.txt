@@ -1,5 +1,42 @@
 pour.txt
 
+2022-04-13
+# HTTP: The Definitive Guide
+Chapter 2. URLs and Resources
+URL: <URL scheme>://<server location><resource path>
+The URL scheme tells a web client how to access the resource.
+The server location tells the web client where the resource is hosted.
+The resource path tells what particular local resource on the server is being requested.
+mailto:president@whitehouse.gov
+ftp://ftp.lots-o-books.com/pub/complete-price-list.xls
+rtsp://www.joes-hardware.com:554/interview/cto_video
+<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>
+http://<host>:<port><path>?<query>#<frag>
+- default port is 80
+https://<host>:<port><path>?<query>#<frag>
+- default port is 443
+Chapter 3. HTTP Messages
+- start line
+- headers
+- entity body
+transactional direction
+- inbound
+- outbound
+- downstream
+3.3 Methods
+HTTP Version 1.1을 준수하기 위해서는 GET과 HEAD만 있어도 된다.
+DELETE나 PUT 같은 method는 아무한테나 허용하지 않을 것이기 때문에 일반적으로는 제한된 방법으로 사용되도록 한다.
+이런 식의 method 사용 제한은 configuration에 따라 달라질 수 있다.
+HEAD: body를 제외하고 header까지만 response 받기를 원할 때
+- body 없이 대상 resource의 정보를 얻고 싶을 때(type 등)
+- 대상 resource가 존재하는지 알고 싶을 때(status code 등을 확인)
+- 때상 resource가 수정되었는지 알고 싶을 때(header를 보고 확인)
+# https://www.oreilly.com/library/view/hands-on-full-stack-web/9781788622882/46146c7a-c43c-4218-acf1-60a8b493f04e.xhtml
+HTTP is a stateless protocol
+HTTP가 stateless라는 의미는, state machine이 아니기 때문에 지금 받은 request가 이전에 받은 request와 독립적으로 처리된다는 의미이다.
+# https://stackoverflow.com/questions/6444492/can-any-path-segments-of-a-uri-have-a-query-component
+RFC3986(URI) obsoletes RFC2396
+
 2022-04-12
 URI(Uniform Resource Identifier)
 URL(Uniform Resource Locator)
