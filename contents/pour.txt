@@ -1,5 +1,10 @@
 pour.txt
 
+2022-04-14
+file:///Users/jeonpark/git/playground/contents/cpp/00_playground.cpp
+- local file을 web browser로 여는 URI
+RFC(Request for Comments)
+
 2022-04-13
 # HTTP: The Definitive Guide
 Chapter 2. URLs and Resources
@@ -68,11 +73,11 @@ URI(Uniform Resource Identifier)
 	- ex> urn:ietf:rfc:2141
 	- location independent
 SSL(Secure Sockets Layer)
-RFC2616(HTTP/1.1): http://www.ietf.org/rfc/rfc2616.txt
-RFC1945(HTTP/1.0): http://www.ietf.org/rfc/rfc1945.txt
-RFC2396(URI: Generic Syntax): http://www.ietf.org/rfc/rfc2396.txt
-RFC2141(URN Syntax): http://www.ietf.org/rfc/rfc2141.txt
-RFC2046(MIME Part 2: Media Types): http://www.ietf.org/rfc/rfc2046.txt
+RFC2616(HTTP/1.1): https://www.ietf.org/rfc/rfc2616.txt
+RFC1945(HTTP/1.0): https://www.ietf.org/rfc/rfc1945.txt
+RFC2396(URI: Generic Syntax): https://www.ietf.org/rfc/rfc2396.txt
+RFC2141(URN Syntax): https://www.ietf.org/rfc/rfc2141.txt
+RFC2046(MIME Part 2: Media Types): https://www.ietf.org/rfc/rfc2046.txt
 INDEX
 Chapter 2. URLs and Resources
 Chapter 3. HTTP Messages
