@@ -1,5 +1,85 @@
 pour.txt
 
+2022-04-15
+## https://musma.github.io/2019/04/17/blocking-and-synchronous.html
+block/non-block, 동기/비동기에 대해 정말 잘 설명되어 있는 블로그 글이다.
+
+blocking / synchronous
+blocking은 아주 자연스럽다.
+함수를 호출하면 기존 thread는 다른 일을 할 수 없고, 호출한 함수를 실행한다.
+단순히 함수를 호출하면 blocking으로 동작한다.
+동시에 이는 synchronous한 동작을 한다고 할 수 있다.
+main thread가 함수를 실행하는 thread와 동일하기 때문에 서로 진행 정도가 동일하기 때문이다.(main thread와 함수를 실행하는 thread가 서로 동기화된 것과 같은 상태)
+
+blocking / asynchronous
+뭔가 이상하다.
+asynchronous하게 만들건데 굳이 blocking을 해야하는 이유가 있을까?
+그럴꺼면 blocking / synchronous로 만들면 되는 것 아닌가?
+왜 aynchronous한 작업을 굳이 우겨넣어서 자원을 더 소모하는 것일까?
+
+non-blocking / synchronous
+blocking 작업을 non-blocking하게 처리하기 위해서 새로운 thread를 만들고 blocking 작업을 수행하도록 하면 될 것 같다.
+다만 synchronous하게 구현하기 위해서 blocking 작업을 수행중인 thread가 작업을 얼마나 진행했는지 main thread가 지속적으로 확인하는 비효율적인 행동을 해야 할 것 같다.
+
+non-blocking / asynchronous
+소프트웨어 수준에서 non-blocking / asynchronous를 지원할 수 있을 것 같다.
+새로운 thread 등을 만들어 실행 흐름을 추가하고 main이 아닌 thread가 block된 상태를 처리하도록 한다면 main thread는 block되지 않은 채로 blocking process를 처리할 수 있을 것이다.
+그리고 다른 thread에서 처리가 완료된 자료는 main thread가 여유 있을 때 확인하고 필요한 작업을 수행하면 될 것 같다.
+
+## https://blog.naver.com/tipsware/220810795410
+> fd\_set, FD\_SET, FD\_ZERO에 대하여
+
+### fd\_set
+```
+typedef struct
+{
+    __fd_mask fds_bits[__FD_SETSIZE / __NFDBITS];
+} fd_set;
+```
+
+### FD\_ZERO
+```
+fd_set rfds;
+FD_ZERO(&rfds);
+```
+
+### FD\_SET
+```
+int fd_socket = socket(AF_INET, SOCK_STREAM, 0);
+fd_set rfds;
+FD_ZERO(&rfds);
+FD_SET(fd_socket, &rfds);
+```
+
+### FD\_CLR
+```
+int fd_socket = socket(AF_INET, SOCK_STREAM, 0);
+fd_set rfds;
+FD_ZERO(&rfds);
+FD_SET(fd_socket, &rfds);
+//	사용
+FD_CLR(fd_socket, &rfds);	// 추가
+close(fd_socket);	// 추가
+```
+
+### FD\_ISSET
+```
+int fd_socket = socket(AF_INET, SOCK_STREAM, 0);
+fd_set rfds;
+FD_ZERO(&rfds);
+FD_SET(fd_socket, &rfds);
+FD_ISSET(fd_socket, &rfds);	// 추가, 1 반환
+//	사용
+FD_CLR(fd_socket, &rfds);
+FD_ISSET(fd_socket, &rfds);	// 추가, 0 반환
+close(fd_socket);
+```
+
+## 궁금한 것들
+
+### mandatory
+what is bounce on client?
+
 2022-04-14
 file:///Users/jeonpark/git/playground/contents/cpp/00_playground.cpp
 - local file을 web browser로 여는 URI

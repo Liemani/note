@@ -17,13 +17,8 @@ Mandatory part
 - ntohl
 - select
 - poll
-- epoll
-- (epoll_create
-- epoll_ctl
-- epoll_wait)
-- kqueue
-- (kqueue
-- kevent)
+- epoll(epoll_create, epoll_ctl, epoll_wait)
+- kqueue(kqueue, kevent)
 - socket
 - accept
 - listen
@@ -51,7 +46,7 @@ configuration file을 읽기 전에는 poll()(또는 유사 함수)을 사용할
 non-blocking fd를 사용할거기 때문에 read/recv나 write/send 함수를 poll()(또는 유사 함수) 없이 사용할 수 있습니다. 그래도 우리의 server는 block하지 않아요. 하지만 자원을 더 소모합니다. 따라서 poll() 없이는 어떠한 fd에 대해서도 read/recv나 write/send를 호출하는 것은 0점입니다!
 macro, define된 것들 사용 가능!(FD_SET, FD_CLR, FD_ISSET, FD_ZERO 등) 이것들이 뭐고 무엇을 하는지 이해하는 것은 유용해요.
 server에 request는 영원히 hang하지 마세요!
-setver는 원하는 web browser와 호환되야 합니다.
+server는 원하는 web browser와 호환되야 합니다.
 NGINX는 HTTP 1.1 compliant로 간주합니다. and may be used to compare headers and answer behaviors.
 HTTP response status codes는 accurate해야 해요.
 server가 아무것도 제공받지 않을 경우 default error pages를 가지도록 해주세요.
@@ -97,3 +92,22 @@ Bonus part
 추가할만한 추가적인 것들:
 - cookie 지원, session management 지원
 - 다수의 CGI 다루기
+
+# To Do
+허용 함수
+7230, 7231
+select() 쓰지 말고 poll() 쓰라고 서브젝트에 있는 모양이다.
+	- 그런가?
+- muliti plexing
+	- thread는 하나만 존재해야 하는가?
+	- async + non-blocking
+원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
+
+# Finish
+blocking non-blocking
+
+# 생각
+CGI를 지원하더라도 fully static website라고 할 수 있는가?
+- fully static website를 어떻게 말로 정의할 수 있을까?
+- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
+- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
