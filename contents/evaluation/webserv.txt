@@ -32,6 +32,7 @@ Mandatory part
 - fcntl
 C++98에서 HTTP server 만들기
 usage: ./webserv [<configuration file>]
+Even if poll() is mentionned in the subject and the evaluation scale, you can use any equivalent such as select(), kqueue(), or epoll().
 Please read the RFC and do some tests with telnet and NGINX before starting this project. Even if you don’t have to implement all the RFC, reading it will help you develop the required features.
 
 Requirements
@@ -58,7 +59,7 @@ stress test를 하세요. server는 어떤 경우에도 사용 가능해야 해�
 multiple ports로부터 listen할 수 있어야 해요.(Configuration file을 참조하세요)
 
 MacOS 주의 사항
-MacOS는 타 Unix OS들 처럼 'write()'이 없습니다. fcntl()을 사용하는건 어떨까요? 다른 Unix OS들처럼 작동시키기 위해 non-blocking mode의 fd를 사용하세요.
+MacOS는 'write()'를 타 Unix OS들 처럼 구현하지 않았습니다. fcntl()을 사용하는건 어떨까요? 다른 Unix OS들처럼 작동시키기 위해 non-blocking mode의 fd를 사용하세요.
 단, fcntl()은 다음 같은 방식만 허합니다. 'fcntl(fd, F_SETFL, O_NONBLOCK);' 다른 flag는 금지합니다.
 
 Configuration file
@@ -94,20 +95,26 @@ Bonus part
 - 다수의 CGI 다루기
 
 # To Do
-허용 함수
+허용 함수 전부 알아보기
+- 허용 함수 부족한 부분 알아보기
+- select(), poll(), epoll()
+	- mosong님이 올린 질문 글 첫 답글의 웹 페이지
+	- 찾아놓은 multiplex 관련 글
 7230, 7231
-select() 쓰지 말고 poll() 쓰라고 서브젝트에 있는 모양이다.
-	- 그런가?
-- muliti plexing
-	- thread는 하나만 존재해야 하는가?
-	- async + non-blocking
 원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
+Mac OS에서 write()이 아니라 fcntl()을 사용해야 하는 이유
+HTTP message의 길이 제한이 존재할까?
+non-blocking fd의 의미를 생각해보기
 
 # Finish
 blocking non-blocking
 
 # 생각
 CGI를 지원하더라도 fully static website라고 할 수 있는가?
-- fully static website를 어떻게 말로 정의할 수 있을까?
-- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
-- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
+fully static website를 어떻게 말로 정의할 수 있을까?
+fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
+추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
+select() 쓰지 말고 poll() 쓰라고 서브젝트에 있는 모양이다.
+- select() -> poll() -> epoll()로 발전
+muliti plexing
+- async + non-blocking

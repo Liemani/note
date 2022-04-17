@@ -1,5 +1,111 @@
 pour.txt
 
+2022-04-17
+- 우선 webserv tutorial에 나온 사이트를 참고하여 client와 server 프로그램을 만들고 실행해 보았다.
+
+### socket()
+
+```
+int socket(int domain, int type, int protocol);
+
+//	예시
+int socket = socket(PF_INET, SOCK_STREAM, 0);
+```
+
+- socket은 fd와 유사하게 사용된다.
+
+### bind()
+
+```
+int bind(int socket, const struct sockaddr *address, socklen_t address_len);
+
+//	예시
+if (bind(socket, (struct sockaddr*) &socket_address, sizeof(socket_address)) == -1)
+	//	error
+```
+
+- bind()의 두 번째 인자로 전달한 socket\_address는 'struct sockaddr' 타입 구조체이다!
+- 아래와 같은 작은 궁금증(중요하지는 않다.)
+
+#### https://stackoverflow.com/questions/41240492/why-is-the-address-length-parameter-neccessary-when-binding-a-socket-in-c
+
+> Why is the address length parameter neccessary when binding a socket in C?
+
+- 왜 bind()는 socket address의 크기를 세 번째 인자로 전달받을까?
+- 기본적으로 bind()는 socket address로 ipv4 뿐만 아니라 ipv6, blutooth 등 다양한 소켓 주소를 전달받을 수 있다.
+- 그렇게 전달받은 소켓 주소 구조체의 주소와 그 구조체의 크기를 사용하여 유저 영역 메모리에 있는 소켓 주소 구조체 데이터를 커널 영역 메모리로 복사한다.
+
+### listen()
+
+```
+int listen(int socket, int backlog);
+
+//	예시
+if (listen(socket, 5) == -1)
+	//	error
+```
+
+- SOCK\_STREAM으로 생성된 sock로만 호출 가능하다.
+
+### accept()
+
+```
+int accept(int socket, struct sockaddr *restrict address, socklen_t *restrict address_len);
+
+//	예시
+int client_socket = accept(server_socket, (struct sockaddr*) &client_address, &clientAddress_size);
+if (client_socket == -1)
+	//	error
+```
+
+- socket과 동일한 property를 가지는 새로운 socket을 생성하여 반환한다.
+- If no pending connections are present on the queue, and the socket is not marked as non-blocking, accept() blocks the caller until a connection is present.
+	- 첫 번째 인자인 socket이 non-blocking이 아닌데 큐에 대기 중인 연결이 없으면 accept()는 연결이 요청될 때까지 caller를 block한다.
+- 만약 socket이 non-blocking인데 큐에 대기 중인 연결이 없으면 accept()는 -1을 반환한다.
+- 두 번째 인자는 값을 저장하기 위해 accept()에게 전달하는 주소값인데, 연습용 프로그램에서는 읽어온 이 값을 사용하지는 않았다.(어딘가 쓸 데가 있겠지? 당장 중요하지는 않다.)
+- 세 번째 인자는 사용자가 값을 sizeof(client\_address)로 초기화 한 후에 주소값을 전달한다.
+	- accept()가 반환된 후에 address\_len에는 반환한 socket의 address의 실제 크기가 저장된다.
+- SOCK\_STREAM으로 생성된 sock로 호출 가능하다.
+
+### https://velog.io/@jyongk/TCP-Socket-Blocking-Non-Blocking
+
+> TCP Socket - Blocking / Non-Blocking
+
+```
+fcntl(sock_fd, F_SETFL, flag | O_NONBLOCK);
+```
+
+- sock\_fd를 non-blocking으로 만든다.
+
+### http://openlook.org/src/articles/maso0109-kqueue.pdf
+
+> Fork, Thread 그리고 Asynchronous
+
+fork는 접속 처리가 안정적이고 보안 처리가 쉽지만, resource 낭비가 심해서 많은 response를 처리하기 힘들다.
+thread는 접속 처리가 쉽고 resource 낭비는 fork에 비해 덜하지만, thread safe code를 주의해서 사용해야 하고, thread safe한 code를 지원하지 않는 library를 사용하는 데에는 문제가 발생할 수 있다.
+selet나 poll을 이용한 non-blocking 처리는 blocking되는 함수들을 사용하지 못한다고 한다.(왜 그럴까? 불가능 한 걸까 지양해야 하는 걸까? 난 지양해야 하는 것일 것 같다.)
+thread나 fork에 비해 non-blocking이 30 ~ 40% 정도 더 성능이 좋다고 한다.
+
+### <arpa/inet.h>
+
+```
+uint16_t htons(uint16_t hostshort);
+uint32_t htonl(uint32_t hostlong);
+uint16_t ntohs(uint16_t netshort);
+uint32_t ntohl(uint32_t netlong);
+```
+
+- h는 host, n은 network의 약자
+- s는 small, l은  long의 약자
+- network는 big endian이다.
+- 만약 network도 big endian인 경우 해당 macro는 null로 정의된다.
+
+```
+in_addr_t inet_addr(const char *cp);
+```
+
+- c\_string을 in\_addr\_t로 변환
+
 2022-04-15
 ## https://musma.github.io/2019/04/17/blocking-and-synchronous.html
 block/non-block, 동기/비동기에 대해 정말 잘 설명되어 있는 블로그 글이다.
