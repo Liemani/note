@@ -2,6 +2,34 @@ todo temp.txt
 
 # pc
 webserv
+- 프로젝트 이외
+	- 자리 정하기
+	- 음료 사기
+	- 미래 계획하기
+	- 멘탈 관리하기
+	- 스터디 학습 일지 작성하기
+- 다다음에는 무엇을 할지 미리 생각해두면 좋겠다.
+- 허용 함수 전부 알아보기
+	- 허용 함수 부족한 부분 알아보기
+	- kqueue()
+		- 찾아놓은 multiplex 관련 글
+	- nginx 테스트
+	- telnet 써보기
+	- 짬짬이 RFC 읽기
+- 7230, 7231
+- 원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
+- Mac OS에서 write()이 아니라 fcntl()을 사용해야 하는 이유
+- HTTP message의 길이 제한이 존재할까?
+- non-blocking fd의 의미를 생각해보기
+- 생각
+	- CGI를 지원하더라도 fully static website라고 할 수 있는가?
+	- fully static website를 어떻게 말로 정의할 수 있을까?
+	- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
+	- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
+	- select() 쓰지 말고 poll() 쓰라고 서브젝트에 있는 모양이다.
+		- select() -> poll() -> epoll()로 발전
+	- muliti plexing
+		- async + non-blocking
 - webserv.txt
 - syn, async
 - recap what i learn good to see
@@ -57,6 +85,11 @@ cpp_module_01 진행하기
 		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+webserv
+- mosong님이 올린 질문 글 첫 답글의 웹 페이지
+- blocking non-blocking
+- 허용 함수 전부 알아보기
+	- 허용 함수 부족한 부분 알아보기
 vimsession이 상호 호환 안되는 문제 해결
 cppModule
 - 01

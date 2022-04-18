@@ -1,5 +1,64 @@
 pour.txt
 
+2022-04-18
+- inet_addr()은 인자가 유효한 값인지 확인하는 일도 한다.
+cluster mac reset
+```
+touch ~/.reset
+touch ~/.reset_library
+du -hd1 ~
+```
+
+terms
+- docker image
+- docker container
+- layer
+- docker-engine
+- docker hub
+
+```
+docker run -d -p 80:80 docker/getting-started
+docker build -t getting-started .
+docker run -dp 3000:3000 getting-started
+docker images [OPTIONS] [REPOSITORY[:TAG]]
+docker -v
+docker pull <image name>[:<tag>]
+docker images
+docker create <option> <image name> [:<tag>]
+docker start
+docker attach
+docker runs <image name> [:<tag>]	// == pull, creat, start, attach
+docker restart
+<C-P>
+<C-Q>
+docker ps
+docker rm 'docker ps -a -q'	// remove all containers
+dockeer rmi <option> <image id>	// -f option force remove
+docker stop $(docker ps -aq)	// stop all containers
+docker system prune -a	// 사용되지 않는 모든 도커 요소 삭제
+docker build <path>
+docker-compose up
+docker run <option> <image name> <image id> <command> <argument>
+docker run -p 127.0.0.1:80:8080/tcp ubuntu bash
+docker exec -it <container_id> /bin/bash
+docker container ls -a
+docker container prune
+```
+
+```
+service nginx restart
+service nginx status
+service nginx start
+```
+
+options
+- -it: run bash when open container
+- -name <name>: set name
+- -p <host port number>:<containenr port number>: connect port between host and container
+- -rm: remove container when it finish
+- -rmi: remove image
+- -v: connect directory between host and container
+
 2022-04-17
 - 우선 webserv tutorial에 나온 사이트를 참고하여 client와 server 프로그램을 만들고 실행해 보았다.
 
