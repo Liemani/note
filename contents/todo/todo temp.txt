@@ -2,8 +2,32 @@ todo temp.txt
 
 # pc
 webserv
+- nginx
+	- webserv tutorial 페이지 3개 읽어보기.
+		- 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
+			- 이것을 위해 mosong님이 notion에 올려주신 link들을 싹 둘러보자.
+- configuration file
+	- syntax 정의하기
+- mandatory에서 요구하는 cgi가 fast cgi인지 알아보기
+- mosong 님이 notion에 올린 사이트 읽어보기
+- blocking, non-blocking 더 이해하기(mosong)님이 보내주신 link 토대로
+- nginx cgi
+	- nginx config 파일의 location 부분을 알아보기
+- mind control
+	- 열심히 참여하기
+		- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
+		- 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
+		- 상대방의 의견 수렴해서 ambiguos하지 않게 상황 매듭짓기
+			- 그럼 이거랑 이거 더 조사해봐서 뭐가 더 좋을지 알아볼까요?
+		- 혼자 다 짊어질 필요는 없다
+		- 왜 이런 것이 필요한가?
+			- 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
+			- 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
+- server가 client에게 write에 실패할 경우
+	- client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
 - 플로우 차트 만들어서 설계 해보신 분 있는지
 	- 우리가 설계한다는 것은 어떻게 진행될 것인지
+	- 시그마?
 - kevent가 내부적으로 어떻게 동작하는지 더 구체적으로 이해하고 있으면 좋을 것 같다.
 	- 저번에 본 jinbekim님의 자료를 다시 한 번 보자.
 - 프로젝트 이외
@@ -22,23 +46,15 @@ webserv
 - 짬짬이 RFC 읽기
 	- 7230, 7231
 - 원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
-- socket에 fcntl()을 사용하여 non-blocking socket을 만들면 이전 socket과 달라지는 부분?(non-blocking 작동은 당연하고)
 - HTTP message의 길이 제한이 존재할까?
-- non-blocking fd의 의미를 생각해보기
 - 생각
 	- CGI를 지원하더라도 fully static website라고 할 수 있는가?
 	- fully static website를 어떻게 말로 정의할 수 있을까?
 	- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
 	- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
-- webserv.txt
-- recap what i learn good to see
-- CGI, RFC
 - what header should implement
 - what status code should implement
-- check nginx in subject
 - configuration file parsing
-- check library functions
-- check useful macros(FD_SET, FD_CLR, FD_ISSET, FD_ZERO 등)
 - is POST differ between file and text?
 ft_containers
 - 마지막에 다 만들고 pdf 변경점 있는지 확인이 필요하다.
@@ -85,6 +101,13 @@ cpp_module_01 진행하기
 
 # finish
 webserv
+- mosong 님이 슬랙에 올린 사이트 읽어보기
+- 그럼 socket을 close하면 select가 readable이지 않다고 판단할까?
+	- 그건 확실하지 않지만, readfds에서 해당 socket을 remove해야 하는 것은 확실하다.
+- poll() 사용해보기
+- select() 더 파기 (왜 client socket이 여전히 redable인가?)
+- non-blocking fd의 의미를 생각해보기
+- socket에 fcntl()을 사용하여 non-blocking socket을 만들면 이전 socket과 달라지는 부분?(non-blocking 작동은 당연하고)
 - syn, async
 - muliti plexing
 	- async + non-blocking

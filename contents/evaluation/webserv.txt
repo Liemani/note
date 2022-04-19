@@ -6,7 +6,7 @@ Makefile 필요, relink 방지
 최소 rule: $(NAME), all, clean, fclean, re
 'CXX = c++', 'CXXFLAG = -Wall -Wextra -Werror'
 'CXXFLAG += -std=c++98'
-최신 C++ feature 사용(string.h -> cstring) C 함수 가능 but 가능하면 C++ 버전 사용
+가장 C++ 스러운 feature 사용(string.h -> cstring) C 함수 가능 but C++ 버전 사용
 외부 library, Boost 라이브러리 금지
 
 Mandatory part
@@ -64,7 +64,7 @@ MacOS는 'write()'를 타 Unix OS들 처럼 구현하지 않았습니다. fcntl(
 
 Configuration file
 NGINX server 부분의 configuration file에서 영감을 얻는건 어떨까요?
-각 server마다 port와 host 선택
+각 server의 port와 host 선택
 server_names 설정(할 수도 안할 수도)
 host:port를 위한 첫 server는 host:port의 default가 되도록 하세요.(다른 server에 속하지 않은 모든 request에 answer하도록요)
 default error pages를 만들어주세요.
@@ -72,7 +72,7 @@ client의 body size 제한
 아래의 rule/configuration을 따르는 route를 하나 또는 여럿 설정(routes는 wont be using regexp);
 - route를 위해 준수하는 HTTP methods list를 정의하세요.
 - HTTP redirection을 정의하세요.
-- file을 어디서 search할지 directory나 file을 정의하세요.(가령, url /kapouet은 /tmp/www를 root로 해고, url /kapouet/pouic/toto/pouet은 /tmp/www/pouic/toto/pouet를 root로 해요.)
+- file을 어디서 search할지 directory나 file을 정의하세요.(가령 url /kapouet을 /tmp/www를 root로 하면 url /kapouet/pouic/toto/pouet은 /tmp/www/pouic/toto/pouet이예요.)
 - directory listing을 on/off 설정할 수 있게 해주세요.
 - request가 directory일 때 answer할 default file 설정
 - CGI 기반 특정 file extension 실행(.php 처럼)
