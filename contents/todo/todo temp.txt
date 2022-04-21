@@ -2,47 +2,43 @@ todo temp.txt
 
 # pc
 webserv
+- 피드백
+	- 단순 스터디가 아니라 webserv 팀이기 때문에 굳이 사다리 타기를 할 필요가 없는 것 같다.
+		- 다 같이 말하고 다 같이 이해해야 한다.
 - nginx
 	- webserv tutorial 페이지 3개 읽어보기.
 		- 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
-			- 이것을 위해 mosong님이 notion에 올려주신 link들을 싹 둘러보자.
 - configuration file
 	- syntax 정의하기
 - mandatory에서 요구하는 cgi가 fast cgi인지 알아보기
-- mosong 님이 notion에 올린 사이트 읽어보기
-- blocking, non-blocking 더 이해하기(mosong)님이 보내주신 link 토대로
 - nginx cgi
 	- nginx config 파일의 location 부분을 알아보기
-- mind control
-	- 열심히 참여하기
-		- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
-		- 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
-		- 상대방의 의견 수렴해서 ambiguos하지 않게 상황 매듭짓기
-			- 그럼 이거랑 이거 더 조사해봐서 뭐가 더 좋을지 알아볼까요?
-		- 혼자 다 짊어질 필요는 없다
-		- 왜 이런 것이 필요한가?
-			- 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
-			- 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
+- 서브젝트 이외
+	- 자리 정하기
+	- 음료 사기
+		- 오고 가는 정!
+	- 미래 계획하기
+	- 멘탈 관리하기
+		- 나 + 팀원
+	- 스터디 학습 일지 작성하기
+		- 내 발표 자료 + 코드
+	- mind control
+		- 열심히 참여하기
+			- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
+			- 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
+			- 상대방의 의견 수렴해서 ambiguos하지 않게 상황 매듭짓기
+				- 그럼 이거랑 이거 더 조사해봐서 뭐가 더 좋을지 알아볼까요?
+			- 혼자 다 짊어질 필요는 없다
+			- 왜 이런 것이 필요한가?
+				- 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
+				- 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
 - server가 client에게 write에 실패할 경우
 	- client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
 - 플로우 차트 만들어서 설계 해보신 분 있는지
 	- 우리가 설계한다는 것은 어떻게 진행될 것인지
 	- 시그마?
-- kevent가 내부적으로 어떻게 동작하는지 더 구체적으로 이해하고 있으면 좋을 것 같다.
-	- 저번에 본 jinbekim님의 자료를 다시 한 번 보자.
-- 프로젝트 이외
-	- 자리 정하기
-	- 음료 사기
-	- 미래 계획하기
-	- 멘탈 관리하기
-	- 스터디 학습 일지 작성하기
-- 허용 함수 전부 알아보기
-	- 허용 함수 부족한 부분 알아보기
-	- poll(), kqueue()
-		- 찾아놓은 multiplex 관련 글
 - nginx 테스트
 	- mandatory에 명시된 내용이 실제 nginx에서는 어떻게 적용되어 있는지 조사하기
-- telnet 써보기
 - 짬짬이 RFC 읽기
 	- 7230, 7231
 - 원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
@@ -72,6 +68,7 @@ setenv.sh를 더 잘게 나누기
 safari 정리하기(tab group 너무 무겁다;;)
 webserv팀원 천천히 구하기
 조사
+- kernel은 process의 실행 흐름을 어떻게 뺏어오는 것일까? 특정 count가 지나면 강제로 pc를 바꾸면 되겠구나?
 - global const type은 공간을 차지하지 않을까?
 - copy constructor의 구현에 따라 copy constructor 시에 assignment operator가 호출될 수 있다?
 	- 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
@@ -101,6 +98,15 @@ cpp_module_01 진행하기
 
 # finish
 webserv
+- blocking, non-blocking 더 이해하기(mosong)님이 보내주신 link 토대로
+- telnet 써보기
+- 허용 함수 전부 알아보기
+	- 허용 함수 부족한 부분 알아보기
+	- poll(), kqueue()
+		- 찾아놓은 multiplex 관련 글
+- kevent가 내부적으로 어떻게 동작하는지 더 구체적으로 이해하고 있으면 좋을 것 같다.
+	- 저번에 본 jinbekim님의 자료를 다시 한 번 보자.
+- mosong 님이 notion에 올린 사이트 읽어보기
 - mosong 님이 슬랙에 올린 사이트 읽어보기
 - 그럼 socket을 close하면 select가 readable이지 않다고 판단할까?
 	- 그건 확실하지 않지만, readfds에서 해당 socket을 remove해야 하는 것은 확실하다.
