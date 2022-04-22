@@ -54,19 +54,16 @@ webserv
 - is POST differ between file and text?
 ft_containers
 - 마지막에 다 만들고 pdf 변경점 있는지 확인이 필요하다.
-function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.
 variabled name을 c에서 cpp로 잘 정리해서 porting하기, 유지보수 쉽도록 수정하기
 man page에서는 SYNOPSIS라고 표기하고 git 등에서는 usage라고 표기한다. 실제 데이터와 front end를 따로 분리하면 좋을 것 같다.
 나의 소개 페이지 하나 만들고 내가 작업하는 방식 및 각 repository의 용도를 적어두기
 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
 likedin 좀 내용을 추가해볼까?
-new를 사용했을 때 발생할 수 있는 memory error를 어떻게 처리할지 알아보고 적용하기
 두 파트로 분리된 내용을 A 하나 B 하나 식으로 하나로 합치는 방법 고안하기
 global const가 다른 두 파일에서 사용됐을 경우 서로 다른 두 메모리 공간을 차지하는 것이 아니라 정말 메모리를 덜 차지하는 상수처럼 쓰이는지 확인해보기
 setenv.sh를 더 잘게 나누기
 - 작은 실행 가능한 단위들로 나눠두면 좋을 것이다.
 safari 정리하기(tab group 너무 무겁다;;)
-webserv팀원 천천히 구하기
 조사
 - kernel은 process의 실행 흐름을 어떻게 뺏어오는 것일까? 특정 count가 지나면 강제로 pc를 바꾸면 되겠구나?
 - global const type은 공간을 차지하지 않을까?
@@ -123,6 +120,11 @@ webserv
 - blocking non-blocking
 - 허용 함수 전부 알아보기
 	- 허용 함수 부족한 부분 알아보기
+function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.
+- static는 상수로만 initialize가 가능하다.
+- 따라서 data segment에 위치하여 프로그램 시작 시에 initialize가 될 것이다.
+webserv팀원 천천히 구하기
+new를 사용했을 때 발생할 수 있는 memory error를 어떻게 처리할지 알아보고 적용하기
 vimsession이 상호 호환 안되는 문제 해결
 cppModule
 - 01

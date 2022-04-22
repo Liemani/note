@@ -1,5 +1,10 @@
 pour.txt
 
+2022-04-22
+function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.
+- static는 상수로만 initialize가 가능하다.
+- 따라서 data segment에 위치하여 프로그램 시작 시에 initialize가 될 것이다.
+
 2022-04-21
 # [목요특강] 협업 도구 JIRA 로 프로젝트 진행하기 BY. 이광헌 멘토
 너무 차근차근 설명을 잘 해주셔서 처음 jira를 사용해봤는데도 다양한 기능의 사용법을 쉽게 이해할 수 있었습니다.
