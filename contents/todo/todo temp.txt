@@ -2,9 +2,12 @@ todo temp.txt
 
 # pc
 webserv
-- 피드백
-	- 단순 스터디가 아니라 webserv 팀이기 때문에 굳이 사다리 타기를 할 필요가 없는 것 같다.
-		- 다 같이 말하고 다 같이 이해해야 한다.
+- event? worker의 갯수?
+- root가 server block 안에 있을 때 같은 server block 안에 있는 location block 안의 root가 server의 root에 영향을 받을까?
+- error response를 위한 html 파일을 각각 준비하는 것의 장점 -> 동적으로 파일을 생성하기 위해 필요한 cpu 자원을 아낄 수 있다.
+- 테스트는 어떻게 진행할 것인가?
+- https로 접속하면 client는 server에 http와 어떻게 다른 request message를 보낼까?
+- 어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
 - nginx
 	- webserv tutorial 페이지 3개 읽어보기.
 		- 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
@@ -14,6 +17,8 @@ webserv
 - nginx cgi
 	- nginx config 파일의 location 부분을 알아보기
 - 서브젝트 이외
+	- 스터디 피드백
+		- 팀원들이 모두 열심히 참여해줘서 좋았다.
 	- 자리 정하기
 	- 음료 사기
 		- 오고 가는 정!
@@ -22,6 +27,8 @@ webserv
 		- 나 + 팀원
 	- 스터디 학습 일지 작성하기
 		- 내 발표 자료 + 코드
+	- 에너지 관리하기
+		- 팀원들의 에너지를 관리하기 위해 내가 너무 high-tension이면 안된다!
 	- mind control
 		- 열심히 참여하기
 			- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기

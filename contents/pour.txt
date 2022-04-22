@@ -5,6 +5,8 @@ function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되�
 - static는 상수로만 initialize가 가능하다.
 - 따라서 data segment에 위치하여 프로그램 시작 시에 initialize가 될 것이다.
 
+custom header의 존재로 인해 request message의 header에 대해 error를 확인하는 것은 실제 사용하는 부분에서 해야할 것 같다.(모든 header가 사용되는 것은 아니기 때문에 모든 header의 valid를 읽은 즉시 판단할 수도 없고 판단하기도 어려울 것 같다.
+
 2022-04-21
 # [목요특강] 협업 도구 JIRA 로 프로젝트 진행하기 BY. 이광헌 멘토
 너무 차근차근 설명을 잘 해주셔서 처음 jira를 사용해봤는데도 다양한 기능의 사용법을 쉽게 이해할 수 있었습니다.
