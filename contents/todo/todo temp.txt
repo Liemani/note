@@ -2,7 +2,30 @@ todo temp.txt
 
 # pc
 webserv
+- 개발 단계를 어렇게 구분해봐도 좋겠다.
+	1. 정상적인 인자를 처리하도록 구현
+	2. 각종 error response를 구현
+- 우리가 CGI 프로그램도 작성해야 하는가?
+	- (아마 그런 것 같은데)
+- VIP를 정하면 좋을 것 같다.
+	- 중간 제출을 이 VIP를 구현한 결과물을 제출하면 좋겠다.(big webserv가 되지 않도록)
+- jihokim님이 layer마다 상속을 하도록 했는데, 그 이유를 들어보고, 필요에 따라 circle과 elipsis를 설명한 c++ primer plus에 글을 알려주자.
+- mosong님이 말한 root의 작동을 명확히 조사하기
+- RFC - chunked
+- server_name directive를 생략하는 경우 처리
+- The first server for a host:port will be the default for this host:port (that means it will answer to all the requests that don’t belong to an other server).
+	- 구체적인 의미를 생각해보기
+- Limit client body size.
+- Define a list of accepted HTTP methods for the route.
+- Set a default file to answer if the request is a directory.
+	- index일까?
+- Because you won’t call the CGI directly, use the full path as PATH_INFO.
+	- CGI를 직접 호출하지 않는다는건 동적으로 입력받은 경로를 사용한다는 것일 것 같은데 PATH_INFO는 왜 필요한걸까?
+	- CGI의 환경 변수 중에 PATH_INFO가 있다. 이걸 알아보자.
+- Just remember that, for chunked request, your server needs to unchunked it and the CGI will expect EOF as end of the body.
+- Make the route able to accept uploaded files and configure where they should be saved.
 - event? worker의 갯수?
+	- 굳이 worker_connections를 구현하여 configuration file을 읽어서 연결 가능한 client 수 제한을 설정할 필요는 없을 것 같다.
 - root가 server block 안에 있을 때 같은 server block 안에 있는 location block 안의 root가 server의 root에 영향을 받을까?
 - error response를 위한 html 파일을 각각 준비하는 것의 장점 -> 동적으로 파일을 생성하기 위해 필요한 cpu 자원을 아낄 수 있다.
 - 테스트는 어떻게 진행할 것인가?
@@ -17,6 +40,8 @@ webserv
 - nginx cgi
 	- nginx config 파일의 location 부분을 알아보기
 - 서브젝트 이외
+	- workflow
+		- 생성 -> 초안 -> 리뷰 -> 완료
 	- 스터디 피드백
 		- 팀원들이 모두 열심히 참여해줘서 좋았다.
 	- 자리 정하기
@@ -29,7 +54,10 @@ webserv
 		- 내 발표 자료 + 코드
 	- 에너지 관리하기
 		- 팀원들의 에너지를 관리하기 위해 내가 너무 high-tension이면 안된다!
-	- mind control
+	- mind setting
+		- 말을 끊고 알고 있음을 어필하는 것은 효율적일 수 있으나 악감정을 만들 수 있다.
+			- 이 경우 악감정 및 안좋은 분위기 및 안좋은 문화를 만드는 것은 얻은 효율에 비해 잃는게 더 크다고 생각한다.
+			- 따라서 상대의 말을 끊는 행위는 내가 도움이 필요한 경우가 아니라면 하지 말자.
 		- 열심히 참여하기
 			- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
 			- 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
@@ -50,11 +78,6 @@ webserv
 	- 7230, 7231
 - 원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
 - HTTP message의 길이 제한이 존재할까?
-- 생각
-	- CGI를 지원하더라도 fully static website라고 할 수 있는가?
-	- fully static website를 어떻게 말로 정의할 수 있을까?
-	- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
-	- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
 - what header should implement
 - what status code should implement
 - configuration file parsing
@@ -102,6 +125,11 @@ cpp_module_01 진행하기
 
 # finish
 webserv
+- 생각
+	- CGI를 지원하더라도 fully static website라고 할 수 있는가?
+	- fully static website를 어떻게 말로 정의할 수 있을까?
+	- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
+	- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
 - blocking, non-blocking 더 이해하기(mosong)님이 보내주신 link 토대로
 - telnet 써보기
 - 허용 함수 전부 알아보기
