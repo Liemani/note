@@ -1,5 +1,20 @@
 pour.txt
 
+2022-04-25
+git commit message: close #16
+과 같이 작성하면 연동됨
+jira commit: <jira issue> #comment <contents>
+<jira issue>의 위치는 뒤에 와도 된다.
+commit message for jira:
+<Jira issue id>(ws)#comment(ws)<message>
+	- contents
+	- contents
+# 결정
+<Jira issue id> <git tag>: <commit message>
+- message
+- message
+
+
 2022-04-22
 function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.
 - static는 상수로만 initialize가 가능하다.

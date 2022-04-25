@@ -2,6 +2,8 @@ todo temp.txt
 
 # pc
 webserv
+- 자식 class가 부모의 public member variable의 access specifier를 바꾸면 서로 다른 member 변수일까? 아니면 한 member variable이 접근 권한만 바뀌는 걸까?
+- workflow()에 code review
 - CI/CD 알아보기
 - CGI 프로그램이 값을 반환하지 않는 경우도 생각해야 할까?
 - 개발 단계를 어렇게 구분해봐도 좋겠다.
