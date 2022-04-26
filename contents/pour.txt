@@ -1,5 +1,12 @@
 pour.txt
 
+2022-04-26
+# https://en.wikipedia.org/wiki/Incremental_computing
+> incremental computing | incremental computation
+- 어떤 data에 기반한 작업을 하는 프로그램이다.
+- 그런데 data의 값이 바뀌었을 때,
+- 바뀐 data에 대해서만 작업을 수행하면서도 원하는 결과를 얻어내는 경우
+
 2022-04-25
 git commit message: close #16
 과 같이 작성하면 연동됨
