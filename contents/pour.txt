@@ -1,5 +1,18 @@
 pour.txt
 
+2022-04-27
+# 와.. RFC7230 문서 너무 끔찍하다.
+작자가 머릿 속에 있는 HTTP에 대한 내용을 마구 휘갈겨뒀다.
+c처럼 구조화는 했는데 객체화는 안해둬서 이걸 cpp로 구현하려니 객체화하는 과정이 끔찍하다.
+어떤 객체가 어떤 작업을 할 때 어떻게 하는지가 여기저기 산발적으로 존재해서 찾아보기 힘들다.
+이런 구시대의 1차원적 문서로 정보를 정리하지 말고, 좀 문서화 방식을 발전시켜야 하지 않을까?
+비록 plain text format이 호환성은 좋더라도..
+결국은 차세대 문서 관리 시스템을 먼저 사용하는 사람이 세상을 이끌어 갈 것 같다.
+# variable identifier에 type 정보를 넣기
+자주 있는 일은 아니지만 variable의 type을 바꾸는 경우가 있다.
+그럴 경우 variable identifier도 바꿔야 하는 것이 단점이다.
+하지만 variable identifier만 보고 type을 알 수 있다는 것은 또한 큰 장점이기도 하다.(특히 type이 custom type일 경우)
+
 2022-04-26
 # https://en.wikipedia.org/wiki/Incremental_computing
 > incremental computing | incremental computation
@@ -19,8 +32,6 @@ commit message for jira:
 # 결정
 <Jira issue id> <git tag>: <commit message>
 - message
-- message
-
 
 2022-04-22
 function 안에 있는 static 변수는 어떻게 단 한 번만 초기화 되는 것일까? assembly code를 보고 싶다.

@@ -1,0 +1,120 @@
+webserv.txt
+
+# pc
+상대경로인 URI가 root 밖을 가리키는 경우 처리
+1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
+workflow()에 code review 추가하는 것 건의하기
+CI/CD 알아보기
+CGI 프로그램이 값을 반환하지 않는 경우도 생각해야 할까?
+개발 단계를 어렇게 구분해봐도 좋겠다.
+1. 정상적인 인자를 처리하도록 구현
+2. 각종 error response를 구현
+우리가 CGI 프로그램도 작성해야 하는가?
+- (아마 그런 것 같다.)
+VIP를 정하면 좋을 것 같다.
+- 중간 제출을 이 VIP를 구현한 결과물을 제출하면 좋겠다.(big webserv가 되지 않도록)
+jihokim님이 layer마다 상속을 하도록 했는데, 그 이유를 들어보고, 필요에 따라 circle과 elipsis를 설명한 c++ primer plus에 글을 알려주자.
+mosong님이 말한 root의 작동을 명확히 조사하기
+RFC - chunked
+server_name directive를 생략하는 경우 처리
+The first server for a host:port will be the default for this host:port (that means it will answer to all the requests that don’t belong to an other server).
+- 구체적인 의미를 생각해보기
+Limit client body size.
+Define a list of accepted HTTP methods for the route.
+Set a default file to answer if the request is a directory.
+- index일까?
+Because you won’t call the CGI directly, use the full path as PATH_INFO.
+- CGI를 직접 호출하지 않는다는건 동적으로 입력받은 경로를 사용한다는 것일 것 같은데 PATH_INFO는 왜 필요한걸까?
+- CGI의 환경 변수 중에 PATH_INFO가 있다. 이걸 알아보자.
+Just remember that, for chunked request, your server needs to unchunked it and the CGI will expect EOF as end of the body.
+Make the route able to accept uploaded files and configure where they should be saved.
+event? worker의 갯수?
+- 굳이 worker_connections를 구현하여 configuration file을 읽어서 연결 가능한 client 수 제한을 설정할 필요는 없을 것 같다.
+root가 server block 안에 있을 때 같은 server block 안에 있는 location block 안의 root가 server의 root에 영향을 받을까?
+error response를 위한 html 파일을 각각 준비하는 것의 장점 -> 동적으로 파일을 생성하기 위해 필요한 cpu 자원을 아낄 수 있다.
+테스트는 어떻게 진행할 것인가?
+https로 접속하면 client는 server에 http와 어떻게 다른 request message를 보낼까?
+어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
+nginx
+- webserv tutorial 페이지 3개 읽어보기.
+	- 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
+configuration file
+- syntax 정의하기
+mandatory에서 요구하는 cgi가 fast cgi인지 알아보기
+nginx cgi
+- nginx config 파일의 location 부분을 알아보기
+서브젝트 이외
+- workflow
+	- 생성 -> 초안 -> 리뷰 -> 완료
+- 스터디 피드백
+	- 팀원들이 모두 열심히 참여해줘서 좋았다.
+- 자리 정하기
+- 음료 사기
+	- 오고 가는 정!
+- 미래 계획하기
+- 멘탈 관리하기
+	- 나 + 팀원
+- 스터디 학습 일지 작성하기
+	- 내 발표 자료 + 코드
+- 에너지 관리하기
+	- 팀원들의 에너지를 관리하기 위해 내가 너무 high-tension이면 안된다!
+- mind setting
+	- 말을 끊고 알고 있음을 어필하는 것은 효율적일 수 있으나 악감정을 만들 수 있다.
+		- 이 경우 악감정 및 안좋은 분위기 및 안좋은 문화를 만드는 것은 얻은 효율에 비해 잃는게 더 크다고 생각한다.
+		- 따라서 상대의 말을 끊는 행위는 내가 도움이 필요한 경우가 아니라면 하지 말자.
+	- 열심히 참여하기
+		- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
+		- 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
+		- 상대방의 의견 수렴해서 ambiguos하지 않게 상황 매듭짓기
+			- 그럼 이거랑 이거 더 조사해봐서 뭐가 더 좋을지 알아볼까요?
+		- 혼자 다 짊어질 필요는 없다
+		- 왜 이런 것이 필요한가?
+			- 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
+			- 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
+server가 client에게 write에 실패할 경우
+- client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
+플로우 차트 만들어서 설계 해보신 분 있는지
+- 우리가 설계한다는 것은 어떻게 진행될 것인지
+- 시그마?
+nginx 테스트
+- mandatory에 명시된 내용이 실제 nginx에서는 어떻게 적용되어 있는지 조사하기
+짬짬이 RFC 읽기
+- 7230, 7231
+원하는 browser와 호환되도록 하기 위해서는 해당 browser가 HTTP message의 header를 어떤 식으로 구성하는지도 알아두는 것이 좋겠다.
+HTTP message의 길이 제한이 존재할까?
+what header should implement
+what status code should implement
+configuration file parsing
+is POST differ between file and text?
+
+# finish
+생각
+- CGI를 지원하더라도 fully static website라고 할 수 있는가?
+- fully static website를 어떻게 말로 정의할 수 있을까?
+- fully static website는 화면에 보여주는 html문서에 대해서 static이면 될 것 같다.
+- 추가로 file upload등 CGI와 작업을 수행하고 그 결과를 반환받는 것은 static 여부와 상관 없다고 할 수 있을 것 같다.
+blocking, non-blocking 더 이해하기(mosong)님이 보내주신 link 토대로
+telnet 써보기
+허용 함수 전부 알아보기
+- 허용 함수 부족한 부분 알아보기
+- poll(), kqueue()
+	- 찾아놓은 multiplex 관련 글
+kevent가 내부적으로 어떻게 동작하는지 더 구체적으로 이해하고 있으면 좋을 것 같다.
+- 저번에 본 jinbekim님의 자료를 다시 한 번 보자.
+mosong 님이 notion에 올린 사이트 읽어보기
+mosong 님이 슬랙에 올린 사이트 읽어보기
+그럼 socket을 close하면 select가 readable이지 않다고 판단할까?
+- 그건 확실하지 않지만, readfds에서 해당 socket을 remove해야 하는 것은 확실하다.
+poll() 사용해보기
+select() 더 파기 (왜 client socket이 여전히 redable인가?)
+non-blocking fd의 의미를 생각해보기
+socket에 fcntl()을 사용하여 non-blocking socket을 만들면 이전 socket과 달라지는 부분?(non-blocking 작동은 당연하고)
+syn, async
+muliti plexing
+- async + non-blocking
+select() 쓰지 말고 poll() 쓰라고 서브젝트에 있는 모양이다.
+- select() -> poll() -> epoll()로 발전
+mosong님이 올린 질문 글 첫 답글의 웹 페이지
+blocking non-blocking
+허용 함수 전부 알아보기
+- 허용 함수 부족한 부분 알아보기
