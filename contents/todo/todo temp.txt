@@ -8,6 +8,7 @@ slack
 - automata를 설명한 글 읽고 이해하고 실습하기
 궁금
 - stringstream.str()을 하면 buffer의 내용을 전부 가지고 string을 생성하는데, stringstream의 최대 크기도 존재하지 않을까? 그러면 stringstream을 만들 때 전달받은 original string 값이 손실될 수도 있지 않을까?
+- bit field structure의 값 read/write는 instruction 수준에서 어떻게 작성될까?
 variabled name을 c에서 cpp로 잘 정리해서 porting하기, 유지보수 쉽도록 수정하기
 man page에서는 SYNOPSIS라고 표기하고 git 등에서는 usage라고 표기한다. 실제 데이터와 front end를 따로 분리하면 좋을 것 같다.
 42과정 및 과제를 왜 하고 있는지 정리하여 todo에 포함시키기
@@ -41,6 +42,9 @@ safari 정리하기(tab group 너무 무겁다;;)
 		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+노트북의 내용을 push하고 iMac에서 pull하기
+EV_SET의 마지막 인자로 각 event의 특징을 명시할 수 있나?
+- struct kevent의 마지막 인자는 void* 타입이며, 사용자가 임의의 주소를 넣어둘 수 있다.
 cpp_module_01 진행하기
 - intra 영상 시청
 - subject 구현
