@@ -2,6 +2,8 @@ todo temp.txt
 
 # pc
 project/webserv
+netpractice하기
+반복: 시험
 project/ft_containers
 - 마지막에 다 만들고 pdf 변경점 있는지 확인이 필요하다.
 slack

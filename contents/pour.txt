@@ -1,5 +1,10 @@
 pour.txt
 
+2022-04-29
+StructType structType = {};	// 0으로 초기화
+StructType structType = { 0 };	// 첫 member만 0으로 초기화
+- https://stackoverflow.com/questions/61240589/how-to-initialize-a-struct-to-0-in-c
+
 2022-04-27
 # 와.. RFC7230 문서 너무 끔찍하다.
 작자가 머릿 속에 있는 HTTP에 대한 내용을 마구 휘갈겨뒀다.

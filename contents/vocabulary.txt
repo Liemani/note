@@ -1,5 +1,8 @@
 vocabulary.txt
 
+con.sist.ent
+com.pat.i.ble
+com.pii.ant
 des.ig.nate
 vi.tal
 in.cor.po.rate

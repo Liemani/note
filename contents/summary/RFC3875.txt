@@ -1,0 +1,29 @@
+RFC3875.txt 
+
+1.4. Terminology
+
+meta-variable: server에서 script로 전달되는 이름 있는 인자
+script: CGI 규격에 따라 server로부터 호출되는 소프트웨어
+- 반드시 독립된 프로그램일 필요는 없다.
+	- 동적으로 로드되건, shared library이건, 서버의 subroutine이건 상관 없다.
+server: client의 request를 수행하기 위해 script를 호출하는 어플리케이션 프로그램
+
+4.1. Request Meta-Variables
+
+```
+http://host/script
+http://host/script?
+```
+
+CGI 규격은 meta-variable-value의 길이가 0(NULL)인 것과 값을 빼먹은 것을 구분하지 않는다.
+따라서 위의 두 경우 QUERY_STRING meta-variable은 모두 NULL이다.
+
+```
+meta-variable-value = "" | 1*<TEXT, CHAR or tokens of vaule>
+```
+
+optional meta-variable은 값이 NULL일 때 아예 생략이 가능하다.
+
+4.1.5.
+
+URI와 달리 PATH_INFO는 path-segment parameters를 포함할 수 없다.

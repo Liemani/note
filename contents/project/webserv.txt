@@ -1,6 +1,16 @@
 webserv.txt
 
 # pc
+session보다 좋은 이름 생각해보기
+worker보다 좋은 이름 생각해보기
+class나 structure의 초기 값을 직접 설정하고 컴파일해보기
+class나 structure를 생성할 때 = {};로 값을 초기화할 수 있나 컴파일해보기
+request target은 relative일 수도 있나..?
+- absolute path일 수도 있다.
+- scheme 등가지 포함한 uri일 수도 있다.
+	- RFC7230 등을 참고할 것
+내 HTTP demonstration 프로그램의 example을 server가 아닌 Worker? 로 수정하기
+- 아니, Worker는 thread의 갯수니까 class name이 Worker인 것은 사실 적절하지 않다. 좋은 이름을 생각해보자.
 이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
 - google convention에서 이 순서를 따로 지정하는 부분이 존재하는지?
 HTTP 완전 정복 읽기
@@ -8,12 +18,9 @@ HTTP 완전 정복 읽기
 1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
 workflow()에 code review 추가하는 것 건의하기
 CI/CD 알아보기
-CGI 프로그램이 값을 반환하지 않는 경우도 생각해야 할까?
 개발 단계를 어렇게 구분해봐도 좋겠다.
 1. 정상적인 인자를 처리하도록 구현
 2. 각종 error response를 구현
-우리가 CGI 프로그램도 작성해야 하는가?
-- (아마 그런 것 같다.)
 VIP를 정하면 좋을 것 같다.
 - 중간 제출을 이 VIP를 구현한 결과물을 제출하면 좋겠다.(big webserv가 되지 않도록)
 jihokim님이 layer마다 상속을 하도록 했는데, 그 이유를 들어보고, 필요에 따라 circle과 elipsis를 설명한 c++ primer plus에 글을 알려주자.
@@ -78,7 +85,7 @@ server가 client에게 write에 실패할 경우
 - client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
 플로우 차트 만들어서 설계 해보신 분 있는지
 - 우리가 설계한다는 것은 어떻게 진행될 것인지
-- 시그마?
+- 피그마!
 nginx 테스트
 - mandatory에 명시된 내용이 실제 nginx에서는 어떻게 적용되어 있는지 조사하기
 짬짬이 RFC 읽기
@@ -89,8 +96,13 @@ what header should implement
 what status code should implement
 configuration file parsing
 is POST differ between file and text?
+client로부터 전달받은 path가 configuration에서 정의한 root의 밖을 접근하는 경우 처리
 
 # finish
+우리가 CGI 프로그램도 작성해야 하는가?
+- (아마 그런 것 같다.)
+- 그냥 있는거 가져와서 사용해도 될 것 같다.
+CGI 프로그램이 값을 반환하지 않는 경우도 생각해야 할까?
 public, private convention 조사하기
 에러코드 에러넘버 관리하는 부분 만들기
 typedef 사용하기
