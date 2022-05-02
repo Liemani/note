@@ -1,6 +1,9 @@
 todo temp.txt
 
 # pc
+github organization
+string max
+send가 tcp 까지 처리하는지 읽어보기
 project/webserv
 netpractice하기
 반복: 시험

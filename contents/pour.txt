@@ -1,5 +1,13 @@
 pour.txt
 
+2022-05-02
+# https://gist.github.com/CMCDragonkai/6084a504b6a7fee270670fc8f5887eb4
+> cli command
+jobs: list all jobs
+fg %N: foreground the job N
+bg %N: make N continue in the background
+kill %N: kill the job N (sends SIGTERM, not like Ctrl + C which sends SIGINT)
+
 2022-04-29
 StructType structType = {};	// 0으로 초기화
 StructType structType = { 0 };	// 첫 member만 0으로 초기화

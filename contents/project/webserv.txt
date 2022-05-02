@@ -1,18 +1,9 @@
 webserv.txt
 
 # pc
-session보다 좋은 이름 생각해보기
-worker보다 좋은 이름 생각해보기
-class나 structure의 초기 값을 직접 설정하고 컴파일해보기
-class나 structure를 생성할 때 = {};로 값을 초기화할 수 있나 컴파일해보기
-request target은 relative일 수도 있나..?
-- absolute path일 수도 있다.
-- scheme 등가지 포함한 uri일 수도 있다.
-	- RFC7230 등을 참고할 것
-내 HTTP demonstration 프로그램의 example을 server가 아닌 Worker? 로 수정하기
-- 아니, Worker는 thread의 갯수니까 class name이 Worker인 것은 사실 적절하지 않다. 좋은 이름을 생각해보자.
+github organization 알아보기
+잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
 이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
-- google convention에서 이 순서를 따로 지정하는 부분이 존재하는지?
 HTTP 완전 정복 읽기
 상대경로인 URI가 root 밖을 가리키는 경우 처리
 1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
@@ -50,7 +41,6 @@ nginx
 	- 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
 configuration file
 - syntax 정의하기
-mandatory에서 요구하는 cgi가 fast cgi인지 알아보기
 nginx cgi
 - nginx config 파일의 location 부분을 알아보기
 서브젝트 이외
@@ -99,11 +89,21 @@ is POST differ between file and text?
 client로부터 전달받은 path가 configuration에서 정의한 root의 밖을 접근하는 경우 처리
 
 # finish
+내 HTTP demonstration 프로그램의 example을 server가 아닌 Worker? 로 수정하기
+- 아니, Worker는 thread의 갯수니까 class name이 Worker인 것은 사실 적절하지 않다. 좋은 이름을 생각해보자.
+class나 structure의 초기 값을 직접 설정하고 컴파일해보기
+class나 structure를 생성할 때 = {};로 값을 초기화할 수 있나 컴파일해보기
+worker보다 좋은 이름 생각해보기
+server와 virtual server 등 이름 정하고 confluence에 올리기?
+session의 다른 이름 생각해봤는지 물어보고 virtual server를 주장하기
+오늘까지 설계를 마치는 부분이므로 이제 각 class의 동작을 인식한 부분이다. 다음 회의 때까지 각 class의 이름을 원하는 만큼 생각해오고 투표 등으로 결정하기
+mandatory에서 요구하는 cgi가 fast cgi인지 알아보기
 우리가 CGI 프로그램도 작성해야 하는가?
 - (아마 그런 것 같다.)
 - 그냥 있는거 가져와서 사용해도 될 것 같다.
 CGI 프로그램이 값을 반환하지 않는 경우도 생각해야 할까?
 public, private convention 조사하기
+- google convention에서 이 순서를 따로 지정하는 부분이 존재하는지?
 에러코드 에러넘버 관리하는 부분 만들기
 typedef 사용하기
 생각
@@ -136,3 +136,117 @@ mosong님이 올린 질문 글 첫 답글의 웹 페이지
 blocking non-blocking
 허용 함수 전부 알아보기
 - 허용 함수 부족한 부분 알아보기
+
+# delay
+request target은 relative일 수도 있나..?
+- absolute path일 수도 있다.
+- scheme 등가지 포함한 uri일 수도 있다.
+	- RFC7230 등을 참고할 것
+
+# data
+2022-05-02
+kqueue의 udata를 사용하면 좋을 것 같다.
+- map의 key를 탐색하는 시간을 절약할 수 있다.
+```
+// 타입 정의
+class VirtualServer {
+	// configuration file
+	host;
+	port number;
+	name;
+	default error page path;
+	client body size limit;
+	list of accepted HTTP methods for route;
+	HTTP redirection;
+	nginx location;
+	directory listing toggle;
+	default file to answer if the request is a directory;
+	CGI based on certain file extension;
+
+	// run time
+	socket;
+};
+
+Class ClientClerk {
+	server;
+
+	request buffer;
+
+	should write;
+	response buffer;
+};
+
+typedef VSMap map<int, VirtualServer>;
+
+
+// 글로벌 수준 영역
+VSMap vs_map;
+
+// virtual server sock 추가
+while (config 파일의 모든 virtual server마다) {
+	int server_sock = socket(PF_INET, SOCK_STREAM, 0);
+
+	VirtualServer new_vs = VirtualServer(server_sock/*, config_data*/);
+
+	vs_map[server_sock] = new_vs;
+}
+
+while {
+	event_count = kevent(kqueue_fd, NULL, 0, event_array, DEFAULT_EVENT_ARRAY_SIZE, &timeout);
+
+	for (int i = 0; i < event_count; ++i) {
+		const struct kevent& event = event_array[i];
+		VirtualServer& vs = event.udata;
+
+		if (event.filter == EVFILT_READ) {
+			if (static_cast<int>(event.ident) == server_sock)
+				acceptServer(server_sock, kqueue_fd);
+			else
+				if (readClient(event.ident, msg_buf, BUF_SIZE) != 0)
+					runRequest(msg_buf, response_message_array[event.ident], response_message_should_write[event.ident]);
+				else
+					deleteEventClient(event.ident, kqueue_fd);
+		}
+		else if (event.filter == EVFILT_WRITE)
+			if (response_message_should_write[event.ident]) {
+				const std::string response_message = response_message_array[event.ident];
+				send(event.ident, response_message.c_str(), response_message.length(), 0);
+				response_message_should_write[event.ident] = false;
+			}
+	}
+}
+
+```
+
+```
+VirtualServer vs;
+
+EV_SET(&event, sock, filter, flags, 0, 0, vs);
+kevent(kqueue_fd, &event, 1, NULL, 0, NULL);
+
+while {
+	event_count = kevent(kqueue_fd, NULL, 0, event_array, DEFAULT_EVENT_ARRAY_SIZE, &timeout);
+
+	for (int i = 0; i < event_count; ++i) {
+		const struct kevent& event = event_array[i];
+		VirtualServer& vs = event.udata;
+
+		if (event.filter == EVFILT_READ) {
+			if (static_cast<int>(event.ident) == server_sock)
+				acceptServer(server_sock, kqueue_fd);
+			else
+				if (readClient(event.ident, msg_buf, BUF_SIZE) != 0)
+					runRequest(msg_buf, response_message_array[event.ident], response_message_should_write[event.ident]);
+				else
+					deleteEventClient(event.ident, kqueue_fd);
+		}
+		else if (event.filter == EVFILT_WRITE)
+			if (response_message_should_write[event.ident]) {
+				const std::string response_message = response_message_array[event.ident];
+				send(event.ident, response_message.c_str(), response_message.length(), 0);
+				response_message_should_write[event.ident] = false;
+			}
+	}
+}
+
+```
