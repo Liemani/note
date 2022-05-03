@@ -1,5 +1,30 @@
 pour.txt
 
+2022-05-03
+# https://askanydifference.com/difference-between-of-and-for/
+> Difference Between Of and For (With Table)
+of: It is used in a very general sense.
+for: It is used in a specific sense.
+# https://wikidiff.com/insert/add
+> Add vs Insert - What's the difference?
+add: 비등한 것 두 개를 합침(ex> 두 집합을 add)
+insert: 작은 것을 큰 것에 추가함(ex> element를 list에 insert)
+# https://unix.stackexchange.com/questions/140741/how-to-save-a-command-you-entered-without-executing-it
+> How to save a command you entered without executing it? [duplicate]
+1. <C-U> 등으로 전체 line을 삭제하여 임시 buffer에 저장한다.
+2. 원하던 작업을 진행한다.
+3. <C-Y>로 1에서 삭제한(임시 buffer에 저장된) line을 불러온다.
+만약 multiline command를 입력중이었다면 <C-C>로 바로 위 line까지의 multiline command를(실행 없이) history에 저장할 수 있다.
+<C-A>#<CR>로 앞에 #을 추가해서 존재하지 않는 command를 호출하여 실제 코드는 실행되지 않고 history에 유의미한 line을 저장하는 방식도 있다.
+# https://superuser.com/questions/563939/save-command-to-history-without-executing-in-bash
+> Save command to history without executing in bash
+#!%:p를 뒤에 붙이면 실행이 실패하면서 history에 저장할 수 있다.
+'나 |를 입력 후 <CR>로 강제로 multiline을 만든 후 <C-C>로 원하는 line을 history에 save하는 방법도 있다.
+# 일 처리
+어떤 새로운 것에 대해서는 말을 하는 김에 확실하게 처리를 완료하도록 하자.
+보는 앞에서 완료된 것을 확인하고 끝맺는 것이 좋다.
+그래야 이후에 다시 말을 해야 하는 상황을 피할 수 있다.
+
 2022-05-02
 # https://gist.github.com/CMCDragonkai/6084a504b6a7fee270670fc8f5887eb4
 > cli command

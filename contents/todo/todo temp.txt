@@ -1,14 +1,15 @@
 todo temp.txt
 
 # pc
-github organization
-string max
+exception 어셈코드 보기
+structure를 return하는 함수의 어셈코드 보기
+반환값이 어떻게 작동하는지 어셈코드 보기
 send가 tcp 까지 처리하는지 읽어보기
 project/webserv
-netpractice하기
+project/netpractice
 반복: 시험
+- dependency: project/netpractice
 project/ft_containers
-- 마지막에 다 만들고 pdf 변경점 있는지 확인이 필요하다.
 slack
 - automata를 설명한 글 읽고 이해하고 실습하기
 궁금
@@ -47,6 +48,10 @@ safari 정리하기(tab group 너무 무겁다;;)
 		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+string max
+github organization
+깃 계정을 네이버가 아닌 구글에 연결하기
+how to save history without executing it?
 노트북의 내용을 push하고 iMac에서 pull하기
 EV_SET의 마지막 인자로 각 event의 특징을 명시할 수 있나?
 - struct kevent의 마지막 인자는 void* 타입이며, 사용자가 임의의 주소를 넣어둘 수 있다.
