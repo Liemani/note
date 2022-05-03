@@ -24,6 +24,15 @@ insert: 작은 것을 큰 것에 추가함(ex> element를 list에 insert)
 어떤 새로운 것에 대해서는 말을 하는 김에 확실하게 처리를 완료하도록 하자.
 보는 앞에서 완료된 것을 확인하고 끝맺는 것이 좋다.
 그래야 이후에 다시 말을 해야 하는 상황을 피할 수 있다.
+# https://stackoverflow.com/questions/69835705/formdata-textarea-puts-r-carriage-return-when-sent-with-post
+> FormData textarea puts \r (carriage return) when sent with POST
+https://www.rfc-editor.org/rfc/rfc2046#section-4.1.1
+MIME의 text subtype은 MUST line break을 CRLF sequence로 표현해야 한다.
+# https://mariusschulz.com/blog/how-to-squash-the-first-two-commits-in-a-git-repository
+> How to Squash the First Two Commits in a Git Repository
+```
+$ git rebase -i --root
+```
 
 2022-05-02
 # https://gist.github.com/CMCDragonkai/6084a504b6a7fee270670fc8f5887eb4

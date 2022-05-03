@@ -1,15 +1,15 @@
 webserv.txt
 
 # pc
-github organization 알아보기
 잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
-이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
 HTTP 완전 정복 읽기
+이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
+- 내가 이걸 왜 적었더라?
 상대경로인 URI가 root 밖을 가리키는 경우 처리
 1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
 workflow()에 code review 추가하는 것 건의하기
 CI/CD 알아보기
-개발 단계를 어렇게 구분해봐도 좋겠다.
+개발 단계를 이렇게 구분해봐도 좋겠다.
 1. 정상적인 인자를 처리하도록 구현
 2. 각종 error response를 구현
 VIP를 정하면 좋을 것 같다.
@@ -71,6 +71,10 @@ nginx cgi
 		- 왜 이런 것이 필요한가?
 			- 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
 			- 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
+	- 감사합니다를 잘 말하기
+	- 잘 진행된 작업에 대해서는 긍정적인 표현하기
+	- 할 일이 많아 보이는 사업 파트너를 보았을 때
+		- 제가 도울 수 있는 일 있으면 알려주세요!
 server가 client에게 write에 실패할 경우
 - client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
 플로우 차트 만들어서 설계 해보신 분 있는지
@@ -89,6 +93,13 @@ is POST differ between file and text?
 client로부터 전달받은 path가 configuration에서 정의한 root의 밖을 접근하는 경우 처리
 
 # finish
+send가 tcp까지 처리하는지 읽어보기
+send를 할 때 '\n'가 '\r\n'으로 바뀔까?
+- '\n'이 있는 문자열을 전송하고 총 전송 byte를 비교해서 '\r'이 추가되는지 확인해보자.
+65kB이상의 데이터를 전송하면 send가 모든 값을 다 출력하지 못할 수 있다고 한다. 테스트해보자.
+- body가 response message에 제대로 안들어갔나? 다시 확인하고 테스트해보자.
+- 261676보다 큰 값을 보내면 여기서 짤리는 것 같다.
+github organization 알아보기
 내 HTTP demonstration 프로그램의 example을 server가 아닌 Worker? 로 수정하기
 - 아니, Worker는 thread의 갯수니까 class name이 Worker인 것은 사실 적절하지 않다. 좋은 이름을 생각해보자.
 class나 structure의 초기 값을 직접 설정하고 컴파일해보기
@@ -137,13 +148,46 @@ blocking non-blocking
 허용 함수 전부 알아보기
 - 허용 함수 부족한 부분 알아보기
 
-# delay
+# postpone
 request target은 relative일 수도 있나..?
 - absolute path일 수도 있다.
 - scheme 등가지 포함한 uri일 수도 있다.
 	- RFC7230 등을 참고할 것
+send
+- 없는 fd에 send()를 하려고 하면 errno에 EPIPE가 저장되며 socket의 type이 SOCK_STREAM인 경우 SIGPIPE가 발생한다.
+- 이것을 처리해줘야 할까?
+- 나중에 SIGPIPE로 인한 프로그램 termination을 피해야하면 그 때 signal을 제어하는 부분을 추가하도록 하자.
 
 # data
+## 2022-05-03
+https://stackoverflow.com/questions/14700906/socket-programming-send-return-value
+> Socket programming send() return value
+저번 회의에서 send()의 반환값이 일반적으로는 인자로 전달한 buffer의 size 또는 -1이 반환되지만 fd가 non-blocking일 때는 또 다를지 모르겠다고 했었는데 이 사이트에 딱 알맞는 답변이 있습니다.
+fd가 non-blocking일 때는 [0, buffer)를 반환할 수 있다고 합니다.
+하지만 직접 테스트를 해 본 결과 이것은 틀린 얘기라는 것을 알게 되었습니다.
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/event.h
+> struct kevent filter type value
+```
+#define EVFILT_READ             (-1)
+#define EVFILT_WRITE            (-2)
+#define EVFILT_AIO              (-3)
+#define EVFILT_VNODE            (-4)
+#define EVFILT_PROC             (-5)
+#define EVFILT_SIGNAL           (-6)
+#define EVFILT_TIMER            (-7)
+#define EVFILT_MACHPORT         (-8)
+#define EVFILT_FS               (-9)
+#define EVFILT_USER             (-10)
+#define EVFILT_VM               (-12)
+#define EVFILT_EXCEPT           (-15)
+```
+bit flag 모델이 아니기 때문에 '|'로 동시에 여러개의 filter를 set하여 설정하는 기법을 사용할 수 없다.
+
+## https://m.blog.naver.com/migurazi/70048236691
+> Socket send()함수의 Return값
+send()는 remote로 데이터를 보내기까지를 담당하는 것이 아니라 단순히 socket의 write buffer에 
+
 2022-05-02
 kqueue의 udata를 사용하면 좋을 것 같다.
 - map의 key를 탐색하는 시간을 절약할 수 있다.

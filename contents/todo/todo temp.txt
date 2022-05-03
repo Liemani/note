@@ -1,11 +1,12 @@
 todo temp.txt
 
 # pc
+document vs documentation
+personal document format을 수정하기(:%s/^\(	*\)- /\1	/gc)
+project/webserv
 exception 어셈코드 보기
 structure를 return하는 함수의 어셈코드 보기
 반환값이 어떻게 작동하는지 어셈코드 보기
-send가 tcp 까지 처리하는지 읽어보기
-project/webserv
 project/netpractice
 반복: 시험
 - dependency: project/netpractice
