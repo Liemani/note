@@ -1,5 +1,21 @@
 pour.txt
 
+2022-05-04
+# https://ell.stackexchange.com/questions/16580/difference-between-document-and-documentation
+> Difference between "document" and "documentation"
+document: 셀 수 있는 문서, 종이 한 장 한장
+documentation: 셀수 없는 문서, 문서 뭉치
+# HTTP - The Definitive Guide.pdf
+web page 모델을 작성하기 위한 언어가 html인 것 같다.
+특정 부분은 다시 다른 server로부터 데이터를 읽어와라 등의 정보를 담을 수 있는 것 같다.
+host를 결정하기 위해서 ip adress를 사용할 수도 있고 domain name이라고 하는 hostname을 사용할 수도 있다.
+# scribble
+다른 사람의 말이 틀린 것 같다고 생각해서 막 내 생각을 주장하다보면, "아 저 사람처럼 생각하는 것도 가능하겠구나?" 라는 생각을 하곤 한다.
+# 프로토콜
+세상에는 수많은 저마다의 프로토콜이 존재한다.
+아마 구글 스프레드시트 프로그램은 client와 server가 통신을 하기위해 요구하는 http 통신 작성 방식이 존재할 것이다.
+이런 요소요소의 커스텀 프로토콜을 이해하면 해당 서비스를 더 근본적으로 조작할 수 있을 것이다.
+
 2022-05-03
 # https://askanydifference.com/difference-between-of-and-for/
 > Difference Between Of and For (With Table)

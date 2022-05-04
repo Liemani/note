@@ -1,5 +1,8 @@
 HTTP - The Definitive Guide.txt
 
+2.2.2 Hosts and Ports
+	The host component identifies the host machine on the Internet that has access to the resource. The name can be provided as a hostname, as above ("www.joes-hardware.com") or as an IP address.
+
 18.2.3.3 Interpreting Host headers
 	virtually hosted server가 아니고, Host header field에 따라 다른 resource를 제공하고 싶지 않은 경우 Host header field의 value를 무시할 수 있다.
 	하지만 Host header field value에 따라 다른 resource를 제공하고 싶다면 아래의 규칙을 따라야 한다.
