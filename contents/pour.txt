@@ -1,5 +1,9 @@
 pour.txt
 
+2022-06-05
+RFC7230.9.3.에 따르면 ruquest-line과 header fields의 길이 제한을 두는 것이 보안상 좋다는 것 같다.
+
+
 2022-05-04
 # https://ell.stackexchange.com/questions/16580/difference-between-document-and-documentation
 > Difference between "document" and "documentation"

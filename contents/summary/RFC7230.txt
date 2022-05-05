@@ -32,13 +32,22 @@ RFC7230.txt
 3.2.4. Field Parsing
 	message/http media type[RFC7230.8.3.1]이 아닌 경우 'obs-fold'는 deprecated이다.
 	message/http가 아닌데 obs-fold를 가지는 request message를 server가 수신하는 경우 400을 송신하면서 message를 reject해야 한다.
-	
+
 3.2.5. Field Limits
 3.2.6. Field Value Components
 3.3. Message Body
 3.3.1. Transfer-Encoding
+	Transfer-Encoding: gzip, chunked
+		message body가 gzip으로 compress된 후 chunked coding으로 chunked됨을 의미
+	구현하지 않은 transfer coding request message를 받으면 501로 응답해야 한다.(SHOULD)
+
 3.3.2. Content-Length
+	message가 Transfer-Encoding header field를 가지고 있지 않으면 Content-Length header field가 payload body의 예상되는 잠재적 크기를 제공할 수 있다.
+	Transfer-Encoding header field를 가지는 message에는 Content_Length header field를 보내지 않아야 한다.(MUST NOT)
+	user agent: Transfer-Encoding이 없고 request method가 payload body를 정의할 때 user agent는 request message에 Content-Length를 보내야 한다.
+
 3.3.3. Message Body Length
+	Transfer-Encoding header field와 Content-Length header field의 각 경우에 따른 구체적인 처리
 3.4. Handling Incomplete Messages
 3.5. Message Parsing Robustness
 4. Transfer Codings

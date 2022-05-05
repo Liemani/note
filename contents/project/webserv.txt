@@ -162,6 +162,9 @@ send
 - 없는 fd에 send()를 하려고 하면 errno에 EPIPE가 저장되며 socket의 type이 SOCK_STREAM인 경우 SIGPIPE가 발생한다.
 - 이것을 처리해줘야 할까?
 - 나중에 SIGPIPE로 인한 프로그램 termination을 피해야하면 그 때 signal을 제어하는 부분을 추가하도록 하자.
+https://kb.iu.edu/d/afqs
+> ARCHIVED: If my computer has an underscore ( _ ) in its name, why am I having trouble accessing network services?
+host name is case-insensitive
 
 # data
 ## 2022-05-03
