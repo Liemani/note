@@ -1,8 +1,68 @@
 pour.txt
 
-2022-06-05
-RFC7230.9.3.에 따르면 ruquest-line과 header fields의 길이 제한을 두는 것이 보안상 좋다는 것 같다.
+2022-05-06
+지금 ai가 어떤식으로 작동하는지 깊게 생각해보지는 않았지만, 앞으로는 덜 중요한 연산과 정보는 줄이고(적게 나오는 경우를 분간하기 위한 해상도) 더 자주 나오는 데이터에 대한 연산과 정보는 늘리는 식으로(더 빈번하게 발견되지만 참과 거짓이 작은 차이로 갈리는) 발전할 것 같다.
+아마 지금도 데이터를 주면 알아서 weight와 bias에 저장되는 데이터가 미묘한 차이를 구분하기 위한 데이터 위주로 저장될지도 모른다.
+# https://github.com/skrtks/webserv/blob/5a604d61885ffee1e99fd1ce95923b1e7ae0aa8d/webserv_May_12_20.pdf
+> 이전 webserv subject
+이전 subject에 명시된 header field list를 중심으로 조사를 진행했다.
+	Accept-Charsets
+		현대의 거의 모든 browser가 이 header를 생략한다고 한다.
+		우리도 이 header는 무시해도 될 것 같다.
+	Accept-Language
+		우리 server가 client가 명시한 Accept-Language를 충족하는 서비스를 제공할 수 없을 때 406 (Not Acceptable)로 response할 수도 있지만 더 좋은 UX를 위해 종종 이 header를 무시하고 서비스를 제공하곤 한다.(원하는 언어가 일치하지 않더라도 error page가 뜨는 것보다 이해할 수 없는 언어로 작성된 페이지라도 제공하는 것이 좋을 수 있기 때문에)
+	Allow
+		server가 405 (Method Not Allowed) response로 응답할 경우 client가 요청한 resource에 허용되는 method가 무엇인지를 value에 담아 전달한다.
+		ex> Allow: GET, POST
+	Authorization
+		pass
+	Content-Language
+		body가 담고 있는 내용이 어떤 언어 사용자가 사용할 것을 의도로 하는지를 명시하는 header
+		생략된 경우 모든 각 언어의 청자를 대상으로 하는 것을 의미하거나, 전달자가 청자를 판단할 수 없는 것을 의미한다.
+		우리는 사용하지 않아도 될 것 같다.
+	Content-Length
+		수신자에게 전송한 message body의 byte 단위 크기를 명시
+		상황에 따라 다양하다.
+	Content-Location
+		A relative (to the request URL) or absolute URL.
+		content negotiation의 결과로 body에 담겨 전달된 resource의 URL
+	Content-Type
+	Date
+	Host
+	Last-Modified
+	Location
+		A relative (to the request URL) or absolute URL.
+		일부 response에서 특정 resource가 response와 어떤 relationship이 있음을 알리기 위해 사용된다.
+		ex> 301 status code를 가지는 response에서 Location header field의 값은 redirection을 행할 주소를 의미한다.
+		```
+		HTTP/1.1 301 Moved Permanently
+		Location: http://www.naver.com/
+		```
+		request method와 status code의 조합에 따라 각기 다른 relationship을 의미할 수 있다.
+		201: request로 만들어진 주요 resource의 URL
+		3xx: request를 자동으로 redirection할 타겟 resource의 URL
+			만약 Location header field의 value가 fragment component를 가지고 있지 않다면, UA는 request target을 생성할 때 사용된 URL reference의 fragment component를 상속받는 것처럼 처리한다.
+			예시>
+			다음과 같은 URL에 대해
+			http://www.example.org/index.html#larry
+			다음과 같은 Location header field를 가진 301 (Moved Permanently) 응답을 받았을 경우
+			Location: http://www.example.net/index.html
+			UA는 다음 주소로
+			http://www.example.net/index.html#larry
+			redirection을 한다.
+	Referer
+	Retry-After
+	Server
+	Transfer-Encoding
+	User-Agent
+	WWW-Authenticate
+		pass
+webserv tutorial request section에 있는 header field reference 사이트를 1차적으로 조사
+> https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Allow
+그리고 RFC7231을 통해 상세한 내용 조사
 
+2022-05-05
+RFC7230.9.3.에 따르면 ruquest-line과 header fields의 길이 제한을 두는 것이 보안상 좋다는 것 같다.
 
 2022-05-04
 # https://ell.stackexchange.com/questions/16580/difference-between-document-and-documentation

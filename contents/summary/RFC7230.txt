@@ -43,8 +43,9 @@ RFC7230.txt
 
 3.3.2. Content-Length
 	message가 Transfer-Encoding header field를 가지고 있지 않으면 Content-Length header field가 payload body의 예상되는 잠재적 크기를 제공할 수 있다.
-	Transfer-Encoding header field를 가지는 message에는 Content_Length header field를 보내지 않아야 한다.(MUST NOT)
+	Transfer-Encoding header field를 가지는 message에는 Content-Length header field를 보내지 않아야 한다.(MUST NOT)
 	user agent: Transfer-Encoding이 없고 request method가 payload body를 정의할 때 user agent는 request message에 Content-Length를 보내야 한다.
+	Content-Length의 value는 정해진 한계가 없기 때문에 parsing할 때 int type을 사용하면 overflow가 날 수 있다.
 
 3.3.3. Message Body Length
 	Transfer-Encoding header field와 Content-Length header field의 각 경우에 따른 구체적인 처리
@@ -71,12 +72,17 @@ RFC7230.txt
 5.3.4. asterisk-form
 5.4. Host
 5.5. Effective Request URI
+	absolute form of target URI와 같다.
 5.6. Associating a Response to a Request
 5.7. Message Forwarding
 5.7.1. Via
 5.7.2. Transformations
 6. Connection Management
 6.1. Connection
+	Connection: close
+	persistent connection을 지원하지 않는 client는 request message에 매번 close connecion option을 보내야 한다.
+	마찬가지로 persistent connection을 지원하지 않는 server는 1xx 상태 코드가 아닌 response message에 매번 close connection option을 보내야 한다.
+
 6.2. Establishment
 6.3. Persistence
 6.3.1. Retrying Requests
@@ -84,6 +90,8 @@ RFC7230.txt
 6.4. Concurrency
 6.5. Failures and Timeouts
 6.6. Tear-down
+	server가 TCP 연결을 바로 close 해버리면 client가 마지막 HTTP response message를 읽지 못할 위험이 있다.
+
 6.7. Upgrade
 7. ABNF List Extension: #rule
 8. IANA Considerations
