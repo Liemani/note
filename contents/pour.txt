@@ -1,5 +1,244 @@
 pour.txt
 
+2022-05-09
+chrome으로 테스트를 진행하다가 nginx의 변경 사항이 적용되지 않는 문제를 발견했다.
+chrome이 해당 페이지를 cache로 저장하고 있어서 변경 사항이 동적으로 저장되지 않는 것이었다.
+개발자 도구의 'Disable cache'를 체크하고 사용하자..
+
+# header fields
+Content-Location
+나중에(이해 못함)
+
+Content-Type
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
+body에 담긴 data의 MIME type을 나타낸다.
+[RFC7231.3.1.1.5.  Content-Type]
+payload body를 포함하는 메세지를 생성하는 경우 MIME type을 모르는 것이 아니라면, 그 메세지 안에 Content-Type header field를 생성해야 한다.(SHOULD)
+수신자는 body를 가지는 message가 Content-Type을 존재하지 않은 경우 application/octet-stream로 가정하거나 실제 MIME type을 결정하기 위한 시도를 할 수 있다.(MAY)
+의견:
+우리는 error page 등, 필요한 경우 text/html를 value로 갖는 Content-Type header field를 message에 넣어주고, 꼭 필요한 경우가 아니라면 생략할 수도 있을 것 같습니다.
+
+Date
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Date
+message가 생성된 시간을 value로 갖는다.
+[RFC7231.7.1.1.2.  Date]
+Date 헤더 필드는 메세지가 생성된 날짜와 시간을 표현한다.
+[RFC7231.7.1.1.1.  Date/Time Formats
+example:
+Sun, 06 Nov 1994 08:49:37 GMT    ; IMF-fixdate
+obsolete format:
+Sunday, 06-Nov-94 08:49:37 GMT   ; obsolete RFC 850 format
+Sun Nov  6 08:49:37 1994         ; ANSI C's asctime() format
+메세지 수신자는 위의 3 가지 형식을 모두 받아들일 수 있어야 한다.(MUST)
+송신자는 IMF-fixdate로 timestamp를 생성해야 한다.(MUST)
+
+이 아래는 RFC에 정의된 format이다.
+위의 mozilla 사이트에서 더 이해하기 쉬운 format 문법을 볼 수 있다.
+```
+     HTTP-date    = IMF-fixdate / obs-date
+
+   Preferred format:
+     IMF-fixdate  = day-name "," SP date1 SP time-of-day SP GMT
+     ; fixed length/zone/capitalization subset of the format
+     ; see Section 3.3 of [RFC5322]
+
+   Obsolete formats:
+     obs-date     = rfc850-date / asctime-date
+
+     rfc850-date  = day-name-l "," SP date2 SP time-of-day SP GMT
+     date2        = day "-" month "-" 2DIGIT
+                  ; e.g., 02-Jun-82
+```
+
+HTTP-date는 case-sensitive하다.
+송신자는 HTTP-date에서 특별히 포함된 SP 외에 추가적인 whitespace를 생성해서는 않된다.(MUST NOT)
+date/time에 대한 HTTP 요구사항은 protocol stream에서의 사용법만 강제한다.
+이것을 받아다가 어떻게 사용할지는 요구하지 않는다.
+의견:
+우리가 시간을 읽어서 처리할 일이 있을지는 모르겠습니다.
+만약 시간을 파싱해야 할 일이 있다면 IMF-fixdate만 읽을 수 있도록 구현하고 추후 필요할 때 obsolete format을 읽을 수 있도록 추가하면 될 것 같습니다.
+또한 파싱을 직접 하지 않아도 이미 library로 구현되어 있을지도 모른다고 생각합니다.
+단, message를 생성할 때 현재 시간으로 Date 헤더 필드를 구성하여 response 메세지를 만들 필요는 있어 보입니다.
+mozilla 사이트에서 나온 예제같은 쉬운 방법이 있을 것 같습니다.
+
+Host
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host
+Host 요청 헤더는 요청 메세지를 전달할 server의 host와 port number를 명시한다.
+port number가 포함되지 않았다면 protocol에 따른 default port number를 의미한다.
+Host 헤더 필드는 모든 요청 메세지에 반드시 포함되야 한다.
+Host 헤더 필드가 빠진 메세지나 하나보다 많은 Host 헤더 필드를 가지는 메세지는 400 (Bad Request) 상태 코드를 반환받을지 모른다.(may)
+
+```
+Host: <host>:<port>
+```
+
+[7230.5.4.  Host]
+요청 메세지의 Host 헤더 필드는 target URI로부터 얻은 host와 port number를 제공한다.
+origin 서버가 단일 IP 상에 여러 host 이름들로 요청을 처리하는 동안 자원들을 구분할 수 있도록 한다.
+
+```
+Host = uri-host [ ":" port ] ; Section 2.7.1
+```
+
+client는 모든 요청 메세지에 반드시 Host 헤더 필드를 보내야 한다.(MUST)
+
+```
+http-URI = "http:" "//" authority path-abempty [ "?" query ] [ "#" fragment ]
+
+authority   = [ userinfo "@" ] host [ ":" port ]
+path-abempty  = *( "/" segment )
+```
+
+만약 타겟 URI가 authority 요소를 가지고 있다면 client는 authority에서 userinfo와 @를 뺀 것을 Host 헤더 필드의 value로 전송해야 한다.(MUST)
+만약 authority 요소가 타겟 URI에서 빠져 있거나, 타겟 URI의 정의에서 undefined라면, client는 Host 헤더 필드의 value를 empty 값으로 전송해야 한다.(MUST)
+Host는 매우 중요한 정보이기 때문에 UA는 Host 헤더 필드를 request-line을 뒤따르는 첫 번째 헤더 필드로 생성해야 한다.(SHOULD)
+서버는 Host 헤더 필드가 없거나 하나보다 많거나 부적합한 field-value를 가진 요청 메세지에 대해 400 (Bad Request) 상태 코드로 응답해야 한다.(MUST)
+의견:
+이 부분은 nginx를 따라 여러 호스트가 있어도 가장 처음 나온 Host 헤더 필드만 사용하도록 하면 될 것 같습니다.
+만약 가장 처음에 나온 Host 헤더 필드가, 존재하지 않는 server name을 value로 가지고 있다면 해당 ip:port를 사용하는 default 서버에 요청을 하게 됩니다.
+
+Last-Modified
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified
+Last-Modified 응답 헤더는 origin server가 resource가 마지막으로 수정되었다고 믿는 날짜와 시간을 가지고 있다.
+resource가 이전에 저장된 것과 같은지를 판단하는데 사용된다.
+ETag 헤더보다 덜 정확하다.
+
+```
+Last-Modified: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
+```
+
+[RFC7232.2.2.  Last-Modified]
+응답의 Last-Modified 헤더 필드는 request 처리한 결과로 선택된 representation이 마지막으로 수정되었다고 origin 서버가 믿는 날짜와 시간에 대한 timestamp를 제공한다.
+
+```
+Last-Modified = HTTP-date
+```
+
+의견:
+우리가 허용하는 요청 method 중 어떤 method의 응답으로 이 헤더 필드가 필요할지는 모르겠지만 필요하다면 넣어주면 될 것 같습니다.
+
+Referer
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer
+Referer 요청 헤더는 요청을 만든 페이지의 절대 혹은 부분 경로를 가진다.
+Referer 헤더는 사람들이 어디서 왔는지 서버가 식별하도록 한다.
+이 데이터는 analytics, logging, optimized caching, and more에 사용될 수 있다.
+[RFC3231.5.5.2.  Referer]
+target URI를 어디서 얻었는지 URI reference를 UA가 명시하도록 한다.
+UA는 Referer 헤더 필드를 생성할 때 URI reference의 fragment와 userinfo component를 포함시키지 않아야 한다.(MUST NOT)
+
+```
+Referer = absolute-URI / partial-URI
+```
+
+어떤 사이트는 Referer 헤더 필드를 다른 사이트로부터 오는 링크들을 거절하는 수단으로 이용하기도 한다.
+ex> Referer: http://www.example.org/hypertext/Overview.html
+만약 타겟 URI가 자신의 URI를 가지지 않는 source로부터 얻어졌다면(직접 입력, 북마크 등) UA는 Referer 필드를 배제하거나, "about:blank" 값과 함께 보내야 한다.
+Referer 필드는 referer에 담겨 있는 URI의 식별자가 개인 정보(계정 이름 등)나 기밀로 추정되는 resource(방화벽 뒤나 보안 서비스의 내부)를 드러낸다면 사생활이 염려되는 유저의 요청 문맥이나 검색 기록 정보를 드러낼 잠재적 가능성이 있다.
+의견:
+이건 필요하면 쓸 수도 있겠지만 안써도 기초적인 서버를 구현하는데는 문제 없을 것 같습니다.
+
+Retry-After
+UA가 얼마나 기다려야 하는지를 나타낸다.
+503, 429, 301 등의 상태 코드를 갖는 응답과 함께 전달될 때 의미를 갖는다고 한다.
+의견:
+다른 상태 코드는 확인하지 못했지만 nginx의 301 상태코드를 갖는 응답이 Retry-After 헤더 필드를 가지지 않기 때문에 일단 구현하지 않아도 될 것 같습니다.
+
+Server
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server
+Server 헤더는 요청을 처리하는 origin 서버에 사용된 소프트웨어를 묘사한다.
+[RFC7231.7.4.2]
+Server 헤더 필드는 요청을 처리하는 origin 서버에서 사용된 소프트웨어를 정보를 가지고 있다.
+보고된 interoperability 문제의 범위를 식별해내는 데 UA가 사용한다.
+origin 서버는 응답에 Server 필드를 생성할 것이다.(MAY)
+
+```
+Server = product *( RWS ( product / comment ) )
+product         = token ["/" product-version]
+product-version = token
+```
+
+Server 헤더 필드는 하나 또는 그 이상의 제품 식별자로 이루어져 있다.
+ex> Server: CERN/3.0 libwww/2.17
+의견:
+이건 꼭 써야하는 건줄 알았는데 MAY라서 안해도 괜찮은가 봅니다.
+평가지에 별 다른 평가 사항이 없으면 구현하지 않아도 될 것 같습니다.
+
+Transfer-Encoding
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding
+Transfer-Encoding 헤더는 payload body를 안전하게 변환하기 위한 인코딩 형식을 명시한다.
+
+```
+// syntax
+Transfer-Encoding: chunked
+Transfer-Encoding: compress
+Transfer-Encoding: deflate
+Transfer-Encoding: gzip
+
+// or
+Transfer-Encoding: gzip, chunked
+```
+
+```
+// example
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Transfer-Encoding: chunked
+
+7\r\n
+Mozilla\r\n
+9\r\n
+Developer\r\n
+7\r\n
+Network\r\n
+0\r\n
+\r\n
+```
+
+[RFC7230.3.3.1.  Transfer-Encoding]
+message body를 만들기 위해 payload body에 적용된 transfer coding의 이름들을 나열한다.
+Transfer-Encoding은 본질적으로, 동적으로 생성된 payload를 정확하게 경계를 구분하는 것과, selected resource의 특징인 운송 효율이나 운송 보안을 위해서만 적용된 payload 인코딩들로부터 구별하는 것을 의도했다.
+수신자는 chunked transfer coding을 parse할 수 있어야 한다.(MUST)
+
+```
+Transfer-Encoding: gzip, chunked
+```
+
+Content-Encoding과 달리 Transfer-Encoding은 representation의 속성이 아니라 message의 속성이다.
+이해할 수 없는 transfer coding을 받은 경우 501 (Not Implemented)로 응답해야 한다.(SHOULD)
+의견:
+이 헤더 필드를 응답에 넣는 경우는 잘 모르겠지만 POST 메서드와 함께 이 헤더 필드의 값이 chunked인 경우 처리할 수 있어야 할 것 같습니다.
+만약 이 헤더 필드의 값으로 chunked가 아닌 다른 것들이 존재한다면 501 (Not Implemented)로 응답하면 될 것 같습니다.
+
+User-Agent
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
+User-Agent 요청 헤더는 서버와 네트워크 peer들에게 application, OS, vendor, UA version 등을 식별하게 하는 특징적인 문자열이다.
+web은 본질적으로 누구나 접근 가능한 것이므로 꼭 필요한 경우가 아니라면 특정 UA를 위한 service를 제공하는 것은 좋지 않은 생각이다.
+
+```
+User-Agent: <product> / <product-version> <comment>
+
+// Common format for web browsers
+User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>
+
+// example
+Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion
+```
+
+위의 mozilla 링크에 예제에 대한 설명도 있다.
+[RFC7231.5.5.3.  User-Agent]
+User-Agent 헤더 필드는 요청 메세지를 전송한 user agent에 대한 정보를 담고 있다.
+보고된 interoperability 문제의 범위를 식별해내는 데 서버가 사용한다.
+UA는 특별히 configure되지 않은 이상 요청마다 User-Agent 헤더 필드를 전송해야 한다.
+
+```
+User-Agent = product *( RWS ( product / comment ) )
+
+// example
+User-Agent: CERN-LineMode/2.15 libwww/2.17b3
+```
+
+User-Agent 헤더 필드는 하나 또는 그 이상의 제품 식별자로 이루어져 있다.
+
 2022-05-07
 누군가 "열심히 합시다!"라고 한다면 나도 같이 열심히 하게 될 것 같다.
 그렇다면 내가 "열심히 합시다!"라고 말해서 다 같이 열심하 하면 좋을 것 같다.

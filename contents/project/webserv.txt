@@ -1,7 +1,15 @@
 webserv.txt
 
 # pc
-Content-Location부터 이어서 조사하기
+method 별 requirement
+header field 정리
+	예쁘지 않은 것 다시 정리
+chunked에 대한 더 깊은 이해
+	0x0d0a가 아닌 값으로 끝난 data를 recv()로 읽을 가능성도 있는가?
+	여러 recv()로 나뉘어 들어오는 것만은 아닌 것 같다.
+cgi, status code, conditional
+(갑자기 드는 생각)POST를 위해 authority가 필요할까?
+- 이 선택을 결정하는 가장 큰 요인은 "평가지에 평가 항목이 있느냐" 일 것 같다.
 _가 host name에는 들어올 수 없는 걸까?
 잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
 HTTP 완전 정복 읽기
