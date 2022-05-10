@@ -1,26 +1,19 @@
 webserv.txt
 
 # pc
-HTTP header
-mosong님이 올린 깃 풀리퀘스트
-터미널에 적은 내용들
-우선 recv()의 크기 제한에 대한 부분은 무시하도록 하자.
-	필요하면 추가하자.
 config parsing
-	default error page's'
-	location은 어떻게 저장되고 사용되는지
-평가를 미리 한 번 받아서 평가지를 볼 필요가 있다.
+    location은 어떻게 저장되고 사용되는지
 method 별 requirement
 header field 정리
-	예쁘지 않은 것 다시 정리
+    예쁘지 않은 것 다시 정리
 chunked에 대한 더 깊은 이해
-	0x0d0a가 아닌 값으로 끝난 data를 recv()로 읽을 가능성도 있는가?
-	여러 recv()로 나뉘어 들어오는 것만은 아닌 것 같다.
+    0x0d0a가 아닌 값으로 끝난 data를 recv()로 읽을 가능성도 있는가?
+    여러 recv()로 나뉘어 들어오는 것만은 아닌 것 같다.
+    chunked면 request body limit 체크는 어떻게 해야 하는가?
 cgi, status code
 (갑자기 드는 생각)POST를 위해 authority가 필요할까?
 - 이 선택을 결정하는 가장 큰 요인은 "평가지에 평가 항목이 있느냐" 일 것 같다.
-- 두번재는 테스트 툴
-_가 host name에는 들어올 수 없는 걸까?
+- 두번째는 테스트 툴
 잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
 HTTP 완전 정복 읽기
 이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
@@ -35,15 +28,8 @@ CI/CD 알아보기
 VIP를 정하면 좋을 것 같다.
 - 중간 제출을 이 VIP를 구현한 결과물을 제출하면 좋겠다.(big webserv가 되지 않도록)
 jihokim님이 layer마다 상속을 하도록 했는데, 그 이유를 들어보고, 필요에 따라 circle과 elipsis를 설명한 c++ primer plus에 글을 알려주자.
-mosong님이 말한 root의 작동을 명확히 조사하기
 RFC - chunked
 server_name directive를 생략하는 경우 처리
-The first server for a host:port will be the default for this host:port (that means it will answer to all the requests that don’t belong to an other server).
-- 구체적인 의미를 생각해보기
-Limit client body size.
-Define a list of accepted HTTP methods for the route.
-Set a default file to answer if the request is a directory.
-- index일까?
 Because you won’t call the CGI directly, use the full path as PATH_INFO.
 - CGI를 직접 호출하지 않는다는건 동적으로 입력받은 경로를 사용한다는 것일 것 같은데 PATH_INFO는 왜 필요한걸까?
 - CGI의 환경 변수 중에 PATH_INFO가 있다. 이걸 알아보자.
@@ -58,44 +44,37 @@ https로 접속하면 client는 server에 http와 어떻게 다른 request messa
 어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
 nginx
 - webserv tutorial 페이지 3개 읽어보기.
-	- 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
+    - 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
 configuration file
 - syntax 정의하기
 nginx cgi
 - nginx config 파일의 location 부분을 알아보기
 서브젝트 이외
 - workflow
-	- 생성 -> 초안 -> 리뷰 -> 완료
-- 스터디 피드백
-	- 팀원들이 모두 열심히 참여해줘서 좋았다.
-- 자리 정하기
-- 음료 사기
-	- 오고 가는 정!
+    - 생성 -> 초안 -> 리뷰 -> 완료
 - 미래 계획하기
 - 멘탈 관리하기
-	- 나 + 팀원
-- 스터디 학습 일지 작성하기
-	- 내 발표 자료 + 코드
+    - 나 + 팀원
 - 에너지 관리하기
-	- 팀원들의 에너지를 관리하기 위해 내가 너무 high-tension이면 안된다!
+    - 팀원들의 에너지를 관리하기 위해 내가 너무 high-tension이면 안된다!
 - mind setting
-	- 말을 끊고 알고 있음을 어필하는 것은 효율적일 수 있으나 악감정을 만들 수 있다.
-		- 이 경우 악감정 및 안좋은 분위기 및 안좋은 문화를 만드는 것은 얻은 효율에 비해 잃는게 더 크다고 생각한다.
-		- 따라서 상대의 말을 끊는 행위는 내가 도움이 필요한 경우가 아니라면 하지 말자.
-	- 열심히 참여하기
-		- 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
-		- 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
-		- 상대방의 의견 수렴해서 ambiguos하지 않게 상황 매듭짓기
-			- 그럼 이거랑 이거 더 조사해봐서 뭐가 더 좋을지 알아볼까요?
-		- 혼자 다 짊어질 필요는 없다
-		- 왜 이런 것이 필요한가?
-			- 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
-			- 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
-	- 감사합니다를 잘 말하기
-	- 잘 진행된 작업에 대해서는 긍정적인 표현하기
-	- 할 일이 많아 보이는 사업 파트너를 보았을 때
-		- 제가 도울 수 있는 일 있으면 알려주세요!
-	- 고생하셨습니다.
+    - 말을 끊고 알고 있음을 어필하는 것은 효율적일 수 있으나 악감정을 만들 수 있다.
+        - 이 경우 악감정 및 안좋은 분위기 및 안좋은 문화를 만드는 것은 얻은 효율에 비해 잃는게 더 크다고 생각한다.
+        - 따라서 상대의 말을 끊는 행위는 내가 도움이 필요한 경우가 아니라면 하지 말자.
+    - 열심히 참여하기
+        - 필요한 학습 사항이 있으면 적극적으로 조사하겠다고 하기
+        - 잘 모르는 부분과 필요하다고 생각되는 부분은 바로바로 말하기
+        - 상대방의 의견 수렴해서 ambiguos하지 않게 상황 매듭짓기
+            - 그럼 이거랑 이거 더 조사해봐서 뭐가 더 좋을지 알아볼까요?
+        - 혼자 다 짊어질 필요는 없다
+        - 왜 이런 것이 필요한가?
+            - 팀원들의 맨탈 케어는 프로젝트 진행에 필수 요소!
+            - 의욕이 저하되는 팀원이 있다면 그만큼 프로젝트는 더뎌질 것이다!
+    - 감사합니다를 잘 말하기
+    - 잘 진행된 작업에 대해서는 긍정적인 표현하기
+    - 할 일이 많아 보이는 사업 파트너를 보았을 때
+        - 제가 도울 수 있는 일 있으면 알려주세요!
+    - 고생하셨습니다.
 server가 client에게 write에 실패할 경우
 - client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
 플로우 차트 만들어서 설계 해보신 분 있는지
@@ -113,10 +92,36 @@ configuration file parsing
 is POST differ between file and text?
 client로부터 전달받은 path가 configuration에서 정의한 root의 밖을 접근하는 경우 처리
 MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때문에 non-blocking으로 write()를 하기 위해서 fcntl()을 호출하여 fd를 non-blocking fd로 만들어야 한다고 한다.
-	구체적으로는 어떤 차이가 있는 것일까?
-	상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
+    구체적으로는 어떤 차이가 있는 것일까?
+    상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+평가를 미리 한 번 받아서 평가지를 볼 필요가 있다.
+nginx directive syntax 사이트 올리기
+send에 대해 읽었던 영문 페이지 올리기
+우선 recv()의 크기 제한에 대한 부분은 무시하도록 하자.
+    필요하면 추가하자.
+git pull request 처리하기
+- webserve, playground
+git에 올려둔 슈도 코드를 회의록에 첨부하자!
+playground의 branch rule 확인하기
+mosong님이 말한 root의 작동을 명확히 조사하기
+The first server for a host:port will be the default for this host:port (that means it will answer to all the requests that don’t belong to an other server).
+- 구체적인 의미를 생각해보기
+Limit client body size.
+Define a list of accepted HTTP methods for the route.
+Set a default file to answer if the request is a directory.
+- index일까?
+- 스터디 학습 일지 작성하기
+    - 내 발표 자료 + 코드
+- 스터디 피드백
+    - 팀원들이 모두 열심히 참여해줘서 좋았다.
+- 자리 정하기
+- 음료 사기
+    - 오고 가는 정!
+config parsing
+    default error page's'
+_가 host name에는 들어올 수 없는 걸까?
 send가 tcp까지 처리하는지 읽어보기
 send를 할 때 '\n'가 '\r\n'으로 바뀔까?
 - '\n'이 있는 문자열을 전송하고 총 전송 byte를 비교해서 '\r'이 추가되는지 확인해보자.
@@ -151,7 +156,7 @@ telnet 써보기
 허용 함수 전부 알아보기
 - 허용 함수 부족한 부분 알아보기
 - poll(), kqueue()
-	- 찾아놓은 multiplex 관련 글
+    - 찾아놓은 multiplex 관련 글
 kevent가 내부적으로 어떻게 동작하는지 더 구체적으로 이해하고 있으면 좋을 것 같다.
 - 저번에 본 jinbekim님의 자료를 다시 한 번 보자.
 mosong 님이 notion에 올린 사이트 읽어보기
@@ -176,17 +181,19 @@ blocking non-blocking
 request target은 relative일 수도 있나..?
 - absolute path일 수도 있다.
 - scheme 등가지 포함한 uri일 수도 있다.
-	- RFC7230 등을 참고할 것
+    - RFC7230 등을 참고할 것
 send
 - 없는 fd에 send()를 하려고 하면 errno에 EPIPE가 저장되며 socket의 type이 SOCK_STREAM인 경우 SIGPIPE가 발생한다.
 - 이것을 처리해줘야 할까?
 - 나중에 SIGPIPE로 인한 프로그램 termination을 피해야하면 그 때 signal을 제어하는 부분을 추가하도록 하자.
+
+# data
+????-??-??
 https://kb.iu.edu/d/afqs
 > ARCHIVED: If my computer has an underscore ( _ ) in its name, why am I having trouble accessing network services?
 host name is case-insensitive
 
-# data
-## 2022-05-03
+2022-05-03
 https://stackoverflow.com/questions/14700906/socket-programming-send-return-value
 > Socket programming send() return value
 저번 회의에서 send()의 반환값이 일반적으로는 인자로 전달한 buffer의 size 또는 -1이 반환되지만 fd가 non-blocking일 때는 또 다를지 모르겠다고 했었는데 이 사이트에 딱 알맞는 답변이 있습니다.
@@ -221,30 +228,30 @@ kqueue의 udata를 사용하면 좋을 것 같다.
 ```
 // 타입 정의
 class VirtualServer {
-	// configuration file
-	host;
-	port number;
-	name;
-	default error page path;
-	client body size limit;
-	list of accepted HTTP methods for route;
-	HTTP redirection;
-	nginx location;
-	directory listing toggle;
-	default file to answer if the request is a directory;
-	CGI based on certain file extension;
+    // configuration file
+    host;
+    port number;
+    name;
+    default error page path;
+    client body size limit;
+    list of accepted HTTP methods for route;
+    HTTP redirection;
+    nginx location;
+    directory listing toggle;
+    default file to answer if the request is a directory;
+    CGI based on certain file extension;
 
-	// run time
-	socket;
+    // run time
+    socket;
 };
 
 Class ClientClerk {
-	server;
+    server;
 
-	request buffer;
+    request buffer;
 
-	should write;
-	response buffer;
+    should write;
+    response buffer;
 };
 
 typedef VSMap map<int, VirtualServer>;
@@ -255,36 +262,36 @@ VSMap vs_map;
 
 // virtual server sock 추가
 while (config 파일의 모든 virtual server마다) {
-	int server_sock = socket(PF_INET, SOCK_STREAM, 0);
+    int server_sock = socket(PF_INET, SOCK_STREAM, 0);
 
-	VirtualServer new_vs = VirtualServer(server_sock/*, config_data*/);
+    VirtualServer new_vs = VirtualServer(server_sock/*, config_data*/);
 
-	vs_map[server_sock] = new_vs;
+    vs_map[server_sock] = new_vs;
 }
 
 while {
-	event_count = kevent(kqueue_fd, NULL, 0, event_array, DEFAULT_EVENT_ARRAY_SIZE, &timeout);
+    event_count = kevent(kqueue_fd, NULL, 0, event_array, DEFAULT_EVENT_ARRAY_SIZE, &timeout);
 
-	for (int i = 0; i < event_count; ++i) {
-		const struct kevent& event = event_array[i];
-		VirtualServer& vs = event.udata;
+    for (int i = 0; i < event_count; ++i) {
+        const struct kevent& event = event_array[i];
+        VirtualServer& vs = event.udata;
 
-		if (event.filter == EVFILT_READ) {
-			if (static_cast<int>(event.ident) == server_sock)
-				acceptServer(server_sock, kqueue_fd);
-			else
-				if (readClient(event.ident, msg_buf, BUF_SIZE) != 0)
-					runRequest(msg_buf, response_message_array[event.ident], response_message_should_write[event.ident]);
-				else
-					deleteEventClient(event.ident, kqueue_fd);
-		}
-		else if (event.filter == EVFILT_WRITE)
-			if (response_message_should_write[event.ident]) {
-				const std::string response_message = response_message_array[event.ident];
-				send(event.ident, response_message.c_str(), response_message.length(), 0);
-				response_message_should_write[event.ident] = false;
-			}
-	}
+        if (event.filter == EVFILT_READ) {
+            if (static_cast<int>(event.ident) == server_sock)
+                acceptServer(server_sock, kqueue_fd);
+            else
+                if (readClient(event.ident, msg_buf, BUF_SIZE) != 0)
+                    runRequest(msg_buf, response_message_array[event.ident], response_message_should_write[event.ident]);
+                else
+                    deleteEventClient(event.ident, kqueue_fd);
+        }
+        else if (event.filter == EVFILT_WRITE)
+            if (response_message_should_write[event.ident]) {
+                const std::string response_message = response_message_array[event.ident];
+                send(event.ident, response_message.c_str(), response_message.length(), 0);
+                response_message_should_write[event.ident] = false;
+            }
+    }
 }
 
 ```
@@ -296,28 +303,28 @@ EV_SET(&event, sock, filter, flags, 0, 0, vs);
 kevent(kqueue_fd, &event, 1, NULL, 0, NULL);
 
 while {
-	event_count = kevent(kqueue_fd, NULL, 0, event_array, DEFAULT_EVENT_ARRAY_SIZE, &timeout);
+    event_count = kevent(kqueue_fd, NULL, 0, event_array, DEFAULT_EVENT_ARRAY_SIZE, &timeout);
 
-	for (int i = 0; i < event_count; ++i) {
-		const struct kevent& event = event_array[i];
-		VirtualServer& vs = event.udata;
+    for (int i = 0; i < event_count; ++i) {
+        const struct kevent& event = event_array[i];
+        VirtualServer& vs = event.udata;
 
-		if (event.filter == EVFILT_READ) {
-			if (static_cast<int>(event.ident) == server_sock)
-				acceptServer(server_sock, kqueue_fd);
-			else
-				if (readClient(event.ident, msg_buf, BUF_SIZE) != 0)
-					runRequest(msg_buf, response_message_array[event.ident], response_message_should_write[event.ident]);
-				else
-					deleteEventClient(event.ident, kqueue_fd);
-		}
-		else if (event.filter == EVFILT_WRITE)
-			if (response_message_should_write[event.ident]) {
-				const std::string response_message = response_message_array[event.ident];
-				send(event.ident, response_message.c_str(), response_message.length(), 0);
-				response_message_should_write[event.ident] = false;
-			}
-	}
+        if (event.filter == EVFILT_READ) {
+            if (static_cast<int>(event.ident) == server_sock)
+                acceptServer(server_sock, kqueue_fd);
+            else
+                if (readClient(event.ident, msg_buf, BUF_SIZE) != 0)
+                    runRequest(msg_buf, response_message_array[event.ident], response_message_should_write[event.ident]);
+                else
+                    deleteEventClient(event.ident, kqueue_fd);
+        }
+        else if (event.filter == EVFILT_WRITE)
+            if (response_message_should_write[event.ident]) {
+                const std::string response_message = response_message_array[event.ident];
+                send(event.ident, response_message.c_str(), response_message.length(), 0);
+                response_message_should_write[event.ident] = false;
+            }
+    }
 }
 
 ```
