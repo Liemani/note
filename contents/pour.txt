@@ -1,5 +1,22 @@
 pour.txt
 
+2022-05-10
+`:retab` in vim: tab을 space로 replace한다.
+
+method
+
+## GET
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
+
+요청은 데이터를 포함하지 않아야 한다.
+
+### [RFC7231.4.3.1.  GET]
+
+
+POST
+DELETE
+
 2022-05-09
 chrome으로 테스트를 진행하다가 nginx의 변경 사항이 적용되지 않는 문제를 발견했다.
 chrome이 해당 페이지를 cache로 저장하고 있어서 변경 사항이 동적으로 저장되지 않는 것이었다.

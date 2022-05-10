@@ -1,15 +1,25 @@
 webserv.txt
 
 # pc
+HTTP header
+mosong님이 올린 깃 풀리퀘스트
+터미널에 적은 내용들
+우선 recv()의 크기 제한에 대한 부분은 무시하도록 하자.
+	필요하면 추가하자.
+config parsing
+	default error page's'
+	location은 어떻게 저장되고 사용되는지
+평가를 미리 한 번 받아서 평가지를 볼 필요가 있다.
 method 별 requirement
 header field 정리
 	예쁘지 않은 것 다시 정리
 chunked에 대한 더 깊은 이해
 	0x0d0a가 아닌 값으로 끝난 data를 recv()로 읽을 가능성도 있는가?
 	여러 recv()로 나뉘어 들어오는 것만은 아닌 것 같다.
-cgi, status code, conditional
+cgi, status code
 (갑자기 드는 생각)POST를 위해 authority가 필요할까?
 - 이 선택을 결정하는 가장 큰 요인은 "평가지에 평가 항목이 있느냐" 일 것 같다.
+- 두번재는 테스트 툴
 _가 host name에는 들어올 수 없는 걸까?
 잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
 HTTP 완전 정복 읽기
