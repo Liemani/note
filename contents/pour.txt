@@ -1,5 +1,41 @@
 pour.txt
 
+2022-05-11
+nginx를 reload하면 이전의 데이터가 남아있을 수 있다.
+새로운 설정만을 적용하기 위해서는 `nginx -s stop && nginx`를 해주도록 하자!
+
+`:set laststatus=2` in vim: status line을 추가한다.
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/socket.h
+```
+typedef __uint8_t               sa_family_t;
+
+#define AF_INET         2               /* internetwork: UDP, TCP, etc. */
+
+struct sockaddr {
+	__uint8_t       sa_len;         /* total length */
+	sa_family_t     sa_family;      /* [XSI] address family */
+	char            sa_data[14];    /* [XSI] addr value (actually larger) */
+};
+```
+sa_family는 8bit로 정의되어 있고, socket이 사용하는 protocol의 정보를 저장한다.
+UDP, TCP의 경우 Internet Protocol을 사용하기 때문에 AF_INET(Address Family InterNET protocol)을 저장하면 된다.
+
+```
+struct sockaddr_in {
+	__uint8_t       sin_len;
+	sa_family_t     sin_family;
+	in_port_t       sin_port;
+	struct  in_addr sin_addr;
+	char            sin_zero[8];
+};
+```
+특히 IP를 통해 통신하는 socket의 경우socket address structure로 sockaddr_in을 사용한다.
+IP 통신에 사용하는 port번호를 저장하기 위한 sin_port(2 byte)와 IP address를 저장하기 위한 sin_addr(4 byte)를 가지고 있다.
+
+constructor와 destructor는 딱 생성과 소멸 때 멤버 변수를 관리하는 용도로 사용하자.
+다른 util적인 용도로 사용하려는 순간 한계에 마주친다.
+
 2022-05-10
 `:retab` in vim: tab을 space로 replace한다.
 
