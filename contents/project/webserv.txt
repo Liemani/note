@@ -1,9 +1,104 @@
 webserv.txt
 
 # pc
-ip address로 virtual server를 구분하여 request를 보내는 것이 가능한가?
-config parsing
-    location은 어떻게 저장되고 사용되는지
+회의 발표
+	client_max_body_size: payload body, message body
+		평가지에 따라 다를 것 같다.
+		평가지에 따로 언급이 없으면 우리가 정책을 세우기 나름일 것 같다.
+	chunked 추가 내용
+	status code
+	git webserv_playground
+
+# Status Code
+
+# 소개
+
+https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+이 사이트(iana)가 HTTP의 status code를 관리한다.
+하지만
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
+MDN에 정리된 목록을 기준으로 조사를 진행하였다.
+RFC723x < MDN < iana 순으로 리스트된 상태 코드의 갯수가 많았고,
+iana에는 있는데 MDN에 없다면 빠르게 조사할 수 없기 때문이다.
+MDN에 없는 상태 코드라면 잘 안쓰이지 않을까 하는 기대도 있다.
+
+# 100 Continue
+
+# 101 Switching Protocols
+
+## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101
+
+## [RFC7231.6.2.2.]
+Upgrade 헤더 필드가 있는 요청을 받았을 때 해당 요청을 처리했으면 upgrade를 처리했다는 의미에서 101 상태 코드로 응답한다.
+
+의견:
+Upgrade를 구현하지 않는다면 101도 구현할 필요가 없을 것 같습니다.
+
+# 103 Early Hints
+
+## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+
+서버가 아직 요청을 처리중인데 클라이언트에게 미리 로딩을 하라고 하기 위해 Link 헤더 필드와 함께 103 상태 코드로 응답한다.
+
+의견:
+HTTP 서버를 위한 최소 요구 사항은 아닌 것 같습니다.
+
+# 200 OK
+
+## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
+
+201 Created
+202 Accepted
+203 Non-Authoritative Information
+204 No Content
+205 Reset Content
+206 Partial Content
+300 Multiple Choices
+301 Moved Permanently
+302 Found
+303 See Other
+304 Not Modified
+307 Temporary Redirect
+308 Permanent Redirect
+400 Bad Request
+401 Unauthorized
+402 Payment Required
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+406 Not Acceptable
+407 Proxy Authentication Required
+408 Request Timeout
+409 Conflict
+410 Gone
+411 Length Required
+412 Precondition Failed
+413 Payload Too Large
+414 URI Too Long
+415 Unsupported Media Type
+416 Range Not Satisfiable
+417 Expectation Failed
+418 I'm a teapot
+422 Unprocessable Entity
+425 Too Early
+426 Upgrade Required
+428 Precondition Required
+429 Too Many Requests
+431 Request Header Fields Too Large
+451 Unavailable For Legal Reasons
+500 Internal Server Error
+501 Not Implemented
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout
+505 HTTP Version Not Supported
+506 Variant Also Negotiates
+507 Insufficient Storage
+508 Loop Detected
+510 Not Extended
+511 Network Authentication Required
+
+매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?
 method 별 requirement
 header field 정리
     예쁘지 않은 것 다시 정리
@@ -97,6 +192,11 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+confluence 내용 수정하기
+	body, chunked
+config parsing
+    location은 어떻게 저장되고 사용되는지
+ip address로 virtual server를 구분하여 request를 보내는 것이 가능한가?
 평가를 미리 한 번 받아서 평가지를 볼 필요가 있다.
 nginx directive syntax 사이트 올리기
 send에 대해 읽었던 영문 페이지 올리기

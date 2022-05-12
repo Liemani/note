@@ -34,8 +34,16 @@ RFC7230.txt
 	message/http가 아닌데 obs-fold를 가지는 request message를 server가 수신하는 경우 400을 송신하면서 message를 reject해야 한다.
 
 3.2.5. Field Limits
+	header field마다 길이 제한이 있지는 않다.
+
 3.2.6. Field Value Components
 3.3. Message Body
+	message body를 읽을지 말지는 request와 response가 서로 다르다.
+	request message에서 Content-Length나 Transfer-Coding 헤더 필드가 있으면 message body가 있다는 신호이다.
+	request message frame은 method와는 독립적이다.
+	method가 body의 쓰임을 정의하지 않더라도.
+	response message의 body 존재 여부는 response를 발생시킨 request와, response의 status code로 결정된다.
+
 3.3.1. Transfer-Encoding
 	Transfer-Encoding: gzip, chunked
 		message body가 gzip으로 compress된 후 chunked coding으로 chunked됨을 의미
