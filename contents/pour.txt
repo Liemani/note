@@ -1,5 +1,16 @@
 pour.txt
 
+2022-05-13
+target resource
+representation
+
+요청이 처리됨
+fulfill
+action
+
+service
+process
+
 2022-05-12
 # 이 좋은 환경..
 꿈에서 깨어날 날이 6개월 밖에 남지 않았다.
