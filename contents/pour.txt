@@ -1,5 +1,27 @@
 pour.txt
 
+2022-05-16
+https://blog.npcode.com/2017/04/03/rest의-representation이란-무엇인가/
+representation을 매우 친절하게 설명해 놓은 글이다.
+target resource가 항상 특정 representation을 의미하는 것은 아니다.
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Location
+Content-Location은 content negotiation이 필요하지 않은 direct URL을 나타낸다.
+Location은 언제든지 또 content negotiation을 할 수 있는 redirect URL을 나타낸다.
+
+2022-05-15
+많이 들어줄 수 있도록 노력하자.
+말을 하고 싶어하는 부분이 분명 있을 것이다.
+그 부분을 잘 캐치하여 말을 하도록 유도하는 것이 실력일 것 같다.
+내 질문을 통해 상대가 대답을 했다면, 반드시 이해하고 넘어가는 것은 어떨까?
+
+bind()를 호출할 때 INADDR_ANY가 아닌 값으로 bind를 시도하려고 하면 EACCESS가 발생한다.
+무조건 INADDR_ANY로만 bind()를 호출하도록 강제된 내용이라도 있는 것일까?
+간단한 검색으로 관련 내용이 나오지 않는다.
+man page에 해당 내용에 대한 언급이 없다.
+일단 INADDR_ANY로 bind()를 하도록 하고, target server가 존재하는지 여부는 HTTP message를 읽은 후 체크하는 것이 좋을까?
+만약 적절한 server가 존재하지 않으면 해당 socket을 닫아버리자!
+
 2022-05-13
 target resource
 representation

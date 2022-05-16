@@ -1,7 +1,28 @@
 webserv.txt
 
 # pc
+ServerManager의 printAll() 삭제하기 -> 단순 출력용 함수라고 한다.
+client tcp의 timeout을 설정했을 때 구체적으로 어떤 동작을 하며, 그에 따라 어떻게 우리의 socket의 destructor를 호출하도록 만들지 알아보자.
+잘못된 URL을 어떻게 처리하나?
+	root를 벗어나는 URL은?
+평가지 읽어보고 어떻게 구현해 나갈지 생각해보기
+상태 코드 계속 조사하기
+평가지에는 recv()와 send()가 실패하면 연결이 끊어져야 한다고 기술되어 있는 것 같다.
+	recv()에서 실패하면 끊어져야 하겠지만 send()에서 실패해도 끊어져야 하는 것일까?
+	아하, 0이 아니라 -1이 반환되는 경우라면 연결을 끊어야 할 것 같기는 하다.
+코드 작성
+	convention 지키도록 수정
+		주석 추가
+		name convention
+		tab to space
+	setUpServer() 지우기
+		initializeServers()와 겹침
+	Response 만들기
+	kevent timeout 등록하기
+	다 사용한 fd close하기
+	serverVector와 socketMap이 소멸자에서 할당 해제를 하도록 하기
 회의 발표
+	rebase 후 pull request 제안
 	client_max_body_size: payload body, message body
 		평가지에 따라 다를 것 같다.
 		평가지에 따로 언급이 없으면 우리가 정책을 세우기 나름일 것 같다.
@@ -9,147 +30,6 @@ webserv.txt
         [RFC7230.4.1.3.]
 	status code
 	git webserv_playground
-
-# Status Code
-
-# 소개
-
-https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
-이 사이트(iana)가 HTTP의 status code를 관리한다.
-하지만
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
-MDN에 정리된 목록을 기준으로 조사를 진행하였다.
-RFC723x < MDN < iana 순으로 리스트된 상태 코드의 갯수가 많았고,
-iana에는 있는데 MDN에 없다면 빠르게 조사할 수 없기 때문이다.
-MDN에 없는 상태 코드라면 잘 안쓰이지 않을까 하는 기대도 있다.
-
-# RFC[7231.6.]
-
-상태 코드의 첫 숫자가 응답의 분류를 정의한다.
-첫 숫자로 5개의 값이 존재한다.
-
-- 1xx (Informational): 요청을 받았으며, 아직 처리중임.
-- 2xx (Successful): 요청을 성공적으로 받았고 이해했으며 수용되었음.
-- 3xx (Redirection): 요청을 완료하기 위해 추가 행동이 필요함.
-- 4xx (Client Error): 요청이 나쁜 문법을 포함하거나 fulfill될 수 없음.
-- 5xx (Server Error): 서버가 외관상 올바른 요청을 fulfill하는데 실패함.
-
-# 100 Continue
-
-# 101 Switching Protocols
-
-## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101
-
-## [RFC7231.6.2.2.]
-Upgrade 헤더 필드가 있는 요청을 받았을 때 해당 요청을 처리했으면 upgrade를 처리했다는 의미에서 101 상태 코드로 응답한다.
-
-의견:
-Upgrade를 구현하지 않는다면 101도 구현할 필요가 없을 것 같습니다.
-
-# 103 Early Hints
-
-## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
-
-서버가 아직 요청을 처리중인데 클라이언트에게 미리 로딩을 하라고 하기 위해 Link 헤더 필드와 함께 103 상태 코드로 응답한다.
-
-의견:
-HTTP 서버를 위한 최소 요구 사항은 아닌 것 같습니다.
-
-# 200 OK
-
-## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
-
-요청이 성공했음을 나타낸다.
-default로 cacheable이다.
-요청 메서드에 따라 다른 의미를 지닌다.
-- GET: 자원이 fetch되었고 message body로 전달되었다.
-- POST: 행동의 결과를 의미하는 자원이 message body로 전달되었다.
-
-- DELETE의 성공적인 결과는 종종 200 (OK) 라기 보다는 204 (No Content) 이다.
-
-## [RFC7231.6.3.1.]
-
-요청이 성공했음을 나타낸다.
-200 요청으로 전달되는 payload는 요청 메서드에 따라 다르다.
-
-- GET: target resource의 representation
-- POST: action의 상태의 representation 또는 action으로 얻은 결과의 representation
-- DELETE: action의 상태의 representation
-
-의견:
-정상적으로 요청을 처리했을 경우, 200 상태 코드를 갖는 응답 메세지를 전달하면 될 것 같습니다.
-
-# 201 Created
-
-## https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
-
-요청이 성공했고, 그 결과로 어떤 resource가 생성됐음을 나타낸다.
-새로운 resource가 사실상 이 응답을 전송하기 전에 생성됐고 새로운 resource가 메세지의 body로 반환된다.
-생성된 resource의 location은 요청의 URL이거나 Location 헤더의 값이다.
-이 상태 코드의 일반적인 쓰임은 POST 요청의 결과로서의 응답이다.
-
-## [RFC7231.6.3.2.]
-
-요청이 fulfill되었고, 그 결과 하나 이상의 새로운 resource가 생성됐음을 나타낸다.
-요청으로 생성된 primary resource는 응답의 Location 헤더 필드로 식별되거나, 또는 Location 필드가 없다면, effective 요청 URI로 식별된다.
-응답의 payload는 일반적으로 생성된 resource(s)를 묘사하고 link한다.
-
-의견:
-POST 요청 메서드를 갖는 요청을 성공적으로 처리한 결과로, 201 상태 코드를 갖는 응답을 전달하면 될 것 같습니다.
-이 때 저희 서버는 요청 메세지에 적힌 target URI에 파일을 생성할 것이므로 따로 Location 헤더 필드를 생성하지는 않아도 될 것 같습니다.
-응답의 message body에는 생성한 파일을 담으면 될 것 같습니다.
-
-
-202 Accepted
-203 Non-Authoritative Information
-204 No Content
-205 Reset Content
-206 Partial Content
-300 Multiple Choices
-301 Moved Permanently
-302 Found
-303 See Other
-304 Not Modified
-307 Temporary Redirect
-308 Permanent Redirect
-400 Bad Request
-401 Unauthorized
-402 Payment Required
-403 Forbidden
-404 Not Found
-405 Method Not Allowed
-406 Not Acceptable
-407 Proxy Authentication Required
-408 Request Timeout
-409 Conflict
-410 Gone
-411 Length Required
-412 Precondition Failed
-413 Payload Too Large
-414 URI Too Long
-415 Unsupported Media Type
-416 Range Not Satisfiable
-417 Expectation Failed
-418 I'm a teapot
-422 Unprocessable Entity
-425 Too Early
-426 Upgrade Required
-428 Precondition Required
-429 Too Many Requests
-431 Request Header Fields Too Large
-451 Unavailable For Legal Reasons
-500 Internal Server Error
-501 Not Implemented
-502 Bad Gateway
-503 Service Unavailable
-504 Gateway Timeout
-505 HTTP Version Not Supported
-506 Variant Also Negotiates
-507 Insufficient Storage
-508 Loop Detected
-510 Not Extended
-511 Network Authentication Required
-
 매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?
 method 별 requirement
 header field 정리
@@ -331,6 +211,9 @@ blocking non-blocking
 - 허용 함수 부족한 부분 알아보기
 
 # postpone
+의문
+	recv()와 send() 뒤에서 errorno를 확인하지 말라는 구체적인 이유는 무엇일까?
+		getsockopt()로 error code를 확인해도 그럼 안되는 것일까?
 request target은 relative일 수도 있나..?
 - absolute path일 수도 있다.
 - scheme 등가지 포함한 uri일 수도 있다.
@@ -341,6 +224,562 @@ send
 - 나중에 SIGPIPE로 인한 프로그램 termination을 피해야하면 그 때 signal을 제어하는 부분을 추가하도록 하자.
 
 # data
+2022-05-10 ~
+# Status Code
+
+# 소개
+
+https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+이 사이트(iana)가 HTTP의 status code를 관리한다.
+하지만
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
+MDN에 정리된 목록을 기준으로 조사를 진행하였다.
+RFC723x < MDN < iana 순으로 리스트된 상태 코드의 갯수가 많았고,
+iana에는 있는데 MDN에 없다면 빠르게 조사할 수 없기 때문이다.
+MDN에 없는 상태 코드라면 잘 안쓰이지 않을까 하는 기대도 있다.
+
+# RFC[7231.6.]
+
+상태 코드의 첫 숫자가 응답의 분류를 정의한다.
+첫 숫자로 5개의 값이 존재한다.
+
+- 1xx (Informational): 요청을 받았으며, 아직 처리중임.
+- 2xx (Successful): 요청을 성공적으로 받았고 이해했으며 수용되었음.
+- 3xx (Redirection): 요청을 완료하기 위해 추가 행동이 필요함.
+- 4xx (Client Error): 요청이 나쁜 문법을 포함하거나 fulfill될 수 없음.
+- 5xx (Server Error): 서버가 외관상 올바른 요청을 fulfill하는데 실패함.
+
+# 100 Continue
+
+# 101 Switching Protocols
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101
+
+### [RFC7231.6.2.2.]
+Upgrade 헤더 필드가 있는 요청을 받았을 때 해당 요청을 처리했으면 upgrade를 처리했다는 의미에서 101 상태 코드로 응답한다.
+
+### 의견:
+Upgrade를 구현하지 않는다면 101도 구현할 필요가 없을 것 같습니다.
+
+# 103 Early Hints
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+
+서버가 아직 요청을 처리중인데 클라이언트에게 미리 로딩을 하라고 하기 위해 Link 헤더 필드와 함께 103 상태 코드로 응답한다.
+
+### 의견:
+HTTP 서버를 위한 최소 요구 사항은 아닌 것 같습니다.
+
+# 200 OK
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
+
+요청이 성공했음을 나타낸다.
+default로 cacheable이다.
+요청 메서드에 따라 다른 의미를 지닌다.
+- GET: 자원이 fetch되었고 message body로 전달되었다.
+- POST: 행동의 결과를 의미하는 자원이 message body로 전달되었다.
+
+- DELETE의 성공적인 결과는 종종 200 (OK) 라기 보다는 204 (No Content) 이다.
+
+### [RFC7231.6.3.1.]
+
+요청이 성공했음을 나타낸다.
+200 요청으로 전달되는 payload는 요청 메서드에 따라 다르다.
+
+- GET: target resource의 representation
+- POST: action의 상태의 representation 또는 action으로 얻은 결과의 representation
+- DELETE: action의 상태의 representation
+
+### 의견:
+정상적으로 요청을 처리했을 경우, 200 상태 코드를 갖는 응답 메세지를 전달하면 될 것 같습니다.
+
+# 201 Created
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
+
+요청이 성공했고, 그 결과로 어떤 resource가 생성됐음을 나타낸다.
+새로운 resource가 사실상 이 응답을 전송하기 전에 생성됐고 새로운 resource가 메세지의 body로 반환된다.
+생성된 resource의 location은 요청의 URL이거나 Location 헤더의 값이다.
+이 상태 코드의 일반적인 쓰임은 POST 요청의 결과로서의 응답이다.
+
+### [RFC7231.6.3.2.]
+
+요청이 fulfill되었고, 그 결과 하나 이상의 새로운 resource가 생성됐음을 나타낸다.
+요청으로 생성된 primary resource는 응답의 Location 헤더 필드로 식별되거나, 또는 Location 필드가 없다면, effective 요청 URI로 식별된다.
+응답의 payload는 일반적으로 생성된 resource(s)를 묘사하고 link한다.
+
+### 의견:
+POST 요청 메서드를 갖는 요청을 성공적으로 처리한 결과로, 201 상태 코드를 갖는 응답을 전달하면 될 것 같습니다.
+이 때 저희 서버는 요청 메세지에 적힌 target URI에 파일을 생성할 것이므로 따로 Location 헤더 필드를 생성하지는 않아도 될 것 같습니다.
+응답의 message body에는 생성한 파일을 담으면 될 것 같습니다.
+
+# 202 Accepted
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202
+
+요청 처리가 받아들여 졌음을 나타낸다, 하지만 아직 다 처리되지는 않았다; 사실 처리가 시작되지도 않았을 수 있다.
+요청은 실제 요청을 처리하는 동안 거부될 수 있기 때문에 요청이 결국 처리될 수도 있고 처리되지 않을 수도 있다.
+
+202는 non-committal이다.
+HTTP가 나중에 요청 처리의 결과물을 나타내는 asynchronous 응답을 보낼 방법이 없다는 것을 의미한다.
+다른 프로세스나 서버가 요청을 다루는 경우나 batch processing을 의도되었다.
+
+### [RFC7231.6.3.3.]
+
+요청 처리가 받아들여 졌음을 나타낸다, 하지만 아직 다 처리되지는 않았다.
+요청은 실제 요청을 처리하는 동안 거부될 수 있기 때문에 요청이 결국 처리될 수도 있고 처리되지 않을 수도 있다.
+HTTP에는 asynchronous 작용으로 상태 코드를 추가로 보내는 설비는 없다.
+
+202 응답은 의도적으로 noncommittal이다.
+202의 목적은 요청 처리가 완료될 때까지 UA의 연결이 유지돌 필요 없이 서버가 다른 프로세스(가령 하루에 한 번 실행되는 batch-oriented 프로세스)를 위한 요청을 받는 것을 허용하는 것이다.
+이 응답으로 전달되는 표현은 요청의 현재 상태를 묘사해야 하며, 사용자에게 요청이 언제쯤 fulfill될지 예상을 제공할 수 있는 상태 모니터를 point하거나 embed해야 한다.
+
+### 의견:
+우리는 처리가 완료되기까지 오랜 시간이 걸리는 프로세스를 따로 명시하여 호출하는 기능을 제공하지 않을 것이기 때문에 구현하지 않아도 될 것 같습니다.
+
+# 203 Non-Authoritative Information
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/203
+
+처리는 성공했지만 proxy가 임의로 payload를 수정했을 때 응답하는 status code
+
+### 의견:
+구현하지 않아도 될 것 같습니다.
+
+# 204 No Content
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
+
+요청이 성공했지만 클라이언트가 현재 페이지를 떠나 탐색할 필요가 없음을 나타낸다.
+
+### 의견:
+응답을 받아도 현재 페이지에 머물러도 된다는 정보를 전달하는 용도의 추가적인 기능 같습니다.
+굳이 구현하지 않아도 될 것 같습니다.
+
+# 205 Reset Content
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/205
+
+클라이언트에게 form에 내용을 clear하거나 canvas 상태를 리셋하거나 또는 UI를 refresh하기 위해 document view를 리셋하라고 말하는 것이다.
+
+### 의견:
+이 status code도 구현하지 않아도 될 것 같습니다.
+
+# 206 Partial Content
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/206
+
+요청이 성공했고 요청의 Range 헤더에 묘사된 range의 데이터를 body가 담고 있음을 나타낸다.
+
+### 의견:
+Range 헤더를 구현한다면 이 상태 코드를 갖는 응답을 하도록 구현하면 될 것 같습니다.
+일단은 Range 헤더를 가지는 요청을 처리하는 기능을 구현할지 안할지 모르기 때문에 간단한 조사만 했습니다.
+필요에 따라 위 모질라 링크로 가서 내용을 더 읽고 RFC 문서도 읽으세요.
+
+# 300 Multiple Choices
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/300
+
+요청에 대한 가능한 응답이 하나 이상 있음을 나타낸다.
+UA나 사용자는 그 응답들 중 하나를 선택해야 한다.
+응답들 중 하나를 선택하는 표준화된 방식이 없기 때문에, 이 응답 코드는 매우 희귀하게 사용된다.
+
+### 의견:
+좀 특별한 기능을 위한 상태 코드인 것 같습니다.
+일단은 그냥 넘어가도 될 것 같습니다.
+
+# 301 Moved Permanently
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
+
+요청한 resource가 Location 헤더에 있는 URL로 명백하게 옮겨져 있음을 나타낸다.
+브라우저는 새로운 URL로 리다이렉트하고, 검색 엔진은 그 resource에 대한 그들의 링크를 업데이트 한다.
+
+Note: RFC의 specification에서는 리다이렉션이 수행되었을 때 메서드와 바디가 변하지 않고 남아 있어야 함을 요구함에도 불구하고, 모든 UA가 이 요구사항을 지키는 것은 아니다.
+GET이나 HEAD 메서드의 응답을 위해서만 301 코드를 사용하고, POST 메서드를 위해서는 대신 308 Permanent Redirect를 사용해라, 308은 메서드 변경이 명시적으로 금지되어 있다.
+
+### [RFC7231.6.4.2.]
+
+target resource가 새로운 영구적인 URI를 할당받았고, 미래에 이 resource로의 참조들은 동봉된 URI들 중 하나를 사용해야 함을 나타낸다.
+링크를 수정하는 능력을 가진 클라이언트들은 reference들을 가능할 때 자동으로 하나 이상의 새로운 reference들(서버가 보낸)로의 effective 요청 URI로 re-link 해야 한다.
+
+서버는 응답에 새로운 영구적인 URI를 위한 선호하는 URI reference를 담고 있는 Location 헤더 필드를 생성해야 한다.(SHOULD)
+UA는 자동 리다이렉션을 위해 Location 필드의 값을 사용할 수도 있다.(MAY)
+서버의 응답 payload는 대게 새로운 URI(s)로의 hyperlink가 있는 짧은 hypertext note를 담고 있다.
+
+Note: 역사적인 이유로, UA는 subsequent 요청에서 POST에서 GET으로 요청 메서드를 바꿀지도 모른다.(MAY)
+만약 이 행동을 원하지 않는다면, 307 (Temporary Redirect) 상태 코드를 대신 사용할 수 있다.
+
+301 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
+
+### 의견:
+config 파일에서 return 지시자의 값으로 특정 URI를 명시했을 때, 해당 서버가 return 행동을 해야 하는 요청을 받았을 때 GET 메서드 요청이라면 301 상태 코드를 가지는 응답을 전달해야 할 것 같습니다.
+이 때 해당 응답은 Location 헤더 필드를 가지며 그 값은 return 지시자의 값을 가질 것 같습니다.
+만약 POST 메서드 요청이라면 307이나 308 상태 코드를 갖는 응답을 전달해야 할 것 같습니다.
+
+# 302 Found
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302
+
+요청한 resource가 Location 헤더에 주어진 URL로 임시적으로 옮겨졌음을 나타낸다.
+브라우저는 이 페이지로 리다이렉트를 하지만 검색 엔진은 그들의 링크를 그 resource로 업데이트 하지 않는다.
+
+### 의견:
+
+301과 비슷하지만 검색 엔진에게 해당 리다이렉트를 업데이트 할지에 대해서만 다른 의미를 갖는 상태 코드 같습니다.
+굳이 검색 엔진 측면까지 고려하여 서버를 만들지는 않아도 될 것 같습니다.
+
+# 303 See Other
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/303
+
+리다이렉트가 요청한 resource에 링크되지 않고, 다른 페이지(confirmation 페이지나 현실 object의 표현(HTTP range-14를 봐라) 또는 업로드 진행 페이지 같은)에 링크되어 있음을 나태낸다.
+이 요청 코드는 종종 PUT이나 POST의 결과로 전달받는다.
+이 리다이렉트된 페이지를 화면에 띄우기 위해 사용되는 메서드는 항상 GET이다.
+
+### 의견:
+기본적인 리다이렉션 이상의 추가 기능을 부여하기 위한 용도의 상태 코드인 것 같습니다.
+단순 리다이렉션을 구현할 때는 불필요할 것 같습니다.
+
+# 304 Not Modified
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
+
+요청한 resource들을 재송신할 필요가 없음을 나타낸다.
+cached resource로의 묵시적 리다이렉션이다.
+요청 메서드가 GET이나 HEAD 같은 safe method일 때 발생한다.
+또는 요청이 conditional이고 If-None-Match나 If-Modified-Since 헤더를 사용할 때 발생한다.
+
+### 의견:
+수정되지 않았으니 캐시에 있는 데이터를 사용하면 된다는 것을 의미하는 상태 코드인 것 같습니다.
+저희는 캐시를 구현하지 않을 것이기 때문에 이 상태 코드도 신경쓰지 않아도 될 것 같습니다.
+
+# 307 Temporary Redirect
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307
+
+요청한 resource가 일시적으로 Location 헤더에 있는 URL로 옮겨졌음을 나타낸다.
+
+original 요청의 메서드와 바디는 리다이렉트된 요청을 수행하기 위해 재사용된다.
+사용된 메서드가 GET으로 바뀌길 원하는 경우라면 303 See Other를 대신 사용해라.
+PUT 메서드의 응답으로 업로드된 resources가 아니라 확인 메세지를 주고 싶을 때 유용하다.("XYZ 업로드에 성공했다" 같은)
+
+307이 302와 다른 유일한 차이점은 307은 리다이렉트 된 요청을 생성할 때 메서드와 바디가 바뀌지 않을 것을 보장한다는 점이다.
+302 응답 시, 몇 오래된 클라이언트들은 부정확하게 GET으로 메서드를 바꿀 것이다.
+GET이 아닌 메서드와 302의 행동은 결국 Web에서 예측 불가능하다, 반면 307의 행동은 예측이 가능하다.
+GET 요청의 경우는 두 상태 코드의 행동이 동일하다.
+
+### 의견:
+302를 구현한다면 GET 이외의 메서드를 위해 307도 구현해야 할 것입니다.
+하지만 지금 저희 서버는 302를 구현할지 확실하지 않습니다.(저는 안해도 된다고 생각합니다.)
+만약 302와 307을 구현한다면 RFC 문서에서 307에 대한 내용을 추가로 읽으십시오.
+
+# 308 Permanent Redirect
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308
+
+요청한 resource가 Location 헤더에 있는 URL로 명백히 옮겨졌음을 나타낸다.
+브라우저는 이 페이지로 리다이렉트하고, 검색 엔진은 그들의 링크들을 이 resource로 업데이트한다.
+
+요청 메서드와 바디는 수정되지 않을 것이다. 반면 301은 때때로 부정확하게 GET 메서드로 변할 것이다.
+
+Note: 몇몇의 Web 어플리케이션들은 308 Permanent Redirect를 non-standard 방식이나 다른 목적으로 사용할지도 모른다.
+예를 들어, 구글 드라이브는 클라이언트에게 불완전한 업로드가 멈춘 것을 나타내기 위해 308 Resume Incomplete 응답을 사용한다.
+
+### 의견:
+이 상태 코드를 구현할지 말지를 판단하기 위해서는 GET이외의 메서드를 갖는 요청에 대해 리다이렉션을 수행하는 경우를 구현할지를 결정해야 합니다.
+만약 POST 등에 대해 리다이렉션을 하도록 지원하고자 한다면 308 상태 코드를 구현해야 할 것 같습니다.
+하지만 평가지에 그런 구체적인 내용은 존재하지 않습니다.
+서브젝트 pdf의 내용에서도 HTTP의 리다이렉션을 구현하라고만 나와 있습니다.
+따라서 GET에 대해서만 리다이렉션을 하도록 파싱을 강제하여 서버를 구현하고 301 까지만 구현하면 될 것 같습니다.
+
+# 400 Bad Request
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+클라이언트 에러로 인지되는 무언가로 인해 서버가 요청을 처리할 수 없거나 처리하지 않을 것임을 나타낸다.(예를 들어, 잘못된 형식의 요청 문법, 부적절한 요청 메세지 framing, 또는 악의적인 요청 routing 등)
+
+Warning: 클라이언트는 수정 없이 이 요청을 반복하지 않아야 한다.
+
+### [RFC7231.6.5.1]
+
+클라이언트 에러로 인지되는 무언가로 인해 서버가 요청을 처리할 수 없거나 처리하지 않을 것임을 나타낸다.(예를 들어, 잘못된 형식의 요청 문법, 부적절한 요청 메세지 framing, 또는 악의적인 요청 routing 등)
+
+### 의견:
+위 설명에 나와 있듯이 요청 메세지의 문법 에러 등 클라이언트의 문제라고 판단되는 경우 400 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+
+# 401 Unauthorized
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+권한 자격이 없어 클라이언트의 요청을 거부하는 경우 이 상태 코드를 갖는 응답을 전송합니다.
+
+### 의견:
+권한(Authentication) 관련 상태 코드라서 더 조사하지는 않았습니다.
+만약 권한 관련 구현을 한다면 더 구체적인 조사를 해야 할 것입니다.
+
+# 402 Payment Required
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
+
+미래에 사용할 것을 위해 보존해둔 비표준 응답 상태 코드이다.
+이 상태 코드는 디지털 cash나 지불 시스템을 가능하게 하기 위해 생성되었다.
+그리고 이 상태 코드는 요청한 콘텐트가 클라이언트가 지불을 완료할 때까지 사용을 할 수 없을 것임을 나타낸다.
+
+### 의견:
+이건 그냥 아닌 것 같습니다.
+
+# 403 Forbidden
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+서버가 요청을 이해했으나 권한을 부여하기 위해 거절함을 나타낸다.
+
+이 상태는 401과 유사하다, 그러나 403 Forbidden 상태 코드에서는 re-authenticating이 차이를 만들지 않는다.
+접근은 영원히 금지되어 있고 어플리케이션 로직과 엮여 있다, resource에 대한 불충분한 권한과 같은.
+
+### [RFC7231.6.5.3.]
+
+서버가 요청을 이해했으나 권한을 부여하기 위해 거절함을 나타낸다.
+왜 요청이 금지됐는지를 public으로 만들기 원하는 서버는 그 이유를 응답의 payload에 묘사할 수 있다.
+
+만약 권한 자격이 요청에서 제공됐다면, 서버는 그것들이 접근에 불충분하다고 여긴다.
+클라이언트는 이 요청을 같은 자격으로 자동으로 반복하지 말아야 한다.(SHOULD NOT)
+클라이언트는 새로운 거나 다른 자격으로 요청을 반복할 수도 있다.(MAY)
+하지만 요청은 자격과 관련 없는 이유로 금지될 것이다.
+
+금지된 target resource의 현재 존재를 "숨기고" 싶어하는 origin 서버는 대신 404 (Not Found)로 응답할 수도 있다.(MAY)
+
+### 의견:
+HTTP에서 정의하는 권한 시스템과 별개로 서버 내에서 파일 접근 등에 관련된 실질적인 권한이 존재하지 않는 경우 403 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+서버의 파일 시스템 상, 하려는 작업의 권한이 존재하지 않는 경우가 해당될 것 같습니다.
+
+# 404 Not Found
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+서버가 요청한 resource 찾을 수 없다는 것을 나타낸다.
+404 페이지로 이끄는 링크들은 종종 broken 또는 dead links라고 불리고, link rot의 주제가 될 수 있다.
+
+404 상태 코드는 resource가 없다는 것만을 나타낸다: 부재가 일시적인지 영구적인지는 알 수 없다.
+만약 resource가 영구적으로 제거된 것이라면, 대신 410 (Gone) 상태를 사용해라.
+
+### [RFC7231.6.5.4.]
+
+origin 서버가 target resource를 위한 현재 표현을 찾지 못했다는 것을 나타낸다.
+또는 존재하는 resource를 disclose하지 않을 것을 나타낸다.
+404 상태 코드는 표현의 결핍이 일시적인지 또는 영구적인지를 나타내지는 않는다; 만약 상태가 영구적일 것 같은 것을 origin 서버가 알 때는(아마도 어떤 configurable 수단으로) 410 (Gone) 상태 코드가 404보다 선호된다.
+
+404 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
+
+### 의견:
+target resource가 없을 때는 404 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+다만 config file에서 autoindex 여부와 index 여부에 따라 404로 응답할지 지정된 특정 행동을 할지가 달라질 것 같습니다.
+
+# 405 Method Not Allowed
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+
+서버가 요청 메서드를 알지만 targeet resource가 해당 메서드를 지원하지 않음을 나타낸다.
+
+서버는 반드시 404 상태 코드 응답에서 Allow 헤더 필드를 생성해야 한다.
+이 필드는 반드시 target resource가 현재 지원하는 메서드 리스트를 담아야 한다.
+
+### [RFC7231.6.5.5.]
+
+origin 서버가 request-line 안에 전달받은 메서드를 알지만 target resource가 지원하지 않음을 나타낸다.
+origin 서버는 405 응답에 반드시 target resource가 현재 지원하는 메서드의 리스트를 담는 Allow 헤더 필드를 생성해야 한다.(MUST)
+
+405 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
+
+### 의견:
+target resource에 대해 config file에서 허용하지 않은 메서드 요청이 들어오는 경우 405 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+이 때 해당 응답 메세지에는 Allow 헤더 필드를 넣고, 값으로 허용된 메서드의 목록을 넣어주면 될 것 같습니다.
+
+# 406 Not Acceptable
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406
+
+### 의견:
+Accept, Accept-Encoding, Accept-Language 등 content negotiation(위 링크 참고)에 사용되는 헤더 필드를 해석하여 적용한다면 필요할 것 같습니다.
+하지만 저희는 이 헤더 필드를 사용하지 않을 것 같기 때문에 더 조사하지 않고 넘어가도록 하겠습니다.
+
+# 407 Proxy Authentication Required
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/407
+
+### 의견:
+Authentication 관련된 상태 코드인 것 같습니다.
+넘어가도록 하겠습니다.
+
+# 408 Request Timeout
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408
+
+서버가 사용하지 않는 이 연결을 끊고자 한다는 것을 나타낸다.
+클라이언트의 요청이 없어도, 서버가 놀고 있는 연결에게 전달한다.(일반적으로는 요청이 있어야 응답을 전송함)
+
+서버는 이 응답에 "close" Connection 헤더 필드를 전달해야 한다, 408은 서버가 계속 기다리는 것보다 연결을 끊기로 결정했음을 내포하기 때문에.
+
+몇몇 브라우저들(크롬, 파이어폭스, IE)이 HTTP pre-connection 매커니즘을 사용하여 서핑 속도를 올리기 때문에 이 응답이 더 자주 사용된다.
+
+Note: 몇몇 서버들만이 이 메세지 없이 연결을 끊는다.
+
+### [RFC7231.6.5.7.]
+
+서버가 기다리기로 준비한 시간 안에 완전한 요청 메세지를 받지 못했다는 것을 나타낸다.
+서버는 응답에 "close" 연결 옵션을 보내야 한다, 408은 서버가 계속 기다리는 것보다 연결을 끊기로 결정했음을 내포하기 때문에.(SHOULD)
+만약 클라이언트가 outstanding 요청을 전송 중이었다면, 클라이언트는 그 요청을 새로운 연결에서 재전송할 수도 있다.(MAY)
+
+### 의견:
+이 상태 코드는 구현할 수도 있지만 평가지에서 특별히 평가하는 대상은 아니기 때문에 중요도는 낮다고 생각합니다.
+게다가 nginx는 이 상태 코드를 갖는 응답을 전송하지 않고 연결을 끊습니다.
+따라서 1차적으로는 구현하지 않아도 괞찮을 것 같습니다.
+
+# 409 Conflict
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409
+
+요청이 현재 target resource의 상태와 모순됨을 나타낸다.
+
+conflict는 대부분 PUT 요청의 응답에서 발생한다.
+예를 들어, 서버에 존재하는 파일보다 더 오래된 파일을 업로드하려고 할 때 버전 컨트롤 conflict를 초래하며 409 응답을 받을 것이다.
+
+### 의견:
+중요도는 낮은 것 같습니다.
+추후 필요할 것 같은 곳에 적용할 수 있도록 용도만 익혀두면 될 것 같습니다.
+이 상태 코드를 요구하는 딱 떠오르는 과제의 요구사항은 모르겠습니다.
+아마 존재하더라도 평가 때 이거에서 걸리지는 않을 것 같습니다.
+
+# 410 Gone
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410
+
+origin 서버에서 target resource의 접근이 더 이상 가능하지 않음과, 이 상태가 영원할 것 같음을 나타냅니다.
+
+만약 이 상태가 일시적일지 영원할지 알 수 없다면 대신 404 상태 코드를 사용해야 할 것입니다.
+
+Note: 410 응답은 default가 cacheable입니다.
+
+### [RFC7231.6.5.9.]
+
+origin 서버에서 target resource의 접근이 더 이상 가능하지 않음과, 이 상태가 영원할 것 같음을 나타냅니다.
+만약 origin 서버가 이 상태가 영원할지 아닐지 알 수 없거나 결정할 수 있는 설비가 없다면 대신 404 (Not Found) 상태 코드를 사용해야 할 것입니다.
+
+410 응답은 주로 수용자에게, resource가 의도적으로 이용 불가능함과, 서버 소유자가 그 resource로의 원격 link를 삭제하기를 원함을 알려 web 관리를 보조하도록 의도되었다.
+이러한 이벤트는 흔히 제한된 시간동안 판촉 서비스나, 더이상 origin 서버 사이트와 관련이 없이 개별적인 존재에 속하는 resource들을 위한 것이다.
+영구적으로 사용 불가능한 모든 resource들을 "gone"으로 표시하거나, 표시를 어떤 정해진 시간 동안 유지할 필요는 없다 -- 서버 소유자의 판단으로 남아 있다.
+
+410 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
+
+### 의견:
+우리는 특정 resource에 대해 접근을 짧은 시간동안 허용했다가 차단하는 형식의 기능을 제공하지 않을 것이기 때문에 이 상태 코드를 사용할 일은 없을 것 같습니다.
+
+# 411 Length Required
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/411
+
+서버가 Content-Length 헤더 없는 요청 수용을 거부함을 나타낸다.
+
+Note: specification에 의하면, chunked로 데이터를 보낼 때는, Content-Length 헤더가 생략되고 각 chunk의 앞에 현재 chunk의 길이를 16진수 형식으로 둬야 한다.
+
+### [RFC7231.6.5.10.]
+
+서버가 Content-Length 헤더 없는 요청 수용을 거부함을 나타낸다.
+만약 요청 메세지에 message body의 크기를 갖는 타당한 Content-Length 헤더 필드를 추가한다면 클라이언트는 요청을 반복할 수도 있다.(MAY)
+
+### 의견:
+chunked가 아닌 POST 메서드 요청이 Content-Length 헤더 필드를 가지고 있지 않다면 411 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+
+# 412 Precondition Failed
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/412
+
+### 의견:
+conditional 요청에 대해 특정 상황에 전송되는 응답입니다.
+서브젝트와 평가지에서 conditional에 대해 확인하지 않기 때문에 conditional을 구현하지 않아도 된다고 생각하고, 따라서 이 상태 코드는 신경쓰지 않아도 될 것 같습니다.
+
+# 413 Payload Too Large
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413
+
+요청 entity가 서버에서 정의된 제한보다 더 큼을 나타낸다; 서버는 연결을 끊거나 Retry-After 헤더 필드를 반환할 것이다.
+
+### [RFC7231.6.5.11.]
+
+서버가 처리하기 원하거나 처리할 수 있는 정도보다 요청 payload가 크기 때문에 요청을 거부함을 나타낸다.
+서버는 클라이언트가 계속 요청하는 것을 막기 위해 연결을 닫을 수도 있다.(MAY)
+
+만약 상태가 일시적이라면 서버는 Retry-After 헤더 필드를 생성해서 이것이 일시적이며 어느 정도의 시간 뒤에 클라이언트가 재시도(MAY)할 수 있을지를 나타내야 한다.
+
+### 의견:
+client_max_body_size과 관련이 있는 상태 코드인 것 같습니다.
+client_max_body_size보다 요청의 payload body가 크다면 413 상태 코드를 갖는 응답을 전송하고 연결을 닫으면 될 것 같습니다.
+일시적인 상태라면 Retry-After 헤더 필드를 전송하라고 하지만, 저희는 일시적인 상태를 구현하지 않을 것이기 때문에 Retry-After는 구현하지 않아도 될 것 같습니다.
+
+# 414 URI Too Long
+
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/414
+
+클라이언트에 의해 요청된 URI가 서버가 해석하고자 하는 것보다 김을 나타낸다.
+
+이것이 발생할 몇 가지 희귀한 경우가 있다:
+
+- 클라이언트가 긴 쿼리 정보를 가진 POST 요청을 부적절하게 GET 요청으로 변환할 때.
+- 클라이언트가 리다이렉션 loop 속으로 빠져들 때(예를 들면, 자기 자신을 접미사로 가리키는 리다이렉션된 URI의 접두사)
+- 또는 잠재적 보안 구멍을 exploit하는 시도를 하는 클라이언트에게 서버가 공격 받고 있을 때
+
+### [RFC7231.6.5.12.]
+
+요청 target이 서버가 해석하기 원하는 더 길기 때문에 요청 서비스 제공을 거부함을 나타낸다.
+이 희귀한 상태는 오직
+- 클라이언트가 긴 쿼리 정보를 가진 한 POST 요청을 GET 요청으로 부적절하게 변환했을 때,
+- 클라이언트가 리다이렉션 "블랙홀" 속에 빠져들 때(예를 들면, 자기 자신을 접미사로 가리키는 리다이렉션된 URI의 접두사),
+- 또는 잠재적 보안 구멍을 exploit하는 시도를 하는 클라이언트에게 서버가 공격 받고 있을 때
+발생할 것 같다.
+
+410 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
+
+### 의견:
+target URI의 길이에 제한을 둘 것이라면 이 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+하지만 저희 프로젝트의 멘데토리 요구사항이 아니고 평가표에서도 확인하지 않기 때문에 필수 항목은 아닐 것 같습니다.
+
+# 415 Unsupported Media Type
+# 416 Range Not Satisfiable
+# 417 Expectation Failed
+# 418 I'm a teapot
+# 422 Unprocessable Entity
+# 425 Too Early
+# 426 Upgrade Required
+# 428 Precondition Required
+# 429 Too Many Requests
+# 431 Request Header Fields Too Large
+# 451 Unavailable For Legal Reasons
+
+# 500 Internal Server Error
+# 501 Not Implemented
+# 502 Bad Gateway
+# 503 Service Unavailable
+# 504 Gateway Timeout
+# 505 HTTP Version Not Supported
+# 506 Variant Also Negotiates
+# 507 Insufficient Storage
+# 508 Loop Detected
+# 510 Not Extended
+# 511 Network Authentication Required
+
+# MVP
+200 OK
+201 Created
+301 Moved Permanently
+400 Bad Request
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+411 Length Required
+413 Payload Too Large
+
 ????-??-??
 https://kb.iu.edu/d/afqs
 > ARCHIVED: If my computer has an underscore ( _ ) in its name, why am I having trouble accessing network services?
