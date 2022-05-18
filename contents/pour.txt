@@ -1,5 +1,21 @@
 pour.txt
 
+2022-05-18
+사람을 잘 다루려면 그가 좋아하는 것이 무엇인지를 알아두는 것이 도움이 될 것이다.
+좋아하는 것을 알아야 내가 원하는 행동을 했을 때 보상을 줄 수가 있다.
+
+설계를 할 때
+필요한 명사와 동사를 나열하고
+각각의 동사가 어떤 명사를 주어나 목적어로 갖는지 생각해보면 좋을 것 같다.
+주어로 갖는 경우 그 명사 클래스의 메서드가 될 것이고
+목적어로 갖는 경우 그 명사는 동사를 describe하는 함수의 인자가 될 것이다.
+
+git 특강
+git rebase
+git cherry-pick
+git rebase -i
+개인 remote에서 작업 후, team remote에 pull request하는 방식
+
 2022-05-16
 https://blog.npcode.com/2017/04/03/rest의-representation이란-무엇인가/
 representation을 매우 친절하게 설명해 놓은 글이다.

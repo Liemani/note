@@ -2,7 +2,6 @@ webserv.txt
 
 # pc
 <C-D>로 client가 write를 닫았을 때?
-mosong님이 올린 슬랙 port 관련 글 읽어보기
 응답 상태 코드 정리 끝내기
 Response class 작성
 ServerManager::read() 기능 조정하기
@@ -24,6 +23,7 @@ client tcp의 timeout을 설정했을 때 구체적으로 어떤 동작을 하�
     다 사용한 fd close하기
     serverVector와 socketMap이 소멸자에서 할당 해제를 하도록 하기
 회의
+	constant의 name convention
     질문을 슬랙 말고 게시판에 남기는 방식으로 있었으면 좋겠습니다.
     rebase 후 pull request 제안
     client_max_body_size: payload body, message body
@@ -32,6 +32,7 @@ client tcp의 timeout을 설정했을 때 구체적으로 어떤 동작을 하�
     더 좋은 이름 생각해보기
         ServerManager::read()
         Socket
+	mosong이 제시한 평가지의 애매한 해석을 가진 요구사항
 매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?(jihokim)
 method 별 requirement 정리
 header field 정리
@@ -46,8 +47,6 @@ cgi, status code
 - 두번째는 테스트 툴
 잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
 HTTP 완전 정복 읽기
-이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
-- 내가 이걸 왜 적었더라?
 상대경로인 URI가 root 밖을 가리키는 경우 처리
 1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
 workflow()에 code review 추가하는 것 건의하기
@@ -138,6 +137,7 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
         initializeServers()와 겹침
 풀 리퀘스트에서 받은 피드백을 이슈로 생성하기
 Server::process()의 첫 번째 인자의 label 수정하기
+이슈 생성해도 되는지 직접 보여주며 mosong님과 상의하기
 confluence 내용 수정하기
     body, chunked
 config parsing
@@ -251,6 +251,20 @@ MDN에 정리된 목록을 기준으로 조사를 진행하였다.
 RFC723x < MDN < iana 순으로 리스트된 상태 코드의 갯수가 많았고,
 iana에는 있는데 MDN에 없다면 빠르게 조사할 수 없기 때문이다.
 MDN에 없는 상태 코드라면 잘 안쓰이지 않을까 하는 기대도 있다.
+
+# MVP(Minimum Viable Product)
+---
+200 OK
+201 Created
+301 Moved Permanently
+400 Bad Request
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+411 Length Required
+413 Payload Too Large
+500 Internal Server Error
+505 HTTP Version Not Supported
 
 # RFC[7231.6.]
 ---
@@ -753,11 +767,11 @@ client_max_body_size보다 요청의 payload body가 크다면 413 상태 코드
 - 또는 잠재적 보안 구멍을 exploit하는 시도를 하는 클라이언트에게 서버가 공격 받고 있을 때
 발생할 것 같다.
 
-410 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
+414 응답은 default가 cacheable이다; 즉, 메서드 정의나 명시적 캐시 제어로 달리 표시되지 않는 한.
 
 ### 의견:
 target URI의 길이에 제한을 둘 것이라면 이 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
-하지만 저희 프로젝트의 멘데토리 요구사항이 아니고 평가표에서도 확인하지 않기 때문에 필수 항목은 아닐 것 같습니다.
+하지만 저희 프로젝트의 서브젝트 요구사항이 아니고 평가표에서도 확인하지 않기 때문에 필수 항목은 아니라고 생각합니다.
 
 # 415 Unsupported Media Type
 ---
@@ -995,37 +1009,85 @@ Note: 이 응답과 함께, 문제를 설명하는 유저 친화적인 페이지
 
 # 504 Gateway Timeout
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
+
+게이트웨이나 프록시로서, 제 때에 upstream 서버로부터 요청을 완료하기 위해 필요한 응답을 받지 못함을 표시한다.
+
+### 의견:
+502 (Bad Gateway)와 마찬가지로
+서브젝트나 평가지에 게이트웨이나 프록시의 기능에 대한 명시가 없기 때문에
+구현하지 않아도 될 것 같습니다.
 
 # 505 HTTP Version Not Supported
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
+
+서버가 요청에서 사용된 HTTP 버전을 지원하지 않음을 표시한다.
+
+### [RFC7231.6.6.6.]
+
+서버가 요청 메세지에서 사용된 HTTP의 major 버전을 지원하지 않거나, 지원하기를 거부함을 표시한다.
+서버는 이 에러 메세지 외에 클라이언트와 같은 major 버전을 사용해서 요청을 완료할 수 없거나 완료하기를 원치 않음을 표시한다.
+서버는 왜 그 버전이 지원되지 않는지와 서버가 어떤 다른 프로토콜들을 지원하는지를 묘사하는 505 응답을 위한 representation을 생성해야 한다.(SHOULD)
+
+### 의견:
+요청의 HTTP의 major 버전이 1이 아닐 경우 이 상태 코드를 갖는 응답을 전송하면 될 것 같습니다.
+nginx에 HTTP 버전으로 HTTP/5.0 등을 주었을 때 505 응답을 하는 것을 확인했습니다.
+만약 'HTTPP/1.1', 'HTTP//1.1' 등을 전송하면 400 (Bad Request) 응답을 받게 됩니다.
 
 # 506 Variant Also Negotiates
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/506
+
+Transparent Content Negotiation의 문맥에서 전달받을 수도 있다.
+
+### 의견:
+서브젝트나 평가지에서 content negotiation 기능을 명시하지 않기 때문에
+구현하지 않아도 될 것 같습니다.
 
 # 507 Insufficient Storage
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/507
+
+Web Distributed Authoring and Versioning (WebDAV) 프로토콜의 문맥 중에 받을 수도 있다.
+
+### 의견:
+서브젝트나 평가지에서 WebDAV 기능을 명시하지 않기 때문에
+구현하지 않아도 될 것 같습니다.
 
 # 508 Loop Detected
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508
+
+Web Distributed Authoring and Versioning (WebDAV) 프로토콜의 문맥 중에 받을 수도 있다.
+
+### 의견:
+서브젝트나 평가지에서 WebDAV 기능을 명시하지 않기 때문에
+구현하지 않아도 될 것 같습니다.
 
 # 510 Not Extended
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/510
+
+HTTP Extension Framework의 문맥 중에 전달받을 수 있다.
+
+### 의견:
+서브젝트나 평가지에서 HTTP Extension Framework 기능을 명시하지 않기 때문에
+구현하지 않아도 될 것 같습니다.
 
 # 511 Network Authentication Required
 ---
+### https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/511
 
-# MVP(Minimum Viable Product)
----
-200 OK
-201 Created
-301 Moved Permanently
-400 Bad Request
-403 Forbidden
-404 Not Found
-405 Method Not Allowed
-411 Length Required
-413 Payload Too Large
-500 Internal Server Error
+클라이언트가 네트워크에 접근하기 위해 authenticate할 필요가 있음을 표시한다.
+
+이 상태는 origin 서버에 의해 생성되지 않는다.
+네트워크에서 접근을 제어하는 프록시에 의해 생성된다.
+
+### 의견:
+이 상태 코드도 기본 서버가 아닌 프록시 서버에서 특정 상황에 응답할 때 사용하는 상태 코드인 것 같습니다.
+서브젝트나 평가지에서 프록시 서버에 대해 명시하지 않기 때문에
+구현하지 않아도 될 것 같습니다.
 
 ????-??-??
 https://kb.iu.edu/d/afqs
