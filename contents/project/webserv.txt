@@ -1,6 +1,11 @@
 webserv.txt
 
 # pc
+https://sunyzero.tistory.com/269
+> graceful shutdown 읽어보기
+각 라이브러리 함수의 에러 처리
+mosong 님이 슬랙에 올려주신 글 읽어보기
+ServerManager::read()에서 ServerManager::getTargetServer()가 잘못 행동하는 것을 바로잡기
 method 정리하기
 dev branch rebase하기
 Server의 멤버 변수를 사용해서 GET 구현하기
