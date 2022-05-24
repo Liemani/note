@@ -1,11 +1,15 @@
 webserv.txt
 
 # pc
+회의
+	inline 함수로 만들고 싶은 경우 hpp에 정의해도 되는가?
+	constant의 name convention 정하기
+	Request, Response보다는 Receiver, Sender가 더 좋은 이름인 것 같다.
 stream에 대한 지식이 부족하다...
 memcpy()의 assembly code?
 	이걸 내가 재현하려면?
 response message는 crnl을 지켜주어야 한다.
-일단은 정해진 버퍼 양을 보내도록 하고, 이후에 실제 커널의 버퍼 크기 변화를 관찰하면서 얼마 크기의 buf를 만들어서 파일을 읽어야 할 지 생각해보자.
+일단은 정해진 버퍼 양을 보내도록 하고, 이후에 실제 커널의 버퍼 크기 변화를 관찰하면서 얼마 크기의 buf를 만들어서 파일을 읽어야 할지 생각해보자.
 보다보니 Connection에 있는 Response는 Sender가 되야 할 것 같고, Response는 VirtualServer에 있어야 할 것 같다.
 	일단은 지금 상태로 유지하고, VirtualServer에 추가로 Response를 만들기 보다는, VirtualServer에 Response의 member variable들을 전부 정의해서 사용해보자.
 Request
@@ -18,7 +22,6 @@ https://sunyzero.tistory.com/269
 	> graceful shutdown 읽어보기
 각 라이브러리 함수의 에러 처리
 ServerManager::read()에서 ServerManager::getTargetServer()가 잘못 행동하는 것을 바로잡기
-method 정리하기
 VirtualServer의 멤버 변수를 사용해서 GET 구현하기
 heap에 동적 할당에 실패하는 경우 처리하기
 ServerManager::run()의 잘못된 방식 수정하기
@@ -30,9 +33,6 @@ client tcp의 timeout을 설정했을 때 구체적으로 어떤 동작을 하�
     kevent timeout 등록하기
     다 사용한 fd close하기
     serverVector와 socketMap이 소멸자에서 할당 해제를 하도록 하기
-회의
-	inline 함수로 만들고 싶은 경우 hpp에 정의해도 되는가?
-	constant의 name convention 정하기
 매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?(jihokim)
 header field 정리
     예쁘지 않은 것 다시 정리
@@ -124,6 +124,7 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+method 정리하기
 평가지에는 recv()와 send()가 실패하면 연결이 끊어져야 한다고 기술되어 있는 것 같다.
     recv()에서 실패하면 끊어져야 하겠지만 send()에서 실패해도 끊어져야 하는 것일까?
     아하, 0이 아니라 -1이 반환되는 경우라면 연결을 끊어야 할 것 같기는 하다.
