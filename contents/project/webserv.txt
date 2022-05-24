@@ -1,10 +1,8 @@
 webserv.txt
 
 # pc
-회의
-	inline 함수로 만들고 싶은 경우 hpp에 정의해도 되는가?
-	constant의 name convention 정하기
-	Request, Response보다는 Receiver, Sender가 더 좋은 이름인 것 같다.
+config로 server initialize하기
+process get pr 날리기
 stream에 대한 지식이 부족하다...
 memcpy()의 assembly code?
 	이걸 내가 재현하려면?
@@ -124,6 +122,9 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+Connection::setResponse() 없애기? 어디서 사용하는지 찾아보기
+새로운 함수들 주석 추가하기
+Location method를 필요에 따라 inline으로 빼기
 method 정리하기
 평가지에는 recv()와 send()가 실패하면 연결이 끊어져야 한다고 기술되어 있는 것 같다.
     recv()에서 실패하면 끊어져야 하겠지만 send()에서 실패해도 끊어져야 하는 것일까?
