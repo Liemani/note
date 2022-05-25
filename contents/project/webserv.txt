@@ -1,6 +1,8 @@
 webserv.txt
 
 # pc
+target server를 반환하는 메서드
+ftserver 인가 inline 함수들의 주석이 없었다.
 config로 server initialize하기
 process get pr 날리기
 stream에 대한 지식이 부족하다...
@@ -11,6 +13,7 @@ response message는 crnl을 지켜주어야 한다.
 보다보니 Connection에 있는 Response는 Sender가 되야 할 것 같고, Response는 VirtualServer에 있어야 할 것 같다.
 	일단은 지금 상태로 유지하고, VirtualServer에 추가로 Response를 만들기 보다는, VirtualServer에 Response의 member variable들을 전부 정의해서 사용해보자.
 Request
+	헤더 필드 네임을 소문자 등으로 바꿔서 저장하여 case-insensitive하게 인식하도록 만들자
 	Request frame이 끝난 후 들어온 값은 유지시키기
 	EOF 신호를 전송했을 때 400 전송
 	불필요한 body가 추가로 들어왔을 때, 이전 요청 처리 후 400 전송
