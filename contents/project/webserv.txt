@@ -1,8 +1,12 @@
 webserv.txt
 
 # pc
+크롬은 Host에 포트 번호도 넣는다.
+    Host를 사용할 때 포트 번호가 있다면 제거해주도록 하자.
+_mConnection이 fd index에 해당 connection을 저장하는가?
+Request에서 헤더 필드 벨류를 반환할 때 양 옆에 불필요한 스페이스 제거 후 getTargetVirtualServer에 있는 코드 수정하기
+request에서 getHeaderField
 target server를 반환하는 메서드
-ftserver 인가 inline 함수들의 주석이 없었다.
 config로 server initialize하기
 process get pr 날리기
 stream에 대한 지식이 부족하다...
@@ -125,6 +129,7 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+ftserver 인가 inline 함수들의 주석이 없었다.
 Connection::setResponse() 없애기? 어디서 사용하는지 찾아보기
 새로운 함수들 주석 추가하기
 Location method를 필요에 따라 inline으로 빼기
