@@ -1,6 +1,12 @@
 webserv.txt
 
 # pc
+회의
+	unistd.h는 사용하면 안될 것 같다.
+	모든 fd를 가지는 것에 대해 kevent를 거쳐야할까?
+		https://42born2code.slack.com/archives/CU6MU5TB7/p1645572737334529
+		엄밀하게는 yes 일 것 같다.
+		일단은 fd가 바로 노출되는 경우가 아니면 kevent 없이 사용하고, 나중에 문제가 될 것 같으면, 혹은 여유가 있을 때 바꾸자
 크롬은 Host에 포트 번호도 넣는다.
     Host를 사용할 때 포트 번호가 있다면 제거해주도록 하자.
 _mConnection이 fd index에 해당 connection을 저장하는가?
