@@ -1,12 +1,13 @@
 webserv.txt
 
 # pc
+post에서 원하는 location을 발견하지 못한 경우 405에 두 번째 인자로 location이 NULL이 들어가는 경우 405()에서 segfault가 발생할 것이다.
+	이 경우 405도 이상하긴 하다. 404로 바꿔야 하나?
+Location::isRequestMethodAllowed() 로직 수정
+Location::_allowedHTTPMethod에 옳바른 값 넣기
 config file의 설정에 문제가 있을 경우 segfault가 발생할 수 있는 문제
 회의
-	모든 fd를 가지는 것에 대해 kevent를 거쳐야할까?
-		https://42born2code.slack.com/archives/CU6MU5TB7/p1645572737334529
-		엄밀하게는 yes 일 것 같다.
-		일단은 fd가 바로 노출되는 경우가 아니면 kevent 없이 사용하고, 나중에 문제가 될 것 같으면, 혹은 여유가 있을 때 바꾸자
+	권한에 따른 delete 구현은 미뤄두기로 했다.
 크롬은 Host에 포트 번호도 넣는다.
     Host를 사용할 때 포트 번호가 있다면 제거해주도록 하자.
 _mConnection이 fd index에 해당 connection을 저장하는가?
@@ -136,6 +137,10 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+모든 fd를 가지는 것에 대해 kevent를 거쳐야할까?
+	https://42born2code.slack.com/archives/CU6MU5TB7/p1645572737334529
+	엄밀하게는 yes 일 것 같다.
+	일단은 fd가 바로 노출되는 경우가 아니면 kevent 없이 사용하고, 나중에 문제가 될 것 같으면, 혹은 여유가 있을 때 바꾸자
 ftserver 인가 inline 함수들의 주석이 없었다.
 Connection::setResponse() 없애기? 어디서 사용하는지 찾아보기
 새로운 함수들 주석 추가하기
