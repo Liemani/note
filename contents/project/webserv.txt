@@ -1,6 +1,13 @@
 webserv.txt
 
 # pc
+후순위
+    chunked를 파싱할 때 길이 유효성 검사를 하지 않는다.
+delete의 body는 mdn을 참고하여 작성하자.
+autoindex off 인데 directory를 GET하는 경우 403 forbidden
+header field는 로워케이스
+host가 없는 경우 segfault 없애기
+잘못된 POST 파이리 끝 endl 제거
 post에서 원하는 location을 발견하지 못한 경우 405에 두 번째 인자로 location이 NULL이 들어가는 경우 405()에서 segfault가 발생할 것이다.
 	이 경우 405도 이상하긴 하다. 404로 바꿔야 하나?
 Location::isRequestMethodAllowed() 로직 수정
