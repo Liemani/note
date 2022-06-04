@@ -1,25 +1,13 @@
 webserv.txt
 
 # pc
+root를 route로 설정했을 때 특정 파일이 404 응답읇 반환하는 문제
 회의
-	권한에 따른 delete 구현은 미뤄두기로 했다.
-	const 최적화의 대표적인 예 location
 연결을 끊어야 하는 경우
-chunked body의 chunk를 chunk size씩 읽도록 수정하기
-client_body_size는 chunked 위에서 구현되어야 한다.
 processRequest가 RC_FAIL인 경우 프로그램 종료를 요구하는 치명적인 에러일 것 같다.
-후순위
-    chunked를 파싱할 때 길이 유효성 검사를 하지 않는다.
-delete의 body는 mdn을 참고하여 작성하자.
-autoindex off 인데 directory를 GET하는 경우 403 forbidden
-header field는 로워케이스
-post에서 원하는 location을 발견하지 못한 경우 405에 두 번째 인자로 location이 NULL이 들어가는 경우 405()에서 segfault가 발생할 것이다.
-	이 경우 405도 이상하긴 하다. 404로 바꿔야 하나?
 Location::isRequestMethodAllowed() 로직 수정
 Location::_allowedHTTPMethod에 옳바른 값 넣기
 config file의 설정에 문제가 있을 경우 segfault가 발생할 수 있는 문제
-크롬은 Host에 포트 번호도 넣는다.
-    Host를 사용할 때 포트 번호가 있다면 제거해주도록 하자.
 _mConnection이 fd index에 해당 connection을 저장하는가?
 Request에서 헤더 필드 벨류를 반환할 때 양 옆에 불필요한 스페이스 제거 후 getTargetVirtualServer에 있는 코드 수정하기
 request에서 getHeaderField
@@ -147,6 +135,17 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+autoindex off 인데 directory를 GET하는 경우 403 forbidden
+header field는 로워케이스
+delete의 body는 mdn을 참고하여 작성하자.
+chunked를 파싱할 때 길이 유효성 검사를 하지 않는다.
+client_body_size는 chunked 위에서 구현되어야 한다.
+chunked body의 chunk를 chunk size씩 읽도록 수정하기
+크롬은 Host에 포트 번호도 넣는다.
+    Host를 사용할 때 포트 번호가 있다면 제거해주도록 하자.
+post에서 원하는 location을 발견하지 못한 경우 405에 두 번째 인자로 location이 NULL이 들어가는 경우 405()에서 segfault가 발생할 것이다.
+	이 경우 405도 이상하긴 하다. 404로 바꿔야 하나?
+    400 응답을 반환하자.
 host가 없는 경우 segfault 없애기
 잘못된 POST 파이리 끝 endl 제거
 모든 fd를 가지는 것에 대해 kevent를 거쳐야할까?
