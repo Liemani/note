@@ -1,6 +1,7 @@
 webserv.txt
 
 # pc
+EventHandler::~EventHandler()가 close(kqueue)를 하면 문제가 있을 것 같다.(이미 close한 fd를 close하려고 시도)
 root를 route로 설정했을 때 특정 파일이 404 응답읇 반환하는 문제
 회의
 연결을 끊어야 하는 경우
