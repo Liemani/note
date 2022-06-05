@@ -1,5 +1,12 @@
 pour.txt
 
+2022-06-05
+cpp에서 std::string는 char*와 달리 필요에 따라 각 함수들을 재구현해야만 한다.
+std::string이 char*를 상속받는 개념이었다면 그럴 필요가 없었을 것이다.
+
+istream_iterator로 값을 copy하려고 했는데 text로 copy해와서 \r과 \n이 사라지는 문제가 있었다.
+결국 ostringStream << fileStream.rdbuf(); string = ostringStream.str();으로 해결했다.
+
 2022-05-31
 branch를 분리할 수 있으면 분리하자.
 위에 처음부터 쌓지 말고..

@@ -1,9 +1,10 @@
 todo temp.txt
 
 # pc
-- webserv 하면서 얻은 협업 시 git 관리법! 을 정리하여 블로깅하기
+stream을 deep하게 알 수 있는 문서
+webserv 하면서 얻은 협업 시 git 관리법! 을 정리하여 블로깅하기
 모든 상황 변화를 로그로 남기는 곳이 있으면 어떨까?
-- 모든 팀원이 내부 상황을 동기화하기 위해서
+	모든 팀원이 내부 상황을 동기화하기 위해서
 project/webserv
 personal document format을 수정하기(:%s/^\(	*\)- /\1	/gc)
 exception 어셈코드 보기

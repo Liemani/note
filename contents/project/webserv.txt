@@ -1,13 +1,13 @@
 webserv.txt
 
 # pc
+redirection을 할 때 해당 resourceURI를 같이 가져가야 하지 않을까?
+	뭐 아니면 아닌대로 구현하면 되지 POST나 DELETE 등이 제대로 동작하지 않겠지만
 EventHandler::~EventHandler()가 close(kqueue)를 하면 문제가 있을 것 같다.(이미 close한 fd를 close하려고 시도)
 root를 route로 설정했을 때 특정 파일이 404 응답읇 반환하는 문제
 회의
 연결을 끊어야 하는 경우
 processRequest가 RC_FAIL인 경우 프로그램 종료를 요구하는 치명적인 에러일 것 같다.
-Location::isRequestMethodAllowed() 로직 수정
-Location::_allowedHTTPMethod에 옳바른 값 넣기
 config file의 설정에 문제가 있을 경우 segfault가 발생할 수 있는 문제
 _mConnection이 fd index에 해당 connection을 저장하는가?
 Request에서 헤더 필드 벨류를 반환할 때 양 옆에 불필요한 스페이스 제거 후 getTargetVirtualServer에 있는 코드 수정하기
@@ -136,6 +136,9 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+Location::_allowedHTTPMethod에 옳바른 값 넣기
+Location::isRequestMethodAllowed() 로직 수정
+index.html을 실행할 때 representationURI의 MIME type을 Content-Type에 넣어주는 문제
 autoindex off 인데 directory를 GET하는 경우 403 forbidden
 header field는 로워케이스
 delete의 body는 mdn을 참고하여 작성하자.
@@ -326,6 +329,22 @@ DELETE 요청 처리 테스트를 통과했습니다.
 GET, POST, DELETE 가 아닌 것이 요청 메세지의 메서드 위치에 올 경우 nginx와 마찬가지로 405 응답을 반환하는지 확인하는 테스트를 통과했습니다.
 POST 요청 메세지에 `Transfer-Encoding`이 없는데 `Content-Length`도 없을 때 411 응답을 반환하는지 확인하는 테스트를 통과했습니다.
 client_max_body_size를 넘으면 413 응답을 반환하는지 확인하는 테스트를 통과했습니다.
+
+리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
+```
+```
+2022-06-05
+## Description
+
+default error page를 동적으로 생성하는 함수 작성 및 적용
+- POST, DELETE, 301, 400, 404, 405, 411, 413, 500에 적용
+config의 error_page 지시자를 사용하여 명시된 파일의 내용을 error page로 사용하는 기능 구현
+- 사용법: `error_page 404 /Users/jeonpark/git/debug/contents/webserv/404error.html;`
+
+## Test
+
+make re && ./webserve custom.conf 자체 설정 파일 테스트를 통과했습니다.
+error_page를 바꾸면 잘 적용되는 것을 확인했습니다.
 
 리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
 ```
