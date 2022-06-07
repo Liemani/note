@@ -1,6 +1,8 @@
 todo temp.txt
 
 # pc
+throw의 instruction 수준 차이
+RTTI의 instruction 수준 차이
 stream을 deep하게 알 수 있는 문서
 webserv 하면서 얻은 협업 시 git 관리법! 을 정리하여 블로깅하기
 모든 상황 변화를 로그로 남기는 곳이 있으면 어떨까?

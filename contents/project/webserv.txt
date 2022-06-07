@@ -1,6 +1,9 @@
 webserv.txt
 
 # pc
+directory listing이 index of path를 출력하도록 수정하기
+response.appendMessage()를 inline으로 만들어보자
+processRequest가 fail인 경우 어떻게 처리해야 할까?
 redirection을 할 때 해당 resourceURI를 같이 가져가야 하지 않을까?
 	뭐 아니면 아닌대로 구현하면 되지 POST나 DELETE 등이 제대로 동작하지 않겠지만
 EventHandler::~EventHandler()가 close(kqueue)를 하면 문제가 있을 것 같다.(이미 close한 fd를 close하려고 시도)
@@ -345,6 +348,30 @@ config의 error_page 지시자를 사용하여 명시된 파일의 내용을 err
 
 make re && ./webserve custom.conf 자체 설정 파일 테스트를 통과했습니다.
 error_page를 바꾸면 잘 적용되는 것을 확인했습니다.
+
+리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
+```
+```
+2022-06-06
+## Interface Description
+
+요청에 따른 target virtual server를 반복적으로 계산하는 것을 피하기 위해 Connection 객체에 _targetVirtualServer 멤버 변수를 추가했습니다.
+EventContext::EventType을 추가했습니다.
+- EV_SetVirtualServerErrorPage: error page로 지정한 파일을 읽어야 함
+- EV_GETResponse: GET의 요청 파일을 읽어야 함
+- EV_POSTResponse: POST의 요청 파일을 써야 함
+
+해당 이벤트 플래그와 함께 매칭되는 함수도 추가했습니다.
+
+## Implementation Description
+
+기존에 int를 반환하던 VirtualServer의 메서드들을 VirtualServer::ReturnCode 및 EventContext::EventType을 반환하도록 수정하였습니다.
+VirtualServer의 몇몇 메서드들이 추가 인자로 EventHandler를 전달받도록 수정하였습니다.
+
+## Test
+
+make re && ./webserve custom.conf 자체 설정 파일 테스트를 통과했습니다.
+GET, POST, DELETE가 전과 같이 잘 동작하는 것을 확인했습니다.
 
 리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
 ```
