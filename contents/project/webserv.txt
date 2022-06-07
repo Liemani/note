@@ -1,97 +1,43 @@
 webserv.txt
 
 # pc
+nginx는 1 분 동안 완성된 요청을 받지 못하는 경우 연결을 끊는다.
+REUSEADDR은 동일 주소에 동일 포트를 대비한 것인가? REUSEPORT를 사용하면 두 서버가 열린다. 그리고 첫 서버가 처리하다가 닫히면 두 번째 서버가 해당 포트의 요청을 전달받는다.
+non-blocking fd에 file read를 수행할 때 끝을 알기 위해서는 read가 BUF_SIZE보다 작은 값을 가지고 있는지를 확인하는 것이 아니라 read()의 결과가 EOF인지를 확인해야 할 것 같다.
 directory listing이 index of path를 출력하도록 수정하기
 response.appendMessage()를 inline으로 만들어보자
-processRequest가 fail인 경우 어떻게 처리해야 할까?
-redirection을 할 때 해당 resourceURI를 같이 가져가야 하지 않을까?
-	뭐 아니면 아닌대로 구현하면 되지 POST나 DELETE 등이 제대로 동작하지 않겠지만
 EventHandler::~EventHandler()가 close(kqueue)를 하면 문제가 있을 것 같다.(이미 close한 fd를 close하려고 시도)
 root를 route로 설정했을 때 특정 파일이 404 응답읇 반환하는 문제
-회의
 연결을 끊어야 하는 경우
 processRequest가 RC_FAIL인 경우 프로그램 종료를 요구하는 치명적인 에러일 것 같다.
 config file의 설정에 문제가 있을 경우 segfault가 발생할 수 있는 문제
-_mConnection이 fd index에 해당 connection을 저장하는가?
-Request에서 헤더 필드 벨류를 반환할 때 양 옆에 불필요한 스페이스 제거 후 getTargetVirtualServer에 있는 코드 수정하기
-request에서 getHeaderField
-target server를 반환하는 메서드
-config로 server initialize하기
-process get pr 날리기
 stream에 대한 지식이 부족하다...
 memcpy()의 assembly code?
 	이걸 내가 재현하려면?
-response message는 crnl을 지켜주어야 한다.
-일단은 정해진 버퍼 양을 보내도록 하고, 이후에 실제 커널의 버퍼 크기 변화를 관찰하면서 얼마 크기의 buf를 만들어서 파일을 읽어야 할지 생각해보자.
 보다보니 Connection에 있는 Response는 Sender가 되야 할 것 같고, Response는 VirtualServer에 있어야 할 것 같다.
 	일단은 지금 상태로 유지하고, VirtualServer에 추가로 Response를 만들기 보다는, VirtualServer에 Response의 member variable들을 전부 정의해서 사용해보자.
 Request
-    chunked를 읽을 수 있도록 기능 추가
-	헤더 필드 네임을 소문자 등으로 바꿔서 저장하여 case-insensitive하게 인식하도록 만들자
-	Request frame이 끝난 후 들어온 값은 유지시키기
 	EOF 신호를 전송했을 때 400 전송
 	불필요한 body가 추가로 들어왔을 때, 이전 요청 처리 후 400 전송
-	request method가 unknown일 때 동작은 평가지를 따르도록
-	clientMaxBodySize 적용하기
-https://sunyzero.tistory.com/269
-	> graceful shutdown 읽어보기
 각 라이브러리 함수의 에러 처리
-ServerManager::read()에서 ServerManager::getTargetServer()가 잘못 행동하는 것을 바로잡기
-VirtualServer의 멤버 변수를 사용해서 GET 구현하기
 heap에 동적 할당에 실패하는 경우 처리하기
-ServerManager::run()의 잘못된 방식 수정하기
-    close()를 하도록 하여 한 번만 실행되도록 수정하기
 client tcp의 timeout을 설정했을 때 구체적으로 어떤 동작을 하며, 그에 따라 어떻게 우리의 socket의 destructor를 호출하도록 만들지 알아보자.
-잘못된 URL을 어떻게 처리하나?
-    root를 벗어나는 URL은?
 코드 작성
     kevent timeout 등록하기
-    다 사용한 fd close하기
-    serverVector와 socketMap이 소멸자에서 할당 해제를 하도록 하기
 매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?(jihokim)
-header field 정리
-    예쁘지 않은 것 다시 정리
-chunked에 대한 더 깊은 이해
-    0x0d0a가 아닌 값으로 끝난 data를 recv()로 읽을 가능성도 있는가?
-    여러 recv()로 나뉘어 들어오는 것만은 아닌 것 같다.
-    chunked면 request body limit 체크는 어떻게 해야 하는가?
-cgi, status code
-(갑자기 드는 생각)POST를 위해 authority가 필요할까?
-- 이 선택을 결정하는 가장 큰 요인은 "평가지에 평가 항목이 있느냐" 일 것 같다.
-- 두번째는 테스트 툴
-잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
 HTTP 완전 정복 읽기
-상대경로인 URI가 root 밖을 가리키는 경우 처리
-1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
-workflow()에 code review 추가하는 것 건의하기
 CI/CD 알아보기
 개발 단계를 이렇게 구분해봐도 좋겠다.
-1. 정상적인 인자를 처리하도록 구현
+1. 정상적인 인자를 처리하도록 구현(프로토타입)
 2. 각종 error response를 구현
-VIP를 정하면 좋을 것 같다.
+MVP를 정하면 좋을 것 같다.
 - 중간 제출을 이 VIP를 구현한 결과물을 제출하면 좋겠다.(big webserv가 되지 않도록)
-jihokim님이 layer마다 상속을 하도록 했는데, 그 이유를 들어보고, 필요에 따라 circle과 elipsis를 설명한 c++ primer plus에 글을 알려주자.
-RFC - chunked
-server_name directive를 생략하는 경우 처리
 Because you won’t call the CGI directly, use the full path as PATH_INFO.
 - CGI를 직접 호출하지 않는다는건 동적으로 입력받은 경로를 사용한다는 것일 것 같은데 PATH_INFO는 왜 필요한걸까?
 - CGI의 환경 변수 중에 PATH_INFO가 있다. 이걸 알아보자.
-Just remember that, for chunked request, your server needs to unchunked it and the CGI will expect EOF as end of the body.
-Make the route able to accept uploaded files and configure where they should be saved.
-event? worker의 갯수?
-- 굳이 worker_connections를 구현하여 configuration file을 읽어서 연결 가능한 client 수 제한을 설정할 필요는 없을 것 같다.
-root가 server block 안에 있을 때 같은 server block 안에 있는 location block 안의 root가 server의 root에 영향을 받을까?
-error response를 위한 html 파일을 각각 준비하는 것의 장점 -> 동적으로 파일을 생성하기 위해 필요한 cpu 자원을 아낄 수 있다.
 테스트는 어떻게 진행할 것인가?
-https로 접속하면 client는 server에 http와 어떻게 다른 request message를 보낼까?
-어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
-nginx
-- webserv tutorial 페이지 3개 읽어보기.
-    - 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
-configuration file
-- syntax 정의하기
-nginx cgi
-- nginx config 파일의 location 부분을 알아보기
+non-MVP
+	어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
 서브젝트 이외
 - workflow
     - 생성 -> 초안 -> 리뷰 -> 완료
@@ -118,11 +64,20 @@ nginx cgi
     - 할 일이 많아 보이는 사업 파트너를 보았을 때
         - 제가 도울 수 있는 일 있으면 알려주세요!
     - 고생하셨습니다.
+MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때문에 non-blocking으로 write()를 하기 위해서 fcntl()을 호출하여 fd를 non-blocking fd로 만들어야 한다고 한다.
+    구체적으로는 어떤 차이가 있는 것일까?
+    상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
+
+# finish
+processRequest가 fail인 경우 어떻게 처리해야 할까?
+redirection을 할 때 해당 resourceURI를 같이 가져가야 하지 않을까?
+	뭐 아니면 아닌대로 구현하면 되지 POST나 DELETE 등이 제대로 동작하지 않겠지만
 server가 client에게 write에 실패할 경우
 - client와의 connection이 유지되고 있다고 판단하는 동안에는 계속 write를 시도하겠지?
-플로우 차트 만들어서 설계 해보신 분 있는지
-- 우리가 설계한다는 것은 어떻게 진행될 것인지
-- 피그마!
+https://sunyzero.tistory.com/269
+	> graceful shutdown 읽어보기
+header field 정리
+    예쁘지 않은 것 다시 정리
 nginx 테스트
 - mandatory에 명시된 내용이 실제 nginx에서는 어떻게 적용되어 있는지 조사하기
 짬짬이 RFC 읽기
@@ -134,11 +89,60 @@ what status code should implement
 configuration file parsing
 is POST differ between file and text?
 client로부터 전달받은 path가 configuration에서 정의한 root의 밖을 접근하는 경우 처리
-MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때문에 non-blocking으로 write()를 하기 위해서 fcntl()을 호출하여 fd를 non-blocking fd로 만들어야 한다고 한다.
-    구체적으로는 어떤 차이가 있는 것일까?
-    상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
-
-# finish
+플로우 차트 만들어서 설계 해보신 분 있는지
+- 우리가 설계한다는 것은 어떻게 진행될 것인지
+- 피그마!
+nginx
+- webserv tutorial 페이지 3개 읽어보기.
+    - 그 전에 mosong님이 보여주셨던 최소한의 필요한 부분을 뽑아낸 configuration file을 다시 보고 싶다.
+configuration file
+- syntax 정의하기
+nginx cgi
+- nginx config 파일의 location 부분을 알아보기
+https로 접속하면 client는 server에 http와 어떻게 다른 request message를 보낼까?
+Just remember that, for chunked request, your server needs to unchunked it and the CGI will expect EOF as end of the body.
+Make the route able to accept uploaded files and configure where they should be saved.
+event? worker의 갯수?
+- 굳이 worker_connections를 구현하여 configuration file을 읽어서 연결 가능한 client 수 제한을 설정할 필요는 없을 것 같다.
+root가 server block 안에 있을 때 같은 server block 안에 있는 location block 안의 root가 server의 root에 영향을 받을까?
+error response를 위한 html 파일을 각각 준비하는 것의 장점 -> 동적으로 파일을 생성하기 위해 필요한 cpu 자원을 아낄 수 있다.
+jihokim님이 layer마다 상속을 하도록 했는데, 그 이유를 들어보고, 필요에 따라 circle과 elipsis를 설명한 c++ primer plus에 글을 알려주자.
+RFC - chunked
+server_name directive를 생략하는 경우 처리
+상대경로인 URI가 root 밖을 가리키는 경우 처리
+1차적으로는 HTTP 이외의 상황을 처리하지 않도록 한다.
+workflow()에 code review 추가하는 것 건의하기
+cgi, status code
+(갑자기 드는 생각)POST를 위해 authority가 필요할까?
+- 이 선택을 결정하는 가장 큰 요인은 "평가지에 평가 항목이 있느냐" 일 것 같다.
+- 두번째는 테스트 툴
+잘 모르는 부분은 왜 그렇게 생각했는지 더 물어보도록 하자.
+chunked에 대한 더 깊은 이해
+    0x0d0a가 아닌 값으로 끝난 data를 recv()로 읽을 가능성도 있는가?
+    여러 recv()로 나뉘어 들어오는 것만은 아닌 것 같다.
+    chunked면 request body limit 체크는 어떻게 해야 하는가?
+    다 사용한 fd close하기
+    serverVector와 socketMap이 소멸자에서 할당 해제를 하도록 하기
+잘못된 URL을 어떻게 처리하나?
+    root를 벗어나는 URL은?
+ServerManager::run()의 잘못된 방식 수정하기
+    close()를 하도록 하여 한 번만 실행되도록 수정하기
+ServerManager::read()에서 ServerManager::getTargetServer()가 잘못 행동하는 것을 바로잡기
+VirtualServer의 멤버 변수를 사용해서 GET 구현하기
+일단은 정해진 버퍼 양을 보내도록 하고, 이후에 실제 커널의 버퍼 크기 변화를 관찰하면서 얼마 크기의 buf를 만들어서 파일을 읽어야 할지 생각해보자.
+response message는 crnl을 지켜주어야 한다.
+request에서 getHeaderField
+target server를 반환하는 메서드
+config로 server initialize하기
+process get pr 날리기
+Request에서 헤더 필드 벨류를 반환할 때 양 옆에 불필요한 스페이스 제거 후 getTargetVirtualServer에 있는 코드 수정하기
+_mConnection이 fd index에 해당 connection을 저장하는가?
+Request
+    chunked를 읽을 수 있도록 기능 추가
+	헤더 필드 네임을 소문자 등으로 바꿔서 저장하여 case-insensitive하게 인식하도록 만들자
+	Request frame이 끝난 후 들어온 값은 유지시키기
+	request method가 unknown일 때 동작은 평가지를 따르도록
+	clientMaxBodySize 적용하기
 Location::_allowedHTTPMethod에 옳바른 값 넣기
 Location::isRequestMethodAllowed() 로직 수정
 index.html을 실행할 때 representationURI의 MIME type을 Content-Type에 넣어주는 문제
