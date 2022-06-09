@@ -1,6 +1,7 @@
 todo temp.txt
 
 # pc
+소스 코드를 내가 직접 만든 플로우 차트처럼 도식화하여 보여주는 프로그램
 throw의 instruction 수준 차이
 RTTI의 instruction 수준 차이
 stream을 deep하게 알 수 있는 문서

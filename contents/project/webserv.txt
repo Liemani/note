@@ -1,6 +1,15 @@
 webserv.txt
 
 # pc
+회의
+    그림을 그렸다.
+    모송님이 이해할 수 있도록 설명
+        크게 파트별로
+        중요 특징들
+        각 세부 특징들
+    이렇게 했으면 더 좋았을 것 같다.
+    지호님이 왜 이렇게 짰는지 이해는 간다.
+    하지만 내가 생각하는 이벤트 구조가 더 단순하고 성능에 큰 차이는 없을 것이다.
 nginx는 1 분 동안 완성된 요청을 받지 못하는 경우 연결을 끊는다.
 REUSEADDR은 동일 주소에 동일 포트를 대비한 것인가? REUSEPORT를 사용하면 두 서버가 열린다. 그리고 첫 서버가 처리하다가 닫히면 두 번째 서버가 해당 포트의 요청을 전달받는다.
 non-blocking fd에 file read를 수행할 때 끝을 알기 위해서는 read가 BUF_SIZE보다 작은 값을 가지고 있는지를 확인하는 것이 아니라 read()의 결과가 EOF인지를 확인해야 할 것 같다.
@@ -69,6 +78,7 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+flow chart 그리기
 processRequest가 fail인 경우 어떻게 처리해야 할까?
 redirection을 할 때 해당 resourceURI를 같이 가져가야 하지 않을까?
 	뭐 아니면 아닌대로 구현하면 되지 POST나 DELETE 등이 제대로 동작하지 않겠지만
@@ -376,6 +386,26 @@ VirtualServer의 몇몇 메서드들이 추가 인자로 EventHandler를 전달�
 
 make re && ./webserve custom.conf 자체 설정 파일 테스트를 통과했습니다.
 GET, POST, DELETE가 전과 같이 잘 동작하는 것을 확인했습니다.
+
+리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
+```
+```
+2022-06-08
+## Interface Description
+
+Request::receive() 가 여러 횟수로 나뉘어 들어오는 요청 메세지를 제대로 가져오도록 수정하였습니다.(기존에는 body가 나뉘어 들어오는 경우를 제대로 처리하지 못했음)
+한 connection에 대해 이미 처리 중인 요청이 존재할 경우 새로운 read 이벤트가 호출될 때, 기존 처리 중이던 요청이 처리되기 전에는 read 이벤트를 처리하지 않고 바로 반환되도록 수정하였습니다.(한 client connection에 대해 여러 request가 존재할 수 있도록 지원하기 위해서는 구조적인 조정이 필요하며, 이를 지원하는 것은 저희 프로젝트에 꼭 필요하지 않다고 판단했습니다.)
+기존에 413이 405보다 앞에서 체크하던 것을 405가 413보다 앞에서 체크하도록 수정했습니다.
+GET과 DELETE도 413을 반환할 수 있도록 수정하였습니다.
+processGET에서 400과 413 응답에 걸리고도 정상적인 200 로직을 실행할 수 있던 문제를 수정하였습니다.
+
+## Test
+
+make re && ./webserve custom.conf 자체 설정 파일 테스트를 통과했습니다.
+GET, POST, DELETE가 잘 동작하는 것을 확인했습니다.
+chunked body를 잘 처리하는 것을 확인했습니다.
+기존에 server socket이 non-blocking 이 아니었던 것을 얼마 전 커밋에서 non-blocking으로 바꿈으로써 recv()가 한 번에 50 문자 정도를 읽어 와서, 그리 길지 않은 요청에도 불구하고 두 번에 걸처 recv()를 수행하는 것을 확인했습니다.
+이렇게 다수에 걸친 recv()를 통해 얻은 요청을 제대로 처리하는 것을 확인했습니다.
 
 리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
 ```
