@@ -1,8 +1,12 @@
 todo temp.txt
 
 # pc
+지금 작업중인 브렌치에는 0 크기 파일을 제대로 GET하는 기능이 들어있다.
+회의
+	siege 에서 80%가 나오는데 log를 끌 수 있는 옵션이 있는지?
+conflict를 해결하기 위해 3 hand merge를 각 파일 별로 보여주는 방법이 절실하다.
 소스 코드를 내가 직접 만든 플로우 차트처럼 도식화하여 보여주는 프로그램
-throw의 instruction 수준 차이
+throw의 instruction 수준 구현
 RTTI의 instruction 수준 차이
 stream을 deep하게 알 수 있는 문서
 webserv 하면서 얻은 협업 시 git 관리법! 을 정리하여 블로깅하기

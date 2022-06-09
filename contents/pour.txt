@@ -1,5 +1,9 @@
 pour.txt
 
+2022-06-09
+sysctl net.inet.tcp | grep msl
+	15000
+
 2022-06-08
 발열을 생각한다면 좀 오래 걸려도 연산량이 적은 것이 좋을 것 같다.(sleep 등)
 
