@@ -1,39 +1,20 @@
 webserv.txt
 
 # pc
-회의
-    그림을 그렸다.
-    모송님이 이해할 수 있도록 설명
-        크게 파트별로
-        중요 특징들
-        각 세부 특징들
-    이렇게 했으면 더 좋았을 것 같다.
-    지호님이 왜 이렇게 짰는지 이해는 간다.
-    하지만 내가 생각하는 이벤트 구조가 더 단순하고 성능에 큰 차이는 없을 것이다.
-nginx는 1 분 동안 완성된 요청을 받지 못하는 경우 연결을 끊는다.
+timeout이 없는 context 에 대해 실행되는 문제, dispose 면 timeout을 없애야 한다!
 REUSEADDR은 동일 주소에 동일 포트를 대비한 것인가? REUSEPORT를 사용하면 두 서버가 열린다. 그리고 첫 서버가 처리하다가 닫히면 두 번째 서버가 해당 포트의 요청을 전달받는다.
 non-blocking fd에 file read를 수행할 때 끝을 알기 위해서는 read가 BUF_SIZE보다 작은 값을 가지고 있는지를 확인하는 것이 아니라 read()의 결과가 EOF인지를 확인해야 할 것 같다.
 directory listing이 index of path를 출력하도록 수정하기
 response.appendMessage()를 inline으로 만들어보자
-EventHandler::~EventHandler()가 close(kqueue)를 하면 문제가 있을 것 같다.(이미 close한 fd를 close하려고 시도)
 root를 route로 설정했을 때 특정 파일이 404 응답읇 반환하는 문제
-연결을 끊어야 하는 경우
-processRequest가 RC_FAIL인 경우 프로그램 종료를 요구하는 치명적인 에러일 것 같다.
-config file의 설정에 문제가 있을 경우 segfault가 발생할 수 있는 문제
 stream에 대한 지식이 부족하다...
-memcpy()의 assembly code?
-	이걸 내가 재현하려면?
-보다보니 Connection에 있는 Response는 Sender가 되야 할 것 같고, Response는 VirtualServer에 있어야 할 것 같다.
-	일단은 지금 상태로 유지하고, VirtualServer에 추가로 Response를 만들기 보다는, VirtualServer에 Response의 member variable들을 전부 정의해서 사용해보자.
 Request
 	EOF 신호를 전송했을 때 400 전송
 	불필요한 body가 추가로 들어왔을 때, 이전 요청 처리 후 400 전송
 각 라이브러리 함수의 에러 처리
-heap에 동적 할당에 실패하는 경우 처리하기
 client tcp의 timeout을 설정했을 때 구체적으로 어떤 동작을 하며, 그에 따라 어떻게 우리의 socket의 destructor를 호출하도록 만들지 알아보자.
 코드 작성
     kevent timeout 등록하기
-매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?(jihokim)
 HTTP 완전 정복 읽기
 CI/CD 알아보기
 개발 단계를 이렇게 구분해봐도 좋겠다.
@@ -44,9 +25,6 @@ MVP를 정하면 좋을 것 같다.
 Because you won’t call the CGI directly, use the full path as PATH_INFO.
 - CGI를 직접 호출하지 않는다는건 동적으로 입력받은 경로를 사용한다는 것일 것 같은데 PATH_INFO는 왜 필요한걸까?
 - CGI의 환경 변수 중에 PATH_INFO가 있다. 이걸 알아보자.
-테스트는 어떻게 진행할 것인가?
-non-MVP
-	어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
 서브젝트 이외
 - workflow
     - 생성 -> 초안 -> 리뷰 -> 완료
@@ -78,6 +56,37 @@ MacOS는 다른 Unix OS들과는 다른 방식으로 write()를 구현했기 때
     상상1: 다른 Unix OS들은 fd를 non-blocking fd로 만드는 방법 이외의 다른 방식으로 non-blocking으로 작동하는 write()를 호출할 수 있는 것이 아닐까?
 
 # finish
+EventHandler::~EventHandler()가 close(kqueue)를 하면 문제가 있을 것 같다.(이미 close한 fd를 close하려고 시도)
+config file의 설정에 문제가 있을 경우 segfault가 발생할 수 있는 문제
+heap에 동적 할당에 실패하는 경우 처리하기
+	std::bad_alloc에러가 발생하기 때문에 std::exception으로 catch하면 처리할 수 있다.
+매 connection에서 하나의 request의 service를 제공하고 연결을 끊어야 하는가?(jihokim)
+테스트는 어떻게 진행할 것인가?
+non-MVP
+	어떤 이상한 header 입력은 잘 처리하고 어떤 이상한 header 입력에는 400 error를 내며 접속을 중단한다.
+보다보니 Connection에 있는 Response는 Sender가 되야 할 것 같고, Response는 VirtualServer에 있어야 할 것 같다.
+	일단은 지금 상태로 유지하고, VirtualServer에 추가로 Response를 만들기 보다는, VirtualServer에 Response의 member variable들을 전부 정의해서 사용해보자.
+memcpy()의 assembly code?
+	이걸 내가 재현하려면?
+processRequest가 RC_FAIL인 경우 프로그램 종료를 요구하는 치명적인 에러일 것 같다.
+연결을 끊어야 하는 경우
+지금 작업중인 브렌치에는 0 크기 파일을 제대로 GET하는 기능이 들어있다.
+회의
+	siege 에서 80%가 나오는데 log를 끌 수 있는 옵션이 있는지?
+nginx는 1 분 동안 완성된 요청을 받지 못하는 경우 연결을 끊는다.
+LOGLEVEL을 0일 때 잘 작동하도록 수정하기
+empty file을 GET할 수 있도록 수정하기
+성능 테스트에는 ndebug 넣기!!
+로직 테스트에는 ndebug 빼기!!
+큐 사이즈 늘리기, 이벤트 리스트 버퍼 늘리기
+그림을 그렸다.
+모송님이 이해할 수 있도록 설명
+	크게 파트별로
+	중요 특징들
+	각 세부 특징들
+이렇게 했으면 더 좋았을 것 같다.
+지호님이 왜 이렇게 짰는지 이해는 간다.
+하지만 내가 생각하는 이벤트 구조가 더 단순하고 성능에 큰 차이는 없을 것이다.
 flow chart 그리기
 processRequest가 fail인 경우 어떻게 처리해야 할까?
 redirection을 할 때 해당 resourceURI를 같이 가져가야 하지 않을까?
@@ -406,6 +415,21 @@ GET, POST, DELETE가 잘 동작하는 것을 확인했습니다.
 chunked body를 잘 처리하는 것을 확인했습니다.
 기존에 server socket이 non-blocking 이 아니었던 것을 얼마 전 커밋에서 non-blocking으로 바꿈으로써 recv()가 한 번에 50 문자 정도를 읽어 와서, 그리 길지 않은 요청에도 불구하고 두 번에 걸처 recv()를 수행하는 것을 확인했습니다.
 이렇게 다수에 걸친 recv()를 통해 얻은 요청을 제대로 처리하는 것을 확인했습니다.
+
+리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
+```
+```
+2022-06-10
+## Interface Description
+
+`-D LOG_LEVEL=0` 옵션을 주었을 때 발생하던 컴파일 에러를 수정했습니다.
+빈 파일에 GET 요청을 받았을 때 제대로 요청을 처리하지 못하던 문제를 수정하였습니다.
+listen의 backlog를 10에서 40으로 증가시켰습니다.
+
+## Test
+
+make re && ./webserve custom.conf 자체 설정 파일 테스트를 통과했습니다.
+siege를 100%로 통과하는 것을 확인했습니다.
 
 리뷰 해주시고 문제 없으면 approve 해주시면 감사하겠습니다. 🙂
 ```
