@@ -1,5 +1,10 @@
 pour.txt
 
+2022-06-14
+sudo nc -l localshot 80
+netpractice는 전체 ip address를 적절히 잘 분배하는 과제이다.
+lsof -c webserve
+
 2022-06-09
 sysctl net.inet.tcp | grep msl
 	15000
