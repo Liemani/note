@@ -1,0 +1,7 @@
+ft_container.txt
+
+# pc
+General rules
+    For each container, turn in the appropriately named class files.
+
+# finish
