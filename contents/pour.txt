@@ -1,5 +1,10 @@
 pour.txt
 
+2022-06-16
+perl -e 'print "N" x 100000000' > .temp2
+for i in {1..100000000}; do echo a; done
+for문을 도는 것보다 perl이 빠르다.
+
 2022-06-14
 sudo nc -l localshot 80
 netpractice는 전체 ip address를 적절히 잘 분배하는 과제이다.
