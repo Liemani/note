@@ -1,6 +1,14 @@
 todo temp.txt
 
 # pc
+틈새 시간에 할 일 찾아놓기: 책이 무난할 것 같다. 소리가 없으면서 깊게 생각을 하지 않아도 되기 때문
+서공가 듣기
+왜 공부해야 하는가 생각해보기, 하고 싶은 것 정하기
+목요 특강 환경 설정하기
+cpp primer plus 읽은 쪽수를 git blog에 올리기
+webserv confluence 회고 작성하기
+netpractice 하기
+container하기
 conflict를 해결하기 위해 3 hand merge를 각 파일 별로 보여주는 방법이 절실하다.
 소스 코드를 내가 직접 만든 플로우 차트처럼 도식화하여 보여주는 프로그램
 throw의 instruction 수준 구현
