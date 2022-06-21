@@ -1,5 +1,9 @@
 pour.txt
 
+2022-06-21
+:vimgrep /<pattern>/ <file name><CR>:copne<CR> in vim: quickfix list에서 pattern과 일치하는 line의 list를 출력할 수 있다.
+:vimgrep // % in vim: <pattern>이 empty이면 last search pattern을 사용한다. 파일 이름이 %이면 현재 파일을 사용한다.
+
 2022-06-18
 이슈를 끝날 때까지 완전히 추적하는 것이 사기 진작에 중요하다.
 junghan님 의견처럼 필터에 따라 구분된 함수를 호출한 뒤,

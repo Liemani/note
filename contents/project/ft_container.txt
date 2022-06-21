@@ -1,7 +1,7 @@
 ft_container.txt
 
 # pc
-General rules
-    For each container, turn in the appropriately named class files.
+cpp primer plus에서 template 읽고 작동 방식 다시 이해하기
+iterator 파헤치기
 
 # finish
