@@ -1,3 +1,26 @@
 book_list.txt
 
+# greatest books: 서공가: DEC 11, 2015 E28 존 스튜어트 밀을 천재로 만든 고전 독서법_1회
 # 학문의 즐거움: 서공가: NOV 6, 2015 우리가 공부해야 하는 네 가지 이유
+# 프로그래머의 뇌
+# 함께 자라기
+# 잘 그리기 금지
+# computer science hunter unix lecture notes
+# modern cpp
+# code
+# jso 님이 추천해준 docker, kubernetes 근처에 있던, unix 탄생 스토리 책
+# Computer Organization and Design: 많은 대학에서 사용하는 컴퓨터 구조의 바이블
+# 성공과 실패를 결정하는 1%의 네트워크 원리
+# strunk and white
+# Real-World Software Developement
+# computer science
+    liveness property and safety property
+# [modern c](https://modernc.gforge.inria.fr)
+# The C Programming language
+# https://git-scm.com/book/en/v2
+# Don't Make Me Think
+# [Laws of UX](https://lawsofux.com/)
+# Code Complete
+# Writing Solid Code
+# 대용량 데이터베이스 솔루션 https://42born2code.slack.com/archives/CU6MTFBNH/p1637405508187600
+# 카네기 인간 관계론: 최민준의 영상 제목 중 하나: 저의 20대는 이 책을 읽기 전후로 나뉩니다[최민준] -> 왜 링크를 올리지 않았지?

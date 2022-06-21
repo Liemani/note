@@ -1,8 +1,6 @@
 todo current.txt
 
 # pc
-cpp module
-webserv
 inception
 ft_container
 ft_transcendence
