@@ -1,9 +1,6 @@
 todo temp.txt
 
 # pc
-vim 강의 목차 작성하기
-webserv confluence 회고 작성하기
-cpp primer plus 읽은 쪽수를 git blog에 올리기
 container하기
 블로깅 하기(42에 있는 동안 학습한 것)
 반복: 시험
@@ -62,6 +59,9 @@ safari 정리하기(tab group 너무 무겁다;;)
 		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+cpp primer plus 읽은 쪽수를 git blog에 올리기
+webserv confluence 회고 작성하기
+vim 강의 목차 작성하기
 목요 특강 환경 설정하기
 project/netpractice
 project/webserv
