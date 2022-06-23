@@ -111,7 +111,7 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/git/note/contents
+cd ~/git/note
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -391,7 +391,7 @@ normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/vocabulary.txt") | buffer ~/git/note/contents/vocabulary.txt | else | edit ~/git/note/contents/vocabulary.txt | endif
+if bufexists("~/git/note/vocabulary.txt") | buffer ~/git/note/vocabulary.txt | else | edit ~/git/note/vocabulary.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -515,7 +515,7 @@ normal! 014|
 lcd ~/git/note
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/submit\ protocol.txt") | buffer ~/git/note/contents/submit\ protocol.txt | else | edit ~/git/note/contents/submit\ protocol.txt | endif
+if bufexists("~/git/note/submit\ protocol.txt") | buffer ~/git/note/submit\ protocol.txt | else | edit ~/git/note/submit\ protocol.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -643,7 +643,7 @@ exe '2resize ' . ((&lines * 1 + 49) / 98)
 exe '3resize ' . ((&lines * 1 + 49) / 98)
 exe '4resize ' . ((&lines * 1 + 49) / 98)
 tabnext
-edit ~/git/note/contents/project/ft_container.txt
+edit ~/git/note/project/ft_container.txt
 set splitbelow splitright
 wincmd _ | wincmd |
 split
@@ -795,7 +795,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/todo/todo\ temp.txt") | buffer ~/git/note/contents/todo/todo\ temp.txt | else | edit ~/git/note/contents/todo/todo\ temp.txt | endif
+if bufexists("~/git/note/todo/todo\ temp.txt") | buffer ~/git/note/todo/todo\ temp.txt | else | edit ~/git/note/todo/todo\ temp.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -918,7 +918,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/todo/todo\ current.txt") | buffer ~/git/note/contents/todo/todo\ current.txt | else | edit ~/git/note/contents/todo/todo\ current.txt | endif
+if bufexists("~/git/note/todo/todo\ current.txt") | buffer ~/git/note/todo/todo\ current.txt | else | edit ~/git/note/todo/todo\ current.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1041,7 +1041,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/todo/todo\ near\ future.txt") | buffer ~/git/note/contents/todo/todo\ near\ future.txt | else | edit ~/git/note/contents/todo/todo\ near\ future.txt | endif
+if bufexists("~/git/note/todo/todo\ near\ future.txt") | buffer ~/git/note/todo/todo\ near\ future.txt | else | edit ~/git/note/todo/todo\ near\ future.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1165,7 +1165,7 @@ normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/todo/todo\ dream.txt") | buffer ~/git/note/contents/todo/todo\ dream.txt | else | edit ~/git/note/contents/todo/todo\ dream.txt | endif
+if bufexists("~/git/note/todo/todo\ dream.txt") | buffer ~/git/note/todo/todo\ dream.txt | else | edit ~/git/note/todo/todo\ dream.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1289,7 +1289,7 @@ normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/book_list.txt") | buffer ~/git/note/contents/book_list.txt | else | edit ~/git/note/contents/book_list.txt | endif
+if bufexists("~/git/note/book_list.txt") | buffer ~/git/note/book_list.txt | else | edit ~/git/note/book_list.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1418,7 +1418,7 @@ exe '4resize ' . ((&lines * 1 + 49) / 98)
 exe '5resize ' . ((&lines * 1 + 49) / 98)
 exe '6resize ' . ((&lines * 1 + 49) / 98)
 tabnext
-edit ~/git/note/contents/summary/how_seoul_university_study.txt
+edit ~/git/note/summary/how_seoul_university_study.txt
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -1552,10 +1552,10 @@ exe s:l
 normal! zt
 10
 normal! 0
-lcd ~/git/note/contents/summary
+lcd ~/git/note/summary
 wincmd w
 argglobal
-if bufexists("~/git/note/contents/summary/365_study_vitamin.txt") | buffer ~/git/note/contents/summary/365_study_vitamin.txt | else | edit ~/git/note/contents/summary/365_study_vitamin.txt | endif
+if bufexists("~/git/note/summary/365_study_vitamin.txt") | buffer ~/git/note/summary/365_study_vitamin.txt | else | edit ~/git/note/summary/365_study_vitamin.txt | endif
 setlocal autoindent
 setlocal backupcopy=
 setlocal nobinary
@@ -1676,26 +1676,26 @@ exe s:l
 normal! zt
 1
 normal! 0
-lcd ~/git/note/contents/summary
+lcd ~/git/note/summary
 wincmd w
 exe 'vert 1resize ' . ((&columns * 181 + 182) / 364)
 exe 'vert 2resize ' . ((&columns * 182 + 182) / 364)
 tabnext 2
 set stal=1
-badd +1 ~/git/note/contents/pour.txt
+badd +1 ~/git/note/pour.txt
 badd +1 ~/git/note/dream.txt
-badd +26 ~/git/note/contents/project/webserv.txt
-badd +18 ~/git/note/contents/summary/how_seoul_university_study.txt
-badd +1 ~/git/note/contents/cooperation.txt
-badd +2 ~/git/note/contents/vocabulary.txt
-badd +1 ~/git/note/contents/submit\ protocol.txt
-badd +1 ~/git/note/contents/project/ft_container.txt
-badd +1 ~/git/note/contents/todo/todo\ temp.txt
-badd +1 ~/git/note/contents/todo/todo\ current.txt
-badd +1 ~/git/note/contents/todo/todo\ near\ future.txt
-badd +0 ~/git/note/contents/todo/todo\ dream.txt
-badd +1 ~/git/note/contents/book_list.txt
-badd +152 ~/git/note/contents/summary/365_study_vitamin.txt
+badd +26 ~/git/note/project/webserv.txt
+badd +18 ~/git/note/summary/how_seoul_university_study.txt
+badd +1 ~/git/note/cooperation.txt
+badd +2 ~/git/note/vocabulary.txt
+badd +1 ~/git/note/submit\ protocol.txt
+badd +1 ~/git/note/project/ft_container.txt
+badd +1 ~/git/note/todo/todo\ temp.txt
+badd +1 ~/git/note/todo/todo\ current.txt
+badd +1 ~/git/note/todo/todo\ near\ future.txt
+badd +0 ~/git/note/todo/todo\ dream.txt
+badd +1 ~/git/note/book_list.txt
+badd +152 ~/git/note/summary/365_study_vitamin.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
