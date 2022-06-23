@@ -1,6 +1,10 @@
 todo temp.txt
 
 # pc
+git action 특강 feedback 남기기
+왜? 를 설명해 놓았다면 더 좋았을 것이다. cli 따라하기에서
+나는 공용 라이브러리를 만들기 위해 검색을 하고 있었다.
+contents안에 내용물을 넣던 형식을 밖으로 빼도록 수정하자
 container하기
 블로깅 하기(42에 있는 동안 학습한 것)
 반복: 시험
@@ -59,6 +63,8 @@ safari 정리하기(tab group 너무 무겁다;;)
 		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 
 # finish
+cpp_library를 backup했다. 정리하자.
+debug를 backup했다. 정리하자.
 cpp primer plus 읽은 쪽수를 git blog에 올리기
 webserv confluence 회고 작성하기
 vim 강의 목차 작성하기

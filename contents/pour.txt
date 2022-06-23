@@ -1,5 +1,40 @@
 pour.txt
 
+2022-06-23
+json 출력용 함수를 만들면 좋을 것 같다. swift의 extension과 같은 느낌이면 될 것 같다.
+사용자 입장에서는 jsonString.describeAsJSON(); 이런 식이 되려나?
+extension과 같이, 새로운 클래스를 만들 때 추가적인 extension이 붙는다면 다른 파일에 작성하는 것이 아니라 해당 클래스를 정의해 놓은 파일에 작성하는 게 맞다.
+그래야 새로운 클래스를 작성할 때 여기 저기 돌아다니지 않고 한 파일에서 작업을 쭉 진행할 수 있어서 유리하다.
+
+[목요특강] 깃헙 액션 101 BY. 유저스틴 멘토
+slido.com로 간단한 설문 조사를 진행
+https://github.com/justinyoo/42seoul-gha-hol
+바로 레포에 환경을 설정하기 시작했다.
+on: 언제 실행될지를 명시한다.
+    comment, PR 등
+jobs: 실제 어떤 행동을 할지를 명시한다.
+각각의 job은 하나의 build 서버이다.
+    운영체제를 설정할 수 있다.
+        크게 3가지가 있다. windows-latest, macos-latest, ubuntu-latest
+        여러분의 app이 target하는 운영체제에 따라 달라질 것이다.
+
+workflow: name, on, jobs
+
+환경 변수 env
+
+$GITHUB_ENV는 환경 변수 값을 가지고 있는 파일이다.
+    이 파일은 step에 상관 없이 job에 속한다.
+    json 형태로 데이터를 저장한다.
+    echo "VALUE: ${{ env.STEP_VALUE_1 }}"   // github action 고유의 방식
+#{{}} github action이 가지고 있는 자체의 변수들에 접근하는 고유의 syntax
+
+strategy는 다양한 방식으로 사용할 수 있다.
+이미 서버에 각종 버전이 깔려 있어서 그 중에 가장 최신 버전을 가져온다.
+
+job depency를 주는 것을 job chaining이라고 한다.
+
+재사용 가능한 모듈은 workflow_call로 on을 설정한다.
+
 2022-06-22
 'note_personal/idea: service.txt:대부분의 코드는 1차원적이다' 를 읽고
 캡슐화를 위해 어떤 사건을 클래스화하여 물체 instance의 구체적인 행동을 기술하는 것은 좋지 않다
