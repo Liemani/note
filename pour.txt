@@ -1,5 +1,16 @@
 pour.txt
 
+2022-07-03
+debug time에는 모든 object를 BaseObject를 상속받도록 컴파일하여 값을 읽고 쓰기 편하게 만들면 어떨까? (나는 객체의 내부 값을 보고 싶다!)
+    이런 기능은 debugging 프로그램이 지원을 해줬으면 좋겠다. 그러면 그냥 클래스를 BaseObject를 상속받도록 컴파일하지 않아도 내부 값을 알아서 다 보여주면 된다.
+allocator는 member variable이어야 하는가? allocator는 어떤 public member function들이 있으며 stl의 vector는 allocator를 어떻게 사용하는가?
+
+c와 c++ 문서들의 링크 portal
+https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents
+
+iterator_traits은 다양한 iterator를 공통된 코드로 획일화하는데 도움을 준다.
+custom iterator class 뿐만 아니라 pointer type까지 iterator_traits<T>로 각종 type을 define해 놓음으로써 구분 없이 동일한 template code에서 동작하는 것을 보장한다.
+
 2022-06-30
 나는 백과사전을 만들고 싶었던 것일까?
 판타지 사전 등 모든 장르에 대해 문서화하고 정리해둘 수 있는 포멧
@@ -160,6 +171,7 @@ CI/CD에 관심이 있던 차에 특강을 해주셔서 좋았습니다.
 사건에 주인공이 될 수 있는 자격을 템플릿 클래스로 구현해두고, 물체 instance를 이 템플릿 클래스의 템플릿 인자로 전달하여 마치 스위프트의 프로토콜처럼 사용하는 것이다
 만약 물체 instance가 해당 프로토콜을 따르기에 충분하지 못하다면 컴파일 에러가 발생할 것이며, 이를 해결하기 위해 프로토콜의 요구 조건을 달성하도록 수정해야 할 것이다
 wrap_iter가 이런 개념의 프로토콜은 아닐까?
+    하지만 만약 wrap_iter가 프로토콜로서의 기능으로 의도되었다면 이름에 protocol이 들어갔을 것 같다.
 
 template의 핵심은 automatically code generate이다.
 compile time 시점에 필요한 코드를 생성하는 것이다.

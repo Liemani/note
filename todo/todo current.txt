@@ -4,6 +4,7 @@ todo current.txt
 inception
 ft_container
 ft_transcendence
+csapp 읽기
 
 # book: 임시 기록(큰 의미 없음)
 - 50/288 : The C Programming Language

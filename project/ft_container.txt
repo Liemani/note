@@ -7,9 +7,18 @@ container는 cpp의 기본격이다.
 cpp를 배우는 사람으로서 container를 깊게 이해하지 않는 다는 것은 말이 되지 않는다.
 나는 common core를 돌파해야만 한다.
 
+그냥 하는거다 살려고 하는거다 42과정을 돌파해야만 한다.
+그냥 일단은 하라는 걸 하는거다.
+그걸로 충분하다.
+
 # pc
+wrap_iter 구현하기
+    wrap_iter 대신 이름을 iterator라고 해야 할까?
+vector prototype 구현하기
+
+# finish
 cpp primer plus에서 template 읽고 작동 방식 다시 이해하기
 iterator 파헤치기
     wrap_iter가 'pour.txt:2022-06-22' 에 작성한 생각과 같을까?
-
-# finish
+    실제 다양한 type의 iterator data type이 존재할 수 있고, 이들을 template으로 규격을 통일한 것이 iterator_traits이다.
+    그리고 이 iterator_traits를 사용하여 wrap_iter를 만든다.

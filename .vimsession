@@ -2,13 +2,13 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <C-B> <Left>
-inoremap <C-F> <Right>
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
-inoremap <C-D> <Del>
-cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+inoremap <C-D> <Del>
+inoremap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-F> <Right>
+inoremap <C-B> <Left>
 cnoremap <C-D> <Del>
 cnoremap <C-E> <End>
 cnoremap <C-A> <Home>
@@ -29,11 +29,11 @@ nnoremap K <Nop>
 nnoremap U <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nnoremap <F12><F12> :set modifiable:set write
-omap <F1> :Stdheader
-vmap <F1> :Stdheader
-nnoremap <F11><F11> :set modifiable:set write
 nnoremap <F11> :set nomodifiable:set nowrite
+nnoremap <F11><F11> :set modifiable:set write
+vmap <F1> :Stdheader
+omap <F1> :Stdheader
+nnoremap <F12><F12> :set modifiable:set write
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <C-L> 
@@ -50,9 +50,11 @@ nnoremap <F7> :args **/*.[ch]
 nnoremap <F6><F6> 0f(byiwbb/\<"\>
 nnoremap <F6> yiwbb/\<"\>
 nnoremap <F5> :e
+nnoremap <F4><F4> :qa!
 nnoremap <F4> :qh
 nnoremap <F3><F3> :mksession! $git/.private/.vimsession/
 nnoremap <F3> :mksession! $git_root/.vimsession
+nnoremap <F2><F2> :e %:r.hpp
 nnoremap <F2> :Explore
 nnoremap <F1><F1> ggV}zf
 nnoremap <F1> :StdheaderggV}zf
@@ -118,9 +120,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd ~/git/note/dream.txt
+$argadd dream.txt
 set stal=2
-tabnew
 tabnew
 tabrewind
 edit pour.txt
@@ -140,10 +141,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 89 + 49) / 98)
-exe '2resize ' . ((&lines * 1 + 49) / 98)
-exe '3resize ' . ((&lines * 1 + 49) / 98)
-exe '4resize ' . ((&lines * 1 + 49) / 98)
+exe '1resize ' . ((&lines * 102 + 55) / 111)
+exe '2resize ' . ((&lines * 1 + 55) / 111)
+exe '3resize ' . ((&lines * 1 + 55) / 111)
+exe '4resize ' . ((&lines * 1 + 55) / 111)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -259,12 +260,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 44) / 89)
+let s:l = 8 - ((7 * winheight(0) + 51) / 102)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 0
+8
+normal! 028|
 wincmd w
 argglobal
 if bufexists("cooperation.txt") | buffer cooperation.txt | else | edit cooperation.txt | endif
@@ -511,7 +512,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 014|
+normal! 0
 lcd ~/git/note
 wincmd w
 argglobal
@@ -638,10 +639,10 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 89 + 49) / 98)
-exe '2resize ' . ((&lines * 1 + 49) / 98)
-exe '3resize ' . ((&lines * 1 + 49) / 98)
-exe '4resize ' . ((&lines * 1 + 49) / 98)
+exe '1resize ' . ((&lines * 102 + 55) / 111)
+exe '2resize ' . ((&lines * 1 + 55) / 111)
+exe '3resize ' . ((&lines * 1 + 55) / 111)
+exe '4resize ' . ((&lines * 1 + 55) / 111)
 tabnext
 edit ~/git/note/project/ft_container.txt
 set splitbelow splitright
@@ -666,12 +667,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 85 + 49) / 98)
-exe '2resize ' . ((&lines * 1 + 49) / 98)
-exe '3resize ' . ((&lines * 1 + 49) / 98)
-exe '4resize ' . ((&lines * 1 + 49) / 98)
-exe '5resize ' . ((&lines * 1 + 49) / 98)
-exe '6resize ' . ((&lines * 1 + 49) / 98)
+exe '1resize ' . ((&lines * 98 + 55) / 111)
+exe '2resize ' . ((&lines * 1 + 55) / 111)
+exe '3resize ' . ((&lines * 1 + 55) / 111)
+exe '4resize ' . ((&lines * 1 + 55) / 111)
+exe '5resize ' . ((&lines * 1 + 55) / 111)
+exe '6resize ' . ((&lines * 1 + 55) / 111)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -787,11 +788,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 42) / 85)
+let s:l = 2 - ((1 * winheight(0) + 49) / 98)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+2
 normal! 0
 wincmd w
 argglobal
@@ -910,11 +911,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((0 * winheight(0) + 0) / 1)
+let s:l = 2 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
+2
 normal! 0
 wincmd w
 argglobal
@@ -1033,12 +1034,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 0) / 1)
+let s:l = 7 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+7
+normal! 02|
 wincmd w
 argglobal
 if bufexists("~/git/note/todo/todo\ near\ future.txt") | buffer ~/git/note/todo/todo\ near\ future.txt | else | edit ~/git/note/todo/todo\ near\ future.txt | endif
@@ -1280,11 +1281,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
+1
 normal! 0
 lcd ~/git/note
 wincmd w
@@ -1404,298 +1405,35 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((0 * winheight(0) + 0) / 1)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-2
-normal! 0
-wincmd w
-exe '1resize ' . ((&lines * 85 + 49) / 98)
-exe '2resize ' . ((&lines * 1 + 49) / 98)
-exe '3resize ' . ((&lines * 1 + 49) / 98)
-exe '4resize ' . ((&lines * 1 + 49) / 98)
-exe '5resize ' . ((&lines * 1 + 49) / 98)
-exe '6resize ' . ((&lines * 1 + 49) / 98)
-tabnext
-edit ~/git/note/summary/how_seoul_university_study.txt
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-wincmd t
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 181 + 182) / 364)
-exe 'vert 2resize ' . ((&columns * 182 + 182) / 364)
-argglobal
-setlocal autoindent
-setlocal backupcopy=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=fb:-,fb:*,n:>
-setlocal commentstring=
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal cursorlineopt=both
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'text'
-setlocal filetype=text
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal noscrollbind
-setlocal scrolloff=-1
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal showbreak=
-setlocal sidescrolloff=-1
-setlocal signcolumn=auto
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'text'
-setlocal syntax=text
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tagfunc=
-setlocal tags=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal wincolor=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 10 - ((9 * winheight(0) + 47) / 95)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-10
-normal! 0
-lcd ~/git/note/summary
-wincmd w
-argglobal
-if bufexists("~/git/note/summary/365_study_vitamin.txt") | buffer ~/git/note/summary/365_study_vitamin.txt | else | edit ~/git/note/summary/365_study_vitamin.txt | endif
-setlocal autoindent
-setlocal backupcopy=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=
-setlocal comments=fb:-,fb:*,n:>
-setlocal commentstring=
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal cursorlineopt=both
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'text'
-setlocal filetype=text
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=manual
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal noscrollbind
-setlocal scrolloff=-1
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal showbreak=
-setlocal sidescrolloff=-1
-setlocal signcolumn=auto
-setlocal smartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'text'
-setlocal syntax=text
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tagfunc=
-setlocal tags=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal noundofile
-setlocal undolevels=-123456
-setlocal wincolor=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 47) / 95)
+let s:l = 1 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-lcd ~/git/note/summary
 wincmd w
-exe 'vert 1resize ' . ((&columns * 181 + 182) / 364)
-exe 'vert 2resize ' . ((&columns * 182 + 182) / 364)
+exe '1resize ' . ((&lines * 98 + 55) / 111)
+exe '2resize ' . ((&lines * 1 + 55) / 111)
+exe '3resize ' . ((&lines * 1 + 55) / 111)
+exe '4resize ' . ((&lines * 1 + 55) / 111)
+exe '5resize ' . ((&lines * 1 + 55) / 111)
+exe '6resize ' . ((&lines * 1 + 55) / 111)
 tabnext 2
 set stal=1
 badd +1 ~/git/note/pour.txt
 badd +1 ~/git/note/dream.txt
-badd +26 ~/git/note/project/webserv.txt
-badd +18 ~/git/note/summary/how_seoul_university_study.txt
+badd +1 ~/git/note/project/ft_container.txt
+badd +11 ~/git/note/summary/how_seoul_university_study.txt
 badd +1 ~/git/note/cooperation.txt
 badd +2 ~/git/note/vocabulary.txt
 badd +1 ~/git/note/submit\ protocol.txt
-badd +1 ~/git/note/project/ft_container.txt
 badd +1 ~/git/note/todo/todo\ temp.txt
 badd +1 ~/git/note/todo/todo\ current.txt
 badd +1 ~/git/note/todo/todo\ near\ future.txt
-badd +0 ~/git/note/todo/todo\ dream.txt
+badd +1 ~/git/note/todo/todo\ dream.txt
 badd +1 ~/git/note/book_list.txt
-badd +152 ~/git/note/summary/365_study_vitamin.txt
+badd +0 ~/git/note/summary/365_study_vitamin.txt
+badd +26 ~/git/note/project/webserv.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
