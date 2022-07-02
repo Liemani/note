@@ -1,5 +1,110 @@
 pour.txt
 
+2022-06-30
+나는 백과사전을 만들고 싶었던 것일까?
+판타지 사전 등 모든 장르에 대해 문서화하고 정리해둘 수 있는 포멧
+C나 C++에서는 반환 값이 구조체이면 단순히 그 구조체의 데이터를 caller에게 복사하여 전달한다. 이를 reference를 전달하도록 언어가 지원하면 좋을 것 같다. 아 물런 C++에서는 &&가 해당 역할을 하는 것으로 보인다.
+아니면 반환값을 처음부터 reference를 인자로 받는 것처럼 처리할 수 있는 기능이 있었으면 좋겠다.
+아니면 객체가 스스로 반환값일 경우 reference로 동작하도록 하면 좋을 것 같다.
+왜) String debugDescription()을 구현하다보니 이런 필요성이 있었다.
+말은 누구나 한다. 행동을 보여라.
+
+ipp 파일은 custom namespace 안에서 include할 것이기 때문에 library를 include하지 말아야 한다.
+어떤 library를 include할 필요가 있다면, 이 ipp 파일을 include하는 hpp 파일의 상단에서 include 해주도록 하자.
+반면 cpp 파일은 hpp가 include하는 것이 아니라 hpp 파일을 include하기 때문에 각 cpp 파일의 상단에 필요한 library 파일을 include해주도록 한다.
+
+사람을 끌어당기는 매력적인 가상 세계를 만든다.
+그 안에서 자동화를 할 수 있다.
+이 가상 세계를 만들기 위해서는 가상 세계를 잘 정의할 수 있는 모델을 위한 모델이 있으면 좋겠다.
+1차원이나 2차원 편집에서 벗어나 다차원 편집이 가능했으면 좋겠다.
+각 플레이어가 자신만의 맵을 자신의 디바이스에 가지고 있다.
+플레이를 위해서는 서버 프로그램을 실행해야만 한다.
+만약 누군가 자신의 맵으로 들어오려고 하면 자신의 디바이스 자원을 사용하여 host 서버의 역할을 한다.
+자신의 맵으로 들어올 수 있는 사람을 마음대로 제한할 수 있다.
+많은 사람에게 자신의 맵을 공유할수록 중앙 서버로부터의 혜택을 받는다.
+각 맵은 광고를 할 수도 있고 사업을 할 수도 있다.
+
+# Xcode keymap
+<C-number>: editor menu
+<W-number>: navigators tab
+<MW-number>: inspectors tab
+
+<SW-C>: activate console
+<SW-Y>: show debug area
+
+<CSW-C>: copy symbol name
+<W-)>: hide/show navigators area
+<MW-)>: hide/show inspectors area
+
+## find menu
+    <W-F>: find
+    <MW-F>: find and replace
+
+    <W-G>: find next
+    <SW-G>: find previous
+
+    <MW-G>: find and select next
+    <MSW-G>: find and select previous
+
+    <SW-F>: find in workspace
+    <MSW-F>: find and replace in workspace
+
+    <W-E>: use selection for find
+    <SW-E>: use selection for replace
+
+    <MW-E>: select next occurence
+    <MSW-E>: select previous occurence
+
+    <CW-G>: find next in workspace
+    <CSW-G>: find previous in workspace
+
+    <CSW-F>: find selected symbol in workspace
+    <CSW-H>: find call hierarchy
+
+## navigate menu
+    <SW-J>: reveal in project navigator
+    <MW-~>: move focus to next area
+    <C-~>: move focus to next editor
+    <W-J>: move focus to editor
+    <SW-{>: show previous tab
+    <SW-}>: show next tab
+    <CW-left>: go forward
+    <CW-right>: go back
+    <MW-L>: jump to selection
+    <CW-J>: jump to definition
+    <W-">: jump to next issue
+    <SW-">: jump to previous issue
+
+## editor menu for asset catalog comparison
+    <CW-E>: edit all in scope
+    <CS-up>: selection: select column up
+    <CS-down>: selection: select column down
+
+    <W-{>: structure: shift left
+    <W-}>: structure: shift right
+
+    <MW-{>: structure: move line up
+    <MW-}>: structure: move line down
+
+    <W-?>: structure: comment selection
+    <MW-?>: structure: add documentation
+
+    <MW-left>: code folding: fold
+    <MW-right>: code folding: unfold
+
+    <MSW-left>: code folding: fold methods & functions
+    <MSW-right>: code folding: unfold methods & functions
+
+    <CSW-left>: code folding: fold comment blocks
+    <CSW-right>: code folding: unfold comment blocks
+
+## useful shortcut
+    <CW-J>: go to definition
+
+2022-06-24
+https://stackoverflow.com/questions/70412425/overriding-method-shadows-overloaded-final-version
+derived class가 base class의 함수를 override한 경우, compiler가 그 함수를 name look할 때 derived class에서 해당 name을 발견했다면 base class를 lookup하지 않는다. 이 때 기본적으로 using name;을 작성하여 base class의 name이 derived class에도 포함되도록 할 수 있다.
+
 2022-06-23
 json 출력용 함수를 만들면 좋을 것 같다. swift의 extension과 같은 느낌이면 될 것 같다.
 사용자 입장에서는 jsonString.describeAsJSON(); 이런 식이 되려나?
@@ -40,6 +145,12 @@ CI/CD에 관심이 있던 차에 특강을 해주셔서 좋았습니다.
 오늘 특강만으로 당장 깃허브 액션을 유창하게 사용할 수는 없겠지만
 어떤 것이며 무엇을 할 수 있을지 빠른 속도로 이해할 수 있었습니다.
 특강 준비해주셔서 감사합니다!
+
+솔직히 나도 특강을 들으면서 다소 빠르다는 느낌을 받았다.
+이를 애써 무시하고 feedback에 '좋았다' 라는 느낌만 남기는 것은
+다른 이로 하여금 재수 없는 사람으로 보이게 될 것이다.
+이는 서공가에서 읽어준 6천의 한 항목에 속하며 좋지 않은 행동이다.
+다음부터는 더 꼼꼼하고 공감을 받을 수 있는 리뷰를 남길 수 있도록 하자.
 
 2022-06-22
 'note_personal/idea: service.txt:대부분의 코드는 1차원적이다' 를 읽고
