@@ -1,5 +1,16 @@
 pour.txt
 
+2022-07-04
+template의 specialization을 정의할거면 차라리 그냥 해당 type을 따로 정의해버리지? 라는 생각이 들곤 했었다.
+그러나 해당 type을 따로 정의하는 것이 아닌 template specialization을 사용하면 얻을 수 있는 이점이 있다.
+만약 template function이라면 compiler가 type inference를 하여 template에서 instantiation을 할지 specialization을 사용할지 아니면 구체적인 해당 type의 구현이 존재하면 그것을 사용할지 판다한다.
+이 때 type inference로 인해 호출하는 입장에서는 굳이 특정 타입을 template syntax로 명시하지 않아도 된다.
+하지만 class 등 자료형의 template의 경우 compiler가 type inference를 지원하지 않기 때문에 호출하는 입장에서 반드시 template의 어떤 type인지 명시해주어야 한다.
+template과 non-tmplate 자료형의 이름이 같은 것이 공존하는 경우 어떤 일이 발생하는지 확인해보는 것도 좋을 것 같다.(아마 에러가 발생할 것이다. 아니라면 공존하는 코드를 본 경험이 있어야 할 텐데 본 적이 없기 때문이다.)
+따라서 자료형의 template은 function의 template과는 다르게 해당 type을 따로 정의할 수 없고 specialization을 정의하여 특정 type의 instance를 생성할 수 있도록 해야 한다.
+
+struct iterator_traits는 일반적으로 iterator type의 template이며 pointer type의 specialization이 존재하기 때문에 pointer type과 non-pointer type을 하나의 struct iterator_traits template으로 묶어서 코드를 작성할 수 있게 해준다.
+
 2022-07-03
 debug time에는 모든 object를 BaseObject를 상속받도록 컴파일하여 값을 읽고 쓰기 편하게 만들면 어떨까? (나는 객체의 내부 값을 보고 싶다!)
     이런 기능은 debugging 프로그램이 지원을 해줬으면 좋겠다. 그러면 그냥 클래스를 BaseObject를 상속받도록 컴파일하지 않아도 내부 값을 알아서 다 보여주면 된다.

@@ -12,9 +12,15 @@ cpp를 배우는 사람으로서 container를 깊게 이해하지 않는 다는 
 그걸로 충분하다.
 
 # pc
+sfinae wiki부터 읽기
 wrap_iter 구현하기
     wrap_iter 대신 이름을 iterator라고 해야 할까?
 vector prototype 구현하기
+iterator도 만들어야 할까? 그렇다.
+    subject
+    c++ spec
+    implementation
+    cppreference
 
 # finish
 cpp primer plus에서 template 읽고 작동 방식 다시 이해하기

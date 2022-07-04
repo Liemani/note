@@ -141,9 +141,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 102 + 55) / 111)
-exe '2resize ' . ((&lines * 1 + 55) / 111)
-exe '3resize ' . ((&lines * 1 + 55) / 111)
+exe '1resize ' . ((&lines * 71 + 55) / 111)
+exe '2resize ' . ((&lines * 0 + 55) / 111)
+exe '3resize ' . ((&lines * 33 + 55) / 111)
 exe '4resize ' . ((&lines * 1 + 55) / 111)
 argglobal
 setlocal autoindent
@@ -260,12 +260,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 8 - ((7 * winheight(0) + 51) / 102)
+let s:l = 12 - ((11 * winheight(0) + 35) / 71)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 028|
+12
+normal! 0177|
 wincmd w
 argglobal
 if bufexists("cooperation.txt") | buffer cooperation.txt | else | edit cooperation.txt | endif
@@ -383,7 +383,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 0) / 0)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -507,7 +507,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 0) / 1)
+let s:l = 1 - ((0 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -639,9 +639,9 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 102 + 55) / 111)
-exe '2resize ' . ((&lines * 1 + 55) / 111)
-exe '3resize ' . ((&lines * 1 + 55) / 111)
+exe '1resize ' . ((&lines * 71 + 55) / 111)
+exe '2resize ' . ((&lines * 0 + 55) / 111)
+exe '3resize ' . ((&lines * 33 + 55) / 111)
 exe '4resize ' . ((&lines * 1 + 55) / 111)
 tabnext
 edit ~/git/note/project/ft_container.txt
@@ -788,12 +788,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 49) / 98)
+let s:l = 15 - ((14 * winheight(0) + 49) / 98)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
-normal! 0
+15
+normal! 017|
 wincmd w
 argglobal
 if bufexists("~/git/note/todo/todo\ temp.txt") | buffer ~/git/note/todo/todo\ temp.txt | else | edit ~/git/note/todo/todo\ temp.txt | endif
@@ -1423,7 +1423,6 @@ set stal=1
 badd +1 ~/git/note/pour.txt
 badd +1 ~/git/note/dream.txt
 badd +1 ~/git/note/project/ft_container.txt
-badd +11 ~/git/note/summary/how_seoul_university_study.txt
 badd +1 ~/git/note/cooperation.txt
 badd +2 ~/git/note/vocabulary.txt
 badd +1 ~/git/note/submit\ protocol.txt
@@ -1432,7 +1431,8 @@ badd +1 ~/git/note/todo/todo\ current.txt
 badd +1 ~/git/note/todo/todo\ near\ future.txt
 badd +1 ~/git/note/todo/todo\ dream.txt
 badd +1 ~/git/note/book_list.txt
-badd +0 ~/git/note/summary/365_study_vitamin.txt
+badd +11 ~/git/note/summary/how_seoul_university_study.txt
+badd +1 ~/git/note/summary/365_study_vitamin.txt
 badd +26 ~/git/note/project/webserv.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
