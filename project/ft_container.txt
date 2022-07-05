@@ -2,17 +2,23 @@ ft_container.txt
 
 # why?
 이 과제를 진행하면서 iterator에 대해 깊게 이해할 수 있을 것이다.
-이 이해를 바탕으로 나도 확장성 있는 코드를 작성하는 능력을 얻을 수 있을 것이다.
-container는 cpp의 기본격이다.
-cpp를 배우는 사람으로서 container를 깊게 이해하지 않는 다는 것은 말이 되지 않는다.
-나는 common core를 돌파해야만 한다.
-
+    이 이해를 바탕으로 나도 확장성 있는 코드를 작성하는 능력을 얻을 수 있을 것이다.
+    container는 cpp의 기본격이다.
+    cpp를 배우는 사람으로서 container를 깊게 이해하지 않는 다는 것은 말이 되지 않는다.
+    나는 common core를 돌파해야만 한다.
 그냥 하는거다 살려고 하는거다 42과정을 돌파해야만 한다.
-그냥 일단은 하라는 걸 하는거다.
-그걸로 충분하다.
+    그냥 일단은 하라는 걸 하는거다.
+    그걸로 충분하다.
 
 # pc
-sfinae wiki부터 읽기
+vector(InputIt first, InputIt last, const Allocator& alloc = Allocator())
+    를 좋은 블로그에서 본 것처럼 template을 바꾸자
+        spec에서 보니 prototype의 강제성은 없는 것 같다.
+iterator 구현할 내용 계속 진행하면서 추가하기
+c++11의 사용을 최소화하기 위해
+    type_traits:is_integral에서 사용한 struct remove_cv를 제거해보기
+struct has_iterator_typedef의 value를 계산할 때 test()의 인자를 아무것도 주지 않으면 어떻게 될까?
+std::vector의 make_iter가 실행될 때 __wrap_iter의 어떤 constructor를 호출하는지 확인하기
 wrap_iter 구현하기
     wrap_iter 대신 이름을 iterator라고 해야 할까?
 vector prototype 구현하기
@@ -23,6 +29,7 @@ iterator도 만들어야 할까? 그렇다.
     cppreference
 
 # finish
+sfinae wiki부터 읽기
 cpp primer plus에서 template 읽고 작동 방식 다시 이해하기
 iterator 파헤치기
     wrap_iter가 'pour.txt:2022-06-22' 에 작성한 생각과 같을까?

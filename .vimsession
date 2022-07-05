@@ -2,13 +2,13 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-inoremap <C-D> <Del>
-inoremap <C-E> <End>
-inoremap <C-A> <Home>
-inoremap <C-F> <Right>
 inoremap <C-B> <Left>
+inoremap <C-F> <Right>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+inoremap <C-D> <Del>
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
 cnoremap <C-D> <Del>
 cnoremap <C-E> <End>
 cnoremap <C-A> <Home>
@@ -29,11 +29,11 @@ nnoremap K <Nop>
 nnoremap U <Nop>
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
-nnoremap <F11> :set nomodifiable:set nowrite
-nnoremap <F11><F11> :set modifiable:set write
-vmap <F1> :Stdheader
-omap <F1> :Stdheader
 nnoremap <F12><F12> :set modifiable:set write
+omap <F1> :Stdheader
+vmap <F1> :Stdheader
+nnoremap <F11><F11> :set modifiable:set write
+nnoremap <F11> :set nomodifiable:set nowrite
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <C-L> 
@@ -141,10 +141,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 71 + 55) / 111)
-exe '2resize ' . ((&lines * 0 + 55) / 111)
-exe '3resize ' . ((&lines * 33 + 55) / 111)
-exe '4resize ' . ((&lines * 1 + 55) / 111)
+exe '1resize ' . ((&lines * 49 + 39) / 78)
+exe '2resize ' . ((&lines * 0 + 39) / 78)
+exe '3resize ' . ((&lines * 22 + 39) / 78)
+exe '4resize ' . ((&lines * 1 + 39) / 78)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -260,12 +260,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 35) / 71)
+let s:l = 3 - ((2 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 0177|
+3
+normal! 0
 wincmd w
 argglobal
 if bufexists("cooperation.txt") | buffer cooperation.txt | else | edit cooperation.txt | endif
@@ -507,7 +507,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 16) / 33)
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -639,10 +639,10 @@ normal! zt
 normal! 0
 lcd ~/git/note
 wincmd w
-exe '1resize ' . ((&lines * 71 + 55) / 111)
-exe '2resize ' . ((&lines * 0 + 55) / 111)
-exe '3resize ' . ((&lines * 33 + 55) / 111)
-exe '4resize ' . ((&lines * 1 + 55) / 111)
+exe '1resize ' . ((&lines * 49 + 39) / 78)
+exe '2resize ' . ((&lines * 0 + 39) / 78)
+exe '3resize ' . ((&lines * 22 + 39) / 78)
+exe '4resize ' . ((&lines * 1 + 39) / 78)
 tabnext
 edit ~/git/note/project/ft_container.txt
 set splitbelow splitright
@@ -667,12 +667,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 98 + 55) / 111)
-exe '2resize ' . ((&lines * 1 + 55) / 111)
-exe '3resize ' . ((&lines * 1 + 55) / 111)
-exe '4resize ' . ((&lines * 1 + 55) / 111)
-exe '5resize ' . ((&lines * 1 + 55) / 111)
-exe '6resize ' . ((&lines * 1 + 55) / 111)
+exe '1resize ' . ((&lines * 65 + 39) / 78)
+exe '2resize ' . ((&lines * 1 + 39) / 78)
+exe '3resize ' . ((&lines * 1 + 39) / 78)
+exe '4resize ' . ((&lines * 1 + 39) / 78)
+exe '5resize ' . ((&lines * 1 + 39) / 78)
+exe '6resize ' . ((&lines * 1 + 39) / 78)
 argglobal
 setlocal autoindent
 setlocal backupcopy=
@@ -788,12 +788,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 15 - ((14 * winheight(0) + 49) / 98)
+let s:l = 14 - ((13 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-15
-normal! 017|
+14
+normal! 087|
 wincmd w
 argglobal
 if bufexists("~/git/note/todo/todo\ temp.txt") | buffer ~/git/note/todo/todo\ temp.txt | else | edit ~/git/note/todo/todo\ temp.txt | endif
@@ -1412,12 +1412,12 @@ normal! zt
 1
 normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 98 + 55) / 111)
-exe '2resize ' . ((&lines * 1 + 55) / 111)
-exe '3resize ' . ((&lines * 1 + 55) / 111)
-exe '4resize ' . ((&lines * 1 + 55) / 111)
-exe '5resize ' . ((&lines * 1 + 55) / 111)
-exe '6resize ' . ((&lines * 1 + 55) / 111)
+exe '1resize ' . ((&lines * 65 + 39) / 78)
+exe '2resize ' . ((&lines * 1 + 39) / 78)
+exe '3resize ' . ((&lines * 1 + 39) / 78)
+exe '4resize ' . ((&lines * 1 + 39) / 78)
+exe '5resize ' . ((&lines * 1 + 39) / 78)
+exe '6resize ' . ((&lines * 1 + 39) / 78)
 tabnext 2
 set stal=1
 badd +1 ~/git/note/pour.txt

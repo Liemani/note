@@ -1,5 +1,17 @@
 pour.txt
 
+2022-07-05
+std::vector의 특정 부분이 #ifndef으로 상태에 따라 다르게 컴파일 되는데 나는 어떤 코드가 컴파일되는지 궁금했다.
+그래서 vector 파일을 내 working directory로 복사하고 두 경우를 각각 직접 컴파일 해보고 에러가 나는지 확인해 보았다.
+#if _LIBCPP_DEBUG_LEVEL >= 2
+의 경우 false가 되며 #else가 컴파일 된다는 것을 알 수 있었다.
+
+# https://eli.thegreenplace.net/2014/sfinae-and-enable_if/
+SFINAE와 더불어 enable_if 구조체를 너무 잘 설명한 글이다.
+글쓴이가 대상에 대한 완벽한 이해를 바탕으로, 자신의 경험을 살려 부드럽고 자연스러운 흐름으로 이야기를 주체적으로 전개해 나간다.
+사용한 예시들도 너무 적합하고 이 과정에서 얻게되는 문단 별 지식과 추가적인 관점에서의 지식도 얻을 수 있다.
+나도 대상을 올바르고 완벽히 파악한 상태에서 이런 멋진 글을 많이 작성할 수 있게 되었으면 좋겠다.
+
 2022-07-04
 template의 specialization을 정의할거면 차라리 그냥 해당 type을 따로 정의해버리지? 라는 생각이 들곤 했었다.
 그러나 해당 type을 따로 정의하는 것이 아닌 template specialization을 사용하면 얻을 수 있는 이점이 있다.
@@ -10,6 +22,19 @@ template과 non-tmplate 자료형의 이름이 같은 것이 공존하는 경우
 따라서 자료형의 template은 function의 template과는 다르게 해당 type을 따로 정의할 수 없고 specialization을 정의하여 특정 type의 instance를 생성할 수 있도록 해야 한다.
 
 struct iterator_traits는 일반적으로 iterator type의 template이며 pointer type의 specialization이 존재하기 때문에 pointer type과 non-pointer type을 하나의 struct iterator_traits template으로 묶어서 코드를 작성할 수 있게 해준다.
+
+cpp에서 template은 signature를 통해 type incerence를 할 수 있다.
+type argument를 통해 특정한 instansiation을 만들 수도 있다.
+compile time의 instantiation time에 static member variable의 값 계산을 마치기 위해 constant expression만으로 원하는 계산을 하도록 할 수 있다.
+이 때 constant expression에 sizeof()를 사용할 수 있다.
+
+SFINAE를 알아가면서 사용한 학습 방식의 단계
+1. 뭐가 뭔지 알지 못한다. 단어도 모르고 개념도 모르고 연관 관계도 모르고 의도와 목적도 모른다.
+2. 일단 읽다보니 뭔가 눈에 익는다.
+3. 따라해 보지만 에러가 많이 난다.
+4. 에러를 고치다보니 어떤 부분에 어떤 제한이 있는지 알게 된다.
+5. 이 제한 속에서 내가 무엇을 할 수 있는지 알게 된다.
+6. 나만의 코드를 작성하고 실험하는데 성공한다.
 
 2022-07-03
 debug time에는 모든 object를 BaseObject를 상속받도록 컴파일하여 값을 읽고 쓰기 편하게 만들면 어떨까? (나는 객체의 내부 값을 보고 싶다!)
