@@ -11,9 +11,18 @@ ft_container.txt
     그걸로 충분하다.
 
 # pc
+__tree의 compare는 map에서 value_compare를 넣어주는데 이게 어떻게 작동하며 set과 map 간에 어떤 차이를 가지고 작동하는지 읽어보기
+__tree의 iterator가 randomaccess_iterator일까?
+    c++98 spec에는 reverse_iterator의 template argument인 iterator type이 random_access_iterator여야 한다고 한다.
+    24.4.1.2:2
+조사
+    map
+    set
+    __tree
 vector(InputIt first, InputIt last, const Allocator& alloc = Allocator())
     를 좋은 블로그에서 본 것처럼 template을 바꾸자
         spec에서 보니 prototype의 강제성은 없는 것 같다.
+        그런데 이렇게 하면 제한이 들어가서 좋기는 한데, is_convertible이 C++11이라 이 과제에서는 사용하지 않는 것이 좋을 것 같다.
 iterator 구현할 내용 계속 진행하면서 추가하기
 c++11의 사용을 최소화하기 위해
     type_traits:is_integral에서 사용한 struct remove_cv를 제거해보기
@@ -27,6 +36,7 @@ iterator도 만들어야 할까? 그렇다.
     c++ spec
     implementation
     cppreference
+container tester 돌리기(42 notion, slack 검색)
 
 # finish
 sfinae wiki부터 읽기
