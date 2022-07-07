@@ -39,6 +39,7 @@ iterator도 만들어야 할까? 그렇다.
 container tester 돌리기(42 notion, slack 검색)
 
 # finish
+bst_node와 bst의 debugDescription()을 작성하고 있었다.
 sfinae wiki부터 읽기
 cpp primer plus에서 template 읽고 작동 방식 다시 이해하기
 iterator 파헤치기
