@@ -1,5 +1,6 @@
 book_list.txt
 
+Introduction to Algorithms, Third Edition
 csapp
 greatest books: 서공가: DEC 11, 2015 E28 존 스튜어트 밀을 천재로 만든 고전 독서법_1회
 학문의 즐거움: 서공가: NOV 6, 2015 우리가 공부해야 하는 네 가지 이유

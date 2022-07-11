@@ -11,6 +11,7 @@ ft_container.txt
     그걸로 충분하다.
 
 # pc
+새로 추가한 bst_node::makeConnectToChild()를 remove()에 추가하기
 primitive bst의 remote() 구현하기
 __tree의 compare는 map에서 value_compare를 넣어주는데 이게 어떻게 작동하며 set과 map 간에 어떤 차이를 가지고 작동하는지 읽어보기
 __tree의 iterator가 randomaccess_iterator일까?
