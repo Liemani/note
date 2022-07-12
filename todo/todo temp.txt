@@ -1,10 +1,15 @@
 todo temp.txt
 
 # pc
+container하기
+	rb tree
+		avl
+			tail recursion elimination
+				structure and interpretation of computer programs
+					taocp
 env에서 generateCppClass의 template을 수정하기
 파일의 이름과 동시에 클래스의 이름을 바꾸는 프로그램
 contents안에 내용물을 넣던 형식을 밖으로 빼도록 수정하자
-container하기
 블로깅 하기(42에 있는 동안 학습한 것)
 반복: 시험
 7월에 포인트를 위해 netpractice 하기

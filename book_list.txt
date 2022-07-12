@@ -1,5 +1,9 @@
 book_list.txt
 
+structure and interpretation of computer programs
+    https://web.mit.edu/6.001/6.037/sicp.pdf
+avl-2.0.2
+    https://adtinfo.org
 Introduction to Algorithms, Third Edition
 csapp
 greatest books: 서공가: DEC 11, 2015 E28 존 스튜어트 밀을 천재로 만든 고전 독서법_1회
