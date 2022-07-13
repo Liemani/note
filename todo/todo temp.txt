@@ -2,11 +2,15 @@ todo temp.txt
 
 # pc
 container하기
-	rb tree
-		avl
-			tail recursion elimination
-				structure and interpretation of computer programs
-					taocp
+    rb tree
+        avl
+            tail recursion elimination
+                structure and interpretation of computer programs
+                    taocp
+        2-4 B-tree
+            LLRB
+pdf의 내용과 함께 화면에 불투명한 사각형 두 개가 위 아래로 있어서 가운데가 highlight된 것 같은 효과를 가지는 layer를 출력하는 mac app 만들기
+    "hello, world!"를 window에 출력하는 mac app 만들어보기(이 때, 해당 app은 application directory로 옮기는 것으로 실행이 가능해야 한다.)
 env에서 generateCppClass의 template을 수정하기
 파일의 이름과 동시에 클래스의 이름을 바꾸는 프로그램
 contents안에 내용물을 넣던 형식을 밖으로 빼도록 수정하자
@@ -15,17 +19,17 @@ contents안에 내용물을 넣던 형식을 밖으로 빼도록 수정하자
 7월에 포인트를 위해 netpractice 하기
 ## register
 틈새 시간에 할 일 찾아놓기: 책이 무난할 것 같다. 소리가 없으면서 깊게 생각을 하지 않아도 되기 때문
-	하지만 오디오도 좋다. 청각을 사용하여 데이터를 입력받음으로써 시각을 자유롭게 사용할 수 있다.
+    하지만 오디오도 좋다. 청각을 사용하여 데이터를 입력받음으로써 시각을 자유롭게 사용할 수 있다.
 conflict를 해결하기 위해 3 hand merge를 각 파일 별로 보여주는 방법이 절실하다.
 소스 코드를 내가 직접 만든 플로우 차트처럼 도식화하여 보여주는 프로그램
 throw의 instruction 수준 구현
-	exception 어셈코드 보기
+    exception 어셈코드 보기
 RTTI의 instruction 수준 차이
 stream을 deep하게 알 수 있는 문서
 webserv 하면서 얻은 협업 시 git 관리법! 을 정리하여 블로깅하기
 모든 상황 변화를 로그로 남기는 곳이 있으면 어떨까?
-	모든 팀원이 내부 상황을 동기화하기 위해서
-personal document format을 수정하기(:%s/^\(	*\)- /\1	/gc)
+    모든 팀원이 내부 상황을 동기화하기 위해서
+personal document format을 수정하기(:%s/^\( *\)- /\1    /gc)
 structure를 return하는 함수의 어셈코드 보기
 반환값이 어떻게 작동하는지 어셈코드 보기
 ## slack
@@ -42,34 +46,34 @@ safari 정리하기(tab group 너무 무겁다;;)
 - stringstream.str()을 하면 buffer의 내용을 전부 가지고 string을 생성하는데, stringstream의 최대 크기도 존재하지 않을까? 그러면 stringstream을 만들 때 전달받은 original string 값이 손실될 수도 있지 않을까?
 - bit field structure의 값 read/write는 instruction 수준에서 어떻게 작성될까?
 - kernel은 process의 실행 흐름을 어떻게 뺏어오는 것일까? 특정 count가 지나면 강제로 pc를 바꾸면 되겠구나?
-	그보다 더 구체적이고 복잡한 동작을 할 것이다.(scheduling)
+    그보다 더 구체적이고 복잡한 동작을 할 것이다.(scheduling)
 - global const type은 공간을 차지하지 않을까?
 - copy constructor의 구현에 따라 copy constructor 시에 assignment operator가 호출될 수 있다?
-	- 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
-		- cppModule02ex00, c++ prime plus
+    - 어떻게 해야 'Type instance = Type()'이 assignment operator를 호출하도록 할 수 있을까?
+        - cppModule02ex00, c++ prime plus
 - minicanvas web program
 - std::string을 바꿀 때 copy assignment operator를 사용할까 아니면 char*로 쉽게 교체하는 함수가 존재할까?
 새로운 실험을 할 때는 기존 코드에서 하기보다는 문제와 실험을 쏙 빼서 테스트하여 나중에 쉽게 재구현 및 실험의 결과를 통해 알게된 점을 쉽게 revisit할 수 있게 하자.
 정리할 자료 파악하고 정리하기
 - 어차피 한 번에 다 정리 못하니, 여러번에 걸쳐서 조금씩 진행해 나간다고 생각하자
 - 이 apple note 어플, 하드 디스크, iCloud, git
-	- apple note 어플: 약 950 개
-	- 하드 디스크: 2 개
-	- iCloud: 일기 2 개
-	- 북마크
-		- tab group 은 cache 로 사용하고 북마크는 memory
-	- 읽기 목록
-	- 하드
-	- 메모
-	- 슬랙 saved
+    - apple note 어플: 약 950 개
+    - 하드 디스크: 2 개
+    - iCloud: 일기 2 개
+    - 북마크
+        - tab group 은 cache 로 사용하고 북마크는 memory
+    - 읽기 목록
+    - 하드
+    - 메모
+    - 슬랙 saved
 - 파악한 자료 정리하기
-	- 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
-		- 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
+    - 정리할 자료가 어디어디에 어떤 형태로 존재하는지 파악하기
+        - 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 왜? 를 설명해 놓았다면 더 좋았을 것이다. cli 따라하기에서
 
 # finish
 나는 공용 라이브러리를 만들기 위해 검색을 하고 있었다.
-	template을 연습하고 있는데 각종 객체의 내용을 json 형식으로 출력하고 싶었기 때문이다.
+    template을 연습하고 있는데 각종 객체의 내용을 json 형식으로 출력하고 싶었기 때문이다.
 git action 특강 feedback 남기기
 cpp_library를 backup했다. 정리하자.
 debug를 backup했다. 정리하자.
@@ -102,38 +106,38 @@ new를 사용했을 때 발생할 수 있는 memory error를 어떻게 처리할
 vimsession이 상호 호환 안되는 문제 해결
 cppModule
 - 01
-	- sed 작성하기
+    - sed 작성하기
 - 02
-	- 마지막 테스트 작성
-	- try catch로 0으로 나누는 테스트 케이스 작성하기
-	- shift에 따른 instruction차이 살펴보기
-	- float을 shift할 때 발생하는 변화 관찰하기
+    - 마지막 테스트 작성
+    - try catch로 0으로 나누는 테스트 케이스 작성하기
+    - shift에 따른 instruction차이 살펴보기
+    - float을 shift할 때 발생하는 변화 관찰하기
 - 03
-	- ClapTrap, ScavTrap, FragTrap의 destructor가 virtual이도록 수정하기
-	- derived class에서 overried되는 method를 virtual로 수정하기
-	- base class의 private member accessor method를 protected section으로 옮겨야 할까?
-	- ex03
-		- DiamondTrap 작성하기
-		- 책 읽고 필요 지식 학습하기
-	- ScavTrap과 FragTrap에 polymorphism feature을 test하기
-	- DiamondTrap test file 작성하기
+    - ClapTrap, ScavTrap, FragTrap의 destructor가 virtual이도록 수정하기
+    - derived class에서 overried되는 method를 virtual로 수정하기
+    - base class의 private member accessor method를 protected section으로 옮겨야 할까?
+    - ex03
+        - DiamondTrap 작성하기
+        - 책 읽고 필요 지식 학습하기
+    - ScavTrap과 FragTrap에 polymorphism feature을 test하기
+    - DiamondTrap test file 작성하기
 - 04
-	- character
-		- inventory에서 unequip한 materia의 주소를 반환하여 할당 해제를 할 수 있도록 만들어야 한다.
-		- use()를 할 때 사용한 materia를 delete해줄까?
-		- 지금 character의 inventory가 어떤 materia를 가지고 있는지 가시적으로 출력하던가 보여줄 필요가 있다.
-	- ex03 마무리하고 평가받기
+    - character
+        - inventory에서 unequip한 materia의 주소를 반환하여 할당 해제를 할 수 있도록 만들어야 한다.
+        - use()를 할 때 사용한 materia를 delete해줄까?
+        - 지금 character의 inventory가 어떤 materia를 가지고 있는지 가시적으로 출력하던가 보여줄 필요가 있다.
+    - ex03 마무리하고 평가받기
 - 05
-	- ex02
-		- 세 form의 orthodox 작성
-		- 세 form의 exception throw 검토
-		- test case 검토
-	- ex03
+    - ex02
+        - 세 form의 orthodox 작성
+        - 세 form의 exception throw 검토
+        - test case 검토
+    - ex03
 - 06
-	- ex00
-		- 각 class의 set이 detect를 호출하도록 하고, overflow등이 발생하지 않아야 true를 반환하도록 하기
-		- inspector를 private으로 옮기기
-		- class마다 std::string를 반환하는 describe() 작성하기
+    - ex00
+        - 각 class의 set이 detect를 호출하도록 하고, overflow등이 발생하지 않아야 true를 반환하도록 하기
+        - inspector를 private으로 옮기기
+        - class마다 std::string를 반환하는 describe() 작성하기
 - 07, 08
 slack 다 읽어보고 slack email 왜 내 메일로 안날라오는지 알아보기
 merge .private(origin/backup)
@@ -171,7 +175,7 @@ todo.txt 를 pc 와 finish 만 남도록 나머지는 다른 파일로 옮기기
 - 컴퓨터 화면을 누워서 볼 수 있도록 하면 누워서 컴퓨터를 보면서 키보드로 타이핑 하는 것이 가능해진다
 tcpppl 을 읽으면서 cpp 의 역사를 보고 있다. 다른 언어의 역사와 함께 cpp 의 역사를 보면서 전체적인 프로그램 언어의 역사를 이해해보자
 - https://en.wikipedia.org/wiki/Timeline_of_programming_languages
-	- programming language timeline
+    - programming language timeline
 todo.txt 를 todo_now.txt, todo_future.txt 등으로 세분화해서 관리하기
 - 개인 mac 에서 이 작업을 하면 vim version 이 달라 .vimsession 읽고 쓸 때 에러가 발생하는 것이 싫으니 나중에 클러스터에 가면 이 작업을 하도록 하자
 automatic 이 아닌 변수는 프로그램이 시작하기 전에 한 번만 초기화를 한다고 한다. static variable 도 그럴까? 함수가 호출되기 전에 이미 초기화가 되어 있는 것일까? 아니다
