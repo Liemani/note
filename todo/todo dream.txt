@@ -1,5 +1,30 @@
 todo dream.txt
 
+# 키보드로만 할 수 있는 재밌는 많은 것들
+
+# 자동화 시뮬레이션
+
+# 현실 시뮬레이션 -> 여러 많은 문제를 해결, 여러 질문에 대답
+
+# 컴파일러
+생성할 실행 파일은 각 칩의 instruction set에 귀속된다.
+생성할 실행 파일은 각 운영체제에 귀속된다.
+binary format
+Mach-O
+universal binary
+fat binaries(multiarchitecture binary)
+executable program
+object file
+armv6, armv7, armv7s, arm64
+ABI(Application Binary Interface)
+
+# 영상 편집, 음향 편집
+
+# 마비노기에서 시세를 데이터로 만들거나 다른 게임에서도 데이터를 수집하는 등, 데이터를 수집하는 프로그램
+
+# 글을 읽기 편하게 읽고 있는 부분을 하이라이트해주는 프로그램
+글을 많이 읽고 써야하는 입장이기 때문에 매우 중요한 프로그램이다.
+
 # custom gui file system finder
 file system을 gui로 보여주는데 단순히 finder를 넘어서 재밌게 보여주고 탐험할 수 있도록 만들자.
 
