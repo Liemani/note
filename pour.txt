@@ -1,5 +1,278 @@
 pour.txt
 
+2023-02-10
+어셈블리 코드 만들기
+    clang -S <path>
+오브젝트 파일 만들기
+    clang -c <path>
+disassembler 사용하기(오브젝트 파일 혹은 실행 파일)
+    objdump -d <path>
+
+https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary
+clang으로 x86-64 machine으로 컴파일하기
+clang -c <file name> -target x86_64-apple-macos10.12
+
+lldb
+display register and it's value
+    register read
+save all? log to a file
+    session save <path>
+display memory
+    memory read <address_expression>
+rsp에 저장된 값을 주소로 하는 memory에 저장된 값을 출력
+    memory read $rsp
+byte_count만큼 출력
+    memory read -c <byte_count> $rsp
+
+AArch64 register prefix
+B: byte
+H: halfword
+S: single
+D: double
+Q: quad
+
+8 바이트보다 작은 크기를 8 바이트 레지스터에 넣으면 여분의 공간은 0으로 설정된다고 한다, 실험해보자
+
+2023-02-05
+most significant bit
+leading beats
+
+2023-01-31
+https://www.rfc-editor.org/rfc/rfc7230
+- rfc를 웹에서 보기 좋게 수정한 페이지
+https://www.ietf.org/rfc/rfc7230.txt
+- raw한 rfc 문서
+
+2023-01-04
+- read safari id iticle
+- make simple compiler using c compiler
+    - study assembly
+
+2023-01-02
+# Metal Programming Guide - Comprehensive Tutorial and Reference via Swift
+rasterization
+- opposite to ray tracing, project primitives to the screen, then loop over the pixels to determine whether that pixel is filled with the object.
+fragment shading
+- responsible for determining the color of pixel
+- If you are doing texture mapping to an object, the fragment shader manages that task as well
+
+
+2022-12-18
+id
+group
+
+2022-12-01
+liemani 지표: 게임을 구성하는 시스템을 비율로 표현한 지표, 100%를 채우면 게임을 클리어할 수 있음을 의미한다
+ex) mindustry의 liemani 지표: 단순 건설 30% / 설계 90% / 로직 100%
+100%를 채우는 것이 총 게임 플레이 중 차지하는 비중을 표현하는 지표도 있으면 괜찮을 것 같다(단, 100%가 단위 시간을 의미함)
+
+2022-11-30
+가치관의 우선순위에 따른 행동을 한다고 가정할 때,
+낮은 수준의 욕구 충족이 적절히 제한된 환경에 처하게 된다면
+높은 수준의 욕구를 충족하기 위해 노력하게 되는 것이 아닐까?
+
+2022-11-27
+render pipeline에는 3 단계가 있다
+가운데 단계를 제외한 첫 단계와 세 번째 단계를 customize할 수 있다
+이게 apple doc에서 이미지와 함께 봤는데 그걸 다시 보도록 하자
+vertices
+vertex function
+rasterization
+fragment function
+pixels
+
+2022-11-23
+오늘 metal을 사용하여 사각형을 출력하는 예제를 실행해 보았다
+하지만 scene kit에서도 삼각형을 출력할 수 있다면, 굳이 metal을 사용하지 않아도 될 것 같다
+
+2022-11-22
+game
+metal
+shader
+
+2022-11-07
+xcode key bindings
+show code review
+
+2022-11-03
+https://www.baeldung.com/linux/bash-single-vs-double-brackets
+    differences between single square bracket and double square bracket
+
+2022-10-18
+static variable의 단점
+    어떤 변수가 언제 초기화 되었는지 추적하기가 어렵다
+하지만 multi-thread 환경에서 non-static variable만을 사용한다면, 원하는 변수로의 접근이 까다로워진다
+아이템을 집으라고 했는데 예외가 발생한다면, 그 때까지 몇 개의 아이템을 집었는지는 어떻게 전달하지??
+
+2022-10-17
+함수의 이름은 호출되는 곳에서 읽히기 좋도록 user 입장의 이름으로 짓는다
+내부적 구현부에는 동작에 대한 설명을 남겨 놓는다
+꾸준히 하면 해낼 수 있다는 것을 믿자
+
+2022-10-16
+# 내면의 세계를 다듬자
+헝그리 정신
+여기가 나의 보금자리이다
+하지 않으면 아무것도 이뤄지지 않는다
+가진자들이 더 발전하지 못하고 멈춰버리는 것은 아무것도 하지 않아도 만족하기 때문이다
+'언제까지 하지?' 하는 식의 애매함이 존재한다
+    간단한 수준의 시간표 등을 두는 것이 이 문제를 해결하는데 좋은 도구로 사용할 수 있을 것 같다
+        가령 지금 9시 48분 인데, 11시까지만 하자
+        만약 작업 중단의 기준을 작업 단위로 삼는다면 시간을 예측하더라도 변동성이 크다
+        따라서 시간을 확실히 지키기 위해서는 작업 중단의 기준을 시간으로 정하는 것이 좋을 것이다
+# programming
+게임을 만들고 싶다
+프로그래밍을 그래픽화한 게임
+말단의 단위 모듈을 설계하고, 그 모듈을 활용하여 더 큰 모듈을 설계하는 공장 게임
+우주 배경의 샌드박스 게임
+    오픈 월드에 오브젝트만 존재하고, 물리 법칙에 따라 창의적인 활동이 가능하다
+## java에서 힘들었던 점
+instance들이 null인데 따로 체크하지 않고 값이 들어있을 것이라고 가정하고 사용을 하다가 exception이 발생한 경우가 많았다
+swift처럼 optional type과 non-optional type을 분류하여 설정하고, 만약 optional type이면 null을 체크하도록 하자
+## scribble
+cpp 처럼 인자가 있는 함수를 호출할 때, 첫 번째 인자를 invoker로서 함수를 호출하는 방식은 자연스러운 서술을 위해 필수라고 생각한다
+    비록 특정 type을 invoker로서 호출 가능한 함수들이 한 파일에 담기지 않고, 예측 불가능하게 여기 저기 흩어져 존재하게 될 수는 있을 것이다
+    하지만 나는 그런 정리의 측면보다, 호출하는 곳에서의 자연스러운 서술을 위한 다양한 서술 방식의 지원이 더 중요하다고 생각한다
+
+2022-10-14
+tiny space program 게임을 하는데, 처음에는 탐험을 즐기며 플레이했다
+    그런대 나중에 와서야 돌이킬 수 없는 큰 영향을 미치는 시스템이 있다는 것을 알게 되었다
+    그래서 처음부터 다시 플레이하고자 한다
+    돌이킬 수 없는 시스템은 가능한 없는게 좋을 것 같다
+    아니면 최소한 그것이 미치는 영향이 사소해야 할 것 같다
+
+2022-10-07
+정말 통일된 초기화, 클리어 과정이 아니라면 함수 하나로 묶지 말자,
+    섬세한 프로그램의 특성 상 결국 세세한 부분에서 초기화, 클리어 과정을 따로 따로 호출해야 한다
+
+2022-10-04
+pathfinding 실패 시 해당 위치에서의 시야 데이터를 추가할 수 있으나, 연산량이 불필요하게 많아진다고 생각한다
+    그렇게 긴 거리의 pathfinding을 할 일은 많지 않을 것이다
+
+2022-10-03
+물체의 사라짐도 서버로부터 받은 메세지로 처리된다
+따라서 서버의 로직을 알기 위해 분석을 시도하거나, 확실히 커버 가능한 부분만 다루는 방법이 있다
+서버가 처리하는 방식은 타일 단위로 딱 떨어지는 것도 아니고 그 절반인 것도 아니라, 불명확하다고 판단한다
+따라서 커버 가능한 확실한 부분만 스캔하여 사용하도록 구현해보자
+
+2022-09-28
+lookup table
+
+2022-09-26
+graph traversal
+path search algorithm
+
+2022-09-25
+uhd 3840x2160 = 16:9
+4:3 2880:2160
+3:2 3240:2160
+fhd 1920x1080
+3:2 1620:1080
+13" 2560x1600 = 16:10
+
+2022-09-23
+오랜만에 코드를 봤을 때 청크가 크면 뇌 메모리에 로드하는데 시간이 오래 걸린다
+청크 단위를 작게 만들고 각 청크가 온전함을 확신할 수 있는 방식으로 하자
+강제로 어떤 행동을 시킬 때도, 몇 번 실패하면 불가능한 것으로 간주하도록 하자
+git tag <tag name>
+git tag --delete <tag name>
+git push lmi --tags
+git push --delete <remote> <tag name>
+parseInt()
+
+2022-09-18
+일단 button이 factory에 의해 생성됐을 때 delegate.buttonDidCreated()를 호출하겠지만, 실제로는 UI.newwidget()에서 bind()까지 호출돼야 완벽하게 생성된 것이다
+
+2022-09-15
+event driven
+
+2022-09-12
+많은 생각을 가지고 적용한 구현은(나중에 헷갈릴 만한 것들은 전부) 파일 상단에 주석으로 설명을 남겨놓자
+    나 뿐만 아니라 다른 사람들이 읽고 이해하는데에도 도움이 될 것이다
+비슷한 유형의 함수들이 존재할 때 함수의 유형 별로 묶어서 정리하는 것보다 함수가 속하는 객체 기준으로 묶어서 정리하는 것이 파악하기 편하다
+
+2022-09-11
+연산 함수가 아니라면 자기 자신을 반환하지 않는 것이 구조상 예쁘다
+
+2022-09-06
+hafen client가 강제 종료되면 뭔가 제대로 저장이 되지 않는가 다음 실행 시 제대로 실행되지 않는 경우가 발생하곤 한다
+method call은 polymolphism이 기본이다
+    만약 polymolphism을 허용하지 않고, 상속받은 class도 현재 class와 동일한 함수를 호출하는 것을 보장하기 위해서는 final keyword를 붙여서 override 하지 못하도록 강제하면 된다
+
+2022-09-05
+캐릭터의 이동으로는 뭔가 bounding box를 1 더 잡아먹는 것 같다?
+
+2022-09-02
+url로 인터넷 열기
+	protected void clicked(CharPos pos) {
+	    AttributedCharacterIterator inf = pos.part.ti();
+	    inf.setIndex(pos.ch.getCharIndex() + pos.part.start);
+	    FuckMeGentlyWithAChainsaw url = (FuckMeGentlyWithAChainsaw)inf.getAttribute(ChatAttribute.HYPERLINK);
+	    if((url != null) && (WebBrowser.self != null)) {
+		try {
+		    WebBrowser.self.show(url.url);
+		} catch(WebBrowser.BrowserException e) {
+		    getparent(GameUI.class).error("Could not launch web browser.");
+		}
+	    }
+	}
+스레드 관리를 어떻게 할까?
+    wait() - notify(): 복잡하다, 무겁다, 높은 정밀도
+    sleep() - interrupt(): 
+    sleep(): 단순 구현 가능, 정밀도는 떨어진다, 가볍다
+    wait()을 사용하는 스레드는 단 하나만 두기: 이게 높은 정밀도를 가볍게 구현하는 최적화된 방법인 것 같다
+
+2022-09-01
+최적화도 좋다
+하지만 안정성을 더 우선으로 하자
+remote().load()를 실행해야 Indir<Resource>.get()이 throw 없이 잘 실행되는 것 아닐까?
+    그렇다고 한다면 pose와 달리 cursor는 변경 시 바로 remote().load()를 호출하기 때문에 get()을 호출해도 error를 throw하지 않을 것이다
+
+2022-08-30
+FlowerMenu:42 result가 반복적으로 사용되는 경우 아름다운 해결법 모색하기
+
+2022-08-20
+java는 모든 class의 superclass인 java.lnag.Object에 기본적으로 여러 thread 관련된 method가 존재한다.(wait(), notifyAll() 등)
+
+2022-08-15
+polimolphism을 적극 활용하는 코드는 어떤 클래스가 가진 어떤 함수를 호출할 때 코드만 읽고는 동작을 예측할 수가 없다.
+    명시된 타입의 해당 매서드가 실행되는 것이 아닌, 그 타입을 상속받는 다른 타입이 override한 완전히 다른 매서드를 실행하는 것이 가능하다.
+
+2022-08-14
+null은 synchronized의 인자로 주면 튕긴다
+
+2022-08-11
+java에서 final은 다른 언어의 const와 달리 포인터가 가리키는 주소에 담긴 데이터에 쓰기로 접근하는 것을 차단하지 않는다.
+단지 그 주소값이 바뀌지 않도록 강제한다.
+
+2022-08-08
+':g/pattern/y A' in vim: append matching line to register 'a'
+
+2022-08-07
+git blame
+    https://stackoverflow.com/questions/8435343/retrieve-the-commit-log-for-a-specific-line-in-a-file
+field의 type parameter type은 java.lang.Type::getGenericType().getTypeName()으로 얻을 수 있지만(List<Object> 등),
+    generic type object의 실제 generic type은 알 수 없다(List<T> 등).
+
+2022-08-06
+debugDescriptionPrimitiveType()를 만들었다
+    printPrimitiveArray() 등에서 사용하도록 하자
+    만약 debugDescriptionPrimitiveType()를 hard coding 하지 않고 cpu 자원을 소모하도록 했다면 어땠을까?
+        선택의 문제일 것 같다
+            나는 memory 소모를 아끼기 보다 cpu를 덜 굴리는 방식을 선택하겠다
+                한 번 메모리에 적제하면 여러 번 호출할 것을 가정
+정말 밖에서 절대 사용하기에 이상한, 오직 내부에서만 쓰이는 함수에 대해서만 private을 붙여주고 전달받은 인자에 대한 guard를 하지 않도록 하자.
+프로그램을 분석하기 위해서는 원하는 값을 화면에 출력하는 것이 중요하다.
+    이를 flexible하게 하기 위해 gui 환경에서 기본적으로 데이터를 다 띄워두고 disclosure를 사용하여 보기 싫은 변수는 print list에서 제외하는 방식으로 black list, 혹은 white list 형식으로, 원하는 print target list를 edit할 수 있도록 하면 좋을 것 같다
+:cam bad
+:cam ortho -f
+
+2022-08-05
+lsof -PiTCP -sTCP:LISTEN
+lsof -i
+변수와 함수의 객관적 추상화 작업은 해당 개념에 대한 이해를 촉진하기 위해 필수적이다.
+    만약 이 과정이 생략된다면 후발 주자가 해당 개념을 이해하기 위해 고난의 시간을 격게 될 것이다.
+
 2022-08-04
 key generator를 만드는 중이다.
 완성시키면 적용시키자.
@@ -8,6 +281,7 @@ hafen의 경우 메세지를 위한 여러 변수들을 함수의 인자로 전�
 만약 값들이 어딘가 특정 오브젝트 등에 저장되고, 그 때 특정 함수가 호출된다면, 그 함수에서 backtracing 등을 하여 그 순간의 stack frame을 알 수 있을 것이다.
 int가 그냥 출력하면 타입을 표시하고, 내부적으로 출력하면 타입을 출력하지 않았으면 좋겠다.
     int에 getClass()를 할 수 있나?
+    int instanceof Number는 true인가?
 MapView::mousedown()이 결국 Click::run()을 호출한다.
 Click은 Hittest를 상속받고, Hittest 안에 run()이 있으므로 이 함수를 읽어보자.
 

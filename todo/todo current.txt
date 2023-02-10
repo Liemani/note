@@ -6,6 +6,7 @@ inception
 ft_transcendence
 csapp 읽기
 cpp-library/JSONDescriber.cpp: string format을 제대로 출력하지 못하는 문제 수정
+The art of computer programming
 
 # book: 임시 기록(큰 의미 없음)
 - 50/288 : The C Programming Language
