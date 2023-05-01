@@ -1,5 +1,357 @@
 pour.txt
 
+2023-05-01
+clock 의 특성을 활용할 때 굳이 오르고 내리는 것을 구분하지 않아도 된다
+clock 이 들어왔을 때 막혀있던 부분이 동시에 새로운 값으로 설정되도록 설계한다면 cycle 당 한 번의 처리만 하도록 회로를 설계할 수도 있을 것이다
+하지만 회로가 커짐에 따라 clock 을 사용하는 block 에 동시에 clock 을 전달할 수 없게 된다면 더 빨리 clock 이 전달된 block 이 상태 값을 바꾸고, 다른 block 이 clock 을 받기 전에 그 입력값에 영향을 줄 수 있지 않을까?
+    만약 그렇다면 역시 clock cycle 에서 오르고 내리는 것을 구분하여 읽고 쓰도록 하여 값이 제대로 쓰여지기 전에 오염되는 것을 막는 것이 좋을 것 같다
+
+2023-04-30
+cycle 은 오르고 내린다
+오르고 내리는 타이밍에 각각 값을 쓰고 읽는 작업을 나눔으로써 데이터가 오염되는 것을 방지할 수 있다
+
+# keyword
+instruction processing stage
+fetch
+decode
+execute
+memory
+write back
+pc update
+trace
+
+# how to push one page in two page pdf mac
+https://apple.stackexchange.com/questions/99769/control-odd-even-page-pairing-in-preview-in-two-page-mode
+
+# gpt
+Will the instruction of NPU (used for ai) have processing stage like CPU?
+
+2023-04-29
+combination circuit
+sequential circuit
+hardware register
+program register
+clock cycle
+rising clock edge
+register file
+read port
+write port
+multiported
+
+# gpt
+Why does register of CPU is expansive?
+
+2023-04-28
+otool -L <binary>: Prints the list of dynamic libraries linked to a binary
+otool -tV <binary>: Disassembles the text section of a binary, showing the assembly code
+otool -l <binary>: Prints the load commands in a binary, which describe how the binary should be loaded into memory
+xcrun is a tool that is used to locate and execute developer tools and utilities, such as clang, git, and swift. It allows you to run these tools from the command line without having to specify the full path to the tool
+
+# gpt
+What does "pacibsp" do in AArch64?
+What does "libc++abi.dylib`__gxx_personality_v0" do?
+What does "libc++abi.dylib`__cxa_get_globals_fast" do?
+Can you provide example of the implementation?
+Can you provide the example of GlobalData struct?
+What is the difference between "stur" and "str"?
+What does "eor" do?
+What does "ldaddal x9, x8, [x8]" do?
+What does "dyld`dyld3::MachOFile::isSimulatorPlatform(dyld3::Platform, dyld3::Platform*)"do?
+Can you explain otool and xcrun command in mac?
+How to use objdump on mac?
+Show me the example of the benefit of V option
+On my mac, the executable file compiled by simple c code has many empty space filled with 0. If that profram copied to ram for execute, what is the empty space used for?
+What is the concrete benefit of the empty space filled with 0 when loading the program from disk into main memory?
+
+# question
+실행파일에서 0 인 부분이 많지만 실제 그 부분은 운영체제가 저장공간에 저장하지 않는다고 알고 있다. 이 0 인 부분은 프로그램이 램에 올라갔을 때 동적 라이브러리를 위한 공간일까?
+
+2023-04-26
+
+# gpt
+If x0 is the instance of "libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>" in AArch64 assembly, what is the [x0, #0x220] containing?
+What kind of value is returned by "libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>::getInfo"?
+How does unw_proc_info instance positioned in memory?
+How to calculate the size of the struct, and how padded?
+What is the relation between apple open source and llvm project?
+
+2023-04-25
+wx, v: bhsdq
+
+# gpt
+How to use "-t" option in lldb's "memory read" command?
+What does "autda  x16, x17" do?
+What does "blraa  x8, x17" do?
+Can you explain the struct "unw_proc_info_t" in libunwind.dylib?
+Can you explain the "libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>" struct?
+Where is libunwind.h in mac?
+
+2023-04-24
+adrp 같은 instruction 은 dynamic library 가 메모리의 어디에 적재될 지 알지 모르기 때문에 사용한다
+동적으로 어떤 page 에 적재되더라도 page 의 시작점으로부터의 상대 주소를 사용함으로써 고정된 data 를 읽을 수 있다
+
+#gpt
+What does ldrsw do in ARM assembly?
+What does "ldrsw  x16, [x17, x16, lsl #2]" do?
+What value is set to x17 by "0x19c9ba9a0 <+40>:  adrp   x17, 0"?
+Why does the "branch" of the instruction "b" in ARM use "branch" instead of "jump" like the "j" in x86?
+What is the argument of "libunwind.dylib`libunwind::Registers_arm64::getRegister(int) const"?
+How to jump counter part of range in visual mode of vim?
+I want to jump the start location from end without modify the range of visual mode
+How to jump to the start position of selection from end in vim visual mode?
+What does -2 as the argument of "libunwind.dylib`libunwind::Registers_arm64::getRegister" mean?
+Then what does -1 mean?
+What does "ldr    x0, [x0, w1, uxtw #3]" do in AArch64?
+What does "movk   x17, #0x1157, lsl #48" do in AArch64?
+What does "cbz x8, 0x19c9bc41c" do in AArch64?
+
+2023-04-23
+
+#gpt
+Is unsecure VNC danger?
+VNC is unsecure in common?
+How does the default MAC VNC strong in secure?
+When i connected mac default unsecure VNC and loged-in, can someone attack without knowing the password of my mac?
+Can you provide simple ARM assembly code for study?
+Can you provide simple ARM assembly code used in mac library for study?
+Is the log of your answer saved in my computer or server?
+
+2023-04-22
+in lldb
+    expr asm("cmn w12, 0x3")
+
+# gpt
+How to write a register with another register in lldb?
+How to enter and execute instruction in lldb during running program?
+Can i do with ARM architecture assembly code syntax, not C?
+
+2023-04-21
+nzcv: negative, zero, carry, overflow: cpsr[31:28]
+
+# gpt
+Can you explain the assembly code of "libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>::validReg"?
+What register used for the argument of validReg function?
+Why need the 10th instruction "cmn    w1, #0x3"? It seems the condition flags set by this instruction not to be used
+The case of this kind, can return with specific setting of condition register, is general in armasm?
+Is returning function with set of condition register can be implemented by compiling C code or armasm's feature?
+Then, is "libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>::validReg" written with armasm not C?
+The register w8 of validReg is used only the 11 line, what about replace 11 line to "csel   w0, w9, w9, hi" and remove the necessity of w8?
+What does cmp exactly do?
+he 6th line is updating condition flag but not used subsequent line, what is the necessity of the 6th line?
+Then, what about the 5th line of the code you supplied? It executed cmp, but not use condition flag at the subsequent line, what is the perpose of the 5th instruction?
+What does cset exactly do?
+What does cmn exactly do?
+
+2023-04-20
+libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>::step()
+libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>::validReg(int)
+
+2023-04-19
+authenticate
+digital signature
+verify
+os 는 암호화된 digital signature 을 통해 해당 프로그램이 믿을만한가, 변조됐는지 여부를 판단할 수 있다
+시스템 메모리에 접근하려는 시도를 하면 일반적으로는 거절된다
+허용된 경우 AUTDA 로 시스템 메모리에 접근할 수 있는 모양이다
+adrp: Address of 4KB page at a PC-relative offset
+until *$sp != $orig_sp
+
+# gpt
+What does AUTDA do in armasm?
+When is it used for?
+Can't access system register from user-level code?
+How does CPU to discriminate an application whether trusted or not?
+What is the difference between privileged mode and not in ARM architecture?
+Can you explain "libunwind.dylib`libunwind::UnwindCursor<libunwind::LocalAddressSpace, libunwind::Registers_arm64>::setInfoBasedOnIPRegister(bool)"?
+What does "!" do in armasm?
+What does adrp stands for in armasm?
+
+2023-04-17
+breakpoint set --one-shot -n _start
+x/2xg $x0+0x100
+fp: frame pointer
+lr: link register: stores the return address when a subroutine call is made
+sp: stack pointer
+pc: program counter
+cpsr: current program status register
+dylib는 실행 파일에 포함되지 않고 필요에 따라 동적으로 메모리로 복사되는 듯 하다
+    그럼 bl 을 호출할 때 해당 subroutine 이 이미 메모리에 올라와 있어야 하는데, os 는 subroutine 의 주소와 bl 의 주소를 어떻게 일치시키는 것일까?
+breakpoint set -a 0x1910ae76c: 특정 주소에 breakpoint 걸기
+
+# gpt
+Can you provide the example of higher-level handler
+In general, is exception handling implemented by software or hardware?
+How to set breakpoint to first instruction in lldb?
+Can you answer what does "libsystem_pthread.dylib`pthread_key_create" do?
+Is all instruction of ARM has 4 byte size?
+How to read memory after N byte from register as address in lldb?
+How to see all the built-in command aliases in LLDB?
+What register is used for argument passing in armasm?
+What does the second argument of braa instruction in armasm do?
+Can you show me the example of -R option of command "breakpoint set" in lldb?
+How to set a breakpoint to specific address of instruction in lldb?
+
+2023-04-16
+gcc -framework Foundation <path>
+otool -tV <path to binary>
+clang -S -fobjc-arc myfile.m
+objective-c 코드를 gcc로 컴파일하여 실행 파일을 만드는 것과, 어셈블리 코드를 생성한 뒤 실행 파일을 만드는 것은 같은 실행 파일을 생성한다
+cfi_def_cfa: call frame information define canonical frame address
+
+# gpt question
+How to disassemble binary code in terminal on mac?
+How to make assembly from Objective-C file on terminal?
+What does fobjc-arc option do?
+What does ABI stands for in Objective-C?
+Can you give me an example?
+Is there ABI out of Objective-C?
+If Swift and Rust use there own ABI each, would the objective file not compatible?
+Can you list ABI versions for Objective-C?
+What does cfi stands for on cfi_def_cfa?
+If i miss specifying cfi_def_cfa, what problem could occur?
+What is stack unwinding?
+
+2023-04-14
+# gpt question
+What is the threadgroup memory? is it memory with cpu or in GPU?
+Can you show me how to use a compute command in Metal with an example?
+When a memory operation occurs, will the data be copied to the GPU's memory?
+During memory operation on Apple Silicon, can the CPU write to RAM memory?
+In memory operation example you show me, is the return value used on GPU?
+Is the memory operation performed by the CPU, not the GPU?
+Does the CPU perform memory operation rather than GPU?
+Is completion signal implemented in hardware or software?
+I was confused, it was 'noting' rather than 'nothing'
+
+# keyword
+main system memory
+
+2023-04-13
+combination circuit
+partial evaluation
+rendering pipeline
+command queue
+drawing command
+compute command
+memory operation
+
+# question
+what is vid and how they are set in the memory operation?
+
+2023-04-12
+stack overflow를 막기위한 방법으로 ASLR과 Canary가 있다
+ASLR은 return address가 저장된 위치를 파악하기 쉽지 않게 한다
+Canary로는 return address 값이 corrupt됐는지를 판단한다
+
+2023-04-11
+ISA: Instruction Set Architecture
+instruction type: code, function
+
+2023-04-07
+# callq Label | *Operand
+pushq %rip
+rip = Label | *Operand
+
+# retq
+popq %rip
+
+%rbp, %rbx, %r12 - %r15: calle saved register
+
+# decq vs leaq(size, speed)
+
+# local variable on stack vs callee-saved register
+다른 함수를 호출하는 경우 caller의 지역 변수를
+스택에 저장한다면 메모리 접근이 반드시 일어난다
+callee-saved 레지스터에 저장하면 callee가 이 레지스터를 사용하지 않는 경우 메모리 접근을 피할 수 있다
+
+# stack discipline의 하나가 아닌데, prinf와 같은 c의 라이브러리 함수가 오브젝트 파일로 제공된다면 고정된 하나의 discipline을 따르는 한 종류의 오브젝트 파일만이 제공되는 것일까?
+
+2023-03-20
+# pushq %rbp
+rsp = rsp - 8
+*rsp = rbp
+
+# popq %rbp
+rbp = *rsp
+rsp = rsp + 8
+
+2023-03-16
+call    Label
+call    *Operand
+ret
+
+2023-03-08
+:for i in range(0,6) | put ='10'.i | endfor
+100 부터 106 까지 생성
+v_g<C-A>
+
+2023-03-05
+otool -tV -arch x86_64 /bin/ls > .temp
+
+2023-02-25
+sal     k, D    ## D << k
+shl     k, D    ## D << k
+sar     k, D    ## D >> k(arithmatic)
+shr     k, D    ## D >> k(logical)
+
+2023-02-21
+imulq   S   ## %rdx%rax = S X %rax
+mulq    S   ## %rdx%rax = S X %rax
+
+cqto        ## %rdx%rax = (signed 128)%rax
+
+idiv    S   ## %rdx = %rdx%rax mod S
+            ## %rax = %rdx%rax / S
+div     S   ## %rdx = %rdx%rax mod S
+            ## %rax = %rdx%rax / S
+
+cmp     S1, S2  ## S2 - S1
+test    S1, S2  ## S2 & S1
+
+set     D   ## suffix character: nes(common), gl(signed), ab(unsigned)
+
+jmp     Label
+jmp     *Operand
+
+j       Label   ## suffix character: nes(common), gl(signed), ab(unsigned)
+
+2023-02-15
+assembler directives
+if (test-expression)
+    then-statement
+else
+    else-statement
+
+2023-02-14
+byte 단위는 byte 단위로 move 하고
+short 단위는 double word 단위로 move 하는 것을 볼 수 있었다
+
+surjection, surjective function
+injection, injective function
+bijection, bijective function
+
+2023-02-13
+effective address
+
+2023-02-11
+movl, movw를 사용해보자
+그리고 destination을 64bit 레지스터로 하였을 때, 차이가 나는지 확인해보자
+1. destination 레지스터에 0xffffffff 넣기
+2. movl, movw 각각 호출하면서 값 읽기
+성공!
+- movw는 2byte만 바꾸지만 movl은 4byte와 추가로 앞의 byte를 0으로 set 한다
+
+#idea: 그래픽 레지스터 편집기
+#idea: 그래픽 메모리 편집기
+#idea: 연결이 변할 수 있는 퍼셉트론
+
+interface를 제공할 경우
+크게
+- 무엇을 할 수 있는지를 명시할 것
+작게
+- 가능한 많은 상황을 위한 사용법을 제시할 것
+- 원하면 구체적인 내부 구현을 추상적이게 나마 알 수 있을 것
+
 2023-02-10
 어셈블리 코드 만들기
     clang -S <path>

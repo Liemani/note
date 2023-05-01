@@ -1,0 +1,206 @@
+k.txt
+
+# pc
+
+# question
+함수는 반환값을 반드시 하나의 타입으로 정해야 하는가?
+
+function lmt_alloc(_ size: size_t): void *
+	address: void * = malloc(size)
+	address == NULL -> lmt_exit(ALLOCATION_ERROR, "")
+	return = address
+
+f: x -> y
+y = f(x)
+
+```c
+double magnitude(double x, double y) {
+    return sqrt(x ^ 2 + y ^ 2);
+}
+```swift
+func magnitude(x: double, y: double) -> double {
+    return sqrt(x ^ 2 + y ^ 2)
+}
+```k
+규모는 실수 이다. 규모는 실수 인 x 성분과 실수 인 y 성분 각 제곱의 합의 sqrt이다.
+규모는 실수 이며 실수 인 x 성분과 실수 인 y 성분 각 제곱의 합의 sqrt이다.
+
+벡터2<원소 타입> {
+    원소 타입 원소1,
+    원소 타입 원소2,
+}
+
+c 브릿지 루트 = sqrt
+
+# 벡터<원소 타입, 원소 수>는 원소 타입 타입의 원소를 원소 수 개 만큼 갖는다.
+
+## 벡터 합 벡터 = 벡터 벡터1 + 벡터 벡터2
+
+합 벡터의 원소 = 벡터1의 원소 + 벡터2의 원소 (0 <= 정수 원소 < 원소 수)
+
+## 벡터의 모든 원소의 제곱의 합을 정수 제곱의 합이라 하자
+
+제곱의 합 = 0
+제곱의 합 += 벡터의 원소의 제곱 (0 <= 정수 원소 < 원소 수)
+
+## 벡터의 규모를 실수 규모 값이라 하자
+
+규모 값 = 벡터의 모든 원소의 제곱의 합의 루트
+
+# 페어<원소 타입, 원소 타입>
+```
+- 멤버 연산자 '.' 과 "의 " 는 같다.
+- 템플릿을 명시하지 않은 식별자는 우선 템플릿으로 간주한다.
+    - 만약 템플릿이 정의되어 있지 않으면 비템플릿으로 간주한다.
+
+- 복잡한 방식을 지원하여 다채로운 서술을 허용하면 예술적이겠지만, critical 한 문법을 simple 하게 지원하면 예술적이지는 않더라도 익히기 쉽고 애매함이 적다
+- method 를 class 안에 구현하는 것을 굳이 허용해야 할까?
+    - method 를 허용하지 않고, 모든 function 을 c 처럼 구현하도록 강제한다면?
+    - method 를 허용하는 이유는 boiler plate 를 줄이고 비슷한 성격을 가진 함수들을 한 파일에 정의하기 위한 것이다
+
+
+
+definition or implementation
+call or use
+
+
+
+sum: of lhs: int, and rhs: int -> int
+sum = lhs + rhs
+
+sum: of lhs: double, and rhs: double -> double
+sum = lhs + rhs
+
+vector2d is
+	x(double)
+	y(double)
+	magnitude(double) is sqrt of x^2 + y^2
+	result(vector2d) of lhs(vector2d) - rhs(vector2d) is
+		result's x is lhs's x - rhs's x
+		result's y is lhs's y - rhs's y
+		x of result is subtract of x of lhs and x of rhs
+		y of result is subtract of y of lhs and y of rhs
+	distance(double) with vectorB(vector2d) is magnitude of (self - vectorB)
+
+magnitude(double) of vector(vector2d) is the sqrt of the square of vector.x + the square of vector.y
+
+거리는 
+
+
+
+myVector1(vector2d) is vector2d	// allocated on stack segment
+myVector2(vector2d) is a vector2d	// allocated on heap segment
+
+myVector2.x = 1.0
+myVector2.y = -1.5
+
+myVector2's x is 1.0
+myVector2's y is -1.5
+
+myMagnitude1(double) is magnitude of myVector1
+myMagnitude2(double) is magnitude of myVector2
+
+middle is average of a, b
+return 0
+
+
+
+model is
+	name(string) is ""
+	members(dictionary(all, all)) is empty
+
+
+
+func funcName<T>(with tInstance: inout T) -> inout T::Iterator
+where T is Iterable
+(begin tInstance.begin(), end tInstance.end()) {
+	while (begin != end) {
+		do(begin);
+		++begin;
+	}
+	return end;
+}
+
+# description
+추상 모델 및 함수를 c 언어로 변환시켜주는 프로그램
+아이패드 등에서는 다양한 특수문자를 입력하기가 쉽지 않다
+그래서 더 적은 문자들의 조합으로 이루어진 언어를 만들고
+이를 c언어로 변환하는 프로그램
+
+한 번 쓰면 자유롭게 컴파일 가능한 나만의 언어
+
+다차원적으로, 시각적으로 작성 가능한 언어
+그러면서도 단순하고 raw 해야 하며 읽기 쉬워야 한다
+
+대부분의 코드는 1차원 적이다
+이를 2차원, 3차원 적이도록 만들 수 있을까?
+2021-05-24
+- 새로운 기능을 추가할 때 기존 A, B, C 모두에 새로운 기능 D 를 추가하는 것이 아니라
+- 새로운 기능 D 를 만들고 여기에 A, B, C 에 대한 대응 법을 기록하면 좋지 않을까?
+- 즉, 여러 인물이 존재하는데, 새로운 사건이 발생할 때, 각 인물별로 사건에 대한 행동을 기술하는 것이 아니라 그 사건에서 각 인물들이 어떻게 행동했는지를 기술하는 것이다
+- 가령 'A 는 어떤 사건 D 에 대해 이렇게 행동한다' 라는 메뉴얼이 있을 때, 이 행동 강령(?) 을 A 라는 인물의 행동 강령에 넣을지, 아니면 D 라는 사건 발생 시 행동 강령에 넣을지는 classify 하기 나름일 것 같다. 따라서 그때 그때 적절한 것을 선택해야 할 것 같다
+- 일반적으로는 행동 강령에 필요한 변수들이 인물에 들어 있기 때문에 인물 중심으로 사건에 따른 행동 강령을 서술할 것이다
+- 인물들마다 이렇게 공통적으로 존재하는 사건이 존재할 때 사건 중심으로 시각해주는 툴이 있으면 어떨까?
+2021-05-18
+마치 function prototype 과 function header 의 argument identifier 가 서로 다를 수 있는 것처럼
+function name 이 다를 수 있다면 정의와 호출 사이에 서로 적절한 이름을 적용하여 가독성을 높일 수 있지 않을까?
+
+# interface
+function lmt_alloc(_ size: size_t): void *
+	address: void * = malloc(size)
+	address == NULL -> lmt_exit(ALLOCATION_ERROR, "")
+	return = address
+
+f: x -> y
+y = f(x)
+
+
+
+definition or implementation
+call or use
+
+
+
+sum: of lhs: int, and rhs: int -> int
+sum = lhs + rhs
+
+sum: of lhs: double, and rhs: double -> double
+sum = lhs + rhs
+
+vector2d is
+	x(double)
+	y(double)
+	magnitude(double) is sqrt of x^2 + y^2
+	result(vector2d) of lhs(vector2d) - rhs(vector2d) is
+		result's x is lhs's x - rhs's x
+		result's y is lhs's y - rhs's y
+		x of result is subtract of x of lhs and x of rhs
+		y of result is subtract of y of lhs and y of rhs
+	distance(double) with vectorB(vector2d) is magnitude of (self - vectorB)
+
+magnitude(double) of vector(vector2d) is the sqrt of the square of vector.x + the square of vector.y
+
+
+
+myVector1(vector2d) is vector2d	// allocated on stack segment
+myVector2(vector2d) is a vector2d	// allocated on heap segment
+
+myVector2.x = 1.0
+myVector2.y = -1.5
+
+myVector2's x is 1.0
+myVector2's y is -1.5
+
+myMagnitude1(double) is magnitude of myVector1
+myMagnitude2(double) is magnitude of myVector2
+
+middle is average of a, b
+return 0
+
+
+
+model is
+	name(string) is ""
+	members(dictionary(all, all)) is empty
+
+# finish

@@ -1,22 +1,21 @@
 todo temp.txt
 
+# question
+dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될까?
+
 # pc
-container하기
-    rb tree
-        avl
-            tail recursion elimination
-                structure and interpretation of computer programs
-                    taocp
-        2-4 B-tree
-            LLRB
+cfi_def_cfa 에 이어 stack unwinding 을 보고 있었다 왜에 대해
+하고 싶은것을 다시 한 번 생각해보기(10시간)
+    만약 게임이라면 깊은 지식을 사용하는 것이 아니라, 직접 만들어보기
+    할 수 있는 일 하기
+        그러면 더 깊은 지식에 자연스레 욕심이 생길 것이다
+csapp 읽기
+다른 함수를 호출할 경우 해당 프로그램에는 해당 함수가 붙을 것이다(dynamic이 아닌 경우) 이 때 해당 함수의 어셈블리 코드를 볼 수 있는가?
 pdf의 내용과 함께 화면에 불투명한 사각형 두 개가 위 아래로 있어서 가운데가 highlight된 것 같은 효과를 가지는 layer를 출력하는 mac app 만들기
     "hello, world!"를 window에 출력하는 mac app 만들어보기(이 때, 해당 app은 application directory로 옮기는 것으로 실행이 가능해야 한다.)
-env에서 generateCppClass의 template을 수정하기
 파일의 이름과 동시에 클래스의 이름을 바꾸는 프로그램
 contents안에 내용물을 넣던 형식을 밖으로 빼도록 수정하자
 블로깅 하기(42에 있는 동안 학습한 것)
-반복: 시험
-7월에 포인트를 위해 netpractice 하기
 ## register
 틈새 시간에 할 일 찾아놓기: 책이 무난할 것 같다. 소리가 없으면서 깊게 생각을 하지 않아도 되기 때문
     하지만 오디오도 좋다. 청각을 사용하여 데이터를 입력받음으로써 시각을 자유롭게 사용할 수 있다.
@@ -71,7 +70,21 @@ safari 정리하기(tab group 너무 무겁다;;)
         - 즉, 구체적으로 '어떤 자료의 어떤 것을 정리하기' 라는 식으로 구체적으로 작성해야 한다.
 왜? 를 설명해 놓았다면 더 좋았을 것이다. cli 따라하기에서
 
+# context switch
+container하기
+    rb tree
+        avl
+            tail recursion elimination
+                structure and interpretation of computer programs
+                    taocp
+        2-4 B-tree
+            LLRB
+
 # finish
+env에서 generateCppClass의 template을 수정하기
+내가 라이브러리 함수와 같은 바이너리 파일을 만들고, 이 라이브러리를 사용하여 컴파일하도록 할 때, 함수들을 컴파일한 o 확장자 파일들을 ar로 아카이브하여 a 확장자 파일을 만들고 이 라이브러리 파일을 추가하여 사용한다. 시스템 라이브러리 함수들도 똑같은 방식일까?
+반복: 시험
+7월에 포인트를 위해 netpractice 하기
 나는 공용 라이브러리를 만들기 위해 검색을 하고 있었다.
     template을 연습하고 있는데 각종 객체의 내용을 json 형식으로 출력하고 싶었기 때문이다.
 git action 특강 feedback 남기기
