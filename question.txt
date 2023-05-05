@@ -1,0 +1,3 @@
+question.txt
+
+swift 에서 struct 는 stack 에 저장될 줄 알았는데 optional 로도 쓰일 수 있다고 한다. 그럼 이 경우 heap 에 저장될까? 아니면 그냥 struct type 도 class type 과 마찬가지로 모조리 heap 에 저장될까?

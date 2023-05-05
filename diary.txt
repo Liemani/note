@@ -1,10 +1,47 @@
 pour.txt
 
+2023-05-05
+내가 swift 에서 protocol 을 정의하는 이유 중 하나는 특정 method 를 해당 class 에 맞게 재정의할 것을 강제하기 위해서이다
+
+# gpt
+I'm making a game. In game world, there is tree(interactable), item(takable), building(interactable), can you suggest the suit name for the class for each?
+If i add barly which is interactable, what class name would proper for to include barly and tree?
+Is the word "interactable" is commonly used?
+What data "<project name>/project.xcworkspace/xcuserdata/<user name>.xcuserdatad/UserInterfaceState.xcuserstate" contains?
+Would uploading Xcode project directory to server have any security issue?
+What word would suit for to contain boolean data of walkable on?
+If is want the concept of walkable for object not tile, what word would be suit?
+Is the word "walable" commonly used?
+Can i branch control flow according to the protocol of data in swift?
+Would setting protocol only for purpose of branching bad than just setting branching data to instance variable?
+What word would suit for a class that has durability?
+Would implementing a protocol only for purpose of restricting just a variable is bad practice?
+What word would suit for to describe destroyed able concept?
+How to write a class inheriting from a class and conform a protocol at the same time?
+What name is preferred for a coordinate of a object?
+Than, if i want to put the "position" concept to a object in tile map, what name would be preferred for the name of property and the name of data type?
+Would there is a class or structure act as TileCoord in swift standard library?
+What is the difference between mutable method and non-mutable method in swift protocol?
+Can you provide me the example of using each case?
+How to write read only constant property on class in swift?
+Can a property of type of struct be optional?
+Can a class have a properties that is type of some struct type?
+Can a class have a properties that is type of optional of some struct type?
+What is the most preferred way of saving Xcode project to remote wit git command in terminal?
+It will add setting files which is consist of binary, is it common?
+
+2023-05-03
+
+# gpt
+If i git clone total of a project file in Xcode, is there any security hole?
+
 2023-05-01
 clock 의 특성을 활용할 때 굳이 오르고 내리는 것을 구분하지 않아도 된다
 clock 이 들어왔을 때 막혀있던 부분이 동시에 새로운 값으로 설정되도록 설계한다면 cycle 당 한 번의 처리만 하도록 회로를 설계할 수도 있을 것이다
 하지만 회로가 커짐에 따라 clock 을 사용하는 block 에 동시에 clock 을 전달할 수 없게 된다면 더 빨리 clock 이 전달된 block 이 상태 값을 바꾸고, 다른 block 이 clock 을 받기 전에 그 입력값에 영향을 줄 수 있지 않을까?
     만약 그렇다면 역시 clock cycle 에서 오르고 내리는 것을 구분하여 읽고 쓰도록 하여 값이 제대로 쓰여지기 전에 오염되는 것을 막는 것이 좋을 것 같다
+많은 기능을 추가하면 cpu의 연산 속도는 빨라지겠지만 전기 효율이 떨어진다
+    회로가 복잡해지기 때문이다
 
 2023-04-30
 cycle 은 오르고 내린다
