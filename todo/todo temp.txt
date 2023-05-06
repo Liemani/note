@@ -2,8 +2,15 @@ todo temp.txt
 
 # question
 dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될까?
+    csapp 읽다보면 답이 나오지 않을까?
 
 # pc
+터치 관련된 애플 문서 읽기
+터치 이벤트 시 인자로 받는 UITouch 의 property 출력해보기
+단순 카메라 이동 구현하기
+복잡한 카메라 이동 구상하기
+a-month-game 프로젝트 진행하기
+
 cfi_def_cfa 에 이어 stack unwinding 을 보고 있었다 왜에 대해
 하고 싶은것을 다시 한 번 생각해보기(10시간)
     만약 게임이라면 깊은 지식을 사용하는 것이 아니라, 직접 만들어보기

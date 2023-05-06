@@ -1,5 +1,36 @@
 pour.txt
 
+2023-05-07
+
+# gpt
+What does "open" qualifier of class do in swift?
+What function is executed when i create a instance of a class in swift?
+What is the difference between declaring with "let" and "var" to a instance of a class in swift?
+Then, with "let", can i call mutating method?
+What is the best practice for implementing bunch of constants in swift?
+Would you recommend the suit name for the position for middle of the display?
+What name is preferred for the variable containing the position of display center?
+Which one is preferred between screen and display?
+Can you recommend a image name for representing the background of inventory cell?
+Is the word "cell" in "inventory cell" commonly used?
+My iPad and mac seems not share clipboard, can you suggest why?
+Can you provide several way setting frame of SKNode in swift?
+When use "let" rather than "var"?
+The method "addChild" of SKNode seems to change the value of node, but it doesn't have "mutating" qualifier, why?
+How to declare array by using square bracket with explicit type annotation in swift?
+Can i notate the size of array?
+Is "Array" and array by square bracket is same?
+Is there standard library helping implementing tile map in swift?
+What is tile group?
+Can you provide more example about SKTileMapNode?
+Can you provide more example code of SKTileMapNode?
+Can i display 250x250 size tile to 100x100 size with SKTileMapNode?
+My Xcode fill align purpose space when new line and let that exist when i move cursor another line, i want to automatically remove useless that space. How can i do?
+
+2023-05-06
+솔직히 혼자 짤 때는 프로토콜도 필요가 없다
+까먹을 것 같을 정도로 큰 규모일 경우 기계적으로 코드를 구현해 나갈 때 프로토콜이 필요하다
+
 2023-05-05
 내가 swift 에서 protocol 을 정의하는 이유 중 하나는 특정 method 를 해당 class 에 맞게 재정의할 것을 강제하기 위해서이다
 
