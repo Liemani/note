@@ -5,9 +5,7 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
     csapp 읽다보면 답이 나오지 않을까?
 
 # pc
-터치 관련된 애플 문서 읽기
-터치 이벤트 시 인자로 받는 UITouch 의 property 출력해보기
-단순 카메라 이동 구현하기
+local storage 에 값 쓰고 읽는 기능 추가
 복잡한 카메라 이동 구상하기
 a-month-game 프로젝트 진행하기
 
@@ -88,6 +86,12 @@ container하기
             LLRB
 
 # finish
+touch.location(self)를 하니 game scene 을 중심으로 location 을 가져오네?
+    screen 중심 location 을 가져오도록 하자
+    전에 growdungeon 에서는 어떻게 했었나?
+터치 관련된 애플 문서 읽기
+터치 이벤트 시 인자로 받는 UITouch 의 property 출력해보기
+단순 카메라 이동 구현하기
 env에서 generateCppClass의 template을 수정하기
 내가 라이브러리 함수와 같은 바이너리 파일을 만들고, 이 라이브러리를 사용하여 컴파일하도록 할 때, 함수들을 컴파일한 o 확장자 파일들을 ar로 아카이브하여 a 확장자 파일을 만들고 이 라이브러리 파일을 추가하여 사용한다. 시스템 라이브러리 함수들도 똑같은 방식일까?
 반복: 시험

@@ -1,6 +1,57 @@
 pour.txt
 
 2023-05-07
+# 내가 생각하는 UITouch 의 location() 과 previousLocation() 의 구현
+매 프레임마다 touch 를 추적한다
+만약 touch location 에 변화가 있다면 type 등 필요한 추가 정보를 설정하고 type 에 따라 해당하는 method 를 호출한다
+만약 touch location 에 변화가 없는데 상태가 변했다면(up, cancel 등) 필요한 추가 정보를 설정하고 type 에 따라 해당하는 method 를 호출한다
+    이 경우 이전에 얻은 정보와 location, previousLocation 값이 동일하다
+
+# gpt
+Is adding child InventoruView to SKView good practice?
+What is the best practice creating 5 size array and setting it by iterating 5 time in swift?
+Why i can't calculate CGFloat with Int?
+If i touch up in iPhone14 simulator with no horizontal move, UITouch instance in the touchesEnded() has same previous location with the last UITouch instance in the touchesMoved(). If i touch up in real iPhoneSE2, previous location of UITouch instance in the touchesEnded() has the value of current location of the last UITouch instance in the touchesMoved(). Can you explain the difference of between?
+I'm planning to implement a file that control movement of character. What name would be good?
+In case i want to make saveral controller class, can you provide some example of the good practice of how to consist the data hierarchy?
+How would be the hierarchy in point of the data in memory?
+If i want to access from GameManager to GameModel, should GameManager have the reference of GameModel? How would the include hierarchy of the game?
+How would the reference hierarchy in terms of data structure?
+What does "dx" or "dy" stands for?
+How to get velocity from UITouch instance?
+It seems UITouch don't have "velocityInView(_:)" methods. Should i implement it by expanding UITouch?
+How to use UIPanGestureRecognizer in my custom SKScene?
+How does "SKNode.run(_: SKAction)" implemented?
+What does "UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))" do?
+How does selector system implemented? Is it just an address of a function or will a function is searched dynamically?
+Can you recommend a word for representing sliding state by velocity. But must be differentiated with sliding to UISlider or the state dragging touch
+What does the second argument of "touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)" do?
+I'm making velocity variable from CGPoint and TimeInterval. Can you recommend proper struct type?
+If i want to store the velocity for x-axis and y-axis each, would vector is good for?
+If i write "var velocity: CGVector" on a class, will it initialized by default initializer when the class in instantiated?
+Can you suggest the word for resistance of velocity including force of friction etc?
+Is there standard library struct type for vector operation?
+Why the property "camera" is type of "SKCameraNode?" not "SKCameraNode!"?
+I'm trying to conform MVC design pattern. What name would be good for a file of map data?
+Where should the save and load function located in MVC pattern?
+Which one is commonly used between camel case and capital snake case for constance in swift?
+Would you recommend the name of function for save data in controller and model class?
+How can i write 2 dimension array of int in swift?
+How can i save data in iOS programming with swift?
+Then, what would be good for saving 100x100 int data?
+I want user can access the saved data without the executing my app. Can i achieve with Core Data?
+What is local file storage?
+If i save data to local file storage as developer, can user access the data without running the app?
+Can i save dat to shared documents folder?
+Is shared documents folder memory or drive?
+How to access without running the app?
+I want to use Cord Data feature for saving data. Can you provide tutorial?
+Why the process so complicated? In C, all need is "write()"
+I don't like using ".xcdatamodeld" file. Can i do that programmatically?
+
+2023-05-06
+솔직히 혼자 짤 때는 프로토콜도 필요가 없다
+까먹을 것 같을 정도로 큰 규모일 경우 기계적으로 코드를 구현해 나갈 때 프로토콜이 필요하다
 
 # gpt
 What does "open" qualifier of class do in swift?
@@ -26,10 +77,6 @@ Can you provide more example about SKTileMapNode?
 Can you provide more example code of SKTileMapNode?
 Can i display 250x250 size tile to 100x100 size with SKTileMapNode?
 My Xcode fill align purpose space when new line and let that exist when i move cursor another line, i want to automatically remove useless that space. How can i do?
-
-2023-05-06
-솔직히 혼자 짤 때는 프로토콜도 필요가 없다
-까먹을 것 같을 정도로 큰 규모일 경우 기계적으로 코드를 구현해 나갈 때 프로토콜이 필요하다
 
 2023-05-05
 내가 swift 에서 protocol 을 정의하는 이유 중 하나는 특정 method 를 해당 class 에 맞게 재정의할 것을 강제하기 위해서이다
