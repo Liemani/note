@@ -3,8 +3,12 @@ todo temp.txt
 # question
 dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될까?
     csapp 읽다보면 답이 나오지 않을까?
+function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
+게임 신에서 타일 맵 만드는 부분 잘 정리하여 업데이트 시 토글하도록 수정 및 테스트
+타일을 업데이트하여 1 초마다 하나씩 나무 타일로 바꿔보자
+타일을 CoreData 를 통해여 저장 및 읽어오는 기능 추가
 local storage 에 값 쓰고 읽는 기능 추가
 복잡한 카메라 이동 구상하기
 a-month-game 프로젝트 진행하기

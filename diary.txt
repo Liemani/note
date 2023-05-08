@@ -1,5 +1,36 @@
 pour.txt
 
+2023-05-08
+
+# gpt
+What makes the difference of speed between saving with UserDefault, PList and Core Data?
+What is "Data Model" in the template of file in Xcode?
+If is it true that UserDefault store data to memory, if i turn off and on the device, woule the data stored with UserDefault be gone?
+Can you suggest the example of the size of file which use?
+If i stored variable "mapData: Array[100][100]" with PList and now i am storing single int value of "mapData[10][20]", can you explain the detail operation of how to PList store it?
+How to store "mapData: Array[100][100]" with CoreData programmatically?
+Why should store row and column value? Would it more fast? If store only mapData, wouldn't it be more compact in size and fast?
+I want to implement save system that save whenever a value in Array[100][100] changed. Without saving all array data, only one that changed data every time to save.
+How to retrieve stored MapData?
+Why the subclass of SKScene need "required init?(coder aDecoder: NSCoder)"?
+If view is nil in a runtime, i think that case is already critical state.
+If the view is nil in a runtime, though i use "if let" statement so doing force-unwrap, application wouldn't work normally, isn't it?
+I mistaked last question. If the view is nil in a runtime, though i use "if let" statement so doing optional binding, application wouldn't work normally, isn't it?
+Would you recommend the name of constant for the tile count of a side of tile map?
+In case that tile must be changed in running time of game, using SKTileMapNode is good idea?
+What SKTileGroup are for?
+Why "SKTileMapNode.setTileGroup(_:andTileDefinition:forColumn:row:)" require SKTileGroup? It seems that method use definition but not tile group
+Is hash structure implemented by tree structure?
+What structure is used for swift Dictionary?
+When "SKScene.didMove()" called?
+How to toggle 0 to 1 and 1 to 0 in swift Int type?
+How to set file to a commit without moving current head in git?
+How to set files to a commit without moving current head in git?
+How to set files to a target hash without moving current head in git?
+I got a problem in running my app. My GameScene class is subclass of SKScene. When i call super class's default init method, it seem that compiler call GameScene.init(size:) but i didn't implemented it. So finally Fatal occurs "Fatal error: Use of unimplemented initializer 'init(size:)' for class 'a_month_game.GameScene'". Do you know what's going on?
+How to break when the value "self.gameController" value get nil with "watchpoint" in lldb?
+How to replace tile in "SKTileMapNode"?
+
 2023-05-07
 # 내가 생각하는 UITouch 의 location() 과 previousLocation() 의 구현
 매 프레임마다 touch 를 추적한다
