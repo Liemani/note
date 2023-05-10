@@ -6,10 +6,9 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
-게임 신에서 타일 맵 만드는 부분 잘 정리하여 업데이트 시 토글하도록 수정 및 테스트
-타일을 업데이트하여 1 초마다 하나씩 나무 타일로 바꿔보자
-타일을 CoreData 를 통해여 저장 및 읽어오는 기능 추가
-local storage 에 값 쓰고 읽는 기능 추가
+isWalkable 구현
+벽 타일 만들고 이동할 때 걸리도록 만들기
+저장 불러오기 다듬기
 복잡한 카메라 이동 구상하기
 a-month-game 프로젝트 진행하기
 
@@ -90,6 +89,13 @@ container하기
             LLRB
 
 # finish
+tileMap[0] 과 tileMap[1] 이 계속 오염되는데, 데이터가 오염된건지, 메모리가 오염된건지 확인해보자
+FileManager 와 CoreData 의 저장 방식의 차이와 나에게 적합한 것이 무엇인지 생각
+FileManager 로 데이터 저장하기
+타일을 CoreData 를 통해여 저장 및 읽어오는 기능 추가
+local storage 에 값 쓰고 읽는 기능 추가
+게임 씬에서 타일 맵 만드는 부분 잘 정리하여 업데이트 시 토글하도록 수정 및 테스트
+타일을 업데이트하여 1 초마다 하나씩 나무 타일로 바꿔보자
 touch.location(self)를 하니 game scene 을 중심으로 location 을 가져오네?
     screen 중심 location 을 가져오도록 하자
     전에 growdungeon 에서는 어떻게 했었나?

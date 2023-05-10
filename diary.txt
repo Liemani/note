@@ -1,5 +1,70 @@
 pour.txt
 
+2023-05-10
+
+# gpt
+If i made "UnsafeMutableBufferPointer<Int>" from "Data" in a function and save the instance of "UnsafeMutableBufferPointer<Int>" out of function, after that function will "Data" deallocated? And will the instance of "UnsafeMutableBufferPointer<Int>" point dangling?
+What is the differences between size and stride in MemoryLayout enumeration in swift?
+How to check whether the address pointed by "UnsafeMutableBufferPointer" is valid or invalid?
+How to save Int value to a file with FileHandle?
+FileHandle.write(_:) is deprecated. Can you provide another way?
+If you using "func write(_ data: Data)", it is deprecated
+Can you do it with "FileHandle.func write<T>(contentsOf: T)"?
+How to i say the 'n'th previous conversation to you?
+What is the conversation ID here?
+Would "data.write(to: url)" just over write removing existing data?
+If the instance of Data data has 10 int sequence, how to modify 3rd int to 42 in swift?
+I want 2 scene. One is for world select scene. Here i can also set simple preference setting. Another is world play scene. I will set the name of the second scene as "World". Can you recommend the name of first scene?
+How to set texture to SKScene?
+
+2023-05-09
+database schema
+relational database 는 구조체 데이터의 배열을 저장하는 방법이라고 생각하면 된다
+게임에서 타일 바닥에 떨어져 있는 아이템의 데이터베이스를 만든다고 하자
+만약 아래와 같은 테이블 하나에 데이터를 모두 저장한다면
+행, 열, 아이템 id, 아이템 이름, 아이템 이미지 이름
+같은 종류의 아이템이 여러개 떨어져 있는 경우 3 ~ 5 열이 동일한 record 가 행과 열만 다른 채 쭉 쌓이는 형태가 될 것이다
+그러면 3 ~ 5 열이 중복되어 공간을 차지하여 공간 활용이 비효율적일 것이다
+그래서 테이블을 2개로 나누어 관리하면 좋다
+행, 열, 아이템 id
+아이템 id, 아이템 이름, 아이템 이미지 이름
+이렇게 2개의 테이블로 관리하면 필요한 데이터만 저장하기 때문에 불필요한 공간 남용이 없어진다
+primary key 값의 모든 경우의 수를 다루는 경우 굳이 database 를 쓸 필요가 없을 것 같다
+모든 primary key 경우의 수에 비해 적은 양의 실제 데이터를 다루는 경우 database 를 사용하면 저장 공간을 절약할 수 있을 것 같다
+
+# gpt
+What can i do with SQLite?
+How to pronounce "SQLite"?
+What is relational database?
+How vim save it's content to a file if little part is modified from large file in detail?
+How to implement to writes the patch file to disk instead of the entire file in C?
+What does "*.xcdatamodeld" act in Xcode in terms of SQLite?
+Is there any feature makes closure differentiated with common function?
+If closure is using outside variable, and the closure is pass as argument of another function, and the variable is modified before the closure is executed, when the closure is executed, will it has the variable before modified or after?
+How to develop to save a file to app's local storage in xcode?
+What about storing 100x100 int with FileManager but not CoreData?
+Is it common storing and loading 10000 int with FileManager but not CoreData?
+When is CoreData commonly used for storing what data?
+What does "data model as a graph of objects" mean?
+What id of diagram in relation is for in SQL?
+Why need relationship and id?
+How can relationship improve performance?
+What is normalization in database?
+Is foreign key attribute of table in database?
+Can you explain "struct SearchPathDomainMask"?
+I want to save Int[100][100] type of data. This data modified random row, column 1 value per second. I want to save pure int[100][100] value or just the modified value without conversion. How can i achieve this in swift with FileManager?
+Your code seems have to call NSKeyedArchiver.archivedData(withRootObject:, requiringSecureCoding) method every time to save just one element. Wouldn't it take performance?
+I have a file stored 10 int. How can i load from that file to Array<Int> in swift?
+How to create file if not exit with FileHandle in swift?
+How to convert Int[9] to Int[3][3] in swift?
+In iOS app, where the data commonly stored?
+In iOS app, where the data commonly stored with FileManager?
+How to create 10000 int file with FileManager?
+How to get the size of a file with FileManager?
+Can i loop "UnsafeBufferPointer<Int>" with for statement?
+Can i loop "UnsafeBufferPointer<Int>" with for statement with index and subscript?
+How to write with subscript "UnsafeBufferPointer<Int>"?
+
 2023-05-08
 
 # gpt
