@@ -1,6 +1,22 @@
 pour.txt
 
+2023-05-11
+
+# gpt
+How to put text to SKSpriteNode in swift?
+Would you recommend the name of function that make a instance of SKSpriteNode with image name and CGFrame and add it to a SKNode?
+Would you recommend the name of function that create a instance of SKSpriteNode with SKTexture, CGFrame, String for label and add it to a SKNode?
+What is the best practice to get a specific node from child?
+I'm writing a function that create directory if not exist. Which one is better between ifWorldDirectoryNotExistCreate and ifNotExistCreateWorldDirectory?
+I want to make a functionality of dragging when a touch begin and moving. While dragging, i want to ignore new touch begin and moving it. How to identify current touch of "touchMoved(_: with:)" in swift?
+Can you explain what is the GestureRecognizer in swift?
+How does gesture recognizer works inside?
+Will using gesture recognizer slower than that recognizing and processing with touch in touch associated function of view?
+I want to implement a touch associated function. There is touchable element on screen. If i touch and drag outside of element, it moves camera. If i touch and drag an element, it moves the element. Can i implement this function with gesture recognizer?
+Thank you, but i forgot one thing. I want to be possible operating that two dragging functionality at the same time. Is it possible?
+
 2023-05-10
+<OC-<>: open in next editor
 
 # gpt
 If i made "UnsafeMutableBufferPointer<Int>" from "Data" in a function and save the instance of "UnsafeMutableBufferPointer<Int>" out of function, after that function will "Data" deallocated? And will the instance of "UnsafeMutableBufferPointer<Int>" point dangling?
