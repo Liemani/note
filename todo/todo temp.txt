@@ -6,6 +6,12 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
+내일은 GameItem 을 CoreData 로 저장하고 불러오는 기능,
+GameObject 를 구현하여 이를 상속받는 GameObjectTreePineTree 를 구현해 볼 예정이다
+GameObject 를 CoreData 를 통해 저장 및 불러오기
+item layer 위에 object layer 를 두는건 어떨까?
+
+아이템 노드를 화면에 출력하기
 isWalkable 구현
 벽 타일 만들고 이동할 때 걸리도록 만들기
 저장 불러오기 다듬기
@@ -89,6 +95,13 @@ container하기
             LLRB
 
 # finish
+아이템은 저렇게 저장된다
+저걸로부터 typeID 를 가져와서 resource name 을 알아내야 한다
+로드 때는 core data 로부터 얻은 typeID 로 class type 을 알 수 있어야 한다
+    gameItemTypeInformationDictionary
+아래의 배열은 위 딕셔너리를 만드는데 사용된다
+    gameItemTypeIDToResourceName
+tile 은 어떻게 잘 되고 있지?
 tileMap[0] 과 tileMap[1] 이 계속 오염되는데, 데이터가 오염된건지, 메모리가 오염된건지 확인해보자
 FileManager 와 CoreData 의 저장 방식의 차이와 나에게 적합한 것이 무엇인지 생각
 FileManager 로 데이터 저장하기

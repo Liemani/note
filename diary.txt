@@ -1,5 +1,41 @@
 pour.txt
 
+2023-05-12
+와,, gpt 에게 질문을 하는 것은 단순히 질문을 잘 하는 법을 배울 수 있을 뿐만 아니라 뒤엉킨 생각을 정리하여 명확히 하는 데에도 도움을 준다
+internally
+unnamed
+아이템이 실수로 복제된 경우, 복제 여부를 확인하기 위해 아이템에 id 를 부여하는 것이 좋겠다
+만약 서버를 만든다면 id 의 생성 순서와 관련된 값을 저장할 필요가 있겠지만
+단순한 local 게임을 만드는 경우, 각 item 을 식별하기 위한 용도로, 재실행 시 id 생성 순서를 초기화 해도 된다
+
+# gpt
+I need name for a class that recognize touch and do action. In swift, UIGestureRecognizer do similar behavior. But it recognize gesture exclusively from other gestures. But my touch recognizing class will consider other recognizing class. What name would be good?
+Is UIGestureRecognizer event?
+Explain about event architecture in swift
+What is UIEvent in UIKit?
+How to make a node that filled with black without texture in SpriteKit?
+Can you recommend the name of a class that control all the item on the tile map? One item can be placed on a tile.
+What does the keyword "required" do in swift?
+How to set global constant value when app start with code?
+I want to set the value with closure or function to set dynamically!
+How to execute no name closure?
+What actually duple is?
+What actually duple is in swift?
+What actually tuple is in swift?
+How tuple is implemented?
+I'm making GameItem class which is describe a item in game. Multiple item of a kind can be exist. Should i put "id" property for to identify each item?
+Can you explain more for the need of id?
+How to make a property for generating id value just increasing?
+Can i write to increase the property nextID whenever read the value in swift?
+Can i use type of class as key of dictionary in swift?
+I meant different situation. If i defined class1 and class2. I want to use like "myDictionary[class1.self]" or myDictionary[class1.type]"
+If object1 is a instance of class Class1 and object2 is also is a instance of class Class1, is myDictionary[ObjectIdentifier(object1)] and myDictionary[ObjectIdentifier(object2)] is same? I want to
+Then if i store value with the key of MyClass.self, how can i get the value from the dictionary with object1?
+Then how to get "MyClass.self" from "object1"?
+Why does "drive" mean in "disk drive"?
+Is memory storage?
+Can i say drive for permanent storage?
+
 2023-05-11
 
 # gpt
