@@ -1,5 +1,41 @@
 pour.txt
 
+2023-05-13
+situation
+scenario
+appropriate
+내가 생각하는 dpendency injection 의 목적은 다양한 환경에서 테스트하고 싶은데, 해당 파일을 수정하면 파일의 완결성을 깨트릴 수 있으니 해당 파일을 수정하지 않으면서 다양한 환경에서 테스트를 해보고 싶은 것이다
+따라서 다양한 환경이 될 여지가 있는 값은 인자로 입력받던지, 외부에서 값을 설정하던지 해서 외부로부터 값을 전달받도록 하는 것이다
+음식을 만드는 로봇을 생각하면 좋을 것 같다
+김밥 로봇을 만드는데 김밥 로봇이 계란을 직접 부쳐서 사용하도록 할 수도 있고,
+옆에 놓여 있는 부친 계란을 가져와 사용하도록 할 수도 있다
+만약 계란을 직접 부치는 것이 오랫동안 변할 일이 없다면 김밥 로봇의 일부로서 포함되어야 할 것이다
+하지만 계란을 부치는 파트가 지속적으로 버전업이 된다면 김밥 로봇과 별도의 로봇으로서 계란 로봇을 두던가,
+김밥 로봇의 계란 부치는 파트만 갈아끼기 쉬운 구조로 만드는 것이 좋을 것이다
+APFS
+CoW
+
+# gpt
+What is the differences between NSPersistentContainer and CoreDataStack?
+What can i do with CoreDataStack rather than NSPersistentContainer?
+Can you provide an example of real situation that should use CoreDataStack rather than NSPersistentContainer?
+I read that NSPersistentContainer is intended to can be subclassed. When is appropriate subclassing it?
+Why should i use fatalError? If I access invalid memory, application will crash. Then I can find where the problem occurred though i didn't used fatalError function
+Is singleton pattern bad?
+What is dependency injection?
+Does minecraft use sql for store data?
+Is the element of NBT format has the limit of size?
+How String data is written to a file in SQL?
+Is it possible writing data from modified table to previous file in SQL?
+If i have large text file and added a character at the beginning, would saving takes long time for saving total file rather than a character?
+Hard drive have to rewrite entire file? And solid-state drive not?
+How SSD store data permanently?
+If i save large text file added a space at beginning, what happen in detail in apple m1?
+When write a file with write() function in C write only modified part not entire file?
+As i know in mac, when save modified file from original file stored in disk, there is a function that save only modified part and use the common part of file from original file
+How to use CoW in swift?
+In my brain, if i make many file, it's meta data would take disk storage. So same size of a file would take less space. Is it true?
+
 2023-05-12
 와,, gpt 에게 질문을 하는 것은 단순히 질문을 잘 하는 법을 배울 수 있을 뿐만 아니라 뒤엉킨 생각을 정리하여 명확히 하는 데에도 도움을 준다
 internally
