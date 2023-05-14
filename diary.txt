@@ -1,5 +1,37 @@
 pour.txt
 
+2023-05-14
+scheduler
+
+# gpt
+Is "NSPersistentContainer.loadPersistentStores()" non-blocking function?
+What is the queue in your answer?
+When context switching to next job on thread, how it catch when to switch? If after specific time taken, thread switch context or something?
+Where does scheduler run? Is it main thread?
+What is this problem? "CoreData: error: addPersistentStoreWithType:configuration:URL:options:error: returned error NSCocoaErrorDomain (134081)"
+How to remove record of table in CoreData?
+What does the keyword "default" in swift?
+What does the keyword "default" as member operator like "FileManager.default" in swift?
+What is the difference between "class var" qualifier and "static var" qualifier in swift?
+How the class modifier implemented in terms of memory?
+How to get the path of stored file in CoreData?
+How to change storeURL?
+What does "open" qualifier do in swift?
+How to define get only static property that have value at program beginning in swift?
+I'm write a function. This method set a instance to fit the argument "worldName". Which name would be good between "setToWorld()" and "setForWorld()"?
+What about "setToWorld(of name: String)"?
+How to use highlighted comment like todo in vim in swift?
+Is file automatically closed when the instance of FileHandle deallocated?
+I've got this error message "[general] Encountered read failure 9 Bad file descriptor". Do you know what's wrong?
+This error occurred in this code "let tileMapData = try! self.fileHandle.readToEnd()"
+I've got error message also in your code "let tileMapData = try! fileHandle.readToEnd()"
+If fileHandle passed the descriptor test, how can error is occurred?
+I'v got "9 Bad file descriptor" but the fileHandle passed descriptor test
+Why does URL.path is deprecating in swift?
+How to check whether a file is exist or not with FileManager without URL.path from URL?
+I ordered not to use URL.path. But your last example used it on 7th line
+How to get path String from URL in swift without using path property?
+
 2023-05-13
 situation
 scenario
