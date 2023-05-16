@@ -1,5 +1,30 @@
 pour.txt
 
+2023-05-16
+
+#gpt
+How remove hypen in fornt of line in keynote?
+It is like dot in md format, i can't select it
+If i call context.save() in CoreData, is it save to disk immediately?
+If app crash, data saved from context would be gone when i didn't call context.reset()?
+If app crash, context.save() would be gone when i didn't call context.reset()?
+If app crash, data that called by context.save() would be gone if i didn't call context.reset()?
+How to detect whether a node is touched in SpriteKit?
+How can I retrieve all child nodes that are intersected by instance of UITouch?
+Now i got "EXC_BAD_ACCESS (code=1, address=0x33)"
+What does SKScene.didmove() do?
+Why should i setup in didMove not init?
+
+2023-05-15
+
+# gtp
+How to delete record having specific data from table with CoreData?
+Why is the member viewContext of NSPersistentContainer is 'view'Context than other context?
+I add node as child to SKScene but now display. Should i call some method to draw?
+What about gameItemNodeToModelDictionary for variable name?
+How to remove child node from parent in swift?
+How to remove key value pair from Dictionary in swift?
+
 2023-05-14
 scheduler
 

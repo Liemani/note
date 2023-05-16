@@ -6,6 +6,12 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
+WorldSceneController.initSceneByModel() 에서 add 의 일부를 복붙해서 쓰는데 더 아름다운 디자인이 없을까?
+gameItem -> gameObject
+파일을 계속 열어두다가 크래쉬, 종료 등 시그널이 발생했을 때 데이터 저장 좋겠다
+    혹은 백그라운드 때도
+modify, delete
+tile map layer를 scene 의 0,0 에 첫 타일 중앙이 오면 좋지 않을까?
 내일은 GameItem 을 CoreData 로 저장하고 불러오는 기능,
 GameObject 를 구현하여 이를 상속받는 GameObjectTreePineTree 를 구현해 볼 예정이다
 GameObject 를 CoreData 를 통해 저장 및 불러오기
