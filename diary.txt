@@ -1,5 +1,36 @@
 pour.txt
 
+2023-05-17
+location: 차원과 수치적인 좌표보다는 포함관계적 위치 정보를 갖는다
+coordinate: 2D 혹은 3D 좌표 등을 갖는다
+position: SKNode.position 은 2D 의 좌표 데이터를 갖는다
+
+time complexity
+logarithmic time complexity
+
+# gpt
+How to use NSManagedObject(entity:,insertInto)?
+I'm naming a struct that save variables for position of object. Which one would be better between GameObjectCoordination and GameObjectCoordinate?
+GameObjectCoordinate has properties inventoryID, row, column for store the location information. I'm naming a property of a class 'GameObject'. That property is type of GameObjectCoordinate. What name is appropriate?
+SKNode use 'position' for the name of coordinate. What's the difference between position and coordinate for a name of location?
+What about the term 'location'?
+What's the difference between coordinate and location?
+How to use NSFetchRequest<>(entityName:)?
+When i use NSFetchRequest<NSFetchRequestResult> rather than NSFetchRequest<NSManagedObject>?
+How to generate random number 0 or 1 in swift?
+I'm programming in swift. I have classes Seed, Tree, Stone. I want to make a function that return 0 if the argument is a instance of Seed, and return 1 if the argument is a instance of Tree, and 2 if the argument is a instance of a Stone.
+If i want to increase the number of class, how to make that function return next number matching class?
+How long will it takes according to the number of case? ln(N) or N? I want at least ln(N)
+Your previous code occurs error "Type 'AnyClass' (aka 'any AnyObject.Type') does not conform to protocol 'Hashable'"
+How to prevent a method from called outside but subclass?
+How to notate a method that have to be implemented in subclass?
+I'm making a game in Xcode. How can i set the name of app?
+Which name would you prefer between GameObjectWoodenWall and GameObjectWoodWall?
+Is there a easy way to detect whether a index is out of bounds of array?
+How to access static member from instance in swift?
+Your last example gave me this error "Static member 'myStaticProperty' cannot be used on instance of type 'myInstance'"
+What is metatype in swift?
+
 2023-05-16
 
 #gpt
