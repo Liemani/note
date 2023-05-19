@@ -6,6 +6,7 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
+camera 제거하기
 isWalkable 구현
 벽을 오브젝트 만들고 이동할 때 걸리도록 만들기
 복잡한 카메라 이동 구상하기
@@ -88,6 +89,9 @@ container하기
             LLRB
 
 # finish
+accessBound 구현 및 테스트
+worldSceneController
+    add(gameObject:) -> add(_:)
 GameObject 를 구현하여 이를 상속받는 GameObjectTreePineTree 를 구현해 볼 예정이다
 GameObject 를 CoreData 를 통해 저장 및 불러오기
 item layer 위에 object layer 를 두는건 어떨까?

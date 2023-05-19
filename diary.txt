@@ -1,5 +1,74 @@
 pour.txt
 
+2023-05-19
+calculus
+infinitesimal changes
+derivative
+differential
+
+flick 을 구현할 때 touch up 의 touch 를 사용하여 구현하면 적절하지 않았다
+시간 간격이 너무 짧아서 오차가 크기 때문인 것 같다
+그래서 touch move 에서의 마지막 두 touch location 과 time interval 을 사용하여 flick 을 구현하여다
+
+# gpt
+I made 100 x 100 tile map with TileMap in SpriteKit. Would the tile map allocate only for displayed tile or all tile?
+How to get rendered child nodes of a SKNode?
+If the number of child nodes is N, is that method have time complexity of O(N)?
+Why NSAttributeType don't support Int8?
+What can i do camera property in SKScene?
+Explain me elementary differential
+What can be the counter part of infinitesimal change?
+I modified method names. What commit message would i leave? Refactor? Or Refactoring?
+How to set size of a instance of SKNode?
+How to add element to array?
+I can't find nodes(at: bound) method
+How to make a node that has specific size?
+What is first between touchesMoved() and update() in SKView render cycle?
+I made a array having 9 element in swift. That array has some elements. I want to clear the 9 element to nil. How do i do?
+
+2023-05-18
+common practice
+grammatically
+
+# gpt
+What is retroactive modeling?
+Can you suggest file name for extension?
+Would defining delegate protocol GameObjectDelegate in the file GameObject.swift is bad practice?
+Can you provide example code describing file?
+What would be good defining the protocol up or down of class?
+Why is swift extension designed not to have to contain stored property?
+Can you provide me the control flow example of handling touch event from SKScene?
+How to get UIViewController from a instance of SKScene?
+Make me a method prototype that getting touched child node from a node and touch
+Make me a method that return whether node is touched by touch
+What property can i use to identify from a instance of UITouch?
+The sentence "A node in on the touch" is correct in grammar?
+I will choose second option. Can you suggest another preposition and the meaning?
+I will choose second option. node is a instance of SKNode Can you suggest another preposition and the meaning?
+If i touched a node, how can i present this circumstance in terms of position with brief sentence?
+I'm implementing flick touch. If i touch up with direction and velocity, app consider the direction and velocity to camera's sliding move. But i have to limit the time to calculate for velocity. If i calculate to long or short time for to calculate velocity, it would be not intuitive. What name would be good for the constant limiting the calculation time?
+How can i query you to add more information for previous question?
+If the time interval from precious touch from current touch greater than the time limit, i will regard the direction is '0, 0' and velocity '0.0'. Can you suggest more name for the constant?
+What about moveTouchValidityDuration?
+Is there a property for previous touch timestamp in UITouch?
+I'm moving camera of scene according to the pan of touch. How to get location of touch in terms of the screen?
+If higher speed, friction would be bigger?
+How to calculate power of N in swift?
+soIs there no way to detecting it with persistent store directly?I'm using CoreData to handle data. How to check whether sqlite file is created or not before load persistent store?
+Your suggestion return false even the file exist if persistent store not loaded yet
+What can i do with NSPersistentStoreDescription?
+What does "DataModel.sqlite, DataModel.sqlite-shm, DataModel.sqlite-wal" do each?
+What is the Shared Memory file?
+There is NSConsistentStore and NSConsistentStoreDescription. I saw many time have 'Description' on class name. What is that pattern?
+I don't understand how shared memory file reduce disk I/O
+What is the shared memory-mapped I/O
+I'm using CoreData. When i remove directory where the sqlite file reside, I got warning message "BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use"
+How to remove sql files without this message after use?
+Is Description pattern common?
+static weak var or weak static var?
+What does "'weak' must not be applied to non-class-bound 'any GameObjectDelegate'; consider adding a protocol conformance that has a class bound" mean?
+Can you explain more about unowned?
+
 2023-05-17
 location: 차원과 수치적인 좌표보다는 포함관계적 위치 정보를 갖는다
 coordinate: 2D 혹은 3D 좌표 등을 갖는다
