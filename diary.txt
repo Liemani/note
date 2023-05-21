@@ -1,5 +1,38 @@
 pour.txt
 
+2023-05-21
+
+# gtp
+Is there a api that return what index the node from parent in SpriteKit?
+Is the computed property takes memory space in swift?
+Why this error occurs? "'required' initializer 'init(coder:)' must be provided by subclass of 'SKNode'"
+Can you provide me the example of the implementation of init?(coder:)?
+Can you provide me the example of the implementation of init?(coder:) with some code?
+Why they force me to implement init?(coder:)?
+How do i deserialization?
+is the method "encode" called by library?
+I capsuled some part of code. What commit message would be commonly used?
+I capsuled some part of code to a class. What commit message would be commonly used?
+What is after draft?
+
+2023-05-20
+
+# gpt
+How does SKSpriteNode.contains() implemented?
+What is the SKSpriteNode.accessibilityPath?
+How to get the minimum x and maximum y in SKSpriteNode's area by api?
+I'm making a method that set node' position according to collision. Can you recommend the appropriate name?
+What about solveCollision?
+Can you recommend more name?
+What should i say the meeting point of two shape?
+I made a gettable and settable not stored variable. And i passed that variable & prefixed to function that expect inout type. It worked well i expected. What is going on?
+If remove inout from the function, what output would be?
+Can i implement inventory id to enum?
+How to get ordered number by enum value?
+How to get index of case?
+I want to put if let with another boolean expression to condition expression. How do i do?
+I have a node. That node have only one child. Can you recommend several ways to get the child from the node?
+
 2023-05-19
 calculus
 infinitesimal changes

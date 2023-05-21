@@ -6,10 +6,6 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
-camera 제거하기
-isWalkable 구현
-벽을 오브젝트 만들고 이동할 때 걸리도록 만들기
-복잡한 카메라 이동 구상하기
 a-month-game 프로젝트 진행하기
 
 cfi_def_cfa 에 이어 stack unwinding 을 보고 있었다 왜에 대해
@@ -89,6 +85,12 @@ container하기
             LLRB
 
 # finish
+fix bug
+    resolvePointCollisionPointWithCircle
+isWalkable 구현
+벽을 오브젝트 만들고 이동할 때 걸리도록 만들기
+복잡한 카메라 이동 구상하기
+camera 제거하기
 accessBound 구현 및 테스트
 worldSceneController
     add(gameObject:) -> add(_:)
