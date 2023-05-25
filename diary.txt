@@ -1,5 +1,67 @@
 pour.txt
 
+2023-05-25
+
+# gpt
+What is the difference between pane and window?
+
+2023-05-24
+
+# gpt
+I'm programming in swift. How to constrain a generic type Int or Double etc raw numeric type?
+In the doSomething function, how can i make a instance of type T with value 0?
+When defining custom operator, which name is used more frequently between lhs, rhs and left, right?
+What's the difference between define and implement?
+I'm implementing structure. How to inherit from specified generic protocol?
+Can structure inherit another struct?
+Can you provide some sentence that using "point of view"?
+Can you provide several example of bug fix commit message?
+Which is common between scribing return in the same line of guard and following line?
+Which one is commonly used between isHasEmptySpace and hasEmptySpace?
+
+2023-05-23
+
+# gpt
+I'm developing with swift. Is there a easy way to get count of case on enum?
+Why swift enum conform RawRepresentable?
+I want to define constants. It will be Int. And will has from 0, the index of defined. How can i do?
+Can i do that without enum?
+I like that, but it takes so many thing for the simple task. Can you make it simplify?
+But that is not constant defining Int
+Is static variable not constant? Is it actually lazy variable?
+I don't want constant take memory space
+How can i make array get another type but Int as parameter of subscript method?
+Then, how can i constrain the subscript argument as a protocol type i want?
+Recommend a word that if getting closer to fail, at least choose last selection, so never eventually never fail
+How to allow to use only subclass?
+How many times enum heavy compare to just defining constant in preprocessor?
+How does the time complexity of 'Enum.init?(rawValue:)'?
+How to access subscript with enum value?
+How to access a element of array by subscript with enum value?
+
+2023-05-22
+prompt
+
+# gpt
+Why SKScene.init(coder:) is required?
+Before i declare init(), Xcode didn't force me to implement init(coder:). But when i declared init(), it request me to implement init(coder:). Why?
+If i don't declare init() what does Xcode do automatically?
+I'm programming in swift. I want to implement a structure just for 1 use. Is there any beautiful way?
+Can i make instance at the same time implementing it like C?
+What data collection for frequently add and removed element would be good? The number of element can increase up to 10,000.
+How does set achieved O(1) time complexity on removal operation?
+How does the time complexity of Dictionary.values()?
+How does minecraft world map data saved on mac?
+What is the graph in CoreData?
+What is fault in NSManagedObject?
+My static property has getter. How to get property's value without call getter.
+My static property has getter. How to get property's value without call getter in the getter function?
+There is method "touchesEnded" in SKScene. Is 'end' has the meaning of ended with intended safely in general english?
+Than what word would be good to represent the end whether safe or not
+Can you provide a method passed complete as argument?
+Can you provide the api method?
+What library method passed completion handler as argument?
+
 2023-05-21
 
 # gtp
