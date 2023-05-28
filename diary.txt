@@ -1,9 +1,108 @@
 pour.txt
 
+2023-05-28
+가능하면 바로 인접한 객체만 접근한다
+    그러면 코드의 수정이 더 국소적이어진다
+
+# gpt
+I'm programming in swift. I want to represent that a touch is on the node with node as subject. I want the proper preposition.
+How to say "node.contains(touch.location(in: node.parent))" to a sentence? Node is on the touch?
+Would "The node is at the touch" loose it's meaning?
+There is three node(node1, node2, node3). node3 is child of node2, and node2 is child of node1. If i execute node1.addChild(node3), would node3 become the child of two at the same time? So will it differ with node3.move(toParent: node1)?
+What is effective user?
+What is others than effective user id?
+I'm making a game. And i'm making a ranged area that i can move object around my character. What would be fit for the area?
+I'm making a game. And i'm making a ranged area that i can interact and move the object around my character. What name would be fit for the area?
+What is the difference between zone and area?
+Origin of "connotation"
+I want to manage the objects in the interaction zone as a array. What name would be good?
+I want sizable node in sprite kit. And it would better to possible set the left down corner point easily.
+game object have square shape. interaction zone has square shape. I'm making a function. This function caller is the parent node of game object. This function  returns all game objects that intersects interaction zone. What name is fit?
+How to remove an element from an array?
+How to remove an matching element from an array?
+How to remove a first matching element from an array?
+I have 2 sprite node. node1.zPosition = 10, node2.zPosition = - 10. node1. isUserInteractionEnabled == false, node2.zPosition = true. When i touch the intersection, node2.touchesBegan didn't called. How can make it called?
+I have 2 sprite node. node1.zPosition = 10, node2.zPosition = - 10. node1. isUserInteractionEnabled == false, node2.zPosition = true. When i touch the intersection, node2.touchesBegan() didn't called. How can make node2.touchesBegan() executed without changing zPosition?
+When i touched my node2 and move, even the touch moved outside the node, node2.touchesMoved() was called.
+Can i set the touchable area of sprite node to circle?
+Can i acheive circle touchable area with path property?
+Can i acheive circle touchable area with path property without overriding contains?
+Can i set texture to shape node?
+How to set the capacity of array?
+
+2023-05-27
+
+# gpt
+Grammar check "To note the control flow branch, scribe return statement must next line"
+Grammar check "To accent the control flow branch, write return statement must next line"
+Why do you think 'should' is better than 'must'?
+Than i want to represent forcing, would 'must' be better?
+I'm programming in swift. How to make a iterator including other 2 iterators?
+I'm programming in swift. How to make a iterator including other 2 iterators in squentially?
+I want this "struct DictionaryKeysArrayIterator<T, Element>: IteratorProtocol where T: Sequence<Element> {". Should i make this simple?
+Does merge have direction?
+In git, does merge have direction?
+
+2023-05-26
+robust 하게 구현하지 않으면 재검토 하느라 시간을 소모한다
+    하지만 robust 하게 만들면 불필요한 기능을 추가하느라 over engineering 할 수도 있지 않을까?
+    즉, robust 하게 만들어보는 경험을 해보자
+
+한 원소를 편집하면 바로 flush 하지 말고 여러 원소를 편집하면 flush 하자
+여러 원소를 편집했는데 flush 해야할지 말아야 할지를 판단하기가 복잡해진다
+가령 디스플레이의 색을 바꾸는데 바꾸려고 하는 좌표와 색을 전달한다고 하자
+이때 색을 바꾸는데 비용이 적다면 전체적으로 flush 하면 되겠지만
+만약 색 하나를 바꾸는 비용이 크다면 해당 색을 바꿀지 말지..
+지금은 디스플레이 flush 와는 상황이 조금 다른 것 같다
+그렇게 병렬적이지 않고
+applyTaskResult() 가 비용이 크다
+그래서 여러 task 를 호출하고 처리된 task 를 통해 보고서를 작성하려고 할 때
+applyTaskResult() 를 호출할 것인데
+매 task 마다 호출하면 비효율적이니 updateTask() 에서는 호출하지 말고
+manual 하게 caller 가 applyTaskResult() 를 호출하게 하고
+여러 task 를 한번에 처리하는 updateTasks() 에서는 그냥 호출하게 하는 것이다
+이런 결정을 하게 된 큰 이유가 있다
+어떤 task 는 applyTaskResult() 가 필요가 없지만 어떤 task 는 applyTaskResult() 가 필요하다
+따라서 task 를 단일 객체로 보내는 경우는 caller 가 직접 applyTaskResult() 를 호출해야 되는지를 판단하도록 한다
+하지만 여러 updateTasks() 를 호출하는 경우 caller 가 applyTaskResult() 를 호출해야 할지를 추적하기가 힘들어진다
+그러니 이 경우에는 updateTasks() 내부에서 applyTaskResult() 를 호출할지 말지 판단하여 호출하도록 구현하는 것이 좋을 것 같다
+
+데이터를 메모리에서 다룰 때는 때는 최소한 공간을 기준으로 나눠서 관리하자
+
+파충류를 만들고 싶다
+일단 살덩이를 불려 나간다
+무엇이 완성될지는 모르지만 대략 이렇게 진행하면 될 것 같다
+부피가 늘어나다보니 형태를 지탱할 뼈가 필요할 것 같다
+뼈를 넣어주고 자세를 잡기 시작한다
+완성해보니 파충류의 뼈가 어떻게 생겼는지 알게 되었다
+이런 경험을 반복하다보면 내가 원하는 대상은 어떤 벼대를 가지고 있는지 알게 된다
+그러면 앞으로는 뼈대부터 만들 수 있게 될 것이다
+
+# gpt
+I'm programming in swift. How to append array to array?
+grammar check "if body has only return, you can scribe it at one line"
+What about a line?
+I meaning really return not return statement
+Would it mean really return not even 'return nil'?
+What mean "regardless of the specific value being returned"?
+I don't want even nil and whatever
+I don't want even nil and whatever. I only allow 'return' following nothing
+When use foreach and when use for loop?
+for in loop and foreach is same?
+Does the method "static func += (lhs: inout Array<Element>, rhs: Array<Element>)" in Array has O(n) time complexity?
+I have 3 filled array having same element type. I want to loop with for in statement. How can i do it in O(1)?
+I have 3 filled array having same element type. I want to loop with for in statement. How can i get the sequence in O(1)?
+What is the difference between sequence and collection?
+What is the difference between sequence and iterator?
+What is the difference between Sequence and IteratorProtocol?
+What is the base of IteratorSequence?
+I am writing a container structure. FieldContainer, InventoryContainer, ThirdHandContainer etc. Which should i qualify it struct and class?
+
 2023-05-25
 
 # gpt
 What is the difference between pane and window?
+What is the word that meaning row to column and column to row in matrix?
 
 2023-05-24
 

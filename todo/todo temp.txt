@@ -6,6 +6,7 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
+MVC pattern 에서 도대체 model 은 어떤 것일까?
 a-month-game 프로젝트 진행하기
 
 cfi_def_cfa 에 이어 stack unwinding 을 보고 있었다 왜에 대해
