@@ -6,45 +6,59 @@ swift.txt
 
 ### referenced from swift Array
 
-remove at index
 remove where predicate
 contain where predicate
-first where
+first where predicate
+last where predicate
+first index where predicate
+last index where predicate
+
+remove at index
+
 first index of specified value
 index of specified value
-first index where predicate
-last where predicate
 last index of specified value
-last index where predicate
+
 min by comparison predicate
 max by comparison predicate
-prefix through index
-prefix up to index
-prefix while predicate
-suffix from index
-drop while predicate
-reduce into result closure(2 -> 1)
 sort by comparison predicate
 sorted by comparison predicate
-shuffle using random generator
-shuffled using random generator
 partition by predicate
-difference from another collection
-difference from another collection by equivalence predicate
 elements equal another sequence by equivalence predicate
-srats with prefix
-start with prefix by equivalence predicate
 lexicographically preceds another sequence by comparison predicate
-index after index
-form index after index
-index before index
-form index befor index
 index offset by distance
 index offset by distance limited by index
 form index offset by distance limited by index
-distance from index to index
-encode to encoder
+
 init from decoder
+suffix from index
+difference from another collection
+difference from another collection by equivalence predicate
+distance from index to index
+
+prefix through index
+
+prefix up to index
+
+prefix while predicate
+drop while predicate
+
+reduce into result closure(2 -> 1)
+
+shuffle using random generator
+shuffled using random generator
+
+start with prefix
+start with prefix by equivalence predicate
+
+index after index
+form index after index
+
+index before index
+form index befor index
+
+encode to encoder
 
 # guard
-- If the body consists of only the keyword 'return' without any value following it, you can write it on a single line.
+- If the body consists of only the keyword "return" without any value following it, you can write it on a single line.
+- To emphasize the control flow branch, the "return" statement must be written on the next line.
