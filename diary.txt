@@ -1,5 +1,15 @@
 pour.txt
 
+2023-05-30
+
+# gpt
+I'm programming in swift. Type casting with "as" keyword take cpu resource?
+How to initialize function type of variable? How to run the function with the variable? And how to pass that variable as argument to a function?
+What does "@escaping" do?
+What the zone in the "_objc_rootAllocWithZone" mean?
+How to enroll action for a instance in swift api?
+What is the difference between "consider" and "regard"?
+
 2023-05-29
 처음에 모듈화를 해두지 않고 나중에 리팩토링하면서 클래스를 생성한다면 기존에 작성한 코드를 두 번 세번 읽어야 한다
 그러면 개발 시간이 배로 걸린다
