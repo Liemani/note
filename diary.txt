@@ -1,5 +1,72 @@
 pour.txt
 
+2023-06-16
+위쪽 레이어로 갈수록 풍부한 기능을 지원한다
+property
+    get
+    set
+model: 다양한 용도의 편집 구현
+    <object name>
+    update
+service: 데이터를 편리하게 편집 구현
+    load
+    update
+repository: 데이터 직접 편집 구현
+    read
+    update(write)
+밑의 레이어로 갈수록 필요한 최소한의 기능만 구현한다
+
+2023-06-15
+```
+    var data = Data(count: MemoryLayout<Int>.size)
+    data.withUnsafeMutableBytes {
+        let bufferPointer = $0.bindMemory(to: Int.self)
+            bufferPointer.baseAddress!.pointee = Constant.initialNextID
+    }
+    return data
+```
+
+2023-06-14
+# UserDefaults
+final class NextIDRepository {
+
+    let userDefaults = UserDefaults.standard
+
+    func read(forKey key: String) -> Int {
+        return self.userDefaults.integer(forKey: key)
+    }
+
+    func update(_ value: Int, forKey key: String) {
+        self.userDefaults.set(value, forKey: key)
+    }
+
+}
+
+# git ls
+git ls-tree HEAD:a\ month\ game/Disk
+
+2023-06-13
+source-available software
+
+2023-06-12
+끌어당김 법칙, 시각화, 확언
+the circle of the life
+
+2023-06-11
+
+# gpt
+What is the best practice to move another view controller in swift?
+What is the best practice to request to change another view controller in SKScene?
+How can i use notification pattern?
+
+2023-06-01
+
+# gpt
+Is using weak bad practice in swift?
+Is there api returning rendering node list in SpriteKit?
+Will i let SpriteKit search nodes which to render or i manage rendering node list in general?
+What is the border dividing view controller? My game has world select scene and world play scene. Should I make 2 view controller or can i put that 2 scene to 1 SKView?
+
 2023-05-30
 
 # gpt

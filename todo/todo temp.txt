@@ -86,6 +86,7 @@ container하기
             LLRB
 
 # finish
+자갈은 계곡에, 동굴 입구 하지 말고 탈출 버튼 만들기
 fix bug
     resolvePointCollisionPointWithCircle
 isWalkable 구현
