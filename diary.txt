@@ -1,5 +1,11 @@
 pour.txt
 
+2023-06-20
+squlite3 <file path>
+> .tables
+> .schem <table name>
+> SELECT <column name> FROM <table name>
+
 2023-06-16
 위쪽 레이어로 갈수록 풍부한 기능을 지원한다
 property

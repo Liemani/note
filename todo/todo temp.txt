@@ -6,6 +6,11 @@ dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될�
 function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
 
 # pc
+나만의 라이브러리 환경 만들기
+    다른 라이브러리 환경으로 쉽게 변경할 수 있으면 그것도 좋겠다
+    global 환경도 있으면 좋겠고
+플레이 그라운드 설치하기
+플레이 그라운드에도 빔이 될까?
 MVC pattern 에서 도대체 model 은 어떤 것일까?
 a-month-game 프로젝트 진행하기
 
@@ -86,6 +91,7 @@ container하기
             LLRB
 
 # finish
+드디어 모델을 완성했다 이제 WorldScene 과 WorldSceneViewModel 을 채워나가보자
 자갈은 계곡에, 동굴 입구 하지 말고 탈출 버튼 만들기
 fix bug
     resolvePointCollisionPointWithCircle
