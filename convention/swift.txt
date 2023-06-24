@@ -62,3 +62,7 @@ encode to encoder
 # guard
 - If the body consists of only the keyword "return" without any value following it, you can write it on a single line.
 - To emphasize the control flow branch, the "return" statement must be written on the next line.
+
+# data
+데이터를 분산적으로 갖지 않는다
+    캐릭터의 위치를 여러 객체가 갖지 않는다
