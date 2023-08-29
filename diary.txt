@@ -1,5 +1,39 @@
 pour.txt
 
+2023-08-07
+어떤 요구를 받는다면 그 요구를 다 들어주지 마라
+그 요구가 잘 진행될 수 있게 피드백 요구를 요청해라
+
+2023-07-20
+init()
+setUp()
+update()
+removeAll()
+
+2023-07-18
+breakpoint set --name objc_exception_throw
+
+2023-07-05
+ar
+strings
+nm
+size
+otool
+file
+
+2023-07-02
+git log --all --full-history -- "*AccessibleGOTracker.swift"
+git log 5488535 "*AccessibleGOTracker.swift"
+:s/\(.\)/\L\1
+    \L
+    \L& lowercase whole matching pattern
+
+2023-06-30
+git show HEAD^^^^:a\ month\ game/ViewController/World/View/EventHandler/PinchGestureEventHandler.swift
+
+2023-06-29
+gesture recognizer 가 호출되면 대응하는 touch 는 cancel 을 호출한다
+
 2023-06-20
 squlite3 <file path>
 > .tables

@@ -1,0 +1,9 @@
+revision = <pathed revision>
+
+pathed revision = <rev>:<path>
+
+rev = <sha1> | <pathed refname> | <dated refname> | <tilted refname>
+sha1 = [1, 40]<HEXDIGIT>
+pathed refname = [refs/][tags/|heads/|remotes/]<refname>[/HEAD]
+dated refname = <refname>?@{<date>}
+tilted refname = <rev>~[<n>]

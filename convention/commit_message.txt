@@ -1,0 +1,4 @@
+commit_message.txt
+
+generate commit message fixing crash according to possibility
+- (suck) Fix bug moving item can crash

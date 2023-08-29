@@ -62,7 +62,10 @@ encode to encoder
 # guard
 - If the body consists of only the keyword "return" without any value following it, you can write it on a single line.
 - To emphasize the control flow branch, the "return" statement must be written on the next line.
+- 아주 간명한 경우에 한하여 return 을 한 줄에 담는 것을 허용한다
+- guard 는 간단한 condition 에만 사용한다
+    - condition 이 이해하기 쉽지 않다면 if 를 사용하라
 
-# data
+# data property principle
 데이터를 분산적으로 갖지 않는다
     캐릭터의 위치를 여러 객체가 갖지 않는다
