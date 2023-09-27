@@ -1,4 +1,125 @@
-pour.txt
+diary.txt
+```article format
+yyyy-mm-dd
+content
+```
+
+2023-09-27
+ctags -R .
+
+2023-09-25
+record
+DELETE FROM table_name
+service <process> restart
+
+print(imported_module.__file__)
+
+issue : brew services start mysql 이 잘 되지 않음
+이전에 설치한 mysql 버전이, 삭제할 때 사용하던 database 들을 삭제하지 않아서 발생했음
+직접 삭제 후 재실치하여 정상 작동됨
+
+history -<line to list>
+
+2023-09-22
+brew services start mosquitto
+sudo lsof -i -P | grep LISTEN | grep :$PORT
+mosquitto_sub -t # -v
+node -expose_gc mobius
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'test';
+mysql -u root -p
+scp -r <source> <user>@<address>:<destination>
+sudo apt install mosquitto-clients
+brew services restart mysql@5.7
+launchctl list | grep mysql
+brew services list
+ps -ef | grep mysql
+
+sql
+show databases;
+SHOW TABLES;
+show schemas;
+create schema mobiusdb;
+use mobiusdb;
+show tables;
+select * from ae;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'test';
+
+mysql -u root mobiusdb < Mobius/mobius/mobiusdb.sql;
+
+https://github.com/eclipse/mosquitto/issues/1985
+add
+```mosquitto.conf
+listener 1883
+allow_anonymous true
+```
+to config file
+
+2023-09-21
+launchd
+launchctl list
+netstat
+systemctl
+service
+
+2023-09-20
+grant priviledge
+/etc/sudoers.d/
+/etc/passwd
+
+mangling name
+extern "C" int gcd(int a, intb);
+
+2023-09-19
+git diff <commit> <commit> -- <path>
+
+2023-09-18
+zip -r thyme_example.zip thyme_example
+sudo service mosquitto restart
+git checkout tags/<tag name>
+
+2023-09-16
+c 에서 % 는 나머지 연산자이고 python 에서 % 는 모듈러 연산자이다
+나머지 연산자는 결과값이 음수가 가능하다
+모듈러 연산자는 결과값이 항상 양수이다
+
+c: and operator(&&)
+python: and operator(&)
+
+2023-09-13
+/etc/sudoers.d
+username    ALL=(ALL) NOPASSWD:ALL
+username    ALL=(ALL:ALL) ALL
+
+2023-09-12
+hard link 정보는 git이 저장하지 않는다
+
+2023-09-08
+exception -> 라이브러리 유저에게 에러 핸들링 전가
+static-cast 컴파일 타임에 체크
+
+2023-09-07
+# gitignore
+만약 끝이 아닌 위치에 '/'가 나오면 .gitignore 기준 상대 경로로 처리한다
+
+2023-09-06
+/etc/profile
+
+2023-09-05
+extern "C"
+mangling name
+
+2023-09-04
+path
+dirname
+basename
+filename
+extension
+
+declare -f
+declare -F
+declare -p
+
+dividend = divisor * quotient + remainder
 
 2023-08-07
 어떤 요구를 받는다면 그 요구를 다 들어주지 마라
