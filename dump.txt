@@ -1,0 +1,168 @@
+dump.txt
+
+강사님,
+저도 그렇고 팀원들도 그렇고 프로젝트 할 상황이 안될거 같아서요.
+프로젝트 저희 팀은 못할 것 같은데, 어떻게 하는게 좋으실까요?
+
+# start
+고용노동부 미래내일 일경험 운영기관 (주)제니엘
+IT 실무양성과정 일경험 프로그램
+청년 일경험 지원사업
+
+국민취업지원제도 구직촉진수당
+재학생 맞춤형 고용서비스 점프업포인트
+실업급여
+# end
+
+맥에서 압축한 파일을 윈도우에서 해제하려니 실패하기도 하네?
+윈도우에 파일을 전송할 때는 윈도우에서 압축해주도록 하자
+
+크롬 웹브라우저 사용을 위한 SSL 인증서 등록
+
+PyC Basic
+Raspberry Pi
+
+# 크롬 웹브라우저 사용을 위한 SSL 인증서 등록
+대칭키를 이용하여 암호화 통신을 한다!
+SSL 인증서 필요
+certificate {
+    email,
+    name,
+    use,
+    endTime,
+    publicKey,
+}
+
+개인키 생성
+- genrsa  -out private.key 2048
+공개키 생성
+- rsa -in private.key -pubout -out public.key
+
+CSR 생성
+- req -new -key private.key -out private.csr
+
+사설 CA 생성
+- genrsa -aes256 -out rootCA.key 2048
+사설 CA의 CSR 생성
+- req -x509 -new -nodes -key rootCA.key -days 3650 -out rootCA.pem
+
+인증서를 Google 인증 기관 설정
+CSR을 Google 인증 기관
+
+CA의 인증을 받은 CRT 생성
+- x509 -req -in private.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out private.crt -days 3650
+
+CSR(Certificate Signing Request)
+PEM(Privacy Enhanced Mail)
+
+
+
+사설 CA 생성
+사설 CA의 CSR 생성
+CSR을 Google 인증 기관 설정
+
+
+
+CSR 생성
+사설 CA 생성
+사설 CA의 인증을 받은 CRT 생성
+
+공인된 CA의 인증서
+보장되지 않은 사설인증(사설 CA)
+
+왜 우리 제품을?
+우리 제품의 특별성
+소프트웨어 규격
+
+window
+mysql, mosquitto
+github.com/IoTKETI/oneM2M-Device_Simulator
+oneM2M_resource_browser
+
+raspberry pi
+raspberry pi os 32bit
+nCube-Thyme-Nodejs
+mosquitto
+npm
+
+arduino
+nCube-Thyme-Arduino
+
+1. c++
+c to c++
+- Stack
+- Queue
+- List
+
+2. c++ 클래스 구현
+Complex
+Rational
+
+3. c++ 클래스 구현
+SafeArray
+String
+
+4. openCV
+색 반전
+밝기 조절
+필터 사용하기
+- 엠보싱
+- 블러
+- 샤프닝
+검출
+- 엣지 검출
+- 직선 검출
+- 원형 검출
+
+5. rasberry pi 로 모듈 제어하기
+- led
+- switch
+- piezo buzzer
+- pir
+
+
+
+2. c++ 템플릿
+class
+reference
+Abstract Base Class
+추상 클래스
+Pure virtual function
+순수 가상 함수
+inline 함수
+namespace
+
+작업마다 시간이 얼마나 오래 걸리는지
+    라즈베리 파이를 설치하는데 시간이 얼마나 걸리는지도 확인을 하지 않았다
+
+env/activate.sh 있어도 좋겠다
+
+재현님이 블로그 그렇게 생각하고 있나보다
+대표님이 블로그 제출용으로 작성하는 것처럼 대화를 해서
+
+/* USER CODE */
+let tas = {
+    client: {
+        connected: false,
+    },
+
+    connection: {
+        host: '127.0.0.1',
+        port: 1883,
+        endpoint: '',
+        clean: true,
+        connectTimeout: 4000,
+        reconnectPeriod: 4000,
+        clientId: 'tas_' + nanoid(15),
+        username: 'keti_thyme',
+        password: 'keti_thyme',
+    },
+};
+
+let sendDataTopic = {
+};
+
+let recvDataTopic = {
+};
+/* */
+

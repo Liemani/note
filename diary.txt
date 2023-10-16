@@ -4,12 +4,261 @@ yyyy-mm-dd
 content
 ```
 
+2023-11-22
+mean: 평균을 매기는 다양한 방법이 존재한다
+average: average는 sum을 count로 나누는 일반적인 mean 중 하나이다
+
+2023-11-19
+# parameter, hyperparameter
+mux로 비유하자면 parameter는 입력값이고, hyperparameter는 signal이다
+
+2023-11-17
+lsusb
+
+2023-11-16
+<C-S-ESC> in windows : task manager
+{
+  ssh
+  sshd
+}
+ps aux | grep sshd
+
+sudo apt install openssh-server
+launchctl
+systemctl
+
+netsh interface portproxy add v4tov4 listenport=22 listenaddress=0.0.0.0 connectport=22 connectaddress=172.30.123.179
+
+sudo dd if=/dev/zero of=/dev/rdisk4 bs=1M
+
+GUID Partition Map
+Master Boot Record
+Apple Partition Map
+
+diskutil eraseDisk FAT32 test disk4
+
+ps -eo pid,pgid,tpgid,args | grep js
+
+2023-11-15
+dmesg
+
+device driver
+
+linux kernel nodule
+
+insmod
+rmmod
+lsmod
+depmod
+modprobe
+
+monolitic kernel
+micro kernel
+
+2023-11-12
+brew autoremove
+
+2023-11-09
+echo $! // child pid
+echo $$ // current pid
+xcrun -sdk macosx --show-sdk-path
+echo `command ls`
+as a004_hello_world.s -o a004_hello_world.o
+ld a004_hello_world.o -o hello -l System -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -e _main -arch arm64
+
+2023-11-08
+sudo -i
+https://superuser.com/questions/513159/how-to-remove-systemd-services
+apt list --installed
+sudo service mosquitto status
+sudo systemctl status mosquitto
+
+2023-11-02
+:set filetype=python
+demonstration에서는 그냥 짧은 변수 이름을 사용해도 되겠다
+    어차피 실력 있는 사람들은 긴 이름을 사용할 것이다
+
+2023-10-31
+cat /etc/os-release
+pip show pyrealsense2
+
+default and sudo show difference path from same python package
+/home/ubuntu/.local/lib/python3.8/site-packages
+/usr/local/lib/python3.8/dist-packages
+
+```windows powerwhell
+python -m pip install pyrealsense2
+```
+
+2023-10-30
+git difftool --tool=vimdiff --no-prompt
+
+2023-10-28
+dscl . list /Users
+- list all user
+
+2023-10-27
+netstat -r -n
+- routing table을 출력한다.
+- gateway의 ip address를 알 수 있다.
+
+chip-tool basicinfo
+chip-tool descriptor
+chip-tool descriptor read parts-list
+
+sudo gpioset --mode=time -s 1 0 27=1
+sudo gpioget 0 27
+
+2023-10-25
+ctags -R $(find . -name "*.c")
+
+2023-10-24
+BD address
+bluetoothctl select <BD address>
+sudo hcitool lescan --duplicates
+
+2023-10-23
+AT+CWGMR
+AT+RST
+AT+CWMODE?
+AT+CWMODE=3
+AT+CWLAP
+AT+CWJAP="SSID","PW"
+AT+CWJAP_DEF?
+AT+CWJAP_CUR?
+AT+CWAUTOCONN?
+AT+RESTORE
+AT+CIOBAUD=9600
+AT+UART_DEF=115200,8,1,0,0
+
+2023-10-21
+brew deps --tree --installed
+
+2023-10-19
+윈도우에는 powershell 로 보면 sshd 가 깔려있지 않은 것 같다
+scp 를 사용하기보다는 그냥 파일 공유를 사용하는 것이 좋겠다
+
+2023-10-18
+SHOW COLUMNS FROM <table name>
+npm install onoff@6.0.3
+flag
+
+2023-10-16
+arp -a
+
+2023-10-13
+Thread Border Router
+
+https://blog.naver.com/damtaja/222965893606
+이야 설명 기똥차네
+
+./chip-tool pairing onnetwork 0x11 20202021
+./chip-tool pairing code 0x11 MT:-24J042C00KA0648G00
+
+2023-10-12
+CREATE DATABASE mobiusdb;
+USE mobiusdb;
+SOURCE "path";
+SHOW DATABASE;
+
+issue when `source script/bootstrap.sh` : command not found: pw
+https://github.com/project-chip/connectedhomeip/issues/26141
+
+./chip-tool interactive start
+./chip-tool payload parse-setup-payload "MT:-24J042C00KA0648G00"
+./chip-tool pairing ble-wifi ${NODE_ID_TO_ASSIGN} ${SSID} ${PASSWORD} 20202021 3840
+./chip-tool pairing ble-wifi 0x11 edgeiLAB edgeilab1003 20202021 3840
+
+vs code
+<C-`> : open terminal
+<command-p> : quick open
+
+ctags -a -R --language-force=C++ examples/platform/linux/AppMain.cpp
+
+./chip-tool pairing onnetwork 0 20202021 3840 fc00::a 5540
+./chip-tool pairing onnetwork 0 20202021 3840 fe80::da3a:ddff:fe10:2aa3/64 5540
+
+https://github.com/project-chip/connectedhomeip/issues/9550
+./out/debug/standalone/chip-tool pairing code-wifi <node-id> <ssid> <password> <payload>
+
+./chip-tool pairing ble-wifi ${NODE_ID_TO_ASSIGN} ${SSID} ${PASSWORD} 20202021 3840
+
+2023-10-11
+sudo -i
+ip addr show
+ip link
+vim /etc/netplan/*
+netplan apply
+wpa_passphrase
+wpa_supplicant
+sudo vi /etc/wpa_supplicant/wpa_supplicant.conf
+ssh-copy-id <host>@<ip address>
+sudo raspi-config
+
+https://github.com/project-chip/connectedhomeip/issues/4315
+
+hciconfig
+hciconfig -a
+hcitool scan
+hcitool name <bluetooth module mac address>
+
+https://www.baeldung.com/linux/bluetooth-via-terminal
+bluetoothctl
+bluetoothctl show <bluetooth module mac address>
+bluetoothctl discoverable on
+bluetoothctl pairable on
+bluetoothctl scan on
+bluetoothctl devices
+bluetoothctl pair <bluetooth module mac address>
+bluetoothctl connect <bluetooth module mac address>
+bluetoothctl disconnect <bluetooth module mac address>
+bluetoothctl remove <bluetooth module mac address>
+
+2023-10-10
+uname -a
+cd example/<example>
+gn gen out/debug
+ninja -C out/debug
+
+2023-10-06
+vim 의 interactive shell 은 만악의 근원이다
+mac 에서 brew 로 mysql 지우기
+    brew uninstall mysql
+    rm -rf /opt/homebrew/var/mysql
+
+diffupdate
+diffget
+diffput
+
+git mergetool --tool-help
+ssh-copy-id id@server
+
+launchctl print gui/$(id -u)/homebrew.mxcl.mosquitto
+
+2023-10-05
+interactive shell
+
+2023-10-04
+man hdiutil
+
+#### write os image to uninitialized disk
+diskutil list
+diskutil unmountDisk /dev/disk6
+sudo dd bs=1m if=2023-05-03-raspios-bullseye-arm64.img of=/dev/rdisk6
+diskutil eject /dev/rdisk6
+
+sudo shutdown -h now
+
+2023-09-29
+clang -print-targets
+setfiletype sh in vim
+
 2023-09-27
-ctags -R .
+ctags -R
 
 2023-09-25
 record
-DELETE FROM table_name
+DELETE FROM table_name;
 service <process> restart
 
 print(imported_module.__file__)
@@ -23,7 +272,7 @@ history -<line to list>
 2023-09-22
 brew services start mosquitto
 sudo lsof -i -P | grep LISTEN | grep :$PORT
-mosquitto_sub -t # -v
+mosquitto_sub -t /# -v
 node -expose_gc mobius
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'test';
 mysql -u root -p

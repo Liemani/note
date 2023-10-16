@@ -1,0 +1,60 @@
+model.txt
+
+project {
+  han
+  world2d
+  world3d
+}
+
+word {
+  Table of Contents
+  System Requirements
+    Operating system
+    Disk space
+    Time
+  Directory Structure
+  Serial Communication
+  Arduino IDE
+}
+
+단어 {
+  시리얼 통신
+}
+
+product {
+  AI Mavin
+  Jetson Nano
+  Arduino Uno
+}
+
+일과 {
+    아침 밥 및 준비,
+    명상,
+    일과,
+    점심 밥,
+    일과,
+    저녁 밥,
+    일과,
+    놀기,
+    잠,
+}
+
+우편물 {
+    5 시 이전에 부치면 다음날 도착한다
+    보내는 사람 {
+        주소,
+        전화번호,
+    },
+    받는 사람 {
+        주소,
+        전화번호,
+    },
+}
+
+task {
+
+대여 {
+    내용물 사진, id, 전체 사진을 미리 확보해둔다
+}
+
+}   // task

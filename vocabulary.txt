@@ -1,5 +1,29 @@
 vocabulary.txt
 
+exit status
+exit code
+error code
+
+datasheet
+
+teacher
+mentor
+
+2023-10-04
+startup
+setup
+
+2023-10-04
+캐미
+궁합
+화합
+혼합
+호흡
+합
+틱톡
+티키타카
+어울리다
+
 con.sist.ent
 com.pat.i.ble
 com.pii.ant

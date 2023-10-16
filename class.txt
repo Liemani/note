@@ -1,0 +1,13 @@
+class.txt
+
+MAC address {
+    48bit data
+}
+
+Bluetooth device address {
+    48bit data
+}
+
+UUID {
+    128bit data
+}

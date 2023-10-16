@@ -1,44 +1,216 @@
 todo temp.txt
 
-### solve question
-toolchain 이 구체적으로 어떤 것인가?
-cpp에서 레퍼런스는 포인터처럼 쓰일 필요가 없을 때에는 정말 엘리어스로 동작할까?
-dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될까?
-    csapp 읽다보면 답이 나오지 않을까?
-function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
-Would <CO-S> stop VoiceOver speaking?
-Would <CO-R> reread VoiceOver the contents on cursor?
-Pushing control key would silence VoiceOver?
-반환값이 structure인 경우 어셈블리 수준에서 어떻게 동작할까?
-how to load new buffer without new window?
-s1 = s2 + s4 가 복사 생성자를 호출하는가?
-    +의 리턴값을 위해?
-만약 멤버 함수를 인라인으로 만들었는데 클래스 내부에 선언하지 않으면 어떻게 될까?
-commit에 포함된 불필요한 파일 삭제하고 다시 커밋하는 방법
-how to run a program as daemon not background?
-a::status 처럼 처음이나 마지막에 변칙이 있는 경우 아름다운 해결책이 무엇일까?
-c++ 에서 constant 가 변수 용량을 차지하는지 알아보기
-    컴파일러의 재량이겠지만 알아보자
-고정 ip 주소가 동적 할당된 ip 주소와 겹치면 어떤 일이 발생할까?
-check Gpio constructor
-shell_command::launchd
-shell_command::launchctl
+world2d {
+  만약 드래그로 ui를 변경한다면 손가락에 가리지 않도록 위에 보이는건 어떨까?
+  인벤토리에 손가락이 위치할 경우에만  손가락 위치로 이동하는 애니메이션 넣고
+}
 
-### pc
+han {
+  이게 호출하는 method가 어디 소속인지 알 수 없어서 불편하다
+  가령 이렇게 하자 고양이가 포유류로서 운다
+  '운다' 라는 동사의 소속이 포유류임을 명시하자
+}
 
-\e 말고 \033[ 으로 테스트하기
-맥 용량 확보하기
-    안보는 영상 외장 하드에 백업
-집 알아보기
+같이 편집이 가능한 텍스트 편집기
+
+it would be good to list the directory structure for env repository
+
+idea - 현실 프로그램
+
+gitpush가 인자를 여러개 받을 수 있으면 좋겠다
+
+건강 상태 정확한 날짜 파악할 것
+
+틈틈히 유용한 단어들 수집하기
+
+그 때 민철이와 했던 그 대화의 룰은 무엇이었을까?
+
+안쓰는 쓰레기 계정 하나 만들기
+
+vim에서 순차적인 숫자 생성하는 방법, 숫자 bullet을 만드는 방법
+
+clean playground {
+  remove python environment
+}
+
+How to know current shell?
+
+disclosure 는 우월하다 {
+  create animated (finder or disclosure)
+  it would perform as nice idea sender
+  finder is 2d disclosure
+}
+
+Can i get notification from os when the file I'm reading modified?
+
+create daemon program {
+  and diff with real daemon program in assembly level
+}
+
+clean iCloud Drive
+메일에 회사 메일 연결하기
+naver cloud box를 local처럼 사용하는 방법을 찾아보자
+
+스터디 공동체 {
+  `1:소` 관계의 고밀도 정보 교류를 목표로 한다
+  포인트를 주고 받는다
+  자신의 강연을 공개하고, 다른 사람의 강연을 들을 수도 있다
+}
+
+애플식 의사소통 체계 만들기
+    - 실시간, 정시간
+    - 
+
+개인 프로젝트 {
+    랜덤한 명제를 생성해주는 프로그램
+        속성 값 설정 가능(참, 거짓, 복잡도 수치, 주제 등)
+        사람과의 대화에서 예시를 들 경우 필요하다
+}
+
+방송 {
+    노 게임,
+    주제 정하기,
+    시스템 정리하는 방송을 하자! {
+        - 우선 방송 디렉토리 하나 파고
+        - 방송에 대한 설명도 달자
+        - 그럼 repository를 하나 만드는게 좋겠네
+    }
+}
+
+이력서 {
+    모델 {
+        이력서에 나의 정리 방법을 보여주자
+        언어별 설명을 링크로 만들어서 프로젝트로 보여준다
+
+        사용 가능 언어
+
+        프로젝트는 태그로 관리하고
+        그 모델을 다양한 기준으로 나누어 보여준다
+    }
+    지금 쓰는 블로그 양식 좀 별로이지 않나? 바꿀까?
+        그냥 나쁘지 않을지도
+}
+
+python을 시작하자 path가 지저분해진다
+이걸 해결할 환경 세팅이 있으면 좋겠다...
+
+외장하드 사기
+    아까 가격 변동 폭을 못봤네
+    조금 낮아지면 살까? 그냥 살까? 그냥 사자
+swift coding convention 알아보기
+    클래스, 함수 등에서 중괄호와 들여쓰기, new line에 대하여
+맵 버전 올리기
+    맵이 뭐지?
+
+pbl {
+    주제
+    년도별로 분석하는 실업률과 출산율의 관계
+}
+
+env {
+  cdtoday가 이미 디렉토리가 있는 경우 mkdir이 에러 메세지를 출력한다
+  오늘 날짜를 출력하는 vim command
+  a gitamendpush 과 같은 amend 하고 push 하는거 만들기
+  a_vim 이 vim의 filetype 을 shell script로 바꾸었으면 좋겠다
+}
+
+personal project {
+    bluetooth 통신 with c++
+    공개키, 대칭, 비대칭 암호키 만들고 테스트하기
+}
+
+clean {
+    todo/ 정리하기
+    submit\ protocol.txt 정리하기
+}
+
+think {
+    사람은 하라, 하지 마라에 스트레스를 받는다
+    - 어떤 법이 좋은 법일까?
+    - 가령 광고 전화를 막는 법을 생각해보자
+        - '하루에 한 번 전화가 오면 소송을 걸 수 있다' 라던가
+    - 너무 지식이 부족하다
+}
+
+variable 과 string interpolation 으로 빠르게 기록하여 정해진 result 를 생성하도록 환경을 구축하는 시스템
+raspberry pi 의 ubuntu server 와 raspberry pi os 에서 각각 uname -a 를 하면 어떤 메세지가 출력될까?
+docker 더 알아보기
+잘 쓰면 좋을 것 같다
+bluetooth dongle 찾아보기
+정부 24? 등보이랑 가족관계 증명서 띠는 법 알아보기
+ubuntu server image 를 얻는다
+sd card 를 지운다
+ubuntu server image 를 설치한다
+lan 을 컴퓨터에 직접 연결할 필요가 있을까?
+    그럼 LAN to USB 도 필요할테고
+    raspberry pi 의 ip address 를 알아야 할 것이다
+    Ethernet cable
+in repository 가 아닌데 $HOME 인 경우 $HOME 을 ~ 로 치환하자
+다음 달 월급 받으면 핸드폰 요금은 내 통장에서 나가도록 설정하자
+오늘 품위서를 작성해 보았다. 나중에 다른 품위서와 또 비교해 보자
+그 자존감 확 올려주는, '나는 소중한 사람' 임을 알려주는 유튜브 영상 찾아보기
+vim 에서 오늘의 날짜 생성기
+읽을 목록 정리
+각 repo 에 대한 한 줄 메모를 github 에 추가하자
+$personal
+    /note
+        정리하기
+        /library -> /syntax or /grammar
+            follow swift book
+    /playground
+        remove /gitignore directory
+prompt 의 시간이 24 시간제라서 h 가 한자리였다가 두자리였다가 한다
+    두 자리로 고정하자 (한 자리면 앞에 0)
+env/main 을 env/dev 로 rebase
+사파리 mobius 탭그룹 탭 정리하기
+왼쪽 모니터를 메인
+matter 조사하기
+    matter 공식 문서 읽기
+business git repository 만들기 private 으로
+note/todo 정리하기
+    todo 는 이거 하나로 충분하지 않을까? 괜히 분산하지 말고
+    하나에 다 담기
+    하.. 정리하기 싫다
+    정리하기 싫지 않은 경우가 있고 정리하기가 싫은 경우가 있다
+    정리하기 싫은 것은 너무 난해한 데이터인 경우인 것 같다
+    우선 짬통에 담아버리는 것은 어떨까?
+비지니스 투두 정리하기
+business 실천사항, 주간업무 일지를 작성하긱 편한 모델 구현하기
+탭그룹 정리하기
+원티드 이력서 생성 알아보기
+    잘 활용하면 좋을 것 같다
+다운로드, 문서 디렉토리 정리하기
+노트 정리하기
+    특히 대표님께 들은 내용은 따로 좀 정리하기
+비지니스 todo 정리하기
+파인더 탭 정리
+원티드 이력서 생성 알아보기
+구글 드라이브 정리
 clean room
 개인용 싸구려 구글 아이디 만들기?
 clean safari faborite
+재밌게 텍스트 편집을 하기 위한 시각화 프로그램
+project/env.txt 정리
+내 env 도 CI/CD 를 사용하면 테스트로 좋겠는데?
+env/script/ 에는 기본적으로 shell script, 아닌 경우만 directory 를 만들기
+iCloud 정리하기
+버전 관리 시스템
+binary 파일의 경우 파일마다 버전 관리를 따로 해주면 되지 않을까?
 
 #### business
 
+#### personal project
+implement certificate system
+implement symetric cryptograph
+implement asymetric cryptograph
+mesh network
+tree network
+os
+- scheduler
+- virtual memory
+- harddrive manager
+
 #### lecture_data_analysis_ai_pbl
-아나콘다 설치 및 적용하기
-    혹은 파이썬 가상환경 알아보기
 lecture_data_analysis_ai
     make module preprocessing functions
 파일 이름만으로 하나의 DataFrame 을 만들어주는 라이브러리 만들기
@@ -48,7 +220,7 @@ plotly_visualization -> visualization_plotly
     day003
 
 #### resume
-현재 연봉 올려도 재밌겠다
+현재 연봉 웹에 올려도 재밌겠다
 내가 게임 3 달간 10 시간 이상 방송하면서 했던 날짜 기록하기
 엄청 옛날에 작성했던 이력서 찾아서 흡수하기
 포트폴리오 적용하기: 내기 전에 훑어보니 고칠 만한 부분이 보였다
@@ -73,9 +245,6 @@ plotly_visualization -> visualization_plotly
 내 컴파일러로 컴파일 된 프로그램을 실행할 수 있는 프로그램
 스크립트 실행도 가능하고 컴파일 실행도 가능히도록 지원
 
-#### 챙기기
-접이식 우산
-
 #### purchase
 보조 배터리
 라즈베리 파이
@@ -84,9 +253,10 @@ IoT 제품
 외장 하드
 이어폰
 여분 신발(젖었을 경우)
+사무실에서 신을 슬리퍼
 
 #### env
-add username@
+a-backup 구현하기 : amend 후 force push
 ash 이면 설정하는 것이 아니라 alpine 이면 설정하도록 변경
 compose set_bash.sh
 sh 이 항상 현재 shell 을 가리키는 것은 아니다
@@ -113,6 +283,8 @@ update resume
 특정 디렉토리 안에 있는 모든 파일에 replace
     name replace, data replace
 운영체제 별 차이
+만약 a_command::mv 의 인자가 directory 라면 추가
+a_command::vim 이 readlink -f 를 열도록 할까?
 
 #### low priority
 링크드인 취업 상태로 전환하기
@@ -195,6 +367,21 @@ container하기
             LLRB
 
 ### finish
+제발 빔에서 날짜 출력하게 해주세요
+clean /Users/bagjeonghun/Downloads/work
+business? work? 적절한 단어 찾기
+env
+- mark and jump
+    - $ mark
+    - $ jump
+    - $ mark school
+    - $ jump school
+주말에 맥 운영체제 업데이트 한 번 해보자
+stage manager 알아보기
+아나콘다 설치 및 적용하기
+    혹은 파이썬 가상환경 알아보기
+prompt 를 git 이면 git_root 로부터의 path 를 보여줬으면 좋겠다
+집 알아보기
 raspberry pi 예제 프로그램 5 개 작성하기
     맥에 mobius 와 mosquitto 동작하는 환경 구성하기
     라즈베리 파이에서 동작하는 예제 프로그램 미리 만들기

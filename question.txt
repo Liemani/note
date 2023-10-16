@@ -1,4 +1,35 @@
 question.txt
+```
+stack<top is first>
+```
 
+2023-10-01
+깃에서 만약 내가 맥으로 만든 a_command와 함께 mv 를 한꺼번에 푸쉬한다
+그걸 핸드폰에서 리베이스하여 쪼개서 커밋하려고 하는데, 이게 하위 깃커맨드로 가능한가?
+상위 깃커맨드로는 깃 리베이스 i 로 가능할 것이다
+
+ssh-copy-id 가 어떤 키를 복사하는 것일까?
+toolchain 이 구체적으로 어떤 것인가?
+cpp에서 레퍼런스는 포인터처럼 쓰일 필요가 없을 때에는 정말 엘리어스로 동작할까?
+dynamic library 를 호출하는 코드는 프로그램에 어떻게 저장될까?
+    csapp 읽다보면 답이 나오지 않을까?
+function 내부의 static 변수는 한 번만 값이 초기화되는데, 어셈 코드는 어떻게 될까?
+Would <CO-S> stop VoiceOver speaking?
+Would <CO-R> reread VoiceOver the contents on cursor?
+Pushing control key would silence VoiceOver?
+반환값이 structure인 경우 어셈블리 수준에서 어떻게 동작할까?
+how to load new buffer without new window?
+s1 = s2 + s4 가 복사 생성자를 호출하는가?
+    +의 리턴값을 위해?
+만약 멤버 함수를 인라인으로 만들었는데 클래스 내부에 선언하지 않으면 어떻게 될까?
+commit에 포함된 불필요한 파일 삭제하고 다시 커밋하는 방법
+how to run a program as daemon not background?
+a::status 처럼 처음이나 마지막에 변칙이 있는 경우 아름다운 해결책이 무엇일까?
+c++ 에서 constant 가 변수 용량을 차지하는지 알아보기
+    컴파일러의 재량이겠지만 알아보자
+고정 ip 주소가 동적 할당된 ip 주소와 겹치면 어떤 일이 발생할까?
+check Gpio constructor
+shell_command::launchd
+shell_command::launchctl
 swift 에서 struct 는 stack 에 저장될 줄 알았는데 optional 로도 쓰일 수 있다고 한다. 그럼 이 경우 heap 에 저장될까? 아니면 그냥 struct type 도 class type 과 마찬가지로 모조리 heap 에 저장될까?
 멀티 터치는 순차적으로 처리되겠지? 멀티 쓰레드가 아니겠지?

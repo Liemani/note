@@ -1,5 +1,40 @@
 k.txt
 
+2023-10-19
+- interface
+- implementation
+- editor
+- grapher
+- explorer
+
+2023-??-??
+글과 작동의 괴리를 최소화 한다
+불필요한 부분은 생략이 가능하도록 구현한다
+
+euc-kr 포멧 알아보기
+
+기본 배열
+빠른 배열
+
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
+
+헬로우 월드를 출력하다 :
+출력하다 :
+    출력할 내용 = "Hello, world!"
+    write(1, 출력할 내용, strlen(출력할 내용))
+
+점 :
+    x 정수
+    y 정수
+
+    디버그 메세지를 출력하다 :
+        printf("(%d, %d)", x, y);
+
+원점은 점(0, 0) 이다
+원점의 디버그 메세지를 출력해라
+
 # log
 2023-09-26
 냉혹한 암살자
