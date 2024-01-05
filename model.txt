@@ -1,5 +1,38 @@
 model.txt
 
+geometry {
+  geometric transformation {
+    translation
+    rotation
+    reflection
+  }
+}
+
+data type {
+  UUID {
+    size : 16 bytes
+    representation : 32 hexadecimal digits
+    regex : ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+  }
+}
+
+stock {
+  단기 하락
+  단기 상승
+  장기 하락
+  장기 상승
+
+  일반 악재 -> 단기 하락(1 ~ 2 일)
+  큰 악재 -> 장기 하락(1 ~ 수 년)
+  일반 호재 -> 단기 상승(1 ~ 2 일)
+  장기 호재 -> 장기 상승(수 년)
+}
+
+useful page {
+  https://pythonforthelab.com/blog/starting-and-synchronizing-threads/
+    good writer
+}
+
 project {
   han
   world2d
@@ -7,6 +40,12 @@ project {
 }
 
 word {
+  specification
+  datasheet
+
+  index
+  navigation
+
   Table of Contents
   System Requirements
     Operating system
@@ -15,6 +54,23 @@ word {
   Directory Structure
   Serial Communication
   Arduino IDE
+
+  BIOS(Basic Input/Output System)
+  cmos
+  grub
+  MBR(Master Boot Record)
+  flash memory
+  ROM(read-only memory)
+  PROM(programmable read-only memory)
+  EPROM(erasable programmable read-only memory)
+  EEPROM(electrically erasable programmable read-only memory)
+
+  general {
+    wide
+    tall
+    width
+    height
+  }
 }
 
 단어 {
@@ -22,9 +78,12 @@ word {
 }
 
 product {
-  AI Mavin
   Jetson Nano
-  Arduino Uno
+  Jetson Xavier
+  AI Mavin(Jetson Xavier)
+  Jetson Nano
+  Raspberry Pi 4 Model B
+  Arduino Uno R3
 }
 
 일과 {
@@ -40,7 +99,7 @@ product {
 }
 
 우편물 {
-    5 시 이전에 부치면 다음날 도착한다
+    5 시 20 분 이전에 부치면 다음날 도착한다
     보내는 사람 {
         주소,
         전화번호,

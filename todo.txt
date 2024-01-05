@@ -1,5 +1,150 @@
 todo temp.txt
 
+tar 좀 확실히 하고 가자!
+
+이거 effective uid만 보여서 docker가 안보였나보다 어떻게 다 출력하지?
+setuid bit?
+docker 는 owner 가 root 인데 어떻게 docker group 이 실행할 수 있는 걸까?
+
+프로그램 설치 및 제거
+- 제거를 3 종류로 분류한다
+1. 가벼운 제거
+  빠른 재설치 가능, 하지만 용량을 차지함
+2. 완전 제거
+각 제거 시 차지하는 용량 표기하기
+
+나오는 펜 안나오는 펜 정리하기
+여분 볼펜 사기
+
+a-month-game 영상 촬영해서 유튜브에 올리고 링크 달기
+
+버퍼 시각화 도구
+image, range와 pallete 등을 인자로 주면 그림을 그려준다
+
+make pretty description output from string
+
+language {
+  namespace 같은거 하지 말고, 문단 별로 맥락을 localize 하면 되지 않을까?
+}
+
+question {
+  anonymous namespace
+    unnamed namespace
+}
+
+clean {
+  arduino to playground/not language/arduino
+}
+
+tutorial? quick start? guide? {
+  모듈화하는 방법
+  언어의 특징들
+}
+
+카바이드를 넣은 5티 유닛
+  collaris 완료
+텍타(4티 메카)
+
+함수에 따라 규모를 알기 쉬우면 좋겠다
+
+format 파일을 두고 text 를 관리해주는 프로그램
+
+linkedin도 좀 꾸밀까? 기술 스택 정도는
+
+디렉토리 위치를 파일로 저장해서 동적으로 한 터미널에서 저장한 변수 위치 값을 다른 터미널에서 사용할 수 있으면 좋겠다.
+
+dump 확인하기
+
+han {
+  .은 문장의 끝
+  구조 속의 원소는 '조사'로 표현
+    다양한 물리적 표현이 가능
+}
+
+vocabulary 를 model 의 word 로 옮기기
+
+법을 만들어야 한다 {
+  법의 목적은 애매한 것을 결정해주는 기준을 설정하는 것이다
+  따라서 처벌의 도구가 아니다
+  가령 소통 수단을 결정할 때
+  1. 송신 즉시 알림이 가는 경로
+  2. 송신 시 알림이 가지 않는 경로
+  이렇게 2 경로의 구체적인 방식을 지정해 준 후,
+  기본 소통 수단을 1 번으로 설정한다.
+  그러면 이 법 질서 밑에 있는 인원들은 2 가 적절한 상황에 1 을 통해 소통을 시도하는 인원을 처벌해서는 안된다
+  하지만 1 이 적절한 상황에 2 를 통해 소통을 시도하는 인원은 처벌할 수 있다(경우에 따라 다르다는 뜻)
+  기본값은 그렇게 중요한 것이다
+}
+
+make a::sync to sync with remote specific directory {
+  a::sync <user>@<ip address>
+}
+
+make arduino as link of playground
+
+back prppability system {
+  main program
+  history compatible program
+    all past program version structure -> abstract data
+  abstract data
+    contain almost all data
+}
+
+냥코 뽑기 전략 {
+  1. 콜라보
+  2. 한정 캐릭터(국왕, 여왕)
+}
+
+바닥 청소
+pbl 기록 옮기기
+주식 계획 기록하기 {
+  2022-10 저점(호) : 금리 인상 끝 기대
+    13m tesla 50%
+  2021-11 고점(악) : 금리 인상
+    20m tesla 1200%
+  2020-03 저점(호) : 돈뿌리기?
+    2m tesla 80%
+  2020-02 저점(악) : 코로나 가속
+  거품 빠지면 악호에 요동치지 않는다(실질 가격)
+  악재에 받는 영향으로 거품의 양을 측정할 수 있다
+}
+
+lecture vim {
+  vim 프로그램 구조
+  `:help` 사용법
+  이동 기동성
+    마우스와 비교
+  코드 작업 예제
+    클래스명 변경하기
+    변수명 변경하기
+}
+
+lecture architecture {
+  MVC
+    재사용성
+    realsense camera image viewer -> realsense as camera + image viewer
+}
+
+주식 계획 {
+  오름, 내림 기록
+  오름내림에 따라 구입 및 판매
+  최대 값도 위험도에 포함
+}
+
+world2d {
+  영상 찍어서 youtube에 올리고 링크 올리기
+}
+
+{
+  user, address, password를 파일에 기록해두고 접속하는 시스템
+  해당 파일의 내용을 출력하기 편해야 한다
+  a connect edit <name>
+  a connect ls
+  a connect show <name>
+  a connect <name>
+  connect 보다 좋은 이름이 있으면 좋겠는데?
+}
+
 world2d {
   만약 드래그로 ui를 변경한다면 손가락에 가리지 않도록 위에 보이는건 어떨까?
   인벤토리에 손가락이 위치할 경우에만  손가락 위치로 이동하는 애니메이션 넣고
@@ -108,6 +253,9 @@ pbl {
 }
 
 env {
+  ubuntu 에서 만약 깃 안이 아니라면 굳이 (/) 를 출력할 필요는 없다
+  아니, 맥에서도 그러네?
+  ubuntu에서 시간이 GMT로 출력되는데 GMT+9로 출력되면 좋으려나?
   cdtoday가 이미 디렉토리가 있는 경우 mkdir이 에러 메세지를 출력한다
   오늘 날짜를 출력하는 vim command
   a gitamendpush 과 같은 amend 하고 push 하는거 만들기
@@ -367,6 +515,36 @@ container하기
             LLRB
 
 ### finish
+ed 오랜만에 사용해보기
+network {
+왜 맨날 finger print 등록하라고 해서 ~/.ssh/know_hosts에 등록해놓고, ip 동적할당 받아서 바뀌면 경고 문구 띄우면서
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:efAijM8GP35LGa4G7gBDZ+J2FpRrEWSJsGc8lTSKL6Y.
+Please contact your system administrator.
+Add correct host key in /Users/bagjeonghun/.ssh/known_hosts to get rid of this message.
+Offending ED25519 key in /Users/bagjeonghun/.ssh/known_hosts:15
+Host key for 172.30.1.18 has changed and you have requested strict checking.
+Host key verification failed.
+```
+불필요하게 또 파일 수정하게 만드는건데?
+아무짝에 쓸모도 없는걸
+```
+The authenticity of host '172.30.1.18 (172.30.1.18)' can't be established.
+ED25519 key fingerprint is SHA256:efAijM8GP35LGa4G7gBDZ+J2FpRrEWSJsGc8lTSKL6Y.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:61: 192.168.0.37
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+이 아무짝에 쓸모도 없는 기능 같으니라고
+}
+쓰레기 버리기
 제발 빔에서 날짜 출력하게 해주세요
 clean /Users/bagjeonghun/Downloads/work
 business? work? 적절한 단어 찾기
