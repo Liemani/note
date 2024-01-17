@@ -1,7 +1,12 @@
 question.txt
+``` article format
+yyyy-mm-dd
+content
 ```
-stack<top is first>
-```
+
+2024-01-10
+docker command는 매번 실행되는 것 같다
+init-docker.sh 도 매번 실행될까? 아미녀 처음 run 에서만 실행될까?
 
 2023-10-01
 깃에서 만약 내가 맥으로 만든 a_command와 함께 mv 를 한꺼번에 푸쉬한다

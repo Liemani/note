@@ -1,5 +1,34 @@
 model.txt
 
+command {
+  disk {
+    fdisk -l
+    lsblk
+    diskutil list
+    diskutil unmountDisk /dev/disk8
+    sudo dd bs=4M if=20.04_server_ros2_foxy_iot.img of=/dev/rdisk8 status=progress
+  }
+}
+
+oneM2M {
+  학습 자료 {
+    한국정보통신기술협회/oneM2M 어플리케이션 개발자 가이드 표준해설서
+  }
+}
+
+name {
+  file path
+    abnf : directory name/base name
+  directory name
+    abnf : [/]*(base name/)base name
+  base name
+    abnf : file name.extension
+  file name
+    regex : [^/]*
+  extension
+    regex : [^./]*
+}
+
 geometry {
   geometric transformation {
     translation
@@ -17,6 +46,13 @@ data type {
 }
 
 stock {
+# 주식
+2024-01-09
+  언제 오를까? {
+    바닥에서 떠받쳐지고 있을 때 한 번 좌절을 겪은 상태면 들어가자
+  }
+
+202?-??-??
   단기 하락
   단기 상승
   장기 하락
@@ -40,6 +76,19 @@ project {
 }
 
 word {
+  {
+    갖추다
+    꾸리다
+    지니다
+    갖다
+    맞추다
+    장비하다
+    소지하다
+    획득하다
+    얻다
+    장착하다
+    쟁여두다
+  }
   specification
   datasheet
 

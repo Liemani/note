@@ -4,10 +4,38 @@ yyyy-mm-dd
 content
 ```
 
+2024-01-16
+게스트 확장 디스크 설치 -> USB 3.0 사용 가능 + 디스플레이 리사이즈 가능
+sudo dd bs=1M if=~/Downloads/image.img of=/dev/sdb status=progress
+sudo dd bs=4M if=20.04_server_ros2_foxy_iot.img of=/dev/rdisk8 status=progress
+
+2024-01-12
+docker network ls
+
+2024-01-10
+ubuntu 22.04.3에 docker 설치하기
+  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04
+docker inspect
+sudo netstat -tulpn
+cat /etc/*-release
+
+apt update in ubuntu 19.04
+  https://www.digitalocean.com/community/questions/unable-to-apt-update-my-ubuntu-19-04
+    sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+    sudo apt-get update && sudo apt-get dist-upgrade
+
+2024-01-09
+git clean -f
+
+2024-01-08
+SELECT * FROM cin where ri like '%Pir%';
+SELECT * FROM cin where cr like 'SNETWORK_TEST4';
+
 2024-01-05
 reboot
 sudo netstat -ntlp
 builtin cd
+cat << EOF >> file.txt
 
 2024-01-04
 sudo usermod -a -G docker a222

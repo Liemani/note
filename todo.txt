@@ -1,6 +1,51 @@
 todo temp.txt
 
-tar 좀 확실히 하고 가자!
+socket program {
+2024-01-15
+  ip address : 127.0.0.1
+  port : 80
+
+  이게 또 UI 랑 모델이랑 같이 넣고 있네,
+  정리를 하자
+}
+
+터미널의 특정 커맨드가 종료되면 notification 을 보내는 보조 기능
+하나의 클래스를 정의한 후
+재사용을 위해 프로퍼티의 이름을 overload 할 수 있으면 좋겠다
+F2 -> c 면 h, cpp 면 hpp면 좋겠다
+generate cpp class 다시 학습
+cmake 학습
+반환값을 copy 하는 것이 아니라 애초에 temp 주소의 값을 바꾸지 말고 반환 주소의 값을 바꾸면 되는것 아닌가? 왜 안그러지?
+
+프로그램 {
+  평균 시간 비교해주는 script {
+    use time
+  }
+  텍스트 파일을 가공해서 보여주는 프로그램이 필요하다
+  태그에 따라 분류해서 시각화
+}
+
+계획을 아침에 일어나는 알람을 맞추니 좋았다
+이런 식으로 계획을 세워나가도 좋을 것 같다
+하나하나 진행해보자
+일단 잠자기 알람을 설정하자
+충분한 잠을 보장할 수 있을 것이다
+
+업무 한 일을 기록하는 문서를 하나 만들자
+
+setenv.sh 가 행동을 출력하면 좋겠다
+  어떤 작업을 수행했다
+  어떤 작업은 수행하지 못했다 등
+
+iCloud drive 정리하기
+
+a_which : print the path of a_command
+
+tab을 최소화하고 command + n 으로 탭 이동이 가능한 디자인은 어떨까?
+
+vim이 cd를 사용하여 이후 cd -를 비정상 동작하게 만드는 side effect가 마음에 들지 않는다
+
+clean google drive
 
 이거 effective uid만 보여서 docker가 안보였나보다 어떻게 다 출력하지?
 setuid bit?
@@ -515,6 +560,8 @@ container하기
             LLRB
 
 ### finish
+내 데스크탑 디렉토리 왜 퀵에 핀 안되어있지 파인더에서?
+tar 좀 확실히 하고 가자!
 ed 오랜만에 사용해보기
 network {
 왜 맨날 finger print 등록하라고 해서 ~/.ssh/know_hosts에 등록해놓고, ip 동적할당 받아서 바뀌면 경고 문구 띄우면서

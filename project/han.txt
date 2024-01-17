@@ -1,5 +1,9 @@
 k.txt
 
+2024-01-12
+debug description 은 mendatory 이다
+logic 뿐만 아니라 memory level 에서 가독성이 높아야 한다
+
 2023-10-19
 - interface
 - implementation
