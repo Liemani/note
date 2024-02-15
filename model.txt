@@ -8,6 +8,10 @@ command {
     diskutil unmountDisk /dev/disk8
     sudo dd bs=4M if=20.04_server_ros2_foxy_iot.img of=/dev/rdisk8 status=progress
   }
+  ros2 {
+    ros2 launch turtlebot3_cartographer cartographer.launch.py
+    ros2 launch turtlebot3_gazebo empty_world.launch.py
+  }
 }
 
 oneM2M {
@@ -47,12 +51,12 @@ data type {
 
 stock {
 # 주식
-2024-01-09
+[2024-01-09]
   언제 오를까? {
     바닥에서 떠받쳐지고 있을 때 한 번 좌절을 겪은 상태면 들어가자
   }
 
-202?-??-??
+[202?-??-??]
   단기 하락
   단기 상승
   장기 하락
@@ -76,6 +80,24 @@ project {
 }
 
 word {
+  논고 {
+    2023-09-20
+    사고
+    심사숙고
+    명상
+    고심
+    고민
+    몽상
+    망상
+    고찰
+    통찰
+    통섭
+    사색
+    논고
+    회고
+    회상
+  }
+
   {
     갖추다
     꾸리다
@@ -119,6 +141,19 @@ word {
     tall
     width
     height
+  }
+
+  ah {
+    Eureka
+    Ah
+    Insight
+    Epiphany
+    Revelation
+    Insinuation
+    Realization
+    Perception
+    Awakening
+    speculation
   }
 }
 

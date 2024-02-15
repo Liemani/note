@@ -1,12 +1,23 @@
-todo temp.txt
+todo.txt
+
+env { cdtoday -> cdtemp }
+
+애플 알람 불편하내?  더 편한 알람을 만들자 {
+  쉽고 빠르게 알람 스케쥴 설정이 가능하다
+  애플의 경우 5 분 단위 알람이 10 번 발생하기 위해서, 새로운 알람을 총 10 개 만들어야 하는 불편함이 있다
+    (snooze 는 반복 알람과 다르다 -> snooze 는 이전 알람이 씹히면 다음 알람이 발생하지 않음)
+}
 
 socket program {
-2024-01-15
-  ip address : 127.0.0.1
-  port : 80
+[2024-01-15]
+ip address : 127.0.0.1
+port : 80
 
-  이게 또 UI 랑 모델이랑 같이 넣고 있네,
-  정리를 하자
+이게 또 UI 랑 모델이랑 같이 넣고 있네,
+정리를 하자
+[2024-01-30]
+pretty print
+prevent EPIPE
 }
 
 터미널의 특정 커맨드가 종료되면 notification 을 보내는 보조 기능
