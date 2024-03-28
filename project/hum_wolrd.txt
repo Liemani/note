@@ -1,6 +1,17 @@
 project_hum_wolrd.txt
+```article format
+# classification name
+[yyyy-mm-dd]
+content
+```
 
 # log
+[2024-03-20]
+흄마다 가치관이 다르다.
+어떤 흄은 잠이 중요하고, 어떤 흄은 음식이 중요하다.
+가치관에 따라 같은 대우를 해줘도 만족도가 다르다.
+
+[202?-??-??]
 스팀에 oni나 terraria가 있지만, terraria는 샌드박스여도 자동화가 없어서 탈락,
 oni는 자동화는 있지만 상위 자동화가 불친절해서 탈락,
 플레이어가 상위 자동화를 직접 작성할 수 있으면 좋겠다

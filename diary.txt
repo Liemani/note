@@ -4,6 +4,69 @@ diary.txt
 content
 ```
 
+[2024-03-28]
+[trouble shooting] "convert image" not working on mac
+https://www.reddit.com/r/macbook/comments/173l7fd/convert_image_quick_action_does_not_work/
+- it's magic
+
+[2024-03-25]
+sudo apt purge nodejs
+https://jjuon.tistory.com/3
+- ubuntu에 최신 nodejs 설치
+- curl -sL https://deb.nodesource.com/setup_20.x | sudo bash -E -
+- sudo apt install nodejs
+
+[2024-03-19]
+echo "<hexadecimal to convert>" | xxd -r -p
+
+[2024-03-18]
+https://stackoverflow.com/questions/69406278/whats-a-ref-1
+<ref *1>
+circular reference
+
+[2024-03-06]
+https://gist.github.com/mattratleph/4026987
+[c : previous difference
+]c : next difference
+:diffupdate : update difference
+
+https://en.wikipedia.org/wiki/Unified_Modeling_Language
+- structure diagram : class diagram, composite structure diagram
+- behaviour diagram : sequence diagram, activity diagram, state machine diagram, use case diagram
+
+entry point
+
+[2024-02-28]
+:Ntree <dirname>
+diff --strip-trailing-cr
+
+[2024-02-23]
+https://gmlwjd9405.github.io/2018/07/04/class-diagram.html
+- aggregation : A > B 에서 B 가 독립적으로 존재 가능한 경우
+- composition : A > B 에서 B 가 A 에서만 쓰이는 경우
+그러면 모두 aggregation 으로 구현하면 되는 것 아닌가?
+
+UML
+- class diagram
+- sequence diagram
+<<>> : guillemet
+
+[2024-02-22]
+# signal
+process에 signal을 보내기 위해서는 pid를 알아야 한다.
+하지만 자신이 만든 자식이 아닌 이상 변하는 값인 pid를 바로 알 수는 없다.
+특정한 파일에 자신의 pid를 적어 놓도록 약속을 한다던가 해야 한다.
+즉, pid를 얻기위한 추가 작업이 필요하다.
+이 때 사용할 파일은 만들었다가 다 쓰고 금방 지우면 될 것이다.
+그래서 /tmp에 만들면 적절할 것 같다.
+
+# vim :TOhtml
+
+[2024-02-19]
+:put =execute('buffers')
+wc -l <files>
+docker logs <container>
+
 [2024-02-13]
 SELECT
   *

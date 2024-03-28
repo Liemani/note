@@ -1,6 +1,56 @@
 todo.txt
 
-env { cdtoday -> cdtemp }
+[2024-03-28]
+구조 관리 프로그램
+- crud + visualize
+
+[2024-03-26]
+모델 데이터베이스를 유저가 구축
+
+이를 시각화해주는 프로그램
+
+[예시]
+동국대학교의 모델 데이터 구조를 만든다.
+여러 부서들이 있다.
+각 부서별 내용들도 아는 만큼 채운다.
+그러면 시각화 프로그램이 필요한 방식으로 시각화를 해준다.
+
+[예시2]
+프로그램을 열심히 작성한다.
+시각화 프로그램은 필요한 타입의 다이어그램을 동적으로 생성한다.
+
+[2024-0?-??]
+script : open working environment
+- a work
+
+script : remove remote branch
+- a gitremoveremotebranch <branch>
+
+헌법과 같은 boot strap rule document 만들기
+이 문서에 들어가야 할 내용
+- 파일 작성 형식
+- 각 public repository의 목적
+
+playgroun/program/socket 저런거 플래그들이 무슨 역할을 하는지 함수 위에 주석으로 메모해 놓았으면 좋았겠다. 그리고 안쓰고 있는 다른 플래그들의 의미도 함께.
+그런 식으로 튜토리얼 코드를 만드는거지
+도저히 내 코드가 왜 저런 설정이 필요한지 모르겠다
+
+파일의 0x0d0a를 0x0a로 바꾸어 저장하는 단순한 프로그램도 기계같이 작성하지 못하다니, 나 자신이 정말 한심스럽다.
+
+add presentation to seoul42 git portfolio
+
+move apple note to note
+
+lmi.hpp : descibe primitive library
+
+내 유튜브 id 가 Lieman 인데, 트위치 및 git 은 Liemani 아닌가? 확인하고 Liemani로 수정하자
+
+rename dump_the_battle_cats.txt -> article_the_battle_cats.txt
+rename dump_diary.txt -> article_short.txt
+
+env {
+  command를 저장하는 기능, 저장된 command를 실행하는 기능(temp command)
+}
 
 애플 알람 불편하내?  더 편한 알람을 만들자 {
   쉽고 빠르게 알람 스케쥴 설정이 가능하다
