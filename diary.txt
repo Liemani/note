@@ -4,6 +4,83 @@ diary.txt
 content
 ```
 
+[2024-04-24]
+docker-compose up -d
+vim.command.insert line number at the begginning of the line
+:%s/^/\=line('.')/
+
+[2024-04-16]
+  curl https://www.ietf.org/rfc/rfc7230.txt -o .temp
+- download rfc text file to file
+
+[2024-04-15]
+brew reinstall mysql trouble shooting on mac
+- link : https://stackoverflow.com/questions/70447598/brew-start-and-brew-restart-wont-start-service
+하지만 mysql@8.0은 실행되지 않았다
+- link : https://gist.github.com/vitorbritto/0555879fe4414d18569d
+이걸 따라하다보니 running은 됐다
+아니 이거 running이 켜지는데 시간이 걸리는거였네?
+
+lsof -i :3306
+
+SELECT * FROM mysql.user;
+- 출력할 수 있다 모든 계정 정보를
+
+성공했다
+- link : https://stackoverflow.com/questions/11223235/mysql-root-access-from-all-hosts
+- mysql root 비밀번호 설정 및 외부 접속 허용하기
+- 위 명령을 통해 계정 structure 를 이해할 수 있었다
+- 각 된다 계정 ip host 마다 다른 계정으로 구조화된다
+
+ALTER USER 'id'@'%' IDENTIFIED BY 'pw';
+CREATE USER 'id'@'%' IDENTIFIED BY 'pw';
+GRANT ALL PRIVILEGES ON mobiusdb.* TO 'id'@'%' WITH GRANT OPTION;
+GRANT SUPER ON *.* TO 'id'@'%';
+flush privileges;
+
+마침내 성공한 명령어를 여기에 기록함
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pw';
+flush privileges;
+
+SELECT Host, User, plugin, authentication_string FROM mysql.user;
+- show user table
+link : https://1mini2.tistory.com/88
+
+[2024-04-04]
+라즈베리 파이가 모니터 없이는 공유기에 연결되지 않는 현상 2 번 연속 관측
+- h/w : raspberry pi 4 Model B
+- s/w : ubuntu 20.04
+
+사업 수행 계획서
+
+[2024-04-03]
+mysqldump -u root -p <database> > <path>
+mysql -u root -p <database> < <sql dump file>
+
+``` sql
+TABLE tableName
+INTO OUTFILE 'path/outputFile.csv'
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+ESCAPED BY ''
+LINES TERMINATED BY 'n';
+```
+
+mysqldump -u root -p -t -T/var/lib/mysql/temp.cxv mobiusdb cin --fields-terminated-by=,
+
+[2024-04-01]
+adduser
+addgroup
+deluser
+delgroup
+
+nslookup www.google.com
+dig www.google.com
+
+[2024-03-29]
+sudo usermod -a -G <group> <user>
+sudo adduser <user> <group>
+
 [2024-03-28]
 [trouble shooting] "convert image" not working on mac
 https://www.reddit.com/r/macbook/comments/173l7fd/convert_image_quick_action_does_not_work/
