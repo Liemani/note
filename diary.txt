@@ -4,13 +4,78 @@ diary.txt
 content
 ```
 
+2024-05-20
+arecord -l
+aplay -l
+
+speaker-test -t wav
+
+arecord --format=S16_LE --rate=16000 --file-type=wav out.wav
+aplay --format=S16_LE --rate=16000 out.raw
+
+arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.raw
+aplay --format=S16_LE --rate=16000 out.raw
+
+arecord hello.wav -D "plughw:1,0" -d 6
+aplay out.wave
+
+alsamixer
+arecord --format=S16_LE --rate=16000 | aplay --format=S16_LE --rate=16000
+```~/.asoundrc
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+```
+
+2024-05-17
+diskutil list
+diskutil unmountDisk /dev/disk8
+sudo dd bs=1m if=smart_mirror_22.04.img of=/dev/rdisk8 status=progress
+diskutil eject /dev/rdisk8
+
+2024-05-16
+control + alt + t : open terminal in ubuntu
+apt purge --auto-remove <pacakge>
+
+2024-05-14
+docker run -d --name test ubuntu:20.04 sleep infinity
+
+2024-05-13
+docker history --no-trunc <image>
+docker run <image> cat /etc/*release*
+
+2024-05-03
+gf in vim : go to the file on cursor
+
+[2024-04-26]
+reference : MetalComputeBasic
+
+MSL
+Metal Shading Language
+pipeline
+command buffer
+
 [2024-04-24]
 docker-compose up -d
 vim.command.insert line number at the begginning of the line
 :%s/^/\=line('.')/
 
 [2024-04-16]
-  curl https://www.ietf.org/rfc/rfc7230.txt -o .temp
+curl https://www.ietf.org/rfc/rfc7230.txt -o .temp
 - download rfc text file to file
 
 [2024-04-15]
