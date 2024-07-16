@@ -1,0 +1,48 @@
+notification.txt
+format : https://github.com/Liemani/note_personal/blob/main/document_format_bootstrap.txt
+알림을 받을 시 내용을 확인하시오
+이 파일은 log 형식의 파일입니다.
+  따라서 내용을 삭제하지 않습니다.
+아래가 오래된 내용입니다.
+위가 최신 내용입니다.
+
+notification {
+
+date
+time
+content
+
+}
+
+todo {
+must do :
+  apple developer academy online test : 5 ~ 7 {
+    메일 및 notion 페이지 읽어보고 테스트 환경 설정 컴퓨터 재부팅
+    공유기도 재부팅해서 네트워크 상태를 리셋하자
+  }
+  clean documents
+  secure computer storage : macbook air, mac mini
+  clean google drive
+}
+
+2024-07-15
+모니터 암 1 개 구매
+
+2024-07-12
+9:00
+DP 케이블 지출 품의서 영수 출력 및 제출
+
+
+2024-07-10
+10:00
+zoom meeting
+record
+
+2024-07-09
+17:00 ~ 18:00
+정리를 좀 해볼까?
+가지고 있는 작업 문서들
+
+2024-07-05
+12:50
+퇴근 전 apple developer academy 준비

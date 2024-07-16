@@ -1,5 +1,34 @@
 todo.txt
 
+format {
+yyyy-mm-dd
+content
+}
+
+2024-06-28
+playground/private_program/a005_socket/main.cpp의 close 가 local server, local client 만 close 하고 remote connection 는 close 하지 않는 문제
+
+2024-06-24
+note model 을 note_personal/model_dump.txt 로 옮겨라
+todo 정리해라. 이거 굳이 날짜별로 나눌 필요가 없다
+
+2024-06-18
+solve history not list error
+
+2024-05-29
+bfs 만들어보고, 과거 42seoul 에서 만든거 확인해보자
+
+2024-05-28
+알고리즘
+
+2024-05-25
+float 바이너리 출력해보기
+
+2024-05-21
+회복 탄력성 높은 회사를 조사하고
+그 회사들을 모니터링하여 주가가 하락한 경우 들어가는거지
+그냥 ai 학습시켜서 예측하는게 더 좋지 않을까?
+
 만들 미래 프로그램{
 정보 기록 시스템(역사, 기술 등, 시간 최적화, 필요에 따른 빠르고 정확한 탐색)
 호환 데이터 시스템(게임 스탯, 맵 등)
