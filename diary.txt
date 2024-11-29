@@ -1,13 +1,238 @@
-diary.txt
 format : https://github.com/Liemani/note_personal/blob/main/document_format_bootstrap.txt
 매일 사용한 것들을 기록합니다.
+이 파일도 위에서 아래로 기록하면 좋겠다.
 
 day {
-
 date
 contents
-
 }
+
+start :
+2024-11-27 Wed
+cp -Rp <src> <dst>
+cat /private/var/db/dhcpd_leases
+
+2024-11-22 Fri
+mosquitto_sub -h <IP> -p 1883 -t '#' -v
+mosquitto_pub -h <IP> -p 1883 -t "test/topic" -m "Hello, MQTT\!"
+
+mosquitto_sub -t '#' -v
+mosquitto_pub -t "test/topic" -m "Hello, MQTT!"
+
+2024-11-17 Sun
+disable full screen when drag window to menu bar
+  System Settings > Desktop & Dock > Drag windows to menu bar to fill screen
+
+2024-11-14 Thu
+vim use case
+  Go previous tab when focusing terminal would need to input <C-W> before 'gT'.
+    If I nnoremap GT to gT, it would not apply this case.
+    So it is recommended mapping as little as possible.
+
+2024-10-16 Wed
+vim `find . -name Core -exec find {}/Src -name "*.[ch]" \;`
+vim `find ./Core -name '*.[hc]'` `find ./Drivers -name '*.[hc]'`
+pygmentize -f rtf -o code.rtf main.c
+pygmentize -f rtf main.c | pbcopy
+
+2024-10-15 Tue
+ESC[20h in xterm : send \r\n when press enter
+
+2024-10-14 Mon
+windows에서 mac으로 파일을 전송할 때 보이지 않는 파일 이름 손상이 있다.
+원본 파일 이름 : [Chapter 3] SPI 통신 - BMP280 모듈
+손상된 파일 이름 : [Chapter 3] SPI 통신 - BMP280 모듈
+mac finder의 connect to server 기능과 windows 간의 호환 문제로 보였다.
+하지만 naver 클라우드 서비스를 통하여 파일을 다운받아도 같은 증상이 나타났다.
+windows의 파일 이름은 mac의 파일 이름과 다른 형식을 갖는 것 같아 보인다.
+mac에서는 한글을 글자 단위로 utf-8 포멧으로 기록한다.
+하지만 windows에서 전달받은 파일의 이름은 자모 단위의 utf-8 포멧인 것이 확인됐다.
+
+<CS_C> in STM32CubeIDE : comment selected line
+
+2024-10-04
+:vimgrep /pattern/ %
+
+2024-09-30
+mount | grep media
+umount /media/a/[target dir name]
+sudo dd if=/dev/sdb1 of=sd.img status=progress
+
+MSB : most significant bit
+LSB : least significant bit
+
+2024-09-24
+AT : show OK
+AT+GMR : show version
+AT+CWMODE?
+
+2024-09-23
+esp01 arduino
+  https://crystalcube.co.kr/215
+    설명을 참 잘 했다.
+
+2024-09-13
+thesis guide
+  https://gradschool.unc.edu/academics/thesis-diss/guide/ordercomponents.html
+
+2024-09-11
+끝내주는 아두이노 핀 설명 페이지
+  https://www.circuito.io/blog/arduino-uno-pinout/
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+끝내주는 아두이노 SPI 통신 설명
+  https://gammon.com.au/spi
+  하지만 official SPI.h 는 "spi library as the controller device"
+    https://www.arduino.cc/reference/en/language/functions/communication/spi/
+
+2024-09-10
+g] search matching tags
+<C-T> jump to previous position of tag jump
+
+2024-09-09
+raspberry pi detail
+  https://www.raspberrypi.com/documentation/computers/configuration.html
+
+2024-09-06
+MODER : mode register
+ODR : output data register
+find . -depth 2
+
+2024-09-05
+vim `find . -name Core -exec find {}/Src -name "*.[ch]" \;`
+%:r
+:help filename-modifiers
+:echo "Hello, world!"
+:echom "Hello again, world!"
+:messages
+:e %:p:h/main.c
+xxd -r -p file.hex file.bin
+dd if=input skip=0 of=output seek=0 bs=1 count=n
+
+2024-09-04
+HAL : Hardware Abstraction Layer
+
+2024-09-03
+ssh-copy-id in windows : https://rottk.tistory.com/entry/powerShell-ssh-copy-id-대등-명령어
+https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/
+  /etc/passwd
+  /etc/shadow : store encrypted password
+
+2024-09-02
+raspi-config rather than preferences of GUI
+  when i set ssh enable with GUI, it turned off when reboot but not raspi-config
+
+2024-08-30
+out-of-order execution
+hyper-v 끄기
+  https://velog.io/@w10sim/윈도우-가상머신-속도-느릴때
+completely uninstall wsl
+  https://medium.com/@bonguides25/how-to-completely-uninstall-the-subsystem-for-linux-wsl-on-windows-24b0945050a0
+
+2024-08-29
+sudo make modules_prepare
+make menuconfig
+lsmod
+rmmod
+insmod
+modinfo
+dmesg
+
+git init
+git add .
+git commit -a
+git --bare init
+
+convert git repository to bare
+  https://stackoverflow.com/questions/2199897/how-to-convert-a-normal-git-repository-to-a-bare-one
+  git config --bool core.bare true
+
+2024-08-23
+VirtualBox windows 10 install issue solve {
+  무인 응답 파일에서 <ProductKey> 설정을 읽을 수 없습니다.
+  setting > storage > remove floppy
+}
+
+2024-08-20
+lsmod
+
+2024-08-19
+sudo dd status=progress conv=fsync if=/dev/zero of=/dev/rdisk10 bs=1m count=22528
+sudo tcpdump arp | grep -v 172.30.1.
+https://forums.developer.nvidia.com/t/how-to-re-enable-cpu-cores-after-isolcpus/190965
+cat /sys/devices/system/cpu/isolated
+diskutil unmountDisk /dev/disk4
+sudo dd bs=1m status=progress conv=fsync if=sd-blob.img of=/dev/rdisk4
+
+2024-08-18
+sudo tcpdump arp
+
+shell의 문제
+현재 shell이 어떤 shell인지 정확히 알 수 있는 방법이 없다.
+  $SHELL : 현재 interactive shell을 처음 시작한 shell의 값을 갖는다.
+    다른 shell을 호출하면 값이 바뀌지 않음
+source script.sh -> script가 script 자신의 위치를 알기 위해 공통적(bash, zsh)으로 사용할 수 있는 방법이 없다
+  $0 : bash에서는 source를 하였기 때문에 script 실행 시 사용한 커맨드로 교체되지 않음, zsh에서는 정상 작동함
+  $BASH_SOURCE : bash가 스크립트 실행 시 사용한 커맨드를 path와 함께 저장함, zsh에서는 사용하지 않는 환경 변수
+따라서 source할 script와 그냥 실행할 script를 구분하여 작성할 것(source 할 script 최소화)
+
+2024-08-17
+sudo dd bs=4096 status=progress conv=fsync if=$HOME/jetson_nano/Linux_for_Tegra/tools/jetson_nano.img of=/dev/sdb
+sudo dd status=progress conv=fsync if=/dev/zero of=/dev/rdisk10 bs=1m count=7168
+
+2024-08-16
+sudo apt-get install python3-pip
+
+sudo cat /sys/kernel/debug/gpio
+sudo sh -c "echo 16 > /sys/class/gpio/export"
+sudo sh -c "echo out > /sys/class/gpio/gpio16/direction"
+sudo sh -c "echo 1 > /sys/class/gpio/gpio16/value"
+sudo sh -c "echo 0 > /sys/class/gpio/gpio16/value"
+sudo sh -c "echo 16 > /sys/class/gpio/unexport"
+
+sudo nvmodel -m 0
+
+2024-08-15
+uname -a
+mv !(spi) time_interval/
+:e %<.cpp
+
+2024-08-14
+useradd -u 1002 -d /home/john -s /bin/bash john
+
+_STRUCT_TIMESPEC
+{
+	__darwin_time_t tv_sec;
+	long            tv_nsec;
+};
+
+diskutil list
+diskutil unmountDisk /dev/disk10
+sudo dd bs=1m status=progress conv=fsync if=/dev/zero of=/dev/rdisk10
+sudo dd bs=1m status=progress conv=fsync if=sd-blob.img of=/dev/rdisk10
+diskutil eject /dev/rdisk10
+
+stat
+
+sudo apt-get install flex
+sudo apt-get install bison
+sudo apt-get install libssl-dev
+
+2024-08-13
+
+<sys/time.h> {
+typedef long                    __darwin_time_t;        /* time() */
+typedef __int32_t       __darwin_suseconds_t;   /* [???] microseconds */
+
+_STRUCT_TIMEVAL
+{
+	__darwin_time_t         tv_sec;         /* seconds */
+	__darwin_suseconds_t    tv_usec;        /* and microseconds */
+};
+}
+
+2024-08-08
+arduino uno digital(HIGH) takes 10ns
+arduino uno digital(LOW) takes 10ns
 
 2024-08-07
 Linux commands to display your hardware information : https://opensource.com/article/19/9/linux-commands-hardware-information
@@ -3120,6 +3345,10 @@ junghan님 의견처럼 필터에 따라 구분된 함수를 호출한 뒤,
 :tags :tagstack
 :tjump g<C-}>
 :stjump <C-W>g<C-}>
+g]
+:tn
+:tp
+:help tag-matchlist
 
 각 변수는 존재 의미가 있다.
 변수를 설정하거나, 변수를 해석하기 위해서는 해당 변수의 존재 의미를 파악해야 한다.
@@ -9109,3 +9338,6 @@ ctrl k
 hexdump
 
 Put some unfamiliar shortcut image aside. 
+
+2024-08-18
+work window 두 개를 하나로 줄이기
