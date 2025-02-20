@@ -1,0 +1,76 @@
+{
+1NF : attribute의 value는 반드시 나눠질 수 없는 단일한 값이어야 한다.
+2NF : 모든 non-prime attribute는 모든 key에 fully functional dependent 해야 한다.
+3NF : 모든 non-prime attribute는 어떤 key에도 transitively dependent 하면 안된다.
+BCNF : 모든 유효한 non-trivial FD X -> Y는 X가 super key여야 한다.
+
+super key
+(candidate) key
+primary key
+prime attribute
+non-prime attribute
+
+bank_name, account_num, account_id, class, ratio, empl_id, empl_name, card_id
+{account_id} -> {bank_name, account_num, class, ratio, empl_id, empl_name, card_id}
+{bank_name, account_num} -> {account_id, class, ratio, empl_id, empl_name, card_id}
+{class} -> {bank_name}
+{empl_name} -> {empl_id}
+
+transitive FD : if X-> Y & Y->Z holds, then X -> Z is transitive FD unless either Y or Z is NOT subset of any key
+}
+
+기준
+{
+  실수 방지
+  성능
+}
+
+primary key
+composite primary key
+
+index : 정렬해놓은 사본
+  리소스를 더 차지함
+tree
+B-tree
+B+tree
+
+SELECT *
+FROM customer
+WHERE first_name = 'Minsoo';
+
+full scan(= table scan)
+
+SELECT * FROM customer WHERE first_name = 'Minsoo';
+DELETE FROM logs WHERE log_datetime < '';
+SELECT * FROM player WHERE name = 'Sonny';
+SELECT * FROM player WHERE team_id = 105 and backnumber = 8;
+CREATE INDEX player_name_idx ON player (name);
+CREATE UNIQUE INDEX team_id_backnumber_idx
+ON player (team_id, backnumber);
+
+CREATE TABLE player(
+    id INT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    team_id INT,
+    backnumber INT,
+    INDEX player_name_idx(name),
+    UNIQUE InDEX team_id_backnumber_idx (team_id, backnumber)
+    );
+
+tuple()
+multicolumn index
+composite index
+
+SHOW INDEX FROM player;
+
+EXPLAIN
+SELECT * FROM player WHERE backnumber = 7;
+
+SELECT * FROM player USE INDEX (backnumber_idx)
+WHERE backnumber = 7;
+
+SELECT * FROM player FORCE INDEX (backnumber_idx)
+WHERE backnumber = 7;
+
+SELECT * FROM player IGNORE INDEX (backnumber_idx)
+WHERE backnumber = 7;

@@ -1,0 +1,235 @@
+쉬운코드 데이터베이스
+outer query, subquery
+SELECT birth_date FROM employee WHERE id = 14;
+
+SELECT id, name, birth_date FROM employee
+WHERE birth_date < (
+    SELECT birth_date FROM employee WHERE id = 14
+    );
+
+SELECT id, name, position
+FROM employee
+WHERE (birth_date, age) < (
+    SELECT birth_date, age FROM works_on
+    );
+
+empl_id가 5인 직원과 함께 프로젝트 참여한 employee id
+SELECT DISTINCT empl_id FROM works_on
+WHERE empl_id != 5 AND (proj_id = 2001 OR proj_id = 2002);
+WHERE empl_id != 5 AND proj_id IN (2001, 2002);
+
+SELECT proj_id FROM works_on WHERE empl_id = 5;
+
+SELECT DISTINCT empl_id FROM works_on
+WHERE empl_id != 5 AND (proj_id = 2001 OR proj_id = 2002);
+WHERE empl_id != 5 AND proj_id IN (
+    SELECT proj_id FROM works_on WHERE empl_id = 5
+    );
+
+id 뿐만 아니라 이름도 알고 싶다.
+SELECT id, name
+FROM employee
+WHERE id IN (
+    SELECT DISTINCT empl_id FROM works_on
+    WHERE empl_id != 5 AND proj_id IN (
+        SELECT proj_id FROM works_on WHERE empl_id = 5
+        );
+    );
+
+// note complete
+SELECT id, name
+FROM employee,
+    (
+        SELECT DISTINCT empl_id FROM works_on
+        WHERE empl_id != 5 AND proj_id IN (
+            SELECT proj_id FROM works_on WHERE empl_id = 5
+            );
+    ) AS DSTNCT_E;
+
+SELECT P.id, P.name
+FROM project P
+WHERE EXISTS (
+    SELECT *
+    FROM works_on W
+    WHERE W.proj_id = P.id AND W.empl_id IN (7,12)
+    );
+
+// not complete
+SELECT P.id, P.name
+FROM project P
+WHERE id IN (
+    SELECT *
+    FROM works_on W
+    WHERE W.proj_id = P.id AND W.empl_id IN (7,12)
+    );
+
+SELECT D.id, D.name
+FROM department AS D
+WHERE NOT EXISTS (
+    SELECT *
+    FROM employee E
+    WHERE E.dept_id = D.id AND E.birth_date >= '2000-01-01'
+    );
+
+SELECT D.id, D.name
+FROM department AS D
+WHERE NOT D.id NOT IN (
+    SELECT * E.dept_id
+    FROM employee E
+    WHERE E.birth_date >= '2000-01-01'
+    );
+
+// 리더보다 높은 연봉을 받는 부서원을 가진 리더읭 ID와 이름과 연봉을 알고 싶다.
+SELECT E.id, E.name, E.salary
+FROM department D, employee E
+WHERE D.leader_id = E.id AND E.salary < ANY (
+    SELECT salary
+    FROM employee
+    WHERE id <> D.leader_id AND dept_id = E.dept_id
+    );
+
+SELECT E.id, E.name, E.salary,
+       (
+        SELECT max(salary)
+        FROM employee
+        WHERE dept_id = E.dept_id
+       ) AS dept_max_salary
+FROM department D, employee E
+WHERE D.leader_id = E.id AND E.salary < ANY (
+    SELECT salary
+    FROM employee
+    WHERE id <> D.leader_id AND dept_id = E.dept_id
+    );
+
+// ID가 13인 임직원과 한번도 같은 프로젝트에 참여하지 못한 임직원드르이 ID, 이름, 직군
+SELECT DISTINCT E.id, E.name, E.position
+FROM employee E, works_on W
+WHERE E.id = W.empl_id AND W.proj_id <> ALL (
+      SELECT proj_id
+      FROM works_on
+      WHERE empl_id = 13
+    );
+
+// trigger
+USERS (id nickname)
+USERS_LOG (id nickname until)
+
+delimiter $$
+CREATE TRIGGER log_user_nickname_trigger
+BEFORE UPDATE
+On users FOR EACH ROW
+BEGIN
+  insert into users_log values(OLD.id, OLD.nickname, now());
+END
+$$
+delimiter
+
+// BUY (id, user_id, price, buy_at)
+// USER_BUY_STATS (user_id, price_sum)
+
+delimiter $$
+CREATE TRIGGER sum_buy_prices_trigger
+AFTER INSERT
+On buy FOR EACH ROW
+BEGIN
+  DECLARE totla INT;
+  DECLARE user_id INT DEFAULT NEW.user_id;
+
+  select sum(price) into total from buy where user_id = user_id;
+  update user_buy_stats set price_sum = total where user_id = user_id;
+END
+$$
+delimiter
+
+// sql::now() : 2022-07-21 01:46:41
+
+// PostgreSQL
+CREATE TRIGGER avg__empl_salary_trigger
+  AFTER INSERT OR UPDATE ORDELETE
+  ON employee
+  FOR EACH ROW
+//  FOR EACH STATEMENT (MySQL에서는 불가능)
+  EXECUTE FUNCTION update_avg_empl_salary();
+// UPDATE employee SET salary = 1.5 * salary WHERE dept_id = 1003;
+
+CREATE TRIGGER log_user_nickname_trigger
+  BEFORE UPDATE
+  ON users
+  FOR EACH ROW
+  WHEN (NEW.nickname IS DISTINCT FROM OLD.nickname) (MySQL에서는 불가능)
+  EXECUTE FUNCTION log_user_nickname();
+
+// transaction
+UPDATE account SET balance = balance - 200000 WHERE id = 'J';
+UPDATE account SET balance = balance + 200000 WHERE id = 'H';
+
+// account (id, balance)
+START TRANSACTION;
+UPDATE account SET balance = balance - 200000 WHERE id = 'J';
+UPDATE account SET balance = balance + 200000 WHERE id = 'H';
+COMMIT;
+
+START TRANSACTION;
+UPDATE account SET balance = balance - 300000 WHERE id = 'J';
+ROLLBACK;
+
+SELECT @@AUTOCOMMIT;
+// MySQL enabled default
+
+insert into account values ('W', 1000000);
+
+SELECT @@AUTOCOMMIT;
+
+SET autocommit=0;
+DELETE FROM account WHERE balance <= 1000000;
+select * from account;
+ROLLBACK;
+
+// START TRANSACTION : autocommit disabled
+// 그럼 select를 해보면 0으로 바뀔까?
+  // nope 개념만 그렇다는 것이시 실제 값이 변하지는 않는다.
+
+public void transfer(String fromId, String toId, int amount) {
+  try {
+    Connection connection = ...;
+    connection.setAutoCommit(false);
+    ...
+    ...
+    connection.commit();
+  } catch (Exception e) {
+    ...
+    connection.rollback();
+    ...
+  } finally {
+    connection.setAutoCommit(true);
+  }
+}
+
+@Transactional
+public void transfer(String fromId, String toId, int amount) {
+  ...
+  ...
+}
+
+// check() How to force DB table rule?
+
+ipconfig getifaddr en0
+curl ifconfig.me
+rm -rf /opt/homebrew/var/mysql
+
+show databases;
+create database playground000;
+show databases;
+
+select database();
+use playground000;
+select database();
+
+show tables;
+create table position (x int, y int);
+show tables;
+describe position;
+
+select * from position;
+insert into position (x, y) values (4, 2), (10, 0);
+select * from position;
