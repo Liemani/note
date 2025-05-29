@@ -1,2 +1,0 @@
-no c style
-no 'using namespace'

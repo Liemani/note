@@ -1,6 +1,0 @@
-ex01
-subject
-
-ex02
-subject
-new int[]()

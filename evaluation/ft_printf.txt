@@ -1,7 +1,0 @@
-norm
-leak
-
-tester
-
-data 관점
-function call 관점

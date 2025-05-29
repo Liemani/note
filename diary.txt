@@ -9584,3 +9584,186 @@ sudo lsblk -o NAME,SIZE,FSTYPE,TYPE,MOUNTPOINT
 
 sudo mkdir -p /mnt/limo
 sudo mount -o ro /dev/sdb1 /mnt/limo
+
+2025-04-24 Thu
+wsl hostname -I
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd) for WSL' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+netsh interface portproxy add v4tov4 listenport=22 listenaddress=0.0.0.0 connectport=22 connectaddress=172.23.138.121
+netsh interface portproxy show v4tov4
+netsh interface portproxy delete v4tov4 listenport=22 listenaddress=0.0.0.0
+
+wsl --shutdown
+New-VMSwitch -Name "WSL-Bridge" `
+  -NetAdapterName "Wi-Fi" `
+  -AllowManagementOS $true
+
+2025-04-25 Fri
+sudo apt install x11-apps -y
+sudo apt install x11-xserver-utils
+ls /tmp/.X11-unix/
+
+docker pull osrf/ros:noetic-desktop-full
+docker pull osrf/ros:humble-desktop-full
+docker run \
+         --net=host \
+         -v /tmp/.X11-unix:/tmp/.X11-unix \
+         -v "$HOME/.Xauthority:/root/.Xauthority:rw" \
+         -e XAUTHORITY=/root/.Xauthority \
+         -e DISPLAY=$DISPLAY \
+         --name=ros_noetic \
+         -it \
+         osrf/ros:noetic-desktop-full
+docker start 3451c1347660
+docker exec -it 3451c1347660 bash
+
+rospack find
+rosls
+roscd
+
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+echo $ROS_PACKAGE_PATH
+
+catkin_create_pkg a003_beginner_tutorials std_msgs rospy roscpp
+
+source ros_entrypoint.sh
+
+source /opt/ros/noetic/setup.bash
+rosrun turtlesim turtlesim_node
+rosrun turtlesim turtle_teleop_key
+rosnode list
+rostopic list
+xhost +local:docker
+
+https://learn.microsoft.com/ko-kr/windows/wsl/tutorials/gui-apps#install-support-for-linux-gui-apps
+
+```Dockerfile
+FROM osrf/ros:noetic-desktop-full
+
+RUN apt update
+RUN apt upgrade
+RUN apt install -y vim
+RUN echo 'source /opt/ros/noetic/setup.bash' >> ~/.bashrc
+
+RUN echo "Done."
+```
+docker build -t ros_noetic .
+
+vim /var/log/auth.log
+du -h --max-depth=1 .
+
+2025-04-26 Sat
+docker run \
+         --net host \
+         -v /tmp/.X11-unix:/tmp/.X11-unix \
+         -v "$HOME/.Xauthority:/root/.Xauthority:rw" \
+         --env XAUTHORITY=/root/.Xauthority \
+         --env DISPLAY=$DISPLAY \
+         --name ros_humble \
+         -it \
+         osrf/ros:humble-desktop-full
+
+ros2
+ros2 pkg create --ament_python <package>
+bublish subscription -cpp
+launch.py [node1, node2 ...]
+
+ros1
+launch(xml)
+
+launch best practice
+
+20, 21 라인 확장자 제거
+ros1
+CMakeList.txt
+catkin_ws
+  src
+    hello_ros
+      src/test/ros
+        __init__.py
+
+git 확인하기
+
+catkin_make
+sb
+rosrun hello_ros hello
+
+ros launch를 사용하여 여러 패키지를 묶어 한 번에 실행 할 수 있다.
+
+2025-04-28 Mon
+netsh interface portproxy show v4tov4
+
+2025-05-10 Sat
+set +e
+set -o | grep errexit
+
+2025-05-12 Mon
+mac bootcamp virtualization
+https://superuser.com/questions/717421/how-to-enable-hardware-virtualization-on-a-macbook
+
+2025-05-14 Wed
+find shark-FE -name ".git" -prune -o -type d
+find shark-BE \( -name ".git" -o -name "node_modules" \) -prune -o -type f
+git log --name-status
+
+2025-05-15 Thu
+``` /etc/netplan/01-network-manager-all.yaml
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses:
+        - 192.168.1.5/24
+```
+
+3 시 반 바로 회의실에서 회의
+
+2025-05-17 Sat
+interface 는 python 을 못 사용한다.
+ros2 pkg create --build-type ament_cmake user_interface
+ros2 run hello_ros2 my_topic_pub
+ros2 action list
+ros2 action send_goal /fibonacci user_interface/Fibonacci "{step : 5}"
+ros2 action send_goal --feedback /fibonacci user_interface/Fibonacci "{step : 5}"
+ros2 action info /fibonacci
+gazebo
+ros2 node list
+ros2 launch gazebo_ros gazebo.launch.py
+
+2025-05-19 Mon
+mysql -u user -p -h hostname -P port database
+
+2025-05-21 Wed
+./gradlew build -x test
+
+2025-05-22 Thu
+getent passwd bagjeonghun
+chsh -s /bin/bash bagjeonghun
+su - <user>
+su - <user> -c <script>
+sudo -u <user> <script>
+ssh <address> <command>
+
+2025-05-23 Fri
+mkdir <path>
+sudo mount_smbfs //<user>@<address>/<path> <path>
+find . \( -name "*.ino" -o -name "*.js" \) -print0 | xargs -0 vim
+vim <(grep -r --include="*.ino" --include="*.js" 24 .)
+grep -r --include="*.ino" --include="*.js" 24 . | less
+개인통관고유부호
+
+2025-05-24 Sat
+sudo apt install ros-humble-urdf-launch
+ros2 param get /robot_state_publisher robot_description
+ros2 launch ku_description display.launch.py model:=urdf/origin.urdf
+ros2 launch ku_description display.launch.py
+source /usr/share/gazebo/setup.bash
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+ros2 launch limo_description gazebo_models_diff.launch.py
+source /usr/share/gazebo/setup.bash
+export SVGA_VGPU10=0
