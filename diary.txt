@@ -6015,7 +6015,7 @@ junghan님 의견처럼 필터에 따라 구분된 함수를 호출한 뒤,
 그 안에서 각 이벤트의 데이터에 따른 구체적인 함수를 호출하는 방식도 구조를 이해하는데 좋을 것 같다.
 
 2022-06-21
-:vimgrep /<pattern>/ <file name><CR>:copne<CR> in vim: quickfix list에서 pattern과 일치하는 line의 list를 출력할 수 있다.
+:vimgrep /<pattern>/ <file name><CR>:copen<CR> in vim: quickfix list에서 pattern과 일치하는 line의 list를 출력할 수 있다.
 :vimgrep // % in vim: <pattern>이 empty이면 last search pattern을 사용한다. 파일 이름이 %이면 현재 파일을 사용한다.
 
 2022-06-22
@@ -9767,3 +9767,154 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 ros2 launch limo_description gazebo_models_diff.launch.py
 source /usr/share/gazebo/setup.bash
 export SVGA_VGPU10=0
+
+2025-06-09 Mon
+nmcli con mod "Wired connection 1" ipv4.addresses 192.168.1.100/24
+nmcli con mod "Wired connection 1" ipv4.gateway 192.168.1.1
+nmcli con mod "Wired connection 1" ipv4.dns 8.8.8.8
+nmcli con mod "Wired connection 1" ipv4.method manual
+nmcli con down "Wired connection 1" && nmcli con up "Wired connection 1"
+nmcli connection modify "Wired connection 1" \
+  ipv4.addresses 192.168.1.100/24 \
+  ipv4.gateway 192.168.1.1 \
+  ipv4.dns "8.8.8.8 1.1.1.1" \
+  ipv4.method manual
+nmcli connection modify "Wired connection 1" ipv4.route-metric 700
+nmcli connection modify "Wired connection 1" ipv4.never-default yes
+nmcli connection down "Wired connection 1" && nmcli connection up "Wired connection 1"
+loginctl list-sessions
+nc -zv <ip> <port>
+https://kb.nomachine.com/AR03P00973
+https://kb.nomachine.com/AR03P00973
+sudo systemctl stop lightdm
+sudo systemctl stop gdm
+sudo systemctl stop display-manager
+  alias
+sudo /etc/NX/nxserver --restart
+nmcli
+ip route
+ip route get 8.8.8.8
+sudo dpkg -i <path>
+https://www.reddit.com/r/raspberry_pi/comments/1gwv4ek/using_nomachine_to_connect_remotely_to_my_pi_but/
+  Advanced Options -> Wayland -> X11 -> OK -> Finish -> Yes (to reboot)
+
+2025-06-10 Tue
+diskutil unmountDisk /dev/disk6
+sudo dd bs=1m if=2023-05-03-raspios-bullseye-arm64.img of=/dev/rdisk6
+sudo dd if=/dev/rdisk6 of=es_101_backup.img bs=4m status=progress
+diskutil eject /dev/rdisk6
+
+2025-06-11 Wed
+CREATE USER 'newuser'@'%' IDENTIFIED BY 'user_password';
+GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+2025-06-16 Mon
+npm create vite@latest
+npm install -D vite
+npx vite
+
+2025-06-17 Tue
+find . -type d \( -name node_modules -o -name dist \) -prune -o \( -name "*.html" -o -name "*.tsx" -o -name "*.css" \) -exec echo \`\`\` {} \; -exec cat {} \; -exec echo \`\`\` \;
+
+2025-06-18 Wed
+grep -r <pattern> .
+grep -r --include="*.js" <pattern> .
+find . -name "*.txt" -exec grep "hello" {} +
+
+2025-06-19 Thu
+sh gradlew build -x test
+sh gradlew bootJar
+sh gradlew bootRun
+sh gradlew tasks
+openssl req -nodes -new -x509 -keyout certs/server.key -out certs/server.crt -days 365
+
+2025-06-23 Mon
+ros2 topipub --once /turtle1/cmd_vel geometry_msgs/msg/Twiwist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+<C-P><C-Q> in docker container : detach
+
+2025-06-24 Tue
+insert into testdb.testtable (personid, lastname, firstname, address, city) values (42, '정훈', '박', '집', '세종');
+insert into testdb.position (x, y) values (1.0, 2.0);
+alter table testdb.users rename column name to full_name;
+
+2025-06-25 Wed
+full-duplex
+half-duplex
+bidirectional
+unidirectional
+curl -kv -X POST -H "Content-Type: application/json" -d '{ "firstName": "first", "secondName": "second" }' https://localhost:4430/test
+
+2025-07-04 Fri
+npm create vite@latest my-react-app --template react-ts
+
+2025-07-07 Mon
+command diff --strip-trailing-cr
+
+2025-07-14 Mon
+mosquitto_sub -h 192.168.219.51 -t \# -v
+mosquitto_pub -h 192.168.219.51 -t "test/topic" -m "Hello, MQTT\!"
+
+2025-07-16 Wed
+git config --global credential.helper store
+
+2025-07-18 Fri
+lspci | grep -i vga
+nvidia-smi
+sudo lshw -C display
+
+2025-07-23 Wed
+https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch
+
+2025-07-24 Thu
+git difftool -t vimdiff
+
+2025-07-29 Tue
+https://notes.eliasnorrby.com/vim/tsc-quickfix
+  set errorformat^=%f\\(%l\\,%c\\):\ error\ %m,
+  set makeprg=npx\ tsc\ --noEmit\ --pretty\ false
+:set includeexpr=substitute(v:fname,'^\\$be','src/be','')
+
+2025-07-30 Wed
+grep -rl --binary-files=without-match "'src/" | xargs sed -i '' "s|'src/|'@/|g"
+ctags -R --languages=TypeScript --exclude=node_modules
+grep -r --binary-files=without-match --exclude=tags Params
+:args **/*.ts{,x}
+set errorformat&
+
+2025-08-06 Wed
+set makeprg=flutter\ run\ 2>&1
+:echo len(filter(getqflist(), {k, v -> v.bufnr != 0}))
+
+2025-08-11 Mon
+# 미리 보기
+for f in 9*; do [[ -e "$f" ]] || continue; echo "$f -> zz${f#9}"; done
+# 실제 변경(충돌 시 덮어쓰지 않음)
+for f in 9*; do [[ -e "$f" ]] || continue; mv -vn -- "$f" "zz${f#9}"; done
+
+2025-08-13 Wed
+figma shortcut
+<Command-K> action menu
+<Command-?> action menu
+<CS-?> keyboard shortcuts
+
+2025-08-18 Mon
+vim scp://<ip>[:<port>]/<absolute path>
+npm create vite@latest my-app
+
+2025-08-19 Tue
+who
+DISPLAY=:1 firefox --private-window --no-remote -P "a001" 2>/dev/null &
+pgrep firefox
+
+for i in $(seq -w 1 30); do
+  DISPLAY=:1 firefox --private-window --no-remote -P "a0$i" 2>/dev/null &
+done
+
+2025-08-20 Wed
+식전 혈당 억제/안정 식품
+
+2025-09-02 Tue
+idea
+- 자서전 ai : 나의 모든 데이터를 입력하면 자서전을 만들어준다.
+- 이력서 ai : 나의 모든 데이터를 입력하면 이력서를 만들어준다.
